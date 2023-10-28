@@ -14,22 +14,20 @@ class GreHistoryPage extends HookWidget {
       appBar: AppBar(
         title: Text('Gre History Page'),
       ),
-      body: Container(
-        child: Column(
-          children: [
-            Text('Gre Words'),
-            if (greWords != null)
-              Expanded(
-                child: ListView.builder(
-                  itemCount: greWords.length,
-                  itemBuilder: (context, index) {
-                    final greWord = greWords[index];
-                    return GreWordView(greWord: greWord);
-                  },
-                ),
+      body: Column(
+        children: [
+          Text('Gre Words'),
+          if (greWords != null)
+            Expanded(
+              child: ListView.builder(
+                itemCount: greWords.length,
+                itemBuilder: (context, index) {
+                  final greWord = greWords[index];
+                  return GreWordView(greWord: greWord);
+                },
               ),
-          ],
-        ),
+            ),
+        ],
       ),
     );
   }
