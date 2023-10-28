@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:skartner_app/__generated/schema.graphql.dart';
 import 'package:skartner_app/widgets/gre_history/__generated/gre_history_page.graphql.dart';
 import 'package:skartner_app/widgets/gre_history/children/gre_word/gre_word_view.dart';
 
@@ -8,7 +9,15 @@ class GreHistoryPage extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final greWordsResult = useQuery$greWords();
+    final queryInput = useState('');
+    final greWordsResult = useQuery$greWords(Options$Query$greWords(
+        variables: Variables$Query$greWords(
+      where: Input$GreWordWhereInput(
+        spelling: Input$StringFilter(
+          startsWith: queryInput.value,
+        ),
+      ),
+    )));
     final greWords = greWordsResult.result.parsedData?.greWords;
     return Scaffold(
       appBar: AppBar(
@@ -16,7 +25,14 @@ class GreHistoryPage extends HookWidget {
       ),
       body: Column(
         children: [
-          Text('Gre Words'),
+          TextField(
+            onChanged: (value) {
+              queryInput.value = value;
+            },
+            decoration: InputDecoration(
+              labelText: "Word",
+            ),
+          ),
           if (greWords != null)
             Expanded(
               child: ListView.builder(
