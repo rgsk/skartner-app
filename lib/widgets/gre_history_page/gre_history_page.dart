@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:skartner_app/widgets/gre_history_page/__generated/gre_history_page.graphql.dart';
-import 'package:skartner_app/widgets/gre_history_page/children/gre_word.dart';
+import 'package:skartner_app/widgets/gre_history_page/children/gre_word/gre_word_view.dart';
 
 class GreHistoryPage extends HookWidget {
   const GreHistoryPage({super.key});
@@ -24,7 +24,7 @@ class GreHistoryPage extends HookWidget {
                   itemCount: greWords.length,
                   itemBuilder: (context, index) {
                     final greWord = greWords[index];
-                    return GreWord(greWord: greWord);
+                    return GreWordView(greWord: greWord);
                   },
                 ),
               ),
