@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:skartner_app/hooks/use_screen_size.dart';
-import 'package:skartner_app/hooks/use_screen_width_gte.dart';
+import 'package:skartner_app/hooks/general/use_screen_size.dart';
+import 'package:skartner_app/hooks/general/use_screen_width_gte.dart';
 import 'package:skartner_app/providers/counter_provider.dart';
 import 'package:skartner_app/providers/friends_list_provider.dart';
 import 'package:skartner_app/providers/window_size_provider.dart';

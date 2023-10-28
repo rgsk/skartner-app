@@ -8,3 +8,5 @@ targets:
           clients:
             - graphql_flutter
           outputDirectory: ./__generated
+          addTypenameExcludedPaths:
+            - subscription

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:skartner_app/hooks/use_screen_width_gte.dart';
+import 'package:skartner_app/hooks/general/use_screen_width_gte.dart';
 
 const tripleDots = 100000000;
 

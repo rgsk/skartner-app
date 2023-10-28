@@ -9,27 +9,25 @@ class PaginationSampleView extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final currentPage = useState(1);
-    return Scaffold(
-      body: Container(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 100,
+    return Container(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 100,
+          ),
+          DebugWithBorderView(
+            child: PaginationControlsView(
+              currentPage: currentPage.value,
+              setCurrentPage: (newPage) {
+                // print('Navigated to page $newPage');
+                currentPage.value = newPage;
+              },
+              total: 100,
+              numberOfItemsFetchedOnCurrentPage: 10,
+              perPage: 10,
             ),
-            DebugWithBorderView(
-              child: PaginationControlsView(
-                currentPage: currentPage.value,
-                setCurrentPage: (newPage) {
-                  // print('Navigated to page $newPage');
-                  currentPage.value = newPage;
-                },
-                total: 100,
-                numberOfItemsFetchedOnCurrentPage: 10,
-                perPage: 10,
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
