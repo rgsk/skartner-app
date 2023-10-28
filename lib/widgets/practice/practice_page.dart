@@ -23,13 +23,20 @@ class PracticePage extends HookConsumerWidget {
     useEffect(() {
       print('counter - $counter');
     }, [counter]);
+    useEffect(() {
+      // this will be executed after previous effect
+      print('counter2 - $counter');
+    }, [counter]);
+
     ref.listen(counterProvider, (prev, next) {
       print('prev counter - $prev');
       print('next counter - $next');
     });
     useEffect(() {
       print('localCounter - ${localCounter.value}');
-    }, [localCounter.value]);
+      // providing extra dep allows this to run on change
+      // of screenSize.width also
+    }, [localCounter.value, screenSize.width]);
 
     // final randNumber = useRandomNumber(context);
     return Scaffold(
