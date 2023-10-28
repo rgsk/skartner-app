@@ -8,8 +8,8 @@ class FriendsListNotifier extends StateNotifier<List<String>> {
   FriendsListNotifier()
       : super([
           'Rahul',
-          '123',
-          '132',
+          'Mehak',
+          'Naina',
         ]);
 
   void addFriend(String friend) {

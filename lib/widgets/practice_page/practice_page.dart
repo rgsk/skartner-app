@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/providers/counter_provider.dart';
 import 'package:skartner_app/providers/friends_list_provider.dart';
+import 'package:skartner_app/providers/window_size_provider.dart';
 
 class PracticePage extends HookConsumerWidget {
   PracticePage({super.key});
@@ -13,6 +14,7 @@ class PracticePage extends HookConsumerWidget {
     final counter = ref.watch(counterProvider);
     final friendsList = ref.watch(friendsListProvider);
     final localCounter = useState(0);
+    final windowSize = ref.watch(windowSizeProvider);
     return Scaffold(
       appBar: AppBar(title: Text('Practice')),
       body: Container(
@@ -29,6 +31,15 @@ class PracticePage extends HookConsumerWidget {
             ElevatedButton(
               onPressed: () {
                 localCounter.value++;
+              },
+              child: Text('incr'),
+            ),
+            Text(
+              'Window width: ${windowSize.width}, Window height: ${windowSize.height}',
+            ),
+            ElevatedButton(
+              onPressed: () {
+                ref.read(windowSizeProvider.notifier).addHeight();
               },
               child: Text('incr'),
             ),
