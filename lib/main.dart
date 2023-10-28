@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:skartner_app/hello.graphql.dart';
 
 void main() {
   final httpLink = HttpLink('http://192.168.29.114:8001/graphql');
@@ -49,7 +50,7 @@ class QueryExample extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final helloResult = useQuery(QueryOptions(document: gql(hello)));
+    final helloResult = useQuery$ExampleQuery();
 
     final result = helloResult.result;
 
@@ -60,9 +61,10 @@ class QueryExample extends HookWidget {
     if (result.isLoading) {
       return const Text('Loading');
     }
+
     return Scaffold(
       appBar: AppBar(title: Text('Main Page')),
-      body: Center(child: Text(result.data!['hello']['message'])),
+      body: Center(child: Text(result.parsedData!.hello.message)),
     );
   }
 }
