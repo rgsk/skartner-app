@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:skartner_app/hooks/use_random_number.dart';
+import 'package:skartner_app/hooks/use_screen_size.dart';
 import 'package:skartner_app/hooks/use_screen_width_gte.dart';
 import 'package:skartner_app/providers/counter_provider.dart';
 import 'package:skartner_app/providers/friends_list_provider.dart';
@@ -17,15 +17,18 @@ class PracticePage extends HookConsumerWidget {
     final friendsList = ref.watch(friendsListProvider);
     final localCounter = useState(0);
     final windowSize = ref.watch(windowSizeProvider);
-    final randNumber = useRandomNumber(context);
     final screenWidthGte = useScreenWidthGte(context);
+    final screenSize = useScreenSize(context);
+    // final randNumber = useRandomNumber(context);
     return Scaffold(
       appBar: AppBar(title: Text('Practice')),
       body: Container(
         child: Column(
           children: [
             Text('Breakpoints: ${screenWidthGte.md}'),
-            Text('Random Number: ${randNumber}'),
+            Text('Screen width: ${screenSize.width}'),
+            Text('Screen height: ${screenSize.height}'),
+            // Text('Random Number: ${randNumber}'),
             Text('Counter: $counter'),
             ElevatedButton(
               onPressed: () {
