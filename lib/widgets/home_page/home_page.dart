@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:routemaster/routemaster.dart';
+import 'package:skartner_app/router.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -15,19 +16,19 @@ class HomePage extends StatelessWidget {
         children: [
           ElevatedButton(
             onPressed: () {
-              Routemaster.of(context).push('/practice');
+              Routemaster.of(context).push(Routes.practice);
             },
             child: Text('Practice'),
           ),
           ElevatedButton(
             onPressed: () {
-              Routemaster.of(context).push('/gre');
+              Routemaster.of(context).push(Routes.gre);
             },
             child: Text('Gre'),
           ),
           ElevatedButton(
             onPressed: () {
-              Routemaster.of(context).push('/gre/history');
+              Routemaster.of(context).push(Routes.greHistory);
             },
             child: Text('Gre History'),
           ),
