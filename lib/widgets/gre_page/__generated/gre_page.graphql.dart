@@ -1,3 +1,5 @@
+import '../../../__generated/schema.graphql.dart';
+import '../../gre_history_page/__generated/gre_history_page.graphql.dart';
 import 'dart:async';
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
@@ -807,4 +809,678 @@ class _CopyWithStubImpl$Query$sendSinglePrompt$sendSinglePrompt<TRes>
     String? $__typename,
   }) =>
       _res;
+}
+
+class Variables$Mutation$createGreWord {
+  factory Variables$Mutation$createGreWord({
+    required String spelling,
+    required String promptInput,
+    required String promptResponse,
+    required String userId,
+    List<Input$GreWordTagWhereUniqueInput?>? greWordTags,
+  }) =>
+      Variables$Mutation$createGreWord._({
+        r'spelling': spelling,
+        r'promptInput': promptInput,
+        r'promptResponse': promptResponse,
+        r'userId': userId,
+        if (greWordTags != null) r'greWordTags': greWordTags,
+      });
+
+  Variables$Mutation$createGreWord._(this._$data);
+
+  factory Variables$Mutation$createGreWord.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$spelling = data['spelling'];
+    result$data['spelling'] = (l$spelling as String);
+    final l$promptInput = data['promptInput'];
+    result$data['promptInput'] = (l$promptInput as String);
+    final l$promptResponse = data['promptResponse'];
+    result$data['promptResponse'] = (l$promptResponse as String);
+    final l$userId = data['userId'];
+    result$data['userId'] = (l$userId as String);
+    if (data.containsKey('greWordTags')) {
+      final l$greWordTags = data['greWordTags'];
+      result$data['greWordTags'] = (l$greWordTags as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Input$GreWordTagWhereUniqueInput.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList();
+    }
+    return Variables$Mutation$createGreWord._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get spelling => (_$data['spelling'] as String);
+
+  String get promptInput => (_$data['promptInput'] as String);
+
+  String get promptResponse => (_$data['promptResponse'] as String);
+
+  String get userId => (_$data['userId'] as String);
+
+  List<Input$GreWordTagWhereUniqueInput?>? get greWordTags =>
+      (_$data['greWordTags'] as List<Input$GreWordTagWhereUniqueInput?>?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$spelling = spelling;
+    result$data['spelling'] = l$spelling;
+    final l$promptInput = promptInput;
+    result$data['promptInput'] = l$promptInput;
+    final l$promptResponse = promptResponse;
+    result$data['promptResponse'] = l$promptResponse;
+    final l$userId = userId;
+    result$data['userId'] = l$userId;
+    if (_$data.containsKey('greWordTags')) {
+      final l$greWordTags = greWordTags;
+      result$data['greWordTags'] =
+          l$greWordTags?.map((e) => e?.toJson()).toList();
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Mutation$createGreWord<Variables$Mutation$createGreWord>
+      get copyWith => CopyWith$Variables$Mutation$createGreWord(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Mutation$createGreWord) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$spelling = spelling;
+    final lOther$spelling = other.spelling;
+    if (l$spelling != lOther$spelling) {
+      return false;
+    }
+    final l$promptInput = promptInput;
+    final lOther$promptInput = other.promptInput;
+    if (l$promptInput != lOther$promptInput) {
+      return false;
+    }
+    final l$promptResponse = promptResponse;
+    final lOther$promptResponse = other.promptResponse;
+    if (l$promptResponse != lOther$promptResponse) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    final l$greWordTags = greWordTags;
+    final lOther$greWordTags = other.greWordTags;
+    if (_$data.containsKey('greWordTags') !=
+        other._$data.containsKey('greWordTags')) {
+      return false;
+    }
+    if (l$greWordTags != null && lOther$greWordTags != null) {
+      if (l$greWordTags.length != lOther$greWordTags.length) {
+        return false;
+      }
+      for (int i = 0; i < l$greWordTags.length; i++) {
+        final l$greWordTags$entry = l$greWordTags[i];
+        final lOther$greWordTags$entry = lOther$greWordTags[i];
+        if (l$greWordTags$entry != lOther$greWordTags$entry) {
+          return false;
+        }
+      }
+    } else if (l$greWordTags != lOther$greWordTags) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$spelling = spelling;
+    final l$promptInput = promptInput;
+    final l$promptResponse = promptResponse;
+    final l$userId = userId;
+    final l$greWordTags = greWordTags;
+    return Object.hashAll([
+      l$spelling,
+      l$promptInput,
+      l$promptResponse,
+      l$userId,
+      _$data.containsKey('greWordTags')
+          ? l$greWordTags == null
+              ? null
+              : Object.hashAll(l$greWordTags.map((v) => v))
+          : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Mutation$createGreWord<TRes> {
+  factory CopyWith$Variables$Mutation$createGreWord(
+    Variables$Mutation$createGreWord instance,
+    TRes Function(Variables$Mutation$createGreWord) then,
+  ) = _CopyWithImpl$Variables$Mutation$createGreWord;
+
+  factory CopyWith$Variables$Mutation$createGreWord.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$createGreWord;
+
+  TRes call({
+    String? spelling,
+    String? promptInput,
+    String? promptResponse,
+    String? userId,
+    List<Input$GreWordTagWhereUniqueInput?>? greWordTags,
+  });
+}
+
+class _CopyWithImpl$Variables$Mutation$createGreWord<TRes>
+    implements CopyWith$Variables$Mutation$createGreWord<TRes> {
+  _CopyWithImpl$Variables$Mutation$createGreWord(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Mutation$createGreWord _instance;
+
+  final TRes Function(Variables$Mutation$createGreWord) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? spelling = _undefined,
+    Object? promptInput = _undefined,
+    Object? promptResponse = _undefined,
+    Object? userId = _undefined,
+    Object? greWordTags = _undefined,
+  }) =>
+      _then(Variables$Mutation$createGreWord._({
+        ..._instance._$data,
+        if (spelling != _undefined && spelling != null)
+          'spelling': (spelling as String),
+        if (promptInput != _undefined && promptInput != null)
+          'promptInput': (promptInput as String),
+        if (promptResponse != _undefined && promptResponse != null)
+          'promptResponse': (promptResponse as String),
+        if (userId != _undefined && userId != null)
+          'userId': (userId as String),
+        if (greWordTags != _undefined)
+          'greWordTags':
+              (greWordTags as List<Input$GreWordTagWhereUniqueInput?>?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$createGreWord<TRes>
+    implements CopyWith$Variables$Mutation$createGreWord<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$createGreWord(this._res);
+
+  TRes _res;
+
+  call({
+    String? spelling,
+    String? promptInput,
+    String? promptResponse,
+    String? userId,
+    List<Input$GreWordTagWhereUniqueInput?>? greWordTags,
+  }) =>
+      _res;
+}
+
+class Mutation$createGreWord {
+  Mutation$createGreWord({
+    required this.createGreWord,
+    this.$__typename = 'Mutation',
+  });
+
+  factory Mutation$createGreWord.fromJson(Map<String, dynamic> json) {
+    final l$createGreWord = json['createGreWord'];
+    final l$$__typename = json['__typename'];
+    return Mutation$createGreWord(
+      createGreWord: Fragment$GreWordFields.fromJson(
+          (l$createGreWord as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Fragment$GreWordFields createGreWord;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$createGreWord = createGreWord;
+    _resultData['createGreWord'] = l$createGreWord.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$createGreWord = createGreWord;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$createGreWord,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$createGreWord) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$createGreWord = createGreWord;
+    final lOther$createGreWord = other.createGreWord;
+    if (l$createGreWord != lOther$createGreWord) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$createGreWord on Mutation$createGreWord {
+  CopyWith$Mutation$createGreWord<Mutation$createGreWord> get copyWith =>
+      CopyWith$Mutation$createGreWord(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Mutation$createGreWord<TRes> {
+  factory CopyWith$Mutation$createGreWord(
+    Mutation$createGreWord instance,
+    TRes Function(Mutation$createGreWord) then,
+  ) = _CopyWithImpl$Mutation$createGreWord;
+
+  factory CopyWith$Mutation$createGreWord.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$createGreWord;
+
+  TRes call({
+    Fragment$GreWordFields? createGreWord,
+    String? $__typename,
+  });
+  CopyWith$Fragment$GreWordFields<TRes> get createGreWord;
+}
+
+class _CopyWithImpl$Mutation$createGreWord<TRes>
+    implements CopyWith$Mutation$createGreWord<TRes> {
+  _CopyWithImpl$Mutation$createGreWord(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$createGreWord _instance;
+
+  final TRes Function(Mutation$createGreWord) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? createGreWord = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$createGreWord(
+        createGreWord: createGreWord == _undefined || createGreWord == null
+            ? _instance.createGreWord
+            : (createGreWord as Fragment$GreWordFields),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWith$Fragment$GreWordFields<TRes> get createGreWord {
+    final local$createGreWord = _instance.createGreWord;
+    return CopyWith$Fragment$GreWordFields(
+        local$createGreWord, (e) => call(createGreWord: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$createGreWord<TRes>
+    implements CopyWith$Mutation$createGreWord<TRes> {
+  _CopyWithStubImpl$Mutation$createGreWord(this._res);
+
+  TRes _res;
+
+  call({
+    Fragment$GreWordFields? createGreWord,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWith$Fragment$GreWordFields<TRes> get createGreWord =>
+      CopyWith$Fragment$GreWordFields.stub(_res);
+}
+
+const documentNodeMutationcreateGreWord = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'createGreWord'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'spelling')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'promptInput')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'promptResponse')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'greWordTags')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'GreWordTagWhereUniqueInput'),
+            isNonNull: false,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'createGreWord'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'spelling'),
+            value: VariableNode(name: NameNode(value: 'spelling')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'promptInput'),
+            value: VariableNode(name: NameNode(value: 'promptInput')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'promptResponse'),
+            value: VariableNode(name: NameNode(value: 'promptResponse')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'userId'),
+            value: VariableNode(name: NameNode(value: 'userId')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'greWordTags'),
+            value: VariableNode(name: NameNode(value: 'greWordTags')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'GreWordFields'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitionGreWordFields,
+]);
+Mutation$createGreWord _parserFn$Mutation$createGreWord(
+        Map<String, dynamic> data) =>
+    Mutation$createGreWord.fromJson(data);
+typedef OnMutationCompleted$Mutation$createGreWord = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Mutation$createGreWord?,
+);
+
+class Options$Mutation$createGreWord
+    extends graphql.MutationOptions<Mutation$createGreWord> {
+  Options$Mutation$createGreWord({
+    String? operationName,
+    required Variables$Mutation$createGreWord variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$createGreWord? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$createGreWord? onCompleted,
+    graphql.OnMutationUpdate<Mutation$createGreWord>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$createGreWord(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationcreateGreWord,
+          parserFn: _parserFn$Mutation$createGreWord,
+        );
+
+  final OnMutationCompleted$Mutation$createGreWord? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+class WatchOptions$Mutation$createGreWord
+    extends graphql.WatchQueryOptions<Mutation$createGreWord> {
+  WatchOptions$Mutation$createGreWord({
+    String? operationName,
+    required Variables$Mutation$createGreWord variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$createGreWord? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeMutationcreateGreWord,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$createGreWord,
+        );
+}
+
+extension ClientExtension$Mutation$createGreWord on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$createGreWord>> mutate$createGreWord(
+          Options$Mutation$createGreWord options) async =>
+      await this.mutate(options);
+  graphql.ObservableQuery<Mutation$createGreWord> watchMutation$createGreWord(
+          WatchOptions$Mutation$createGreWord options) =>
+      this.watchMutation(options);
+}
+
+class Mutation$createGreWord$HookResult {
+  Mutation$createGreWord$HookResult(
+    this.runMutation,
+    this.result,
+  );
+
+  final RunMutation$Mutation$createGreWord runMutation;
+
+  final graphql.QueryResult<Mutation$createGreWord> result;
+}
+
+Mutation$createGreWord$HookResult useMutation$createGreWord(
+    [WidgetOptions$Mutation$createGreWord? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$createGreWord());
+  return Mutation$createGreWord$HookResult(
+    (variables, {optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
+      variables.toJson(),
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+    ),
+    result.result,
+  );
+}
+
+graphql.ObservableQuery<Mutation$createGreWord> useWatchMutation$createGreWord(
+        WatchOptions$Mutation$createGreWord options) =>
+    graphql_flutter.useWatchMutation(options);
+
+class WidgetOptions$Mutation$createGreWord
+    extends graphql.MutationOptions<Mutation$createGreWord> {
+  WidgetOptions$Mutation$createGreWord({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$createGreWord? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$createGreWord? onCompleted,
+    graphql.OnMutationUpdate<Mutation$createGreWord>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$createGreWord(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationcreateGreWord,
+          parserFn: _parserFn$Mutation$createGreWord,
+        );
+
+  final OnMutationCompleted$Mutation$createGreWord? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+typedef RunMutation$Mutation$createGreWord
+    = graphql.MultiSourceResult<Mutation$createGreWord> Function(
+  Variables$Mutation$createGreWord, {
+  Object? optimisticResult,
+  Mutation$createGreWord? typedOptimisticResult,
+});
+typedef Builder$Mutation$createGreWord = widgets.Widget Function(
+  RunMutation$Mutation$createGreWord,
+  graphql.QueryResult<Mutation$createGreWord>?,
+);
+
+class Mutation$createGreWord$Widget
+    extends graphql_flutter.Mutation<Mutation$createGreWord> {
+  Mutation$createGreWord$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$createGreWord? options,
+    required Builder$Mutation$createGreWord builder,
+  }) : super(
+          key: key,
+          options: options ?? WidgetOptions$Mutation$createGreWord(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            (
+              variables, {
+              optimisticResult,
+              typedOptimisticResult,
+            }) =>
+                run(
+              variables.toJson(),
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
+            ),
+            result,
+          ),
+        );
 }

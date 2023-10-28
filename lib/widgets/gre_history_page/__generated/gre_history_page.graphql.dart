@@ -1,11 +1,9 @@
+import '../../../__generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-
-import '../../../__generated/schema.graphql.dart';
 
 class Fragment$GreWordFields {
   Fragment$GreWordFields({
