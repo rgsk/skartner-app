@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:skartner_app/widgets/gre_page/__generated/gre_page.graphql.dart';
+import 'package:skartner_app/widgets/gre_page/children/word_search_result_view.dart';
 
 class GrePage extends HookWidget {
   GrePage({super.key});
@@ -26,27 +26,10 @@ class GrePage extends HookWidget {
               child: Text('Send'),
             ),
             if (word.value != '')
-              SendSinglePromptResult(
+              WordSearchResultView(
                 word: word.value,
               ),
           ],
         ));
-  }
-}
-
-class SendSinglePromptResult extends HookWidget {
-  final String word;
-  const SendSinglePromptResult({super.key, required this.word});
-
-  @override
-  Widget build(BuildContext context) {
-    final sendSinglePromptResult = useQuery$sendSinglePrompt(
-        Options$Query$sendSinglePrompt(
-            variables: Variables$Query$sendSinglePrompt(
-                input:
-                    "list meaning and 3 easy example sentences for word - ${word}")));
-    return Text(
-      sendSinglePromptResult.result.parsedData?.sendSinglePrompt.result ?? '',
-    );
   }
 }

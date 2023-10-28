@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class DebugWithBorder extends StatelessWidget {
+class DebugWithBorderView extends StatelessWidget {
   final Widget child;
-  const DebugWithBorder({super.key, required this.child});
+  const DebugWithBorderView({super.key, required this.child});
 
   @override
   Widget build(BuildContext context) {
