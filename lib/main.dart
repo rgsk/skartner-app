@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:routemaster/routemaster.dart';
 import 'package:skartner_app/router.dart';
@@ -16,7 +17,9 @@ void main() {
   runApp(
     GraphQLProvider(
       client: client,
-      child: MyApp(),
+      child: ProviderScope(
+        child: MyApp(),
+      ),
     ),
   );
 }
