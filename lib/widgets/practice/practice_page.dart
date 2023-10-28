@@ -19,6 +19,18 @@ class PracticePage extends HookConsumerWidget {
     final windowSize = ref.watch(windowSizeProvider);
     final screenWidthGte = useScreenWidthGte(context);
     final screenSize = useScreenSize(context);
+
+    useEffect(() {
+      print('counter - $counter');
+    }, [counter]);
+    ref.listen(counterProvider, (prev, next) {
+      print('prev counter - $prev');
+      print('next counter - $next');
+    });
+    useEffect(() {
+      print('localCounter - ${localCounter.value}');
+    }, [localCounter.value]);
+
     // final randNumber = useRandomNumber(context);
     return Scaffold(
       appBar: AppBar(title: Text('Practice')),
