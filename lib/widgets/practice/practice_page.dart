@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/providers/counter_provider.dart';
 import 'package:skartner_app/providers/friends_list_provider.dart';
 import 'package:skartner_app/providers/window_size_provider.dart';
-import 'package:skartner_app/widgets/practice/use_random_number.dart';
+import 'package:skartner_app/widgets/samples/use_random_number.dart';
 
 class PracticePage extends HookConsumerWidget {
   PracticePage({super.key});
