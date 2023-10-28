@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:skartner_app/__generated/hello.graphql.dart';
-import 'package:skartner_app/gre_page.dart';
+import 'package:routemaster/routemaster.dart';
+import 'package:skartner_app/router.dart';
 
 void main() {
   final httpLink = HttpLink('http://192.168.29.114:8001/graphql');
@@ -27,37 +26,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return MaterialApp.router(
+      title: 'Skartner',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: GrePage(),
-    );
-  }
-}
-
-class QueryExample extends HookWidget {
-  const QueryExample({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final helloResult = useQuery$ExampleQuery();
-
-    final result = helloResult.result;
-
-    if (result.hasException) {
-      return Text(result.exception.toString());
-    }
-
-    if (result.isLoading) {
-      return const Text('Loading');
-    }
-
-    return Scaffold(
-      appBar: AppBar(title: Text('Main Page')),
-      body: Center(child: Text(result.parsedData!.hello.message)),
+      debugShowCheckedModeBanner: false,
+      routerDelegate: RoutemasterDelegate(
+        routesBuilder: (context) {
+          return loggedInRoutes;
+        },
+      ),
+      routeInformationParser: RoutemasterParser(),
     );
   }
 }
