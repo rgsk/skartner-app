@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:skartner_app/widgets/gre_history_page/__generated/gre_history_page.graphql.dart';
+import 'package:skartner_app/widgets/gre_history/__generated/gre_history_page.graphql.dart';
 
 class GptPromptView extends HookWidget {
   final Fragment$GreWordFields$gptPrompts gptPrompt;

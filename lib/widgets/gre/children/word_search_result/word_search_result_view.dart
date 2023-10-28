@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:skartner_app/utils/ui_utils.dart';
-import 'package:skartner_app/widgets/gre_page/__generated/gre_page.graphql.dart';
+import 'package:skartner_app/widgets/gre/__generated/gre_page.graphql.dart';
 
 class WordSearchResultView extends HookWidget {
   final String word;

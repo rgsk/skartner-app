@@ -1,5 +1,5 @@
 import '../../../__generated/schema.graphql.dart';
-import '../../gre_history_page/__generated/gre_history_page.graphql.dart';
+import '../../gre_history/__generated/gre_history_page.graphql.dart';
 import 'dart:async';
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
