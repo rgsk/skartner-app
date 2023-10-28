@@ -16,6 +16,12 @@ class HomePage extends StatelessWidget {
         children: [
           ElevatedButton(
             onPressed: () {
+              Routemaster.of(context).push(Routes.sample);
+            },
+            child: Text('Sample'),
+          ),
+          ElevatedButton(
+            onPressed: () {
               Routemaster.of(context).push(Routes.practice);
             },
             child: Text('Practice'),
