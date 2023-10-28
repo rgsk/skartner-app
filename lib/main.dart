@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:skartner_app/__generated/hello.graphql.dart';
 import 'package:skartner_app/gre_page.dart';
-import 'package:skartner_app/hello.graphql.dart';
 
 void main() {
   final httpLink = HttpLink('http://192.168.29.114:8001/graphql');

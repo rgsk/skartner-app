@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:skartner_app/gre_page.graphql.dart';
+import 'package:skartner_app/__generated/gre_page.graphql.dart';
 
 class GrePage extends HookWidget {
   GrePage({super.key});
@@ -43,7 +43,9 @@ class SendSinglePromptResult extends HookWidget {
   Widget build(BuildContext context) {
     final sendSinglePromptResult = useQuery$sendSinglePrompt(
         Options$Query$sendSinglePrompt(
-            variables: Variables$Query$sendSinglePrompt(input: word)));
+            variables: Variables$Query$sendSinglePrompt(
+                input:
+                    "list meaning and 3 easy example sentences for word - ${word}")));
     return Text(
       sendSinglePromptResult.result.parsedData?.sendSinglePrompt.result ?? '',
     );

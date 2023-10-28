@@ -7,3 +7,4 @@ targets:
         options:
           clients:
             - graphql_flutter
+          outputDirectory: ./__generated
