@@ -3,20 +3,49 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:skartner_app/gre_page.graphql.dart';
 
 class GrePage extends HookWidget {
-  const GrePage({super.key});
+  GrePage({super.key});
+  final TextEditingController _textEditingController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    final word = useState('');
+    return Scaffold(
+        appBar: AppBar(title: Text('hii')),
+        body: Column(
+          children: [
+            TextField(
+              controller: _textEditingController,
+              decoration: InputDecoration(
+                labelText: "Enter your text",
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                print(_textEditingController.text);
+                word.value = _textEditingController.text;
+              },
+              child: Text('Send'),
+            ),
+            if (word.value != '')
+              SendSinglePromptResult(
+                word: word.value,
+              ),
+          ],
+        ));
+  }
+}
+
+class SendSinglePromptResult extends HookWidget {
+  final String word;
+  const SendSinglePromptResult({super.key, required this.word});
 
   @override
   Widget build(BuildContext context) {
     final sendSinglePromptResult = useQuery$sendSinglePrompt(
         Options$Query$sendSinglePrompt(
-            variables: Variables$Query$sendSinglePrompt(input: 'serious')));
-    return Scaffold(
-      body: Center(
-        child: Text(
-          sendSinglePromptResult.result.parsedData!.sendSinglePrompt.result ??
-              '',
-        ),
-      ),
+            variables: Variables$Query$sendSinglePrompt(input: word)));
+    return Text(
+      sendSinglePromptResult.result.parsedData?.sendSinglePrompt.result ?? '',
     );
   }
 }
