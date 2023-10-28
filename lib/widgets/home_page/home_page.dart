@@ -25,6 +25,12 @@ class HomePage extends StatelessWidget {
             },
             child: Text('Gre'),
           ),
+          ElevatedButton(
+            onPressed: () {
+              Routemaster.of(context).push('/gre/history');
+            },
+            child: Text('Gre History'),
+          ),
         ],
       )),
     );

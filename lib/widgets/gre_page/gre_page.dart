@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:skartner_app/__generated/gre_page.graphql.dart';
+import 'package:skartner_app/widgets/gre_page/__generated/gre_page.graphql.dart';
 
 class GrePage extends HookWidget {
   GrePage({super.key});
@@ -10,7 +10,7 @@ class GrePage extends HookWidget {
   Widget build(BuildContext context) {
     final word = useState('');
     return Scaffold(
-        appBar: AppBar(title: Text('hii')),
+        appBar: AppBar(title: Text('Gre Page')),
         body: Column(
           children: [
             TextField(
@@ -21,7 +21,6 @@ class GrePage extends HookWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                print(_textEditingController.text);
                 word.value = _textEditingController.text;
               },
               child: Text('Send'),

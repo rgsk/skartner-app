@@ -1,0 +1,27 @@
+fragment GreWordFields on GreWord {
+  id
+  spelling
+  status
+  gptPrompts {
+    id
+    input
+    response
+    editedResponse
+    greWordId
+  }
+  greWordTags {
+    id
+    name
+  }
+}
+query greWords(
+  $where: GreWordWhereInput
+  $skip: Int
+  $take: Int
+  $orderBy: [GreWordOrderByWithRelationInput]
+) {
+  greWords(where: $where, skip: $skip, take: $take, orderBy: $orderBy) {
+    ...GreWordFields
+  }
+  greWordsCount(where: $where)
+}
