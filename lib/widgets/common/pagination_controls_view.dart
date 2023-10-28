@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:skartner_app/constants/breakpoints.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:skartner_app/hooks/use_screen_width_gte.dart';
 
 const tripleDots = 100000000;
 
-class PaginationControlsView extends StatelessWidget {
+class PaginationControlsView extends HookWidget {
   final int currentPage;
   final ValueChanged<int> setCurrentPage;
   final int total;
@@ -21,10 +22,11 @@ class PaginationControlsView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
     final lowerLimit = (currentPage - 1) * perPage + 1;
     final upperLimit = lowerLimit + numberOfItemsFetchedOnCurrentPage - 1;
     final numberOfTotalPages = (total / perPage).ceil();
+
+    final screenWidthGte = useScreenWidthGte(context);
 
     List<int> pagesToShow;
 
@@ -62,7 +64,7 @@ class PaginationControlsView extends StatelessWidget {
       pagesToShow = List.generate(numberOfTotalPages, (index) => index + 1);
     }
 
-    final isLargeScreen = size.width >= Breakpoints.md;
+    final showFirstPageLastPageButtons = screenWidthGte.md;
 
     return Column(
       children: [
@@ -73,7 +75,7 @@ class PaginationControlsView extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            if (isLargeScreen)
+            if (showFirstPageLastPageButtons)
               IconButton(
                 icon: Icon(Icons.first_page),
                 onPressed: currentPage > 1 ? () => setCurrentPage(1) : null,
@@ -114,7 +116,7 @@ class PaginationControlsView extends StatelessWidget {
                   ? () => setCurrentPage(currentPage + 1)
                   : null,
             ),
-            if (isLargeScreen)
+            if (showFirstPageLastPageButtons)
               IconButton(
                 icon: Icon(Icons.last_page),
                 onPressed: currentPage < numberOfTotalPages
