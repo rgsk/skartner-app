@@ -14,9 +14,13 @@
     "**/.hg": true,
     "**/CVS": true,
     "**/.DS_Store": true,
-    "**/Thumbs.db": true
+    "**/Thumbs.db": true,
 
     // custom
-    // "**/__generated": true
+    "**/__generated": true
+  },
+
+  "triggerTaskOnSave.tasks": {
+    "Generate Graphql": ["**/*.graphql"]
   }
 }
