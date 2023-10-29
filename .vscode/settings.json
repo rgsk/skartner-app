@@ -21,6 +21,6 @@
   },
 
   "triggerTaskOnSave.tasks": {
-    "Generate Graphql": ["**/*.graphql"]
+    "Generate Graphql": ["**/*.graphql", "**/build.yaml"]
   }
 }
