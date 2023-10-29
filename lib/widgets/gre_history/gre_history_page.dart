@@ -7,24 +7,54 @@ import 'package:skartner_app/widgets/gre_history/children/gre_word/gre_word_view
 
 const itemsPerPage = 2;
 
+final sortedGreWordStatuses = [
+  Enum$GreWordStatus.STARTED_LEARNING,
+  Enum$GreWordStatus.STILL_LEARNING,
+  Enum$GreWordStatus.ALMOST_LEARNT,
+  Enum$GreWordStatus.FINISHED_LEARNING,
+  Enum$GreWordStatus.MEMORY_MODE,
+  Enum$GreWordStatus.MASTERED,
+];
+
 class GreHistoryPage extends HookWidget {
   const GreHistoryPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final currentPage = useState(1);
+    final selectedStatuses = useState(sortedGreWordStatuses);
     final queryInput = useState('');
     final greWordsResult = useQuery$greWords(Options$Query$greWords(
         variables: Variables$Query$greWords(
       where: Input$GreWordWhereInput(
+        userId: Input$StringFilter(
+          equals: 'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
+        ),
         spelling: Input$StringFilter(
           startsWith: queryInput.value,
+        ),
+        status: Input$EnumGreWordStatusFilter(
+          $in: selectedStatuses.value,
         ),
       ),
       skip: (currentPage.value - 1) * itemsPerPage,
       take: itemsPerPage,
     )));
     final parsedData = greWordsResult.result.parsedData;
+
+    void toggleStatus(Enum$GreWordStatus e) {
+      if (selectedStatuses.value.contains(e)) {
+        List<Enum$GreWordStatus> newValues = [];
+        for (final v in selectedStatuses.value) {
+          if (v != e) {
+            newValues.add(v);
+          }
+        }
+        selectedStatuses.value = newValues;
+      } else {
+        selectedStatuses.value = [...selectedStatuses.value, e];
+      }
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -37,6 +67,34 @@ class GreHistoryPage extends HookWidget {
               final greWordsCount = parsedData.greWordsCount;
               return Column(
                 children: [
+                  SingleChildScrollView(
+                      child: Column(
+                    children: [
+                      Wrap(
+                        children: List<Widget>.generate(
+                          sortedGreWordStatuses.length,
+                          (int index) {
+                            final e = sortedGreWordStatuses[index];
+                            return IconButton(
+                              icon: Text(
+                                toJson$Enum$GreWordStatus(
+                                  e,
+                                ),
+                                style: TextStyle(
+                                  color: selectedStatuses.value.contains(e)
+                                      ? Colors.blue
+                                      : null,
+                                ),
+                              ),
+                              onPressed: () {
+                                toggleStatus(e);
+                              },
+                            );
+                          },
+                        ),
+                      )
+                    ],
+                  )),
                   TextField(
                     onChanged: (value) {
                       queryInput.value = value;
