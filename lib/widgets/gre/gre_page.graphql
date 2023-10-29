@@ -34,3 +34,9 @@ mutation CreateGreWord(
     ...GreWordFields
   }
 }
+
+query GreWord($where: GreWordWhereUniqueInput) {
+  greWord(where: $where) {
+    ...GreWordFields
+  }
+}

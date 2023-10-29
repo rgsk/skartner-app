@@ -34,8 +34,10 @@ class GrePage extends HookConsumerWidget {
               child: Text('Send'),
             ),
             if (word.value != '')
-              WordSearchResultView(
-                word: word.value,
+              Expanded(
+                child: WordSearchResultView(
+                  word: word.value,
+                ),
               ),
           ],
         ));
