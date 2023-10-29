@@ -25,3 +25,9 @@ query greWords(
   }
   greWordsCount(where: $where)
 }
+query GreWordTags($where: GreWordTagWhereInput) {
+  greWordTags(where: $where) {
+    id
+    name
+  }
+}

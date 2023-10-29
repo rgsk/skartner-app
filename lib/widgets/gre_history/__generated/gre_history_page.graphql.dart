@@ -1424,3 +1424,621 @@ class Query$greWords$Widget extends graphql_flutter.Query<Query$greWords> {
           builder: builder,
         );
 }
+
+class Variables$Query$GreWordTags {
+  factory Variables$Query$GreWordTags({Input$GreWordTagWhereInput? where}) =>
+      Variables$Query$GreWordTags._({
+        if (where != null) r'where': where,
+      });
+
+  Variables$Query$GreWordTags._(this._$data);
+
+  factory Variables$Query$GreWordTags.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$GreWordTagWhereInput.fromJson(
+              (l$where as Map<String, dynamic>));
+    }
+    return Variables$Query$GreWordTags._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$GreWordTagWhereInput? get where =>
+      (_$data['where'] as Input$GreWordTagWhereInput?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$GreWordTags<Variables$Query$GreWordTags>
+      get copyWith => CopyWith$Variables$Query$GreWordTags(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$GreWordTags) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$where = where;
+    return Object.hashAll([_$data.containsKey('where') ? l$where : const {}]);
+  }
+}
+
+abstract class CopyWith$Variables$Query$GreWordTags<TRes> {
+  factory CopyWith$Variables$Query$GreWordTags(
+    Variables$Query$GreWordTags instance,
+    TRes Function(Variables$Query$GreWordTags) then,
+  ) = _CopyWithImpl$Variables$Query$GreWordTags;
+
+  factory CopyWith$Variables$Query$GreWordTags.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GreWordTags;
+
+  TRes call({Input$GreWordTagWhereInput? where});
+}
+
+class _CopyWithImpl$Variables$Query$GreWordTags<TRes>
+    implements CopyWith$Variables$Query$GreWordTags<TRes> {
+  _CopyWithImpl$Variables$Query$GreWordTags(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Query$GreWordTags _instance;
+
+  final TRes Function(Variables$Query$GreWordTags) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? where = _undefined}) =>
+      _then(Variables$Query$GreWordTags._({
+        ..._instance._$data,
+        if (where != _undefined)
+          'where': (where as Input$GreWordTagWhereInput?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Query$GreWordTags<TRes>
+    implements CopyWith$Variables$Query$GreWordTags<TRes> {
+  _CopyWithStubImpl$Variables$Query$GreWordTags(this._res);
+
+  TRes _res;
+
+  call({Input$GreWordTagWhereInput? where}) => _res;
+}
+
+class Query$GreWordTags {
+  Query$GreWordTags({
+    required this.greWordTags,
+    this.$__typename = 'Query',
+  });
+
+  factory Query$GreWordTags.fromJson(Map<String, dynamic> json) {
+    final l$greWordTags = json['greWordTags'];
+    final l$$__typename = json['__typename'];
+    return Query$GreWordTags(
+      greWordTags: (l$greWordTags as List<dynamic>)
+          .map((e) => Query$GreWordTags$greWordTags.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<Query$GreWordTags$greWordTags> greWordTags;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$greWordTags = greWordTags;
+    _resultData['greWordTags'] = l$greWordTags.map((e) => e.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$greWordTags = greWordTags;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      Object.hashAll(l$greWordTags.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GreWordTags) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$greWordTags = greWordTags;
+    final lOther$greWordTags = other.greWordTags;
+    if (l$greWordTags.length != lOther$greWordTags.length) {
+      return false;
+    }
+    for (int i = 0; i < l$greWordTags.length; i++) {
+      final l$greWordTags$entry = l$greWordTags[i];
+      final lOther$greWordTags$entry = lOther$greWordTags[i];
+      if (l$greWordTags$entry != lOther$greWordTags$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GreWordTags on Query$GreWordTags {
+  CopyWith$Query$GreWordTags<Query$GreWordTags> get copyWith =>
+      CopyWith$Query$GreWordTags(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$GreWordTags<TRes> {
+  factory CopyWith$Query$GreWordTags(
+    Query$GreWordTags instance,
+    TRes Function(Query$GreWordTags) then,
+  ) = _CopyWithImpl$Query$GreWordTags;
+
+  factory CopyWith$Query$GreWordTags.stub(TRes res) =
+      _CopyWithStubImpl$Query$GreWordTags;
+
+  TRes call({
+    List<Query$GreWordTags$greWordTags>? greWordTags,
+    String? $__typename,
+  });
+  TRes greWordTags(
+      Iterable<Query$GreWordTags$greWordTags> Function(
+              Iterable<
+                  CopyWith$Query$GreWordTags$greWordTags<
+                      Query$GreWordTags$greWordTags>>)
+          _fn);
+}
+
+class _CopyWithImpl$Query$GreWordTags<TRes>
+    implements CopyWith$Query$GreWordTags<TRes> {
+  _CopyWithImpl$Query$GreWordTags(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GreWordTags _instance;
+
+  final TRes Function(Query$GreWordTags) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? greWordTags = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GreWordTags(
+        greWordTags: greWordTags == _undefined || greWordTags == null
+            ? _instance.greWordTags
+            : (greWordTags as List<Query$GreWordTags$greWordTags>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  TRes greWordTags(
+          Iterable<Query$GreWordTags$greWordTags> Function(
+                  Iterable<
+                      CopyWith$Query$GreWordTags$greWordTags<
+                          Query$GreWordTags$greWordTags>>)
+              _fn) =>
+      call(
+          greWordTags: _fn(_instance.greWordTags
+              .map((e) => CopyWith$Query$GreWordTags$greWordTags(
+                    e,
+                    (i) => i,
+                  ))).toList());
+}
+
+class _CopyWithStubImpl$Query$GreWordTags<TRes>
+    implements CopyWith$Query$GreWordTags<TRes> {
+  _CopyWithStubImpl$Query$GreWordTags(this._res);
+
+  TRes _res;
+
+  call({
+    List<Query$GreWordTags$greWordTags>? greWordTags,
+    String? $__typename,
+  }) =>
+      _res;
+
+  greWordTags(_fn) => _res;
+}
+
+const documentNodeQueryGreWordTags = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GreWordTags'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'where')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'GreWordTagWhereInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'greWordTags'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'name'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Query$GreWordTags _parserFn$Query$GreWordTags(Map<String, dynamic> data) =>
+    Query$GreWordTags.fromJson(data);
+typedef OnQueryComplete$Query$GreWordTags = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Query$GreWordTags?,
+);
+
+class Options$Query$GreWordTags
+    extends graphql.QueryOptions<Query$GreWordTags> {
+  Options$Query$GreWordTags({
+    String? operationName,
+    Variables$Query$GreWordTags? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GreWordTags? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$GreWordTags? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null ? null : _parserFn$Query$GreWordTags(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryGreWordTags,
+          parserFn: _parserFn$Query$GreWordTags,
+        );
+
+  final OnQueryComplete$Query$GreWordTags? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$GreWordTags
+    extends graphql.WatchQueryOptions<Query$GreWordTags> {
+  WatchOptions$Query$GreWordTags({
+    String? operationName,
+    Variables$Query$GreWordTags? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GreWordTags? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryGreWordTags,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$GreWordTags,
+        );
+}
+
+class FetchMoreOptions$Query$GreWordTags extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GreWordTags({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$GreWordTags? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQueryGreWordTags,
+        );
+}
+
+extension ClientExtension$Query$GreWordTags on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GreWordTags>> query$GreWordTags(
+          [Options$Query$GreWordTags? options]) async =>
+      await this.query(options ?? Options$Query$GreWordTags());
+  graphql.ObservableQuery<Query$GreWordTags> watchQuery$GreWordTags(
+          [WatchOptions$Query$GreWordTags? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$GreWordTags());
+  void writeQuery$GreWordTags({
+    required Query$GreWordTags data,
+    Variables$Query$GreWordTags? variables,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+          operation: graphql.Operation(document: documentNodeQueryGreWordTags),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$GreWordTags? readQuery$GreWordTags({
+    Variables$Query$GreWordTags? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(document: documentNodeQueryGreWordTags),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Query$GreWordTags.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$GreWordTags> useQuery$GreWordTags(
+        [Options$Query$GreWordTags? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$GreWordTags());
+graphql.ObservableQuery<Query$GreWordTags> useWatchQuery$GreWordTags(
+        [WatchOptions$Query$GreWordTags? options]) =>
+    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$GreWordTags());
+
+class Query$GreWordTags$Widget
+    extends graphql_flutter.Query<Query$GreWordTags> {
+  Query$GreWordTags$Widget({
+    widgets.Key? key,
+    Options$Query$GreWordTags? options,
+    required graphql_flutter.QueryBuilder<Query$GreWordTags> builder,
+  }) : super(
+          key: key,
+          options: options ?? Options$Query$GreWordTags(),
+          builder: builder,
+        );
+}
+
+class Query$GreWordTags$greWordTags {
+  Query$GreWordTags$greWordTags({
+    required this.id,
+    required this.name,
+    this.$__typename = 'GreWordTag',
+  });
+
+  factory Query$GreWordTags$greWordTags.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Query$GreWordTags$greWordTags(
+      id: (l$id as String),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String id;
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GreWordTags$greWordTags) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GreWordTags$greWordTags
+    on Query$GreWordTags$greWordTags {
+  CopyWith$Query$GreWordTags$greWordTags<Query$GreWordTags$greWordTags>
+      get copyWith => CopyWith$Query$GreWordTags$greWordTags(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GreWordTags$greWordTags<TRes> {
+  factory CopyWith$Query$GreWordTags$greWordTags(
+    Query$GreWordTags$greWordTags instance,
+    TRes Function(Query$GreWordTags$greWordTags) then,
+  ) = _CopyWithImpl$Query$GreWordTags$greWordTags;
+
+  factory CopyWith$Query$GreWordTags$greWordTags.stub(TRes res) =
+      _CopyWithStubImpl$Query$GreWordTags$greWordTags;
+
+  TRes call({
+    String? id,
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$GreWordTags$greWordTags<TRes>
+    implements CopyWith$Query$GreWordTags$greWordTags<TRes> {
+  _CopyWithImpl$Query$GreWordTags$greWordTags(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GreWordTags$greWordTags _instance;
+
+  final TRes Function(Query$GreWordTags$greWordTags) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GreWordTags$greWordTags(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$GreWordTags$greWordTags<TRes>
+    implements CopyWith$Query$GreWordTags$greWordTags<TRes> {
+  _CopyWithStubImpl$Query$GreWordTags$greWordTags(this._res);
+
+  TRes _res;
+
+  call({
+    String? id,
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
+}
