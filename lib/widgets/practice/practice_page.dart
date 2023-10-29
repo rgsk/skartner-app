@@ -22,10 +22,13 @@ class PracticePage extends HookConsumerWidget {
 
     useEffect(() {
       print('counter - $counter');
+      return null;
     }, [counter]);
+
     useEffect(() {
       // this will be executed after previous effect
       print('counter2 - $counter');
+      return null;
     }, [counter]);
 
     ref.listen(counterProvider, (prev, next) {
@@ -36,6 +39,7 @@ class PracticePage extends HookConsumerWidget {
       print('localCounter - ${localCounter.value}');
       // providing extra dep allows this to run on change
       // of screenSize.width also
+      return null;
     }, [localCounter.value, screenSize.width]);
 
     // final randNumber = useRandomNumber(context);
