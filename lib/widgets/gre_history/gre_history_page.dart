@@ -97,99 +97,109 @@ class GreHistoryPage extends HookWidget {
       appBar: AppBar(
         title: Text('Gre History Page'),
       ),
-      body: parsedData == null
-          ? CircularProgressIndicator()
-          : Builder(builder: (context) {
-              final greWords = parsedData.greWords;
-              final greWordsCount = parsedData.greWordsCount;
-              return Column(
-                children: [
-                  SingleChildScrollView(
+      body: Column(
+        children: [
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Wrap(
+                  children: List<Widget>.generate(
+                    sortedGreWordStatuses.length,
+                    (int index) {
+                      final e = sortedGreWordStatuses[index];
+                      return IconButton(
+                        icon: Text(
+                          toJson$Enum$GreWordStatus(
+                            e,
+                          ),
+                          style: TextStyle(
+                            color: selectedStatuses.value.contains(e)
+                                ? Colors.blue
+                                : null,
+                          ),
+                        ),
+                        onPressed: () {
+                          toggleStatus(e);
+                        },
+                      );
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
+          SingleChildScrollView(
+            child: Column(
+              children: [
+                Wrap(
+                  children: List<Widget>.generate(
+                    greWordTags.length,
+                    (int index) {
+                      final greWordTag = greWordTags[index];
+                      return IconButton(
+                        icon: Text(
+                          greWordTag.name,
+                          style: TextStyle(
+                            color: selectedTags.value.contains(greWordTag.name)
+                                ? Colors.blue
+                                : null,
+                          ),
+                        ),
+                        onPressed: () {
+                          toggleTag(greWordTag.name);
+                        },
+                      );
+                    },
+                  ),
+                )
+              ],
+            ),
+          ),
+          TextField(
+            onChanged: (value) {
+              queryInput.value = value;
+            },
+            decoration: InputDecoration(
+              labelText: "Word",
+            ),
+          ),
+          parsedData == null
+              ? CircularProgressIndicator()
+              : Builder(builder: (context) {
+                  final greWords = parsedData.greWords;
+                  final greWordsCount = parsedData.greWordsCount;
+                  return Expanded(
                     child: Column(
                       children: [
-                        Wrap(
-                          children: List<Widget>.generate(
-                            sortedGreWordStatuses.length,
-                            (int index) {
-                              final e = sortedGreWordStatuses[index];
-                              return IconButton(
-                                icon: Text(
-                                  toJson$Enum$GreWordStatus(
-                                    e,
-                                  ),
-                                  style: TextStyle(
-                                    color: selectedStatuses.value.contains(e)
-                                        ? Colors.blue
-                                        : null,
-                                  ),
-                                ),
-                                onPressed: () {
-                                  toggleStatus(e);
+                        PaginationControlsView(
+                          currentPage: currentPage.value,
+                          setCurrentPage: (page) {
+                            currentPage.value = page;
+                          },
+                          total: greWordsCount,
+                          numberOfItemsFetchedOnCurrentPage: greWords.length,
+                          perPage: itemsPerPage,
+                        ),
+                        Expanded(
+                          child: ListView.builder(
+                            itemCount: greWords.length,
+                            itemBuilder: (context, index) {
+                              final greWord = greWords[index];
+                              return GreWordView(
+                                greWord: greWord,
+                                onMutate: () {
+                                  greWordsQuery.refetch();
                                 },
                               );
                             },
                           ),
-                        )
+                        ),
                       ],
                     ),
-                  ),
-                  SingleChildScrollView(
-                    child: Column(
-                      children: [
-                        Wrap(
-                          children: List<Widget>.generate(
-                            greWordTags.length,
-                            (int index) {
-                              final greWordTag = greWordTags[index];
-                              return IconButton(
-                                icon: Text(
-                                  greWordTag.name,
-                                  style: TextStyle(
-                                    color: selectedTags.value
-                                            .contains(greWordTag.name)
-                                        ? Colors.blue
-                                        : null,
-                                  ),
-                                ),
-                                onPressed: () {
-                                  toggleTag(greWordTag.name);
-                                },
-                              );
-                            },
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  TextField(
-                    onChanged: (value) {
-                      queryInput.value = value;
-                    },
-                    decoration: InputDecoration(
-                      labelText: "Word",
-                    ),
-                  ),
-                  PaginationControlsView(
-                    currentPage: currentPage.value,
-                    setCurrentPage: (page) {
-                      currentPage.value = page;
-                    },
-                    total: greWordsCount,
-                    numberOfItemsFetchedOnCurrentPage: greWords.length,
-                    perPage: itemsPerPage,
-                  ),
-                  Expanded(
-                    child: ListView.builder(
-                      itemCount: greWords.length,
-                      itemBuilder: (context, index) {
-                        final greWord = greWords[index];
-                        return GreWordView(greWord: greWord);
-                      },
-                    ),
-                  ),
-                ],
-              );
-            }),
+                  );
+                }),
+        ],
+      ),
     );
   }
 }
