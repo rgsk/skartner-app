@@ -14,7 +14,7 @@ fragment GreWordFields on GreWord {
     name
   }
 }
-query greWords(
+query GreWords(
   $where: GreWordWhereInput
   $skip: Int
   $take: Int

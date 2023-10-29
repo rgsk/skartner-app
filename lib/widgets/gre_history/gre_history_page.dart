@@ -25,32 +25,41 @@ class GreHistoryPage extends HookWidget {
     final selectedStatuses = useState(sortedGreWordStatuses);
     final selectedTags = useState<List<String>>([]);
     final queryInput = useState('');
-    final greWordsQuery = useQuery$greWords(Options$Query$greWords(
-        variables: Variables$Query$greWords(
-      where: Input$GreWordWhereInput(
-        userId: Input$StringFilter(
-          equals: 'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
+    final greWordsQuery = useQuery$GreWords(
+      Options$Query$GreWords(
+        variables: Variables$Query$GreWords(
+          where: Input$GreWordWhereInput(
+            userId: Input$StringFilter(
+              equals: 'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
+            ),
+            spelling: Input$StringFilter(
+              startsWith: queryInput.value,
+            ),
+            status: Input$EnumGreWordStatusFilter(
+              $in: selectedStatuses.value.isNotEmpty
+                  ? selectedStatuses.value
+                  : null,
+            ),
+            greWordTags: selectedTags.value.isNotEmpty
+                ? Input$GreWordTagListRelationFilter(
+                    some: Input$GreWordTagWhereInput(
+                      name: Input$StringFilter(
+                        $in: selectedTags.value,
+                      ),
+                    ),
+                  )
+                : null,
+          ),
+          skip: (currentPage.value - 1) * itemsPerPage,
+          take: itemsPerPage,
+          orderBy: [
+            Input$GreWordOrderByWithRelationInput(
+              updatedAt: Enum$SortOrder.desc,
+            ),
+          ],
         ),
-        spelling: Input$StringFilter(
-          startsWith: queryInput.value,
-        ),
-        status: Input$EnumGreWordStatusFilter(
-          $in:
-              selectedStatuses.value.isNotEmpty ? selectedStatuses.value : null,
-        ),
-        greWordTags: selectedTags.value.isNotEmpty
-            ? Input$GreWordTagListRelationFilter(
-                some: Input$GreWordTagWhereInput(
-                  name: Input$StringFilter(
-                    $in: selectedTags.value,
-                  ),
-                ),
-              )
-            : null,
       ),
-      skip: (currentPage.value - 1) * itemsPerPage,
-      take: itemsPerPage,
-    )));
+    );
     final greWordTagsQuery = useQuery$GreWordTags(
       Options$Query$GreWordTags(
         variables: Variables$Query$GreWordTags(

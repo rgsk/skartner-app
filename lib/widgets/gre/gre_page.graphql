@@ -1,4 +1,4 @@
-query sendSinglePrompt(
+query SendSinglePrompt(
   $input: String!
   $skipCache: Boolean
   $indexesReturned: [Int!]
@@ -17,7 +17,7 @@ query sendSinglePrompt(
   }
 }
 
-mutation createGreWord(
+mutation CreateGreWord(
   $spelling: String!
   $promptInput: String!
   $promptResponse: String!

@@ -781,23 +781,23 @@ class _CopyWithStubImpl$Fragment$GreWordFields$greWordTags<TRes>
       _res;
 }
 
-class Variables$Query$greWords {
-  factory Variables$Query$greWords({
+class Variables$Query$GreWords {
+  factory Variables$Query$GreWords({
     Input$GreWordWhereInput? where,
     int? skip,
     int? take,
     List<Input$GreWordOrderByWithRelationInput?>? orderBy,
   }) =>
-      Variables$Query$greWords._({
+      Variables$Query$GreWords._({
         if (where != null) r'where': where,
         if (skip != null) r'skip': skip,
         if (take != null) r'take': take,
         if (orderBy != null) r'orderBy': orderBy,
       });
 
-  Variables$Query$greWords._(this._$data);
+  Variables$Query$GreWords._(this._$data);
 
-  factory Variables$Query$greWords.fromJson(Map<String, dynamic> data) {
+  factory Variables$Query$GreWords.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('where')) {
       final l$where = data['where'];
@@ -822,7 +822,7 @@ class Variables$Query$greWords {
                   (e as Map<String, dynamic>)))
           .toList();
     }
-    return Variables$Query$greWords._(result$data);
+    return Variables$Query$GreWords._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -858,8 +858,8 @@ class Variables$Query$greWords {
     return result$data;
   }
 
-  CopyWith$Variables$Query$greWords<Variables$Query$greWords> get copyWith =>
-      CopyWith$Variables$Query$greWords(
+  CopyWith$Variables$Query$GreWords<Variables$Query$GreWords> get copyWith =>
+      CopyWith$Variables$Query$GreWords(
         this,
         (i) => i,
       );
@@ -869,7 +869,7 @@ class Variables$Query$greWords {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$greWords) ||
+    if (!(other is Variables$Query$GreWords) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -938,14 +938,14 @@ class Variables$Query$greWords {
   }
 }
 
-abstract class CopyWith$Variables$Query$greWords<TRes> {
-  factory CopyWith$Variables$Query$greWords(
-    Variables$Query$greWords instance,
-    TRes Function(Variables$Query$greWords) then,
-  ) = _CopyWithImpl$Variables$Query$greWords;
+abstract class CopyWith$Variables$Query$GreWords<TRes> {
+  factory CopyWith$Variables$Query$GreWords(
+    Variables$Query$GreWords instance,
+    TRes Function(Variables$Query$GreWords) then,
+  ) = _CopyWithImpl$Variables$Query$GreWords;
 
-  factory CopyWith$Variables$Query$greWords.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Query$greWords;
+  factory CopyWith$Variables$Query$GreWords.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GreWords;
 
   TRes call({
     Input$GreWordWhereInput? where,
@@ -955,16 +955,16 @@ abstract class CopyWith$Variables$Query$greWords<TRes> {
   });
 }
 
-class _CopyWithImpl$Variables$Query$greWords<TRes>
-    implements CopyWith$Variables$Query$greWords<TRes> {
-  _CopyWithImpl$Variables$Query$greWords(
+class _CopyWithImpl$Variables$Query$GreWords<TRes>
+    implements CopyWith$Variables$Query$GreWords<TRes> {
+  _CopyWithImpl$Variables$Query$GreWords(
     this._instance,
     this._then,
   );
 
-  final Variables$Query$greWords _instance;
+  final Variables$Query$GreWords _instance;
 
-  final TRes Function(Variables$Query$greWords) _then;
+  final TRes Function(Variables$Query$GreWords) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -974,7 +974,7 @@ class _CopyWithImpl$Variables$Query$greWords<TRes>
     Object? take = _undefined,
     Object? orderBy = _undefined,
   }) =>
-      _then(Variables$Query$greWords._({
+      _then(Variables$Query$GreWords._({
         ..._instance._$data,
         if (where != _undefined) 'where': (where as Input$GreWordWhereInput?),
         if (skip != _undefined) 'skip': (skip as int?),
@@ -984,9 +984,9 @@ class _CopyWithImpl$Variables$Query$greWords<TRes>
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$greWords<TRes>
-    implements CopyWith$Variables$Query$greWords<TRes> {
-  _CopyWithStubImpl$Variables$Query$greWords(this._res);
+class _CopyWithStubImpl$Variables$Query$GreWords<TRes>
+    implements CopyWith$Variables$Query$GreWords<TRes> {
+  _CopyWithStubImpl$Variables$Query$GreWords(this._res);
 
   TRes _res;
 
@@ -999,18 +999,18 @@ class _CopyWithStubImpl$Variables$Query$greWords<TRes>
       _res;
 }
 
-class Query$greWords {
-  Query$greWords({
+class Query$GreWords {
+  Query$GreWords({
     required this.greWords,
     required this.greWordsCount,
     this.$__typename = 'Query',
   });
 
-  factory Query$greWords.fromJson(Map<String, dynamic> json) {
+  factory Query$GreWords.fromJson(Map<String, dynamic> json) {
     final l$greWords = json['greWords'];
     final l$greWordsCount = json['greWordsCount'];
     final l$$__typename = json['__typename'];
-    return Query$greWords(
+    return Query$GreWords(
       greWords: (l$greWords as List<dynamic>)
           .map((e) =>
               Fragment$GreWordFields.fromJson((e as Map<String, dynamic>)))
@@ -1054,7 +1054,7 @@ class Query$greWords {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$greWords) || runtimeType != other.runtimeType) {
+    if (!(other is Query$GreWords) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$greWords = greWords;
@@ -1083,22 +1083,22 @@ class Query$greWords {
   }
 }
 
-extension UtilityExtension$Query$greWords on Query$greWords {
-  CopyWith$Query$greWords<Query$greWords> get copyWith =>
-      CopyWith$Query$greWords(
+extension UtilityExtension$Query$GreWords on Query$GreWords {
+  CopyWith$Query$GreWords<Query$GreWords> get copyWith =>
+      CopyWith$Query$GreWords(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWith$Query$greWords<TRes> {
-  factory CopyWith$Query$greWords(
-    Query$greWords instance,
-    TRes Function(Query$greWords) then,
-  ) = _CopyWithImpl$Query$greWords;
+abstract class CopyWith$Query$GreWords<TRes> {
+  factory CopyWith$Query$GreWords(
+    Query$GreWords instance,
+    TRes Function(Query$GreWords) then,
+  ) = _CopyWithImpl$Query$GreWords;
 
-  factory CopyWith$Query$greWords.stub(TRes res) =
-      _CopyWithStubImpl$Query$greWords;
+  factory CopyWith$Query$GreWords.stub(TRes res) =
+      _CopyWithStubImpl$Query$GreWords;
 
   TRes call({
     List<Fragment$GreWordFields>? greWords,
@@ -1111,16 +1111,16 @@ abstract class CopyWith$Query$greWords<TRes> {
           _fn);
 }
 
-class _CopyWithImpl$Query$greWords<TRes>
-    implements CopyWith$Query$greWords<TRes> {
-  _CopyWithImpl$Query$greWords(
+class _CopyWithImpl$Query$GreWords<TRes>
+    implements CopyWith$Query$GreWords<TRes> {
+  _CopyWithImpl$Query$GreWords(
     this._instance,
     this._then,
   );
 
-  final Query$greWords _instance;
+  final Query$GreWords _instance;
 
-  final TRes Function(Query$greWords) _then;
+  final TRes Function(Query$GreWords) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1129,7 +1129,7 @@ class _CopyWithImpl$Query$greWords<TRes>
     Object? greWordsCount = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$greWords(
+      _then(Query$GreWords(
         greWords: greWords == _undefined || greWords == null
             ? _instance.greWords
             : (greWords as List<Fragment$GreWordFields>),
@@ -1154,9 +1154,9 @@ class _CopyWithImpl$Query$greWords<TRes>
                   ))).toList());
 }
 
-class _CopyWithStubImpl$Query$greWords<TRes>
-    implements CopyWith$Query$greWords<TRes> {
-  _CopyWithStubImpl$Query$greWords(this._res);
+class _CopyWithStubImpl$Query$GreWords<TRes>
+    implements CopyWith$Query$GreWords<TRes> {
+  _CopyWithStubImpl$Query$GreWords(this._res);
 
   TRes _res;
 
@@ -1170,10 +1170,10 @@ class _CopyWithStubImpl$Query$greWords<TRes>
   greWords(_fn) => _res;
 }
 
-const documentNodeQuerygreWords = DocumentNode(definitions: [
+const documentNodeQueryGreWords = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'greWords'),
+    name: NameNode(value: 'GreWords'),
     variableDefinitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'where')),
@@ -1276,25 +1276,25 @@ const documentNodeQuerygreWords = DocumentNode(definitions: [
   ),
   fragmentDefinitionGreWordFields,
 ]);
-Query$greWords _parserFn$Query$greWords(Map<String, dynamic> data) =>
-    Query$greWords.fromJson(data);
-typedef OnQueryComplete$Query$greWords = FutureOr<void> Function(
+Query$GreWords _parserFn$Query$GreWords(Map<String, dynamic> data) =>
+    Query$GreWords.fromJson(data);
+typedef OnQueryComplete$Query$GreWords = FutureOr<void> Function(
   Map<String, dynamic>?,
-  Query$greWords?,
+  Query$GreWords?,
 );
 
-class Options$Query$greWords extends graphql.QueryOptions<Query$greWords> {
-  Options$Query$greWords({
+class Options$Query$GreWords extends graphql.QueryOptions<Query$GreWords> {
+  Options$Query$GreWords({
     String? operationName,
-    Variables$Query$greWords? variables,
+    Variables$Query$GreWords? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$greWords? typedOptimisticResult,
+    Query$GreWords? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-    OnQueryComplete$Query$greWords? onComplete,
+    OnQueryComplete$Query$GreWords? onComplete,
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
@@ -1310,14 +1310,14 @@ class Options$Query$greWords extends graphql.QueryOptions<Query$greWords> {
               ? null
               : (data) => onComplete(
                     data,
-                    data == null ? null : _parserFn$Query$greWords(data),
+                    data == null ? null : _parserFn$Query$GreWords(data),
                   ),
           onError: onError,
-          document: documentNodeQuerygreWords,
-          parserFn: _parserFn$Query$greWords,
+          document: documentNodeQueryGreWords,
+          parserFn: _parserFn$Query$GreWords,
         );
 
-  final OnQueryComplete$Query$greWords? onCompleteWithParsed;
+  final OnQueryComplete$Query$GreWords? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -1328,16 +1328,16 @@ class Options$Query$greWords extends graphql.QueryOptions<Query$greWords> {
       ];
 }
 
-class WatchOptions$Query$greWords
-    extends graphql.WatchQueryOptions<Query$greWords> {
-  WatchOptions$Query$greWords({
+class WatchOptions$Query$GreWords
+    extends graphql.WatchQueryOptions<Query$GreWords> {
+  WatchOptions$Query$GreWords({
     String? operationName,
-    Variables$Query$greWords? variables,
+    Variables$Query$GreWords? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$greWords? typedOptimisticResult,
+    Query$GreWords? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -1351,76 +1351,76 @@ class WatchOptions$Query$greWords
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeQuerygreWords,
+          document: documentNodeQueryGreWords,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$greWords,
+          parserFn: _parserFn$Query$GreWords,
         );
 }
 
-class FetchMoreOptions$Query$greWords extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$greWords({
+class FetchMoreOptions$Query$GreWords extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GreWords({
     required graphql.UpdateQuery updateQuery,
-    Variables$Query$greWords? variables,
+    Variables$Query$GreWords? variables,
   }) : super(
           updateQuery: updateQuery,
           variables: variables?.toJson() ?? {},
-          document: documentNodeQuerygreWords,
+          document: documentNodeQueryGreWords,
         );
 }
 
-extension ClientExtension$Query$greWords on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$greWords>> query$greWords(
-          [Options$Query$greWords? options]) async =>
-      await this.query(options ?? Options$Query$greWords());
-  graphql.ObservableQuery<Query$greWords> watchQuery$greWords(
-          [WatchOptions$Query$greWords? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$greWords());
-  void writeQuery$greWords({
-    required Query$greWords data,
-    Variables$Query$greWords? variables,
+extension ClientExtension$Query$GreWords on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GreWords>> query$GreWords(
+          [Options$Query$GreWords? options]) async =>
+      await this.query(options ?? Options$Query$GreWords());
+  graphql.ObservableQuery<Query$GreWords> watchQuery$GreWords(
+          [WatchOptions$Query$GreWords? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$GreWords());
+  void writeQuery$GreWords({
+    required Query$GreWords data,
+    Variables$Query$GreWords? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
-          operation: graphql.Operation(document: documentNodeQuerygreWords),
+          operation: graphql.Operation(document: documentNodeQueryGreWords),
           variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Query$greWords? readQuery$greWords({
-    Variables$Query$greWords? variables,
+  Query$GreWords? readQuery$GreWords({
+    Variables$Query$GreWords? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation: graphql.Operation(document: documentNodeQuerygreWords),
+        operation: graphql.Operation(document: documentNodeQueryGreWords),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
-    return result == null ? null : Query$greWords.fromJson(result);
+    return result == null ? null : Query$GreWords.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$greWords> useQuery$greWords(
-        [Options$Query$greWords? options]) =>
-    graphql_flutter.useQuery(options ?? Options$Query$greWords());
-graphql.ObservableQuery<Query$greWords> useWatchQuery$greWords(
-        [WatchOptions$Query$greWords? options]) =>
-    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$greWords());
+graphql_flutter.QueryHookResult<Query$GreWords> useQuery$GreWords(
+        [Options$Query$GreWords? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$GreWords());
+graphql.ObservableQuery<Query$GreWords> useWatchQuery$GreWords(
+        [WatchOptions$Query$GreWords? options]) =>
+    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$GreWords());
 
-class Query$greWords$Widget extends graphql_flutter.Query<Query$greWords> {
-  Query$greWords$Widget({
+class Query$GreWords$Widget extends graphql_flutter.Query<Query$GreWords> {
+  Query$GreWords$Widget({
     widgets.Key? key,
-    Options$Query$greWords? options,
-    required graphql_flutter.QueryBuilder<Query$greWords> builder,
+    Options$Query$GreWords? options,
+    required graphql_flutter.QueryBuilder<Query$GreWords> builder,
   }) : super(
           key: key,
-          options: options ?? Options$Query$greWords(),
+          options: options ?? Options$Query$GreWords(),
           builder: builder,
         );
 }

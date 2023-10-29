@@ -11,14 +11,14 @@ class WordSearchResultView extends HookWidget {
   Widget build(BuildContext context) {
     final promptInput =
         "list meaning and 3 easy example sentences for word - ${word}";
-    final sendSinglePrompt = useQuery$sendSinglePrompt(
-        Options$Query$sendSinglePrompt(
-            variables: Variables$Query$sendSinglePrompt(input: promptInput)));
+    final sendSinglePromptQuery = useQuery$SendSinglePrompt(
+        Options$Query$SendSinglePrompt(
+            variables: Variables$Query$SendSinglePrompt(input: promptInput)));
 
-    final createGreWord = useMutation$createGreWord();
+    final createGreWordMutation = useMutation$CreateGreWord();
 
     final promptResponse =
-        sendSinglePrompt.result.parsedData?.sendSinglePrompt.result;
+        sendSinglePromptQuery.result.parsedData?.sendSinglePrompt.result;
     return Container(
       child: promptResponse == null
           ? CircularProgressIndicator()
@@ -28,9 +28,9 @@ class WordSearchResultView extends HookWidget {
               ),
               ElevatedButton(
                 onPressed: () async {
-                  final result = await createGreWord
+                  final result = await createGreWordMutation
                       .runMutation(
-                        Variables$Mutation$createGreWord(
+                        Variables$Mutation$CreateGreWord(
                           spelling: word,
                           promptInput: promptInput,
                           promptResponse: promptResponse,
@@ -47,7 +47,8 @@ class WordSearchResultView extends HookWidget {
                 },
                 child: Text('Save'),
               ),
-              Text(createGreWord.result.parsedData?.createGreWord.spelling ??
+              Text(createGreWordMutation
+                      .result.parsedData?.createGreWord.spelling ??
                   ''),
             ]),
     );

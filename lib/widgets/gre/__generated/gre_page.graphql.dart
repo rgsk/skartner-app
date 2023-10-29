@@ -6,14 +6,14 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-class Variables$Query$sendSinglePrompt {
-  factory Variables$Query$sendSinglePrompt({
+class Variables$Query$SendSinglePrompt {
+  factory Variables$Query$SendSinglePrompt({
     required String input,
     bool? skipCache,
     List<int>? indexesReturned,
     int? resultIndexFromCache,
   }) =>
-      Variables$Query$sendSinglePrompt._({
+      Variables$Query$SendSinglePrompt._({
         r'input': input,
         if (skipCache != null) r'skipCache': skipCache,
         if (indexesReturned != null) r'indexesReturned': indexesReturned,
@@ -21,9 +21,9 @@ class Variables$Query$sendSinglePrompt {
           r'resultIndexFromCache': resultIndexFromCache,
       });
 
-  Variables$Query$sendSinglePrompt._(this._$data);
+  Variables$Query$SendSinglePrompt._(this._$data);
 
-  factory Variables$Query$sendSinglePrompt.fromJson(Map<String, dynamic> data) {
+  factory Variables$Query$SendSinglePrompt.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$input = data['input'];
     result$data['input'] = (l$input as String);
@@ -41,7 +41,7 @@ class Variables$Query$sendSinglePrompt {
       final l$resultIndexFromCache = data['resultIndexFromCache'];
       result$data['resultIndexFromCache'] = (l$resultIndexFromCache as int?);
     }
-    return Variables$Query$sendSinglePrompt._(result$data);
+    return Variables$Query$SendSinglePrompt._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -74,8 +74,8 @@ class Variables$Query$sendSinglePrompt {
     return result$data;
   }
 
-  CopyWith$Variables$Query$sendSinglePrompt<Variables$Query$sendSinglePrompt>
-      get copyWith => CopyWith$Variables$Query$sendSinglePrompt(
+  CopyWith$Variables$Query$SendSinglePrompt<Variables$Query$SendSinglePrompt>
+      get copyWith => CopyWith$Variables$Query$SendSinglePrompt(
             this,
             (i) => i,
           );
@@ -85,7 +85,7 @@ class Variables$Query$sendSinglePrompt {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$sendSinglePrompt) ||
+    if (!(other is Variables$Query$SendSinglePrompt) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -156,14 +156,14 @@ class Variables$Query$sendSinglePrompt {
   }
 }
 
-abstract class CopyWith$Variables$Query$sendSinglePrompt<TRes> {
-  factory CopyWith$Variables$Query$sendSinglePrompt(
-    Variables$Query$sendSinglePrompt instance,
-    TRes Function(Variables$Query$sendSinglePrompt) then,
-  ) = _CopyWithImpl$Variables$Query$sendSinglePrompt;
+abstract class CopyWith$Variables$Query$SendSinglePrompt<TRes> {
+  factory CopyWith$Variables$Query$SendSinglePrompt(
+    Variables$Query$SendSinglePrompt instance,
+    TRes Function(Variables$Query$SendSinglePrompt) then,
+  ) = _CopyWithImpl$Variables$Query$SendSinglePrompt;
 
-  factory CopyWith$Variables$Query$sendSinglePrompt.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Query$sendSinglePrompt;
+  factory CopyWith$Variables$Query$SendSinglePrompt.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$SendSinglePrompt;
 
   TRes call({
     String? input,
@@ -173,16 +173,16 @@ abstract class CopyWith$Variables$Query$sendSinglePrompt<TRes> {
   });
 }
 
-class _CopyWithImpl$Variables$Query$sendSinglePrompt<TRes>
-    implements CopyWith$Variables$Query$sendSinglePrompt<TRes> {
-  _CopyWithImpl$Variables$Query$sendSinglePrompt(
+class _CopyWithImpl$Variables$Query$SendSinglePrompt<TRes>
+    implements CopyWith$Variables$Query$SendSinglePrompt<TRes> {
+  _CopyWithImpl$Variables$Query$SendSinglePrompt(
     this._instance,
     this._then,
   );
 
-  final Variables$Query$sendSinglePrompt _instance;
+  final Variables$Query$SendSinglePrompt _instance;
 
-  final TRes Function(Variables$Query$sendSinglePrompt) _then;
+  final TRes Function(Variables$Query$SendSinglePrompt) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -192,7 +192,7 @@ class _CopyWithImpl$Variables$Query$sendSinglePrompt<TRes>
     Object? indexesReturned = _undefined,
     Object? resultIndexFromCache = _undefined,
   }) =>
-      _then(Variables$Query$sendSinglePrompt._({
+      _then(Variables$Query$SendSinglePrompt._({
         ..._instance._$data,
         if (input != _undefined && input != null) 'input': (input as String),
         if (skipCache != _undefined) 'skipCache': (skipCache as bool?),
@@ -203,9 +203,9 @@ class _CopyWithImpl$Variables$Query$sendSinglePrompt<TRes>
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$sendSinglePrompt<TRes>
-    implements CopyWith$Variables$Query$sendSinglePrompt<TRes> {
-  _CopyWithStubImpl$Variables$Query$sendSinglePrompt(this._res);
+class _CopyWithStubImpl$Variables$Query$SendSinglePrompt<TRes>
+    implements CopyWith$Variables$Query$SendSinglePrompt<TRes> {
+  _CopyWithStubImpl$Variables$Query$SendSinglePrompt(this._res);
 
   TRes _res;
 
@@ -218,23 +218,23 @@ class _CopyWithStubImpl$Variables$Query$sendSinglePrompt<TRes>
       _res;
 }
 
-class Query$sendSinglePrompt {
-  Query$sendSinglePrompt({
+class Query$SendSinglePrompt {
+  Query$SendSinglePrompt({
     required this.sendSinglePrompt,
     this.$__typename = 'Query',
   });
 
-  factory Query$sendSinglePrompt.fromJson(Map<String, dynamic> json) {
+  factory Query$SendSinglePrompt.fromJson(Map<String, dynamic> json) {
     final l$sendSinglePrompt = json['sendSinglePrompt'];
     final l$$__typename = json['__typename'];
-    return Query$sendSinglePrompt(
-      sendSinglePrompt: Query$sendSinglePrompt$sendSinglePrompt.fromJson(
+    return Query$SendSinglePrompt(
+      sendSinglePrompt: Query$SendSinglePrompt$sendSinglePrompt.fromJson(
           (l$sendSinglePrompt as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Query$sendSinglePrompt$sendSinglePrompt sendSinglePrompt;
+  final Query$SendSinglePrompt$sendSinglePrompt sendSinglePrompt;
 
   final String $__typename;
 
@@ -262,7 +262,7 @@ class Query$sendSinglePrompt {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$sendSinglePrompt) ||
+    if (!(other is Query$SendSinglePrompt) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -280,40 +280,40 @@ class Query$sendSinglePrompt {
   }
 }
 
-extension UtilityExtension$Query$sendSinglePrompt on Query$sendSinglePrompt {
-  CopyWith$Query$sendSinglePrompt<Query$sendSinglePrompt> get copyWith =>
-      CopyWith$Query$sendSinglePrompt(
+extension UtilityExtension$Query$SendSinglePrompt on Query$SendSinglePrompt {
+  CopyWith$Query$SendSinglePrompt<Query$SendSinglePrompt> get copyWith =>
+      CopyWith$Query$SendSinglePrompt(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWith$Query$sendSinglePrompt<TRes> {
-  factory CopyWith$Query$sendSinglePrompt(
-    Query$sendSinglePrompt instance,
-    TRes Function(Query$sendSinglePrompt) then,
-  ) = _CopyWithImpl$Query$sendSinglePrompt;
+abstract class CopyWith$Query$SendSinglePrompt<TRes> {
+  factory CopyWith$Query$SendSinglePrompt(
+    Query$SendSinglePrompt instance,
+    TRes Function(Query$SendSinglePrompt) then,
+  ) = _CopyWithImpl$Query$SendSinglePrompt;
 
-  factory CopyWith$Query$sendSinglePrompt.stub(TRes res) =
-      _CopyWithStubImpl$Query$sendSinglePrompt;
+  factory CopyWith$Query$SendSinglePrompt.stub(TRes res) =
+      _CopyWithStubImpl$Query$SendSinglePrompt;
 
   TRes call({
-    Query$sendSinglePrompt$sendSinglePrompt? sendSinglePrompt,
+    Query$SendSinglePrompt$sendSinglePrompt? sendSinglePrompt,
     String? $__typename,
   });
-  CopyWith$Query$sendSinglePrompt$sendSinglePrompt<TRes> get sendSinglePrompt;
+  CopyWith$Query$SendSinglePrompt$sendSinglePrompt<TRes> get sendSinglePrompt;
 }
 
-class _CopyWithImpl$Query$sendSinglePrompt<TRes>
-    implements CopyWith$Query$sendSinglePrompt<TRes> {
-  _CopyWithImpl$Query$sendSinglePrompt(
+class _CopyWithImpl$Query$SendSinglePrompt<TRes>
+    implements CopyWith$Query$SendSinglePrompt<TRes> {
+  _CopyWithImpl$Query$SendSinglePrompt(
     this._instance,
     this._then,
   );
 
-  final Query$sendSinglePrompt _instance;
+  final Query$SendSinglePrompt _instance;
 
-  final TRes Function(Query$sendSinglePrompt) _then;
+  final TRes Function(Query$SendSinglePrompt) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -321,43 +321,43 @@ class _CopyWithImpl$Query$sendSinglePrompt<TRes>
     Object? sendSinglePrompt = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$sendSinglePrompt(
+      _then(Query$SendSinglePrompt(
         sendSinglePrompt:
             sendSinglePrompt == _undefined || sendSinglePrompt == null
                 ? _instance.sendSinglePrompt
-                : (sendSinglePrompt as Query$sendSinglePrompt$sendSinglePrompt),
+                : (sendSinglePrompt as Query$SendSinglePrompt$sendSinglePrompt),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Query$sendSinglePrompt$sendSinglePrompt<TRes> get sendSinglePrompt {
+  CopyWith$Query$SendSinglePrompt$sendSinglePrompt<TRes> get sendSinglePrompt {
     final local$sendSinglePrompt = _instance.sendSinglePrompt;
-    return CopyWith$Query$sendSinglePrompt$sendSinglePrompt(
+    return CopyWith$Query$SendSinglePrompt$sendSinglePrompt(
         local$sendSinglePrompt, (e) => call(sendSinglePrompt: e));
   }
 }
 
-class _CopyWithStubImpl$Query$sendSinglePrompt<TRes>
-    implements CopyWith$Query$sendSinglePrompt<TRes> {
-  _CopyWithStubImpl$Query$sendSinglePrompt(this._res);
+class _CopyWithStubImpl$Query$SendSinglePrompt<TRes>
+    implements CopyWith$Query$SendSinglePrompt<TRes> {
+  _CopyWithStubImpl$Query$SendSinglePrompt(this._res);
 
   TRes _res;
 
   call({
-    Query$sendSinglePrompt$sendSinglePrompt? sendSinglePrompt,
+    Query$SendSinglePrompt$sendSinglePrompt? sendSinglePrompt,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Query$sendSinglePrompt$sendSinglePrompt<TRes> get sendSinglePrompt =>
-      CopyWith$Query$sendSinglePrompt$sendSinglePrompt.stub(_res);
+  CopyWith$Query$SendSinglePrompt$sendSinglePrompt<TRes> get sendSinglePrompt =>
+      CopyWith$Query$SendSinglePrompt$sendSinglePrompt.stub(_res);
 }
 
-const documentNodeQuerysendSinglePrompt = DocumentNode(definitions: [
+const documentNodeQuerySendSinglePrompt = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'sendSinglePrompt'),
+    name: NameNode(value: 'SendSinglePrompt'),
     variableDefinitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'input')),
@@ -471,27 +471,27 @@ const documentNodeQuerysendSinglePrompt = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Query$sendSinglePrompt _parserFn$Query$sendSinglePrompt(
+Query$SendSinglePrompt _parserFn$Query$SendSinglePrompt(
         Map<String, dynamic> data) =>
-    Query$sendSinglePrompt.fromJson(data);
-typedef OnQueryComplete$Query$sendSinglePrompt = FutureOr<void> Function(
+    Query$SendSinglePrompt.fromJson(data);
+typedef OnQueryComplete$Query$SendSinglePrompt = FutureOr<void> Function(
   Map<String, dynamic>?,
-  Query$sendSinglePrompt?,
+  Query$SendSinglePrompt?,
 );
 
-class Options$Query$sendSinglePrompt
-    extends graphql.QueryOptions<Query$sendSinglePrompt> {
-  Options$Query$sendSinglePrompt({
+class Options$Query$SendSinglePrompt
+    extends graphql.QueryOptions<Query$SendSinglePrompt> {
+  Options$Query$SendSinglePrompt({
     String? operationName,
-    required Variables$Query$sendSinglePrompt variables,
+    required Variables$Query$SendSinglePrompt variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$sendSinglePrompt? typedOptimisticResult,
+    Query$SendSinglePrompt? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-    OnQueryComplete$Query$sendSinglePrompt? onComplete,
+    OnQueryComplete$Query$SendSinglePrompt? onComplete,
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
@@ -509,14 +509,14 @@ class Options$Query$sendSinglePrompt
                     data,
                     data == null
                         ? null
-                        : _parserFn$Query$sendSinglePrompt(data),
+                        : _parserFn$Query$SendSinglePrompt(data),
                   ),
           onError: onError,
-          document: documentNodeQuerysendSinglePrompt,
-          parserFn: _parserFn$Query$sendSinglePrompt,
+          document: documentNodeQuerySendSinglePrompt,
+          parserFn: _parserFn$Query$SendSinglePrompt,
         );
 
-  final OnQueryComplete$Query$sendSinglePrompt? onCompleteWithParsed;
+  final OnQueryComplete$Query$SendSinglePrompt? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -527,16 +527,16 @@ class Options$Query$sendSinglePrompt
       ];
 }
 
-class WatchOptions$Query$sendSinglePrompt
-    extends graphql.WatchQueryOptions<Query$sendSinglePrompt> {
-  WatchOptions$Query$sendSinglePrompt({
+class WatchOptions$Query$SendSinglePrompt
+    extends graphql.WatchQueryOptions<Query$SendSinglePrompt> {
+  WatchOptions$Query$SendSinglePrompt({
     String? operationName,
-    required Variables$Query$sendSinglePrompt variables,
+    required Variables$Query$SendSinglePrompt variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$sendSinglePrompt? typedOptimisticResult,
+    Query$SendSinglePrompt? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -550,76 +550,76 @@ class WatchOptions$Query$sendSinglePrompt
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeQuerysendSinglePrompt,
+          document: documentNodeQuerySendSinglePrompt,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$sendSinglePrompt,
+          parserFn: _parserFn$Query$SendSinglePrompt,
         );
 }
 
-class FetchMoreOptions$Query$sendSinglePrompt extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$sendSinglePrompt({
+class FetchMoreOptions$Query$SendSinglePrompt extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$SendSinglePrompt({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$sendSinglePrompt variables,
+    required Variables$Query$SendSinglePrompt variables,
   }) : super(
           updateQuery: updateQuery,
           variables: variables.toJson(),
-          document: documentNodeQuerysendSinglePrompt,
+          document: documentNodeQuerySendSinglePrompt,
         );
 }
 
-extension ClientExtension$Query$sendSinglePrompt on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$sendSinglePrompt>> query$sendSinglePrompt(
-          Options$Query$sendSinglePrompt options) async =>
+extension ClientExtension$Query$SendSinglePrompt on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$SendSinglePrompt>> query$SendSinglePrompt(
+          Options$Query$SendSinglePrompt options) async =>
       await this.query(options);
-  graphql.ObservableQuery<Query$sendSinglePrompt> watchQuery$sendSinglePrompt(
-          WatchOptions$Query$sendSinglePrompt options) =>
+  graphql.ObservableQuery<Query$SendSinglePrompt> watchQuery$SendSinglePrompt(
+          WatchOptions$Query$SendSinglePrompt options) =>
       this.watchQuery(options);
-  void writeQuery$sendSinglePrompt({
-    required Query$sendSinglePrompt data,
-    required Variables$Query$sendSinglePrompt variables,
+  void writeQuery$SendSinglePrompt({
+    required Query$SendSinglePrompt data,
+    required Variables$Query$SendSinglePrompt variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation:
-              graphql.Operation(document: documentNodeQuerysendSinglePrompt),
+              graphql.Operation(document: documentNodeQuerySendSinglePrompt),
           variables: variables.toJson(),
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Query$sendSinglePrompt? readQuery$sendSinglePrompt({
-    required Variables$Query$sendSinglePrompt variables,
+  Query$SendSinglePrompt? readQuery$SendSinglePrompt({
+    required Variables$Query$SendSinglePrompt variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation:
-            graphql.Operation(document: documentNodeQuerysendSinglePrompt),
+            graphql.Operation(document: documentNodeQuerySendSinglePrompt),
         variables: variables.toJson(),
       ),
       optimistic: optimistic,
     );
-    return result == null ? null : Query$sendSinglePrompt.fromJson(result);
+    return result == null ? null : Query$SendSinglePrompt.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$sendSinglePrompt>
-    useQuery$sendSinglePrompt(Options$Query$sendSinglePrompt options) =>
+graphql_flutter.QueryHookResult<Query$SendSinglePrompt>
+    useQuery$SendSinglePrompt(Options$Query$SendSinglePrompt options) =>
         graphql_flutter.useQuery(options);
-graphql.ObservableQuery<Query$sendSinglePrompt> useWatchQuery$sendSinglePrompt(
-        WatchOptions$Query$sendSinglePrompt options) =>
+graphql.ObservableQuery<Query$SendSinglePrompt> useWatchQuery$SendSinglePrompt(
+        WatchOptions$Query$SendSinglePrompt options) =>
     graphql_flutter.useWatchQuery(options);
 
-class Query$sendSinglePrompt$Widget
-    extends graphql_flutter.Query<Query$sendSinglePrompt> {
-  Query$sendSinglePrompt$Widget({
+class Query$SendSinglePrompt$Widget
+    extends graphql_flutter.Query<Query$SendSinglePrompt> {
+  Query$SendSinglePrompt$Widget({
     widgets.Key? key,
-    required Options$Query$sendSinglePrompt options,
-    required graphql_flutter.QueryBuilder<Query$sendSinglePrompt> builder,
+    required Options$Query$SendSinglePrompt options,
+    required graphql_flutter.QueryBuilder<Query$SendSinglePrompt> builder,
   }) : super(
           key: key,
           options: options,
@@ -627,8 +627,8 @@ class Query$sendSinglePrompt$Widget
         );
 }
 
-class Query$sendSinglePrompt$sendSinglePrompt {
-  Query$sendSinglePrompt$sendSinglePrompt({
+class Query$SendSinglePrompt$sendSinglePrompt {
+  Query$SendSinglePrompt$sendSinglePrompt({
     this.result,
     this.resultIndex,
     this.error,
@@ -636,14 +636,14 @@ class Query$sendSinglePrompt$sendSinglePrompt {
     this.$__typename = 'SendSinglePromptResponse',
   });
 
-  factory Query$sendSinglePrompt$sendSinglePrompt.fromJson(
+  factory Query$SendSinglePrompt$sendSinglePrompt.fromJson(
       Map<String, dynamic> json) {
     final l$result = json['result'];
     final l$resultIndex = json['resultIndex'];
     final l$error = json['error'];
     final l$totalResultsInCache = json['totalResultsInCache'];
     final l$$__typename = json['__typename'];
-    return Query$sendSinglePrompt$sendSinglePrompt(
+    return Query$SendSinglePrompt$sendSinglePrompt(
       result: (l$result as String?),
       resultIndex: (l$resultIndex as int?),
       error: (l$error as String?),
@@ -698,7 +698,7 @@ class Query$sendSinglePrompt$sendSinglePrompt {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$sendSinglePrompt$sendSinglePrompt) ||
+    if (!(other is Query$SendSinglePrompt$sendSinglePrompt) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -731,24 +731,24 @@ class Query$sendSinglePrompt$sendSinglePrompt {
   }
 }
 
-extension UtilityExtension$Query$sendSinglePrompt$sendSinglePrompt
-    on Query$sendSinglePrompt$sendSinglePrompt {
-  CopyWith$Query$sendSinglePrompt$sendSinglePrompt<
-          Query$sendSinglePrompt$sendSinglePrompt>
-      get copyWith => CopyWith$Query$sendSinglePrompt$sendSinglePrompt(
+extension UtilityExtension$Query$SendSinglePrompt$sendSinglePrompt
+    on Query$SendSinglePrompt$sendSinglePrompt {
+  CopyWith$Query$SendSinglePrompt$sendSinglePrompt<
+          Query$SendSinglePrompt$sendSinglePrompt>
+      get copyWith => CopyWith$Query$SendSinglePrompt$sendSinglePrompt(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$sendSinglePrompt$sendSinglePrompt<TRes> {
-  factory CopyWith$Query$sendSinglePrompt$sendSinglePrompt(
-    Query$sendSinglePrompt$sendSinglePrompt instance,
-    TRes Function(Query$sendSinglePrompt$sendSinglePrompt) then,
-  ) = _CopyWithImpl$Query$sendSinglePrompt$sendSinglePrompt;
+abstract class CopyWith$Query$SendSinglePrompt$sendSinglePrompt<TRes> {
+  factory CopyWith$Query$SendSinglePrompt$sendSinglePrompt(
+    Query$SendSinglePrompt$sendSinglePrompt instance,
+    TRes Function(Query$SendSinglePrompt$sendSinglePrompt) then,
+  ) = _CopyWithImpl$Query$SendSinglePrompt$sendSinglePrompt;
 
-  factory CopyWith$Query$sendSinglePrompt$sendSinglePrompt.stub(TRes res) =
-      _CopyWithStubImpl$Query$sendSinglePrompt$sendSinglePrompt;
+  factory CopyWith$Query$SendSinglePrompt$sendSinglePrompt.stub(TRes res) =
+      _CopyWithStubImpl$Query$SendSinglePrompt$sendSinglePrompt;
 
   TRes call({
     String? result,
@@ -759,16 +759,16 @@ abstract class CopyWith$Query$sendSinglePrompt$sendSinglePrompt<TRes> {
   });
 }
 
-class _CopyWithImpl$Query$sendSinglePrompt$sendSinglePrompt<TRes>
-    implements CopyWith$Query$sendSinglePrompt$sendSinglePrompt<TRes> {
-  _CopyWithImpl$Query$sendSinglePrompt$sendSinglePrompt(
+class _CopyWithImpl$Query$SendSinglePrompt$sendSinglePrompt<TRes>
+    implements CopyWith$Query$SendSinglePrompt$sendSinglePrompt<TRes> {
+  _CopyWithImpl$Query$SendSinglePrompt$sendSinglePrompt(
     this._instance,
     this._then,
   );
 
-  final Query$sendSinglePrompt$sendSinglePrompt _instance;
+  final Query$SendSinglePrompt$sendSinglePrompt _instance;
 
-  final TRes Function(Query$sendSinglePrompt$sendSinglePrompt) _then;
+  final TRes Function(Query$SendSinglePrompt$sendSinglePrompt) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -779,7 +779,7 @@ class _CopyWithImpl$Query$sendSinglePrompt$sendSinglePrompt<TRes>
     Object? totalResultsInCache = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$sendSinglePrompt$sendSinglePrompt(
+      _then(Query$SendSinglePrompt$sendSinglePrompt(
         result: result == _undefined ? _instance.result : (result as String?),
         resultIndex: resultIndex == _undefined
             ? _instance.resultIndex
@@ -795,9 +795,9 @@ class _CopyWithImpl$Query$sendSinglePrompt$sendSinglePrompt<TRes>
       ));
 }
 
-class _CopyWithStubImpl$Query$sendSinglePrompt$sendSinglePrompt<TRes>
-    implements CopyWith$Query$sendSinglePrompt$sendSinglePrompt<TRes> {
-  _CopyWithStubImpl$Query$sendSinglePrompt$sendSinglePrompt(this._res);
+class _CopyWithStubImpl$Query$SendSinglePrompt$sendSinglePrompt<TRes>
+    implements CopyWith$Query$SendSinglePrompt$sendSinglePrompt<TRes> {
+  _CopyWithStubImpl$Query$SendSinglePrompt$sendSinglePrompt(this._res);
 
   TRes _res;
 
@@ -811,15 +811,15 @@ class _CopyWithStubImpl$Query$sendSinglePrompt$sendSinglePrompt<TRes>
       _res;
 }
 
-class Variables$Mutation$createGreWord {
-  factory Variables$Mutation$createGreWord({
+class Variables$Mutation$CreateGreWord {
+  factory Variables$Mutation$CreateGreWord({
     required String spelling,
     required String promptInput,
     required String promptResponse,
     required String userId,
     List<Input$GreWordTagWhereUniqueInput?>? greWordTags,
   }) =>
-      Variables$Mutation$createGreWord._({
+      Variables$Mutation$CreateGreWord._({
         r'spelling': spelling,
         r'promptInput': promptInput,
         r'promptResponse': promptResponse,
@@ -827,9 +827,9 @@ class Variables$Mutation$createGreWord {
         if (greWordTags != null) r'greWordTags': greWordTags,
       });
 
-  Variables$Mutation$createGreWord._(this._$data);
+  Variables$Mutation$CreateGreWord._(this._$data);
 
-  factory Variables$Mutation$createGreWord.fromJson(Map<String, dynamic> data) {
+  factory Variables$Mutation$CreateGreWord.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$spelling = data['spelling'];
     result$data['spelling'] = (l$spelling as String);
@@ -848,7 +848,7 @@ class Variables$Mutation$createGreWord {
                   (e as Map<String, dynamic>)))
           .toList();
     }
-    return Variables$Mutation$createGreWord._(result$data);
+    return Variables$Mutation$CreateGreWord._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -882,8 +882,8 @@ class Variables$Mutation$createGreWord {
     return result$data;
   }
 
-  CopyWith$Variables$Mutation$createGreWord<Variables$Mutation$createGreWord>
-      get copyWith => CopyWith$Variables$Mutation$createGreWord(
+  CopyWith$Variables$Mutation$CreateGreWord<Variables$Mutation$CreateGreWord>
+      get copyWith => CopyWith$Variables$Mutation$CreateGreWord(
             this,
             (i) => i,
           );
@@ -893,7 +893,7 @@ class Variables$Mutation$createGreWord {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$createGreWord) ||
+    if (!(other is Variables$Mutation$CreateGreWord) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -961,14 +961,14 @@ class Variables$Mutation$createGreWord {
   }
 }
 
-abstract class CopyWith$Variables$Mutation$createGreWord<TRes> {
-  factory CopyWith$Variables$Mutation$createGreWord(
-    Variables$Mutation$createGreWord instance,
-    TRes Function(Variables$Mutation$createGreWord) then,
-  ) = _CopyWithImpl$Variables$Mutation$createGreWord;
+abstract class CopyWith$Variables$Mutation$CreateGreWord<TRes> {
+  factory CopyWith$Variables$Mutation$CreateGreWord(
+    Variables$Mutation$CreateGreWord instance,
+    TRes Function(Variables$Mutation$CreateGreWord) then,
+  ) = _CopyWithImpl$Variables$Mutation$CreateGreWord;
 
-  factory CopyWith$Variables$Mutation$createGreWord.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Mutation$createGreWord;
+  factory CopyWith$Variables$Mutation$CreateGreWord.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$CreateGreWord;
 
   TRes call({
     String? spelling,
@@ -979,16 +979,16 @@ abstract class CopyWith$Variables$Mutation$createGreWord<TRes> {
   });
 }
 
-class _CopyWithImpl$Variables$Mutation$createGreWord<TRes>
-    implements CopyWith$Variables$Mutation$createGreWord<TRes> {
-  _CopyWithImpl$Variables$Mutation$createGreWord(
+class _CopyWithImpl$Variables$Mutation$CreateGreWord<TRes>
+    implements CopyWith$Variables$Mutation$CreateGreWord<TRes> {
+  _CopyWithImpl$Variables$Mutation$CreateGreWord(
     this._instance,
     this._then,
   );
 
-  final Variables$Mutation$createGreWord _instance;
+  final Variables$Mutation$CreateGreWord _instance;
 
-  final TRes Function(Variables$Mutation$createGreWord) _then;
+  final TRes Function(Variables$Mutation$CreateGreWord) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -999,7 +999,7 @@ class _CopyWithImpl$Variables$Mutation$createGreWord<TRes>
     Object? userId = _undefined,
     Object? greWordTags = _undefined,
   }) =>
-      _then(Variables$Mutation$createGreWord._({
+      _then(Variables$Mutation$CreateGreWord._({
         ..._instance._$data,
         if (spelling != _undefined && spelling != null)
           'spelling': (spelling as String),
@@ -1015,9 +1015,9 @@ class _CopyWithImpl$Variables$Mutation$createGreWord<TRes>
       }));
 }
 
-class _CopyWithStubImpl$Variables$Mutation$createGreWord<TRes>
-    implements CopyWith$Variables$Mutation$createGreWord<TRes> {
-  _CopyWithStubImpl$Variables$Mutation$createGreWord(this._res);
+class _CopyWithStubImpl$Variables$Mutation$CreateGreWord<TRes>
+    implements CopyWith$Variables$Mutation$CreateGreWord<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$CreateGreWord(this._res);
 
   TRes _res;
 
@@ -1031,16 +1031,16 @@ class _CopyWithStubImpl$Variables$Mutation$createGreWord<TRes>
       _res;
 }
 
-class Mutation$createGreWord {
-  Mutation$createGreWord({
+class Mutation$CreateGreWord {
+  Mutation$CreateGreWord({
     required this.createGreWord,
     this.$__typename = 'Mutation',
   });
 
-  factory Mutation$createGreWord.fromJson(Map<String, dynamic> json) {
+  factory Mutation$CreateGreWord.fromJson(Map<String, dynamic> json) {
     final l$createGreWord = json['createGreWord'];
     final l$$__typename = json['__typename'];
-    return Mutation$createGreWord(
+    return Mutation$CreateGreWord(
       createGreWord: Fragment$GreWordFields.fromJson(
           (l$createGreWord as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
@@ -1075,7 +1075,7 @@ class Mutation$createGreWord {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$createGreWord) ||
+    if (!(other is Mutation$CreateGreWord) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1093,22 +1093,22 @@ class Mutation$createGreWord {
   }
 }
 
-extension UtilityExtension$Mutation$createGreWord on Mutation$createGreWord {
-  CopyWith$Mutation$createGreWord<Mutation$createGreWord> get copyWith =>
-      CopyWith$Mutation$createGreWord(
+extension UtilityExtension$Mutation$CreateGreWord on Mutation$CreateGreWord {
+  CopyWith$Mutation$CreateGreWord<Mutation$CreateGreWord> get copyWith =>
+      CopyWith$Mutation$CreateGreWord(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWith$Mutation$createGreWord<TRes> {
-  factory CopyWith$Mutation$createGreWord(
-    Mutation$createGreWord instance,
-    TRes Function(Mutation$createGreWord) then,
-  ) = _CopyWithImpl$Mutation$createGreWord;
+abstract class CopyWith$Mutation$CreateGreWord<TRes> {
+  factory CopyWith$Mutation$CreateGreWord(
+    Mutation$CreateGreWord instance,
+    TRes Function(Mutation$CreateGreWord) then,
+  ) = _CopyWithImpl$Mutation$CreateGreWord;
 
-  factory CopyWith$Mutation$createGreWord.stub(TRes res) =
-      _CopyWithStubImpl$Mutation$createGreWord;
+  factory CopyWith$Mutation$CreateGreWord.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$CreateGreWord;
 
   TRes call({
     Fragment$GreWordFields? createGreWord,
@@ -1117,16 +1117,16 @@ abstract class CopyWith$Mutation$createGreWord<TRes> {
   CopyWith$Fragment$GreWordFields<TRes> get createGreWord;
 }
 
-class _CopyWithImpl$Mutation$createGreWord<TRes>
-    implements CopyWith$Mutation$createGreWord<TRes> {
-  _CopyWithImpl$Mutation$createGreWord(
+class _CopyWithImpl$Mutation$CreateGreWord<TRes>
+    implements CopyWith$Mutation$CreateGreWord<TRes> {
+  _CopyWithImpl$Mutation$CreateGreWord(
     this._instance,
     this._then,
   );
 
-  final Mutation$createGreWord _instance;
+  final Mutation$CreateGreWord _instance;
 
-  final TRes Function(Mutation$createGreWord) _then;
+  final TRes Function(Mutation$CreateGreWord) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1134,7 +1134,7 @@ class _CopyWithImpl$Mutation$createGreWord<TRes>
     Object? createGreWord = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Mutation$createGreWord(
+      _then(Mutation$CreateGreWord(
         createGreWord: createGreWord == _undefined || createGreWord == null
             ? _instance.createGreWord
             : (createGreWord as Fragment$GreWordFields),
@@ -1150,9 +1150,9 @@ class _CopyWithImpl$Mutation$createGreWord<TRes>
   }
 }
 
-class _CopyWithStubImpl$Mutation$createGreWord<TRes>
-    implements CopyWith$Mutation$createGreWord<TRes> {
-  _CopyWithStubImpl$Mutation$createGreWord(this._res);
+class _CopyWithStubImpl$Mutation$CreateGreWord<TRes>
+    implements CopyWith$Mutation$CreateGreWord<TRes> {
+  _CopyWithStubImpl$Mutation$CreateGreWord(this._res);
 
   TRes _res;
 
@@ -1166,10 +1166,10 @@ class _CopyWithStubImpl$Mutation$createGreWord<TRes>
       CopyWith$Fragment$GreWordFields.stub(_res);
 }
 
-const documentNodeMutationcreateGreWord = DocumentNode(definitions: [
+const documentNodeMutationCreateGreWord = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.mutation,
-    name: NameNode(value: 'createGreWord'),
+    name: NameNode(value: 'CreateGreWord'),
     variableDefinitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'spelling')),
@@ -1273,27 +1273,27 @@ const documentNodeMutationcreateGreWord = DocumentNode(definitions: [
   ),
   fragmentDefinitionGreWordFields,
 ]);
-Mutation$createGreWord _parserFn$Mutation$createGreWord(
+Mutation$CreateGreWord _parserFn$Mutation$CreateGreWord(
         Map<String, dynamic> data) =>
-    Mutation$createGreWord.fromJson(data);
-typedef OnMutationCompleted$Mutation$createGreWord = FutureOr<void> Function(
+    Mutation$CreateGreWord.fromJson(data);
+typedef OnMutationCompleted$Mutation$CreateGreWord = FutureOr<void> Function(
   Map<String, dynamic>?,
-  Mutation$createGreWord?,
+  Mutation$CreateGreWord?,
 );
 
-class Options$Mutation$createGreWord
-    extends graphql.MutationOptions<Mutation$createGreWord> {
-  Options$Mutation$createGreWord({
+class Options$Mutation$CreateGreWord
+    extends graphql.MutationOptions<Mutation$CreateGreWord> {
+  Options$Mutation$CreateGreWord({
     String? operationName,
-    required Variables$Mutation$createGreWord variables,
+    required Variables$Mutation$CreateGreWord variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Mutation$createGreWord? typedOptimisticResult,
+    Mutation$CreateGreWord? typedOptimisticResult,
     graphql.Context? context,
-    OnMutationCompleted$Mutation$createGreWord? onCompleted,
-    graphql.OnMutationUpdate<Mutation$createGreWord>? update,
+    OnMutationCompleted$Mutation$CreateGreWord? onCompleted,
+    graphql.OnMutationUpdate<Mutation$CreateGreWord>? update,
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
@@ -1310,15 +1310,15 @@ class Options$Mutation$createGreWord
                     data,
                     data == null
                         ? null
-                        : _parserFn$Mutation$createGreWord(data),
+                        : _parserFn$Mutation$CreateGreWord(data),
                   ),
           update: update,
           onError: onError,
-          document: documentNodeMutationcreateGreWord,
-          parserFn: _parserFn$Mutation$createGreWord,
+          document: documentNodeMutationCreateGreWord,
+          parserFn: _parserFn$Mutation$CreateGreWord,
         );
 
-  final OnMutationCompleted$Mutation$createGreWord? onCompletedWithParsed;
+  final OnMutationCompleted$Mutation$CreateGreWord? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -1329,16 +1329,16 @@ class Options$Mutation$createGreWord
       ];
 }
 
-class WatchOptions$Mutation$createGreWord
-    extends graphql.WatchQueryOptions<Mutation$createGreWord> {
-  WatchOptions$Mutation$createGreWord({
+class WatchOptions$Mutation$CreateGreWord
+    extends graphql.WatchQueryOptions<Mutation$CreateGreWord> {
+  WatchOptions$Mutation$CreateGreWord({
     String? operationName,
-    required Variables$Mutation$createGreWord variables,
+    required Variables$Mutation$CreateGreWord variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Mutation$createGreWord? typedOptimisticResult,
+    Mutation$CreateGreWord? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -1352,40 +1352,40 @@ class WatchOptions$Mutation$createGreWord
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeMutationcreateGreWord,
+          document: documentNodeMutationCreateGreWord,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Mutation$createGreWord,
+          parserFn: _parserFn$Mutation$CreateGreWord,
         );
 }
 
-extension ClientExtension$Mutation$createGreWord on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$createGreWord>> mutate$createGreWord(
-          Options$Mutation$createGreWord options) async =>
+extension ClientExtension$Mutation$CreateGreWord on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$CreateGreWord>> mutate$CreateGreWord(
+          Options$Mutation$CreateGreWord options) async =>
       await this.mutate(options);
-  graphql.ObservableQuery<Mutation$createGreWord> watchMutation$createGreWord(
-          WatchOptions$Mutation$createGreWord options) =>
+  graphql.ObservableQuery<Mutation$CreateGreWord> watchMutation$CreateGreWord(
+          WatchOptions$Mutation$CreateGreWord options) =>
       this.watchMutation(options);
 }
 
-class Mutation$createGreWord$HookResult {
-  Mutation$createGreWord$HookResult(
+class Mutation$CreateGreWord$HookResult {
+  Mutation$CreateGreWord$HookResult(
     this.runMutation,
     this.result,
   );
 
-  final RunMutation$Mutation$createGreWord runMutation;
+  final RunMutation$Mutation$CreateGreWord runMutation;
 
-  final graphql.QueryResult<Mutation$createGreWord> result;
+  final graphql.QueryResult<Mutation$CreateGreWord> result;
 }
 
-Mutation$createGreWord$HookResult useMutation$createGreWord(
-    [WidgetOptions$Mutation$createGreWord? options]) {
+Mutation$CreateGreWord$HookResult useMutation$CreateGreWord(
+    [WidgetOptions$Mutation$CreateGreWord? options]) {
   final result = graphql_flutter
-      .useMutation(options ?? WidgetOptions$Mutation$createGreWord());
-  return Mutation$createGreWord$HookResult(
+      .useMutation(options ?? WidgetOptions$Mutation$CreateGreWord());
+  return Mutation$CreateGreWord$HookResult(
     (variables, {optimisticResult, typedOptimisticResult}) =>
         result.runMutation(
       variables.toJson(),
@@ -1395,22 +1395,22 @@ Mutation$createGreWord$HookResult useMutation$createGreWord(
   );
 }
 
-graphql.ObservableQuery<Mutation$createGreWord> useWatchMutation$createGreWord(
-        WatchOptions$Mutation$createGreWord options) =>
+graphql.ObservableQuery<Mutation$CreateGreWord> useWatchMutation$CreateGreWord(
+        WatchOptions$Mutation$CreateGreWord options) =>
     graphql_flutter.useWatchMutation(options);
 
-class WidgetOptions$Mutation$createGreWord
-    extends graphql.MutationOptions<Mutation$createGreWord> {
-  WidgetOptions$Mutation$createGreWord({
+class WidgetOptions$Mutation$CreateGreWord
+    extends graphql.MutationOptions<Mutation$CreateGreWord> {
+  WidgetOptions$Mutation$CreateGreWord({
     String? operationName,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Mutation$createGreWord? typedOptimisticResult,
+    Mutation$CreateGreWord? typedOptimisticResult,
     graphql.Context? context,
-    OnMutationCompleted$Mutation$createGreWord? onCompleted,
-    graphql.OnMutationUpdate<Mutation$createGreWord>? update,
+    OnMutationCompleted$Mutation$CreateGreWord? onCompleted,
+    graphql.OnMutationUpdate<Mutation$CreateGreWord>? update,
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
@@ -1426,15 +1426,15 @@ class WidgetOptions$Mutation$createGreWord
                     data,
                     data == null
                         ? null
-                        : _parserFn$Mutation$createGreWord(data),
+                        : _parserFn$Mutation$CreateGreWord(data),
                   ),
           update: update,
           onError: onError,
-          document: documentNodeMutationcreateGreWord,
-          parserFn: _parserFn$Mutation$createGreWord,
+          document: documentNodeMutationCreateGreWord,
+          parserFn: _parserFn$Mutation$CreateGreWord,
         );
 
-  final OnMutationCompleted$Mutation$createGreWord? onCompletedWithParsed;
+  final OnMutationCompleted$Mutation$CreateGreWord? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -1445,26 +1445,26 @@ class WidgetOptions$Mutation$createGreWord
       ];
 }
 
-typedef RunMutation$Mutation$createGreWord
-    = graphql.MultiSourceResult<Mutation$createGreWord> Function(
-  Variables$Mutation$createGreWord, {
+typedef RunMutation$Mutation$CreateGreWord
+    = graphql.MultiSourceResult<Mutation$CreateGreWord> Function(
+  Variables$Mutation$CreateGreWord, {
   Object? optimisticResult,
-  Mutation$createGreWord? typedOptimisticResult,
+  Mutation$CreateGreWord? typedOptimisticResult,
 });
-typedef Builder$Mutation$createGreWord = widgets.Widget Function(
-  RunMutation$Mutation$createGreWord,
-  graphql.QueryResult<Mutation$createGreWord>?,
+typedef Builder$Mutation$CreateGreWord = widgets.Widget Function(
+  RunMutation$Mutation$CreateGreWord,
+  graphql.QueryResult<Mutation$CreateGreWord>?,
 );
 
-class Mutation$createGreWord$Widget
-    extends graphql_flutter.Mutation<Mutation$createGreWord> {
-  Mutation$createGreWord$Widget({
+class Mutation$CreateGreWord$Widget
+    extends graphql_flutter.Mutation<Mutation$CreateGreWord> {
+  Mutation$CreateGreWord$Widget({
     widgets.Key? key,
-    WidgetOptions$Mutation$createGreWord? options,
-    required Builder$Mutation$createGreWord builder,
+    WidgetOptions$Mutation$CreateGreWord? options,
+    required Builder$Mutation$CreateGreWord builder,
   }) : super(
           key: key,
-          options: options ?? WidgetOptions$Mutation$createGreWord(),
+          options: options ?? WidgetOptions$Mutation$CreateGreWord(),
           builder: (
             run,
             result,
