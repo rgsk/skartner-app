@@ -16,6 +16,7 @@ class GreWordView extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final deleteGreWordMutation = useMutation$DeleteGreWord();
+    final updateGreWordMutation = useMutation$updateGreWord();
     return Container(
       child: Column(
         children: [
@@ -54,6 +55,9 @@ class GreWordView extends HookWidget {
               final gptPrompt = greWord.gptPrompts[index];
               return GptPromptView(
                 gptPrompt: gptPrompt,
+                onMutate: () {
+                  onMutate();
+                },
               );
             },
           ),

@@ -1,0 +1,11 @@
+mutation UpdateGptPrompt($id: String!, $editedResponse: String) {
+  updateGptPrompt(id: $id, editedResponse: $editedResponse) {
+    id
+    editedResponse
+  }
+}
+mutation DeleteGptPrompt($deleteGptPromptId: String!) {
+  deleteGptPrompt(id: $deleteGptPromptId) {
+    id
+  }
+}

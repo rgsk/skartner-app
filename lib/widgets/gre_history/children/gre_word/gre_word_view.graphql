@@ -3,3 +3,17 @@ mutation DeleteGreWord($deleteGreWordId: String!) {
     id
   }
 }
+
+mutation updateGreWord(
+  $updateGreWordId: String!
+  $greWordTags: [GreWordTagWhereUniqueInput]
+  $status: GreWordStatus
+) {
+  updateGreWord(
+    id: $updateGreWordId
+    greWordTags: $greWordTags
+    status: $status
+  ) {
+    id
+  }
+}
