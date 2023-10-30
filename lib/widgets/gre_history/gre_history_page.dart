@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:graphql/client.dart';
 import 'package:skartner_app/__generated/schema.graphql.dart';
 import 'package:skartner_app/widgets/common/pagination_controls_view.dart';
 import 'package:skartner_app/widgets/gre_history/__generated/gre_history_page.graphql.dart';
@@ -15,6 +16,23 @@ final sortedGreWordStatuses = [
   Enum$GreWordStatus.MEMORY_MODE,
   Enum$GreWordStatus.MASTERED,
 ];
+
+List<Query$GreWordTags$greWordTags> useGreWordTags() {
+  final greWordTagsQuery = useQuery$GreWordTags(
+    Options$Query$GreWordTags(
+      fetchPolicy: FetchPolicy.cacheFirst,
+      variables: Variables$Query$GreWordTags(
+        where: Input$GreWordTagWhereInput(
+          userId: Input$StringFilter(
+            equals: 'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
+          ),
+        ),
+      ),
+    ),
+  );
+  final greWordTags = greWordTagsQuery.result.parsedData?.greWordTags ?? [];
+  return greWordTags;
+}
 
 class GreHistoryPage extends HookWidget {
   const GreHistoryPage({super.key});
@@ -60,18 +78,7 @@ class GreHistoryPage extends HookWidget {
         ),
       ),
     );
-    final greWordTagsQuery = useQuery$GreWordTags(
-      Options$Query$GreWordTags(
-        variables: Variables$Query$GreWordTags(
-          where: Input$GreWordTagWhereInput(
-            userId: Input$StringFilter(
-              equals: 'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
-            ),
-          ),
-        ),
-      ),
-    );
-    final greWordTags = greWordTagsQuery.result.parsedData?.greWordTags ?? [];
+    final greWordTags = useGreWordTags();
     final parsedData = greWordsQuery.result.parsedData;
 
     void toggleStatus(Enum$GreWordStatus e) {
@@ -199,6 +206,7 @@ class GreHistoryPage extends HookWidget {
                                 onMutate: () {
                                   greWordsQuery.refetch();
                                 },
+                                greWordTags: greWordTags,
                               );
                             },
                           ),

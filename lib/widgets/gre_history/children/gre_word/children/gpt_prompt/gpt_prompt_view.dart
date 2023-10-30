@@ -38,7 +38,7 @@ class GptPromptView extends HookWidget {
                           )
                           .networkResult;
                     },
-                    onSuccess: (result) {
+                    onComplete: (data, parsedData) {
                       onMutate();
                     },
                   );

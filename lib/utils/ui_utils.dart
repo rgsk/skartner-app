@@ -35,8 +35,8 @@ void setupMutation<T>({
   VoidCallback? optimisticUpdate,
   VoidCallback? revertOptimisticUpdate,
   required Future<QueryResult<T>?> Function() runMutation,
-  Function(QueryResult<T>? result)? onSuccess,
-  Function(QueryResult<T>? result)? onError,
+  Function(Map<String, dynamic>? data, T? parsedData)? onComplete,
+  Function(OperationException? exception)? onError,
 }) async {
   optimisticUpdate?.call();
   final result = await runMutation();
@@ -49,9 +49,9 @@ void setupMutation<T>({
       print(graphqlErrorMessage);
     }
     revertOptimisticUpdate?.call();
-    onError?.call(result);
+    onError?.call(result?.exception);
     showSnackBar(context, errorMessage);
   } else {
-    onSuccess?.call(result);
+    onComplete?.call(result?.data, result?.parsedData);
   }
 }
