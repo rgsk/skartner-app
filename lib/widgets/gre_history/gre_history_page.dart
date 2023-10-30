@@ -172,7 +172,7 @@ class GreHistoryPage extends HookWidget {
               labelText: "Word",
             ),
           ),
-          parsedData == null
+          greWordsQuery.result.isLoading || parsedData == null
               ? CircularProgressIndicator()
               : Builder(builder: (context) {
                   final greWords = parsedData.greWords;

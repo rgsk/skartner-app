@@ -14,8 +14,12 @@ class WordSearchResultView extends HookWidget {
     final promptInput =
         "list meaning and 3 easy example sentences for word - ${word}";
     final sendSinglePromptQuery = useQuery$SendSinglePrompt(
-        Options$Query$SendSinglePrompt(
-            variables: Variables$Query$SendSinglePrompt(input: promptInput)));
+      Options$Query$SendSinglePrompt(
+        variables: Variables$Query$SendSinglePrompt(
+          input: promptInput,
+        ),
+      ),
+    );
 
     final createGreWordMutation = useMutation$CreateGreWord();
 
@@ -63,24 +67,34 @@ class WordSearchResultView extends HookWidget {
                     ),
                     ElevatedButton(
                       onPressed: () async {
-                        final result = await createGreWordMutation
-                            .runMutation(
-                              Variables$Mutation$CreateGreWord(
-                                spelling: word,
-                                promptInput: promptInput,
-                                promptResponse: promptResponse,
-                                userId: 'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
-                              ),
-                            )
-                            .networkResult;
-
-                        final errors = result?.exception?.graphqlErrors;
-                        if (errors != null) {
-                          // ignore: use_build_context_synchronously
-                          showDebugSnackBar(context, errors.toString());
-                        }
+                        setupMutation(
+                          context: context,
+                          runMutation: () async {
+                            final result = await createGreWordMutation
+                                .runMutation(
+                                  Variables$Mutation$CreateGreWord(
+                                    spelling: word,
+                                    promptInput: promptInput,
+                                    promptResponse: promptResponse,
+                                    userId:
+                                        'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
+                                  ),
+                                )
+                                .networkResult;
+                            return result;
+                          },
+                        );
                       },
-                      child: Text('Save'),
+                      child: Row(
+                        children: [
+                          Text('Save'),
+                          if (createGreWordMutation.result.isLoading)
+                            SizedBox(
+                              width: 30,
+                              child: CircularProgressIndicator(),
+                            ),
+                        ],
+                      ),
                     ),
                     Text(createGreWordMutation
                             .result.parsedData?.createGreWord.spelling ??
