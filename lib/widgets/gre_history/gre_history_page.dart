@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:graphql/client.dart';
+import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:skartner_app/__generated/schema.graphql.dart';
 import 'package:skartner_app/widgets/common/pagination_controls_view.dart';
 import 'package:skartner_app/widgets/gre_history/__generated/gre_history_page.graphql.dart';
@@ -17,9 +17,10 @@ final sortedGreWordStatuses = [
   Enum$GreWordStatus.MASTERED,
 ];
 
-List<Query$GreWordTags$greWordTags> useGreWordTags() {
+QueryHookResult<Query$GreWordTags> useGreWordTagsQuery() {
   final greWordTagsQuery = useQuery$GreWordTags(
     Options$Query$GreWordTags(
+      // cacheFirst is important otherwise this call will be made many times
       fetchPolicy: FetchPolicy.cacheFirst,
       variables: Variables$Query$GreWordTags(
         where: Input$GreWordTagWhereInput(
@@ -30,8 +31,7 @@ List<Query$GreWordTags$greWordTags> useGreWordTags() {
       ),
     ),
   );
-  final greWordTags = greWordTagsQuery.result.parsedData?.greWordTags ?? [];
-  return greWordTags;
+  return greWordTagsQuery;
 }
 
 class GreHistoryPage extends HookWidget {
@@ -78,7 +78,9 @@ class GreHistoryPage extends HookWidget {
         ),
       ),
     );
-    final greWordTags = useGreWordTags();
+    final greWordTagsQuery = useGreWordTagsQuery();
+    final greWordTags = greWordTagsQuery.result.parsedData?.greWordTags ?? [];
+
     final parsedData = greWordsQuery.result.parsedData;
 
     void toggleStatus(Enum$GreWordStatus e) {
@@ -179,7 +181,12 @@ class GreHistoryPage extends HookWidget {
               labelText: "Word",
             ),
           ),
-          greWordsQuery.result.isLoading || parsedData == null
+          // greWordTagsQuery.result.isLoading check is added
+          // so that calls are not made for fetching tags for each word
+          // inside tag_input_view.dart, until this call inside this component is getting fulfilled
+          greWordTagsQuery.result.isLoading ||
+                  greWordsQuery.result.isLoading ||
+                  parsedData == null
               ? CircularProgressIndicator()
               : Builder(builder: (context) {
                   final greWords = parsedData.greWords;
@@ -206,7 +213,6 @@ class GreHistoryPage extends HookWidget {
                                 onMutate: () {
                                   greWordsQuery.refetch();
                                 },
-                                greWordTags: greWordTags,
                               );
                             },
                           ),

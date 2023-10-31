@@ -17,3 +17,10 @@ mutation updateGreWord(
     id
   }
 }
+
+mutation CreateGreWordTag($name: String!, $userId: String!) {
+  createGreWordTag(name: $name, userId: $userId) {
+    id
+    name
+  }
+}

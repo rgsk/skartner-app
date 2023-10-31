@@ -9,15 +9,12 @@ import 'package:skartner_app/widgets/gre_history/children/gre_word/children/tag_
 import 'package:skartner_app/widgets/gre_history/gre_history_page.dart';
 
 class GreWordView extends HookWidget {
-  final List<Query$GreWordTags$greWordTags> greWordTags;
-
   final Fragment$GreWordFields greWord;
   final VoidCallback onMutate;
   const GreWordView({
     super.key,
     required this.greWord,
     required this.onMutate,
-    required this.greWordTags,
   });
 
   @override
@@ -128,7 +125,6 @@ class GreWordView extends HookWidget {
             children: [
               Expanded(
                 child: TagInputView(
-                  tagNames: greWordTags.map((e) => e.name).toList(),
                   onSelected: (tagName) {
                     // print(tagName);
                     updateTags([...selectedTags.value, tagName]);

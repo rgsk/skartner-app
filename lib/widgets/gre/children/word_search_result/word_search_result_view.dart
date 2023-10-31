@@ -4,7 +4,6 @@ import 'package:skartner_app/__generated/schema.graphql.dart';
 import 'package:skartner_app/utils/graphql_utils.dart';
 import 'package:skartner_app/widgets/gre/__generated/gre_page.graphql.dart';
 import 'package:skartner_app/widgets/gre_history/children/gre_word/gre_word_view.dart';
-import 'package:skartner_app/widgets/gre_history/gre_history_page.dart';
 
 class WordSearchResultView extends HookWidget {
   final String word;
@@ -22,8 +21,6 @@ class WordSearchResultView extends HookWidget {
         ),
       ),
     );
-
-    final greWordTags = useGreWordTags();
 
     final createGreWordMutation = useMutation$CreateGreWord();
 
@@ -59,7 +56,6 @@ class WordSearchResultView extends HookWidget {
                   GreWordView(
                     greWord: greWord,
                     onMutate: () {},
-                    greWordTags: greWordTags,
                   ),
                 ],
               ),
