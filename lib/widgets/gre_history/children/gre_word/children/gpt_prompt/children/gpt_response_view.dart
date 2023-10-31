@@ -23,12 +23,17 @@ class GptResponseView extends HookWidget {
     final updateGptPromptMutation = useMutation$UpdateGptPrompt(
       WidgetOptions$Mutation$UpdateGptPrompt(
         onCompleted: (data, parsedData) {
-          editModeActive.value = false;
-          onMutate();
+          if (parsedData != null) {
+            // if not successful then parsedData will null
+            editModeActive.value = false;
+            onMutate();
+          }
         },
         onError: (exception) {
-          reportGraphqlException(exception);
-          displayError(context: context);
+          if (exception != null) {
+            reportGraphqlException(exception);
+            displayError(context: context);
+          }
         },
       ),
     );
