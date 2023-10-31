@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "751854559088",
+    "project_id": "skartner-af3bf",
+    "storage_bucket": "skartner-af3bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:751854559088:android:7dabbfb0b61840fa0ab9b5",
+        "android_client_info": {
+          "package_name": "com.example.skartner_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "751854559088-hgj5q52r2h25t7j8e1ji3i6aiq0i5q83.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAubETm6m6UJPLhAnAJabuBKtB2e4yQ2wA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "751854559088-hgj5q52r2h25t7j8e1ji3i6aiq0i5q83.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "751854559088-ajmlaq0lcmhuh6988f189aqkhlq356hp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.skartnerApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

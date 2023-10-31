@@ -1,14 +1,21 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
+import 'package:skartner_app/firebase_options.dart';
 import 'package:skartner_app/hooks/app/use_subscribe_to_notification_from_server.dart';
 import 'package:skartner_app/router.dart';
 import 'package:skartner_app/utils/environment_vars.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   await dotenv.load(fileName: ".env");
   // https://github.com/zino-hofmann/graphql-flutter/issues/729#issuecomment-1466752764
   final url = '${EnvironmentVars.skartnerServer}/graphql';
