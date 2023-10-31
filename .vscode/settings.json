@@ -17,7 +17,7 @@
     "**/Thumbs.db": true,
 
     // custom
-    "**/__generated": true
+    "**/__generated": false
   },
 
   "triggerTaskOnSave.tasks": {

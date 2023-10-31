@@ -5,10 +5,16 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
+import 'package:skartner_app/__generated/schema.graphql.dart';
 import 'package:skartner_app/firebase_options.dart';
 import 'package:skartner_app/hooks/app/use_subscribe_to_notification_from_server.dart';
+import 'package:skartner_app/providers/auth_controler_provider.dart';
+import 'package:skartner_app/providers/graphql_client_provider.dart';
+import 'package:skartner_app/providers/user_provider.dart';
 import 'package:skartner_app/router.dart';
-import 'package:skartner_app/utils/environment_vars.dart';
+import 'package:skartner_app/widgets/common/error_text_view.dart';
+import 'package:skartner_app/widgets/common/loader_view.dart';
+import 'package:skartner_app/widgets/login/__generated/login_page.graphql.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,36 +23,10 @@ void main() async {
   );
 
   await dotenv.load(fileName: ".env");
-  // https://github.com/zino-hofmann/graphql-flutter/issues/729#issuecomment-1466752764
-  final url = '${EnvironmentVars.skartnerServer}/graphql';
-  final httpLink = HttpLink(url);
-  final wsUrl = url.replaceFirst('http', 'ws');
-  final webSocketLink = WebSocketLink(
-    wsUrl,
-    subProtocol: GraphQLProtocol.graphqlTransportWs,
-  );
-
-  final link = Link.split(
-    (request) => request.isSubscription,
-    webSocketLink,
-    httpLink,
-  );
-
-  final client = ValueNotifier(
-    GraphQLClient(
-      link: link,
-      cache: GraphQLCache(
-        store: InMemoryStore(),
-      ),
-    ),
-  );
 
   runApp(
-    GraphQLProvider(
-      client: client,
-      child: ProviderScope(
-        child: MyApp(),
-      ),
+    ProviderScope(
+      child: MyApp(),
     ),
   );
 }
@@ -56,25 +36,55 @@ class MyApp extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    return MaterialApp.router(
-      title: 'Skartner',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      debugShowCheckedModeBanner: false,
-      routerDelegate: RoutemasterDelegate(
-        routesBuilder: (context) {
-          return loggedInRoutes;
+    final graphqlClient = ref.read(graphqlClientProvider);
+    return ref.watch(authStateChangeProvider).when(
+        data: (user) => GraphQLProvider(
+              client: ValueNotifier(graphqlClient),
+              child: MaterialApp.router(
+                title: 'Skartner',
+                theme: ThemeData(
+                  colorScheme:
+                      ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                  useMaterial3: true,
+                ),
+                debugShowCheckedModeBanner: false,
+                routerDelegate: RoutemasterDelegate(
+                  routesBuilder: (context) {
+                    if (user != null) {
+                      graphqlClient.query$User(
+                        Options$Query$User(
+                            variables: Variables$Query$User(
+                              where:
+                                  Input$UserWhereUniqueInput(email: user.email),
+                            ),
+                            onComplete: (data, parsedData) {
+                              if (parsedData != null) {
+                                ref.read(userProvider.notifier).state =
+                                    parsedData.user;
+                              }
+                            }),
+                      );
+                      return loggedInRoutes;
+                    }
+                    return loggedOutRoutes;
+                  },
+                ),
+                routeInformationParser: RoutemasterParser(),
+                builder: (context, child) {
+                  return GlobalWrapper(
+                    child: child!,
+                  );
+                },
+              ),
+            ),
+        error: (error, stackTrace) {
+          return ErrorTextView(
+            error: error.toString(),
+          );
         },
-      ),
-      routeInformationParser: RoutemasterParser(),
-      builder: (context, child) {
-        return GlobalWrapper(
-          child: child!,
-        );
-      },
-    );
+        loading: () {
+          return LoaderView();
+        });
   }
 }
 

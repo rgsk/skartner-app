@@ -17,7 +17,10 @@ class Routes {
 }
 
 final loggedOutRoutes = RouteMap(routes: {
+  Routes.home: (_) => MaterialPage(child: HomePage()),
   Routes.practice: (_) => MaterialPage(child: PracticePage()),
+  Routes.sample: (_) => MaterialPage(child: PaginationSampleView()),
+  Routes.login: (_) => MaterialPage(child: LoginPage()),
 });
 final loggedInRoutes = RouteMap(routes: {
   Routes.home: (_) => MaterialPage(child: HomePage()),
