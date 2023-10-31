@@ -1930,3 +1930,736 @@ class Query$GreWord$Widget extends graphql_flutter.Query<Query$GreWord> {
           builder: builder,
         );
 }
+
+class Variables$Mutation$CreateGptPrompt {
+  factory Variables$Mutation$CreateGptPrompt({
+    required String input,
+    required String response,
+    required String greWordId,
+  }) =>
+      Variables$Mutation$CreateGptPrompt._({
+        r'input': input,
+        r'response': response,
+        r'greWordId': greWordId,
+      });
+
+  Variables$Mutation$CreateGptPrompt._(this._$data);
+
+  factory Variables$Mutation$CreateGptPrompt.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$input = data['input'];
+    result$data['input'] = (l$input as String);
+    final l$response = data['response'];
+    result$data['response'] = (l$response as String);
+    final l$greWordId = data['greWordId'];
+    result$data['greWordId'] = (l$greWordId as String);
+    return Variables$Mutation$CreateGptPrompt._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get input => (_$data['input'] as String);
+
+  String get response => (_$data['response'] as String);
+
+  String get greWordId => (_$data['greWordId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$input = input;
+    result$data['input'] = l$input;
+    final l$response = response;
+    result$data['response'] = l$response;
+    final l$greWordId = greWordId;
+    result$data['greWordId'] = l$greWordId;
+    return result$data;
+  }
+
+  CopyWith$Variables$Mutation$CreateGptPrompt<
+          Variables$Mutation$CreateGptPrompt>
+      get copyWith => CopyWith$Variables$Mutation$CreateGptPrompt(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Mutation$CreateGptPrompt) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$input = input;
+    final lOther$input = other.input;
+    if (l$input != lOther$input) {
+      return false;
+    }
+    final l$response = response;
+    final lOther$response = other.response;
+    if (l$response != lOther$response) {
+      return false;
+    }
+    final l$greWordId = greWordId;
+    final lOther$greWordId = other.greWordId;
+    if (l$greWordId != lOther$greWordId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$input = input;
+    final l$response = response;
+    final l$greWordId = greWordId;
+    return Object.hashAll([
+      l$input,
+      l$response,
+      l$greWordId,
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Mutation$CreateGptPrompt<TRes> {
+  factory CopyWith$Variables$Mutation$CreateGptPrompt(
+    Variables$Mutation$CreateGptPrompt instance,
+    TRes Function(Variables$Mutation$CreateGptPrompt) then,
+  ) = _CopyWithImpl$Variables$Mutation$CreateGptPrompt;
+
+  factory CopyWith$Variables$Mutation$CreateGptPrompt.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$CreateGptPrompt;
+
+  TRes call({
+    String? input,
+    String? response,
+    String? greWordId,
+  });
+}
+
+class _CopyWithImpl$Variables$Mutation$CreateGptPrompt<TRes>
+    implements CopyWith$Variables$Mutation$CreateGptPrompt<TRes> {
+  _CopyWithImpl$Variables$Mutation$CreateGptPrompt(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Mutation$CreateGptPrompt _instance;
+
+  final TRes Function(Variables$Mutation$CreateGptPrompt) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? input = _undefined,
+    Object? response = _undefined,
+    Object? greWordId = _undefined,
+  }) =>
+      _then(Variables$Mutation$CreateGptPrompt._({
+        ..._instance._$data,
+        if (input != _undefined && input != null) 'input': (input as String),
+        if (response != _undefined && response != null)
+          'response': (response as String),
+        if (greWordId != _undefined && greWordId != null)
+          'greWordId': (greWordId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$CreateGptPrompt<TRes>
+    implements CopyWith$Variables$Mutation$CreateGptPrompt<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$CreateGptPrompt(this._res);
+
+  TRes _res;
+
+  call({
+    String? input,
+    String? response,
+    String? greWordId,
+  }) =>
+      _res;
+}
+
+class Mutation$CreateGptPrompt {
+  Mutation$CreateGptPrompt({
+    required this.createGptPrompt,
+    this.$__typename = 'Mutation',
+  });
+
+  factory Mutation$CreateGptPrompt.fromJson(Map<String, dynamic> json) {
+    final l$createGptPrompt = json['createGptPrompt'];
+    final l$$__typename = json['__typename'];
+    return Mutation$CreateGptPrompt(
+      createGptPrompt: Mutation$CreateGptPrompt$createGptPrompt.fromJson(
+          (l$createGptPrompt as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$CreateGptPrompt$createGptPrompt createGptPrompt;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$createGptPrompt = createGptPrompt;
+    _resultData['createGptPrompt'] = l$createGptPrompt.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$createGptPrompt = createGptPrompt;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$createGptPrompt,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$CreateGptPrompt) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$createGptPrompt = createGptPrompt;
+    final lOther$createGptPrompt = other.createGptPrompt;
+    if (l$createGptPrompt != lOther$createGptPrompt) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$CreateGptPrompt
+    on Mutation$CreateGptPrompt {
+  CopyWith$Mutation$CreateGptPrompt<Mutation$CreateGptPrompt> get copyWith =>
+      CopyWith$Mutation$CreateGptPrompt(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Mutation$CreateGptPrompt<TRes> {
+  factory CopyWith$Mutation$CreateGptPrompt(
+    Mutation$CreateGptPrompt instance,
+    TRes Function(Mutation$CreateGptPrompt) then,
+  ) = _CopyWithImpl$Mutation$CreateGptPrompt;
+
+  factory CopyWith$Mutation$CreateGptPrompt.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$CreateGptPrompt;
+
+  TRes call({
+    Mutation$CreateGptPrompt$createGptPrompt? createGptPrompt,
+    String? $__typename,
+  });
+  CopyWith$Mutation$CreateGptPrompt$createGptPrompt<TRes> get createGptPrompt;
+}
+
+class _CopyWithImpl$Mutation$CreateGptPrompt<TRes>
+    implements CopyWith$Mutation$CreateGptPrompt<TRes> {
+  _CopyWithImpl$Mutation$CreateGptPrompt(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$CreateGptPrompt _instance;
+
+  final TRes Function(Mutation$CreateGptPrompt) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? createGptPrompt = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$CreateGptPrompt(
+        createGptPrompt:
+            createGptPrompt == _undefined || createGptPrompt == null
+                ? _instance.createGptPrompt
+                : (createGptPrompt as Mutation$CreateGptPrompt$createGptPrompt),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWith$Mutation$CreateGptPrompt$createGptPrompt<TRes> get createGptPrompt {
+    final local$createGptPrompt = _instance.createGptPrompt;
+    return CopyWith$Mutation$CreateGptPrompt$createGptPrompt(
+        local$createGptPrompt, (e) => call(createGptPrompt: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$CreateGptPrompt<TRes>
+    implements CopyWith$Mutation$CreateGptPrompt<TRes> {
+  _CopyWithStubImpl$Mutation$CreateGptPrompt(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$CreateGptPrompt$createGptPrompt? createGptPrompt,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWith$Mutation$CreateGptPrompt$createGptPrompt<TRes> get createGptPrompt =>
+      CopyWith$Mutation$CreateGptPrompt$createGptPrompt.stub(_res);
+}
+
+const documentNodeMutationCreateGptPrompt = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'CreateGptPrompt'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'input')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'response')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'greWordId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'createGptPrompt'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'input'),
+            value: VariableNode(name: NameNode(value: 'input')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'response'),
+            value: VariableNode(name: NameNode(value: 'response')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'greWordId'),
+            value: VariableNode(name: NameNode(value: 'greWordId')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'response'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Mutation$CreateGptPrompt _parserFn$Mutation$CreateGptPrompt(
+        Map<String, dynamic> data) =>
+    Mutation$CreateGptPrompt.fromJson(data);
+typedef OnMutationCompleted$Mutation$CreateGptPrompt = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Mutation$CreateGptPrompt?,
+);
+
+class Options$Mutation$CreateGptPrompt
+    extends graphql.MutationOptions<Mutation$CreateGptPrompt> {
+  Options$Mutation$CreateGptPrompt({
+    String? operationName,
+    required Variables$Mutation$CreateGptPrompt variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$CreateGptPrompt? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$CreateGptPrompt? onCompleted,
+    graphql.OnMutationUpdate<Mutation$CreateGptPrompt>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$CreateGptPrompt(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationCreateGptPrompt,
+          parserFn: _parserFn$Mutation$CreateGptPrompt,
+        );
+
+  final OnMutationCompleted$Mutation$CreateGptPrompt? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+class WatchOptions$Mutation$CreateGptPrompt
+    extends graphql.WatchQueryOptions<Mutation$CreateGptPrompt> {
+  WatchOptions$Mutation$CreateGptPrompt({
+    String? operationName,
+    required Variables$Mutation$CreateGptPrompt variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$CreateGptPrompt? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeMutationCreateGptPrompt,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$CreateGptPrompt,
+        );
+}
+
+extension ClientExtension$Mutation$CreateGptPrompt on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$CreateGptPrompt>> mutate$CreateGptPrompt(
+          Options$Mutation$CreateGptPrompt options) async =>
+      await this.mutate(options);
+  graphql.ObservableQuery<Mutation$CreateGptPrompt>
+      watchMutation$CreateGptPrompt(
+              WatchOptions$Mutation$CreateGptPrompt options) =>
+          this.watchMutation(options);
+}
+
+class Mutation$CreateGptPrompt$HookResult {
+  Mutation$CreateGptPrompt$HookResult(
+    this.runMutation,
+    this.result,
+  );
+
+  final RunMutation$Mutation$CreateGptPrompt runMutation;
+
+  final graphql.QueryResult<Mutation$CreateGptPrompt> result;
+}
+
+Mutation$CreateGptPrompt$HookResult useMutation$CreateGptPrompt(
+    [WidgetOptions$Mutation$CreateGptPrompt? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$CreateGptPrompt());
+  return Mutation$CreateGptPrompt$HookResult(
+    (variables, {optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
+      variables.toJson(),
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+    ),
+    result.result,
+  );
+}
+
+graphql.ObservableQuery<Mutation$CreateGptPrompt>
+    useWatchMutation$CreateGptPrompt(
+            WatchOptions$Mutation$CreateGptPrompt options) =>
+        graphql_flutter.useWatchMutation(options);
+
+class WidgetOptions$Mutation$CreateGptPrompt
+    extends graphql.MutationOptions<Mutation$CreateGptPrompt> {
+  WidgetOptions$Mutation$CreateGptPrompt({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$CreateGptPrompt? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$CreateGptPrompt? onCompleted,
+    graphql.OnMutationUpdate<Mutation$CreateGptPrompt>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$CreateGptPrompt(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationCreateGptPrompt,
+          parserFn: _parserFn$Mutation$CreateGptPrompt,
+        );
+
+  final OnMutationCompleted$Mutation$CreateGptPrompt? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+typedef RunMutation$Mutation$CreateGptPrompt
+    = graphql.MultiSourceResult<Mutation$CreateGptPrompt> Function(
+  Variables$Mutation$CreateGptPrompt, {
+  Object? optimisticResult,
+  Mutation$CreateGptPrompt? typedOptimisticResult,
+});
+typedef Builder$Mutation$CreateGptPrompt = widgets.Widget Function(
+  RunMutation$Mutation$CreateGptPrompt,
+  graphql.QueryResult<Mutation$CreateGptPrompt>?,
+);
+
+class Mutation$CreateGptPrompt$Widget
+    extends graphql_flutter.Mutation<Mutation$CreateGptPrompt> {
+  Mutation$CreateGptPrompt$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$CreateGptPrompt? options,
+    required Builder$Mutation$CreateGptPrompt builder,
+  }) : super(
+          key: key,
+          options: options ?? WidgetOptions$Mutation$CreateGptPrompt(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            (
+              variables, {
+              optimisticResult,
+              typedOptimisticResult,
+            }) =>
+                run(
+              variables.toJson(),
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
+            ),
+            result,
+          ),
+        );
+}
+
+class Mutation$CreateGptPrompt$createGptPrompt {
+  Mutation$CreateGptPrompt$createGptPrompt({
+    required this.id,
+    required this.response,
+    this.$__typename = 'GptPrompt',
+  });
+
+  factory Mutation$CreateGptPrompt$createGptPrompt.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$response = json['response'];
+    final l$$__typename = json['__typename'];
+    return Mutation$CreateGptPrompt$createGptPrompt(
+      id: (l$id as String),
+      response: (l$response as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String id;
+
+  final String response;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$response = response;
+    _resultData['response'] = l$response;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$response = response;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$response,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$CreateGptPrompt$createGptPrompt) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$response = response;
+    final lOther$response = other.response;
+    if (l$response != lOther$response) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$CreateGptPrompt$createGptPrompt
+    on Mutation$CreateGptPrompt$createGptPrompt {
+  CopyWith$Mutation$CreateGptPrompt$createGptPrompt<
+          Mutation$CreateGptPrompt$createGptPrompt>
+      get copyWith => CopyWith$Mutation$CreateGptPrompt$createGptPrompt(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$CreateGptPrompt$createGptPrompt<TRes> {
+  factory CopyWith$Mutation$CreateGptPrompt$createGptPrompt(
+    Mutation$CreateGptPrompt$createGptPrompt instance,
+    TRes Function(Mutation$CreateGptPrompt$createGptPrompt) then,
+  ) = _CopyWithImpl$Mutation$CreateGptPrompt$createGptPrompt;
+
+  factory CopyWith$Mutation$CreateGptPrompt$createGptPrompt.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$CreateGptPrompt$createGptPrompt;
+
+  TRes call({
+    String? id,
+    String? response,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$CreateGptPrompt$createGptPrompt<TRes>
+    implements CopyWith$Mutation$CreateGptPrompt$createGptPrompt<TRes> {
+  _CopyWithImpl$Mutation$CreateGptPrompt$createGptPrompt(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$CreateGptPrompt$createGptPrompt _instance;
+
+  final TRes Function(Mutation$CreateGptPrompt$createGptPrompt) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? response = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$CreateGptPrompt$createGptPrompt(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        response: response == _undefined || response == null
+            ? _instance.response
+            : (response as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$CreateGptPrompt$createGptPrompt<TRes>
+    implements CopyWith$Mutation$CreateGptPrompt$createGptPrompt<TRes> {
+  _CopyWithStubImpl$Mutation$CreateGptPrompt$createGptPrompt(this._res);
+
+  TRes _res;
+
+  call({
+    String? id,
+    String? response,
+    String? $__typename,
+  }) =>
+      _res;
+}

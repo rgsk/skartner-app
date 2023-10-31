@@ -14,16 +14,6 @@ class WordSearchResultView extends HookWidget {
     final promptInput =
         "list meaning and 3 easy example sentences for word - ${word}";
 
-    final sendSinglePromptQuery = useQuery$SendSinglePrompt(
-      Options$Query$SendSinglePrompt(
-        variables: Variables$Query$SendSinglePrompt(
-          input: promptInput,
-        ),
-      ),
-    );
-
-    final createGreWordMutation = useMutation$CreateGreWord();
-
     final greWordQuery = useQuery$GreWord(
       Options$Query$GreWord(
         variables: Variables$Query$GreWord(
@@ -36,6 +26,18 @@ class WordSearchResultView extends HookWidget {
         ),
       ),
     );
+
+    final sendSinglePromptQuery = useQuery$SendSinglePrompt(
+      Options$Query$SendSinglePrompt(
+        variables: Variables$Query$SendSinglePrompt(
+          input: promptInput,
+        ),
+      ),
+    );
+
+    final createGreWordMutation = useMutation$CreateGreWord();
+    final createGptPromptMuation = useMutation$CreateGptPrompt();
+
     final greWord = greWordQuery.result.parsedData?.greWord;
     final promptResponse =
         sendSinglePromptQuery.result.parsedData?.sendSinglePrompt.result;
@@ -55,7 +57,9 @@ class WordSearchResultView extends HookWidget {
                   ),
                   GreWordView(
                     greWord: greWord,
-                    onMutate: () {},
+                    onMutate: () {
+                      greWordQuery.refetch();
+                    },
                   ),
                 ],
               ),
@@ -79,18 +83,35 @@ class WordSearchResultView extends HookWidget {
                               setupMutation(
                                 context: context,
                                 runMutation: () async {
-                                  final result = await createGreWordMutation
-                                      .runMutation(
-                                        Variables$Mutation$CreateGreWord(
-                                          spelling: word,
-                                          promptInput: promptInput,
-                                          promptResponse: promptResponse,
-                                          userId:
-                                              'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
-                                        ),
-                                      )
-                                      .networkResult;
-                                  return result;
+                                  if (greWord == null) {
+                                    final result = await createGreWordMutation
+                                        .runMutation(
+                                          Variables$Mutation$CreateGreWord(
+                                            spelling: word,
+                                            promptInput: promptInput,
+                                            promptResponse: promptResponse,
+                                            userId:
+                                                'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
+                                          ),
+                                        )
+                                        .networkResult;
+                                    return result;
+                                  } else {
+                                    final result = await createGptPromptMuation
+                                        .runMutation(
+                                            Variables$Mutation$CreateGptPrompt(
+                                          input: promptInput,
+                                          response: promptResponse,
+                                          greWordId: greWord.id,
+                                        ))
+                                        .networkResult;
+                                    return result;
+                                  }
+                                },
+                                onComplete: (data, parsedData) {
+                                  if (data != null) {
+                                    greWordQuery.refetch();
+                                  }
                                 },
                               );
                             },

@@ -40,3 +40,14 @@ query GreWord($where: GreWordWhereUniqueInput) {
     ...GreWordFields
   }
 }
+
+mutation CreateGptPrompt(
+  $input: String!
+  $response: String!
+  $greWordId: String!
+) {
+  createGptPrompt(input: $input, response: $response, greWordId: $greWordId) {
+    id
+    response
+  }
+}
