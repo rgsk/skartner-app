@@ -1,15 +1,7 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql/client.dart';
+import 'package:skartner_app/utils/errors_utils.dart';
 import 'package:skartner_app/utils/ui_utils.dart';
-
-void reportGraphqlException(OperationException exception) {
-  if (kDebugMode) {
-    final graphqlErrorMessage = exception.graphqlErrors[0].message;
-    print('Graphql Mutation Error:');
-    print(graphqlErrorMessage);
-  }
-}
 
 void setupMutation<T>({
   required BuildContext context,

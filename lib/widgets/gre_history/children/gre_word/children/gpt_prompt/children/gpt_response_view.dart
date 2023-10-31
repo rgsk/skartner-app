@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:skartner_app/utils/graphql_utils.dart';
+import 'package:skartner_app/utils/errors_utils.dart';
 import 'package:skartner_app/utils/ui_utils.dart';
 import 'package:skartner_app/widgets/gre_history/children/gre_word/children/gpt_prompt/__generated/gpt_prompt_view.graphql.dart';
 

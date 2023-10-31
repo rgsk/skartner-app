@@ -33,3 +33,12 @@ void displayError({
 }) {
   showSnackBar(context, errorMessage);
 }
+
+void displayErrorInDebugMode({
+  required BuildContext context,
+  String errorMessage = 'Some Error Occurred',
+}) {
+  if (kDebugMode) {
+    showSnackBar(context, errorMessage);
+  }
+}

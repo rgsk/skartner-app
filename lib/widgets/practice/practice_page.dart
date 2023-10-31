@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/hooks/general/use_screen_size.dart';
 import 'package:skartner_app/hooks/general/use_screen_width_gte.dart';
 import 'package:skartner_app/providers/counter_provider.dart';
+import 'package:skartner_app/providers/db_user_provider.dart';
 import 'package:skartner_app/providers/friends_list_provider.dart';
 import 'package:skartner_app/providers/window_size_provider.dart';
 
@@ -13,12 +14,19 @@ class PracticePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
+    final dbUser = ref.watch(dbUserProvider);
     final counter = ref.watch(counterProvider);
     final friendsList = ref.watch(friendsListProvider);
     final localCounter = useState(0);
     final windowSize = ref.watch(windowSizeProvider);
     final screenWidthGte = useScreenWidthGte(context);
     final screenSize = useScreenSize(context);
+
+    useEffect(() {
+      print('dbUser 123');
+      print(dbUser);
+      return null;
+    }, [dbUser]);
 
     useEffect(() {
       print('counter - $counter');

@@ -6,7 +6,8 @@ fragment UserFields on User {
     showDefaultGreWordSearchPromptInputs
   }
 }
-mutation createUser($email: String!) {
+
+mutation CreateUser($email: String!) {
   createUser(email: $email) {
     ...UserFields
   }

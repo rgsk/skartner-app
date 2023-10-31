@@ -435,19 +435,19 @@ class _CopyWithStubImpl$Fragment$UserFields$meta<TRes>
       _res;
 }
 
-class Variables$Mutation$createUser {
-  factory Variables$Mutation$createUser({required String email}) =>
-      Variables$Mutation$createUser._({
+class Variables$Mutation$CreateUser {
+  factory Variables$Mutation$CreateUser({required String email}) =>
+      Variables$Mutation$CreateUser._({
         r'email': email,
       });
 
-  Variables$Mutation$createUser._(this._$data);
+  Variables$Mutation$CreateUser._(this._$data);
 
-  factory Variables$Mutation$createUser.fromJson(Map<String, dynamic> data) {
+  factory Variables$Mutation$CreateUser.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$email = data['email'];
     result$data['email'] = (l$email as String);
-    return Variables$Mutation$createUser._(result$data);
+    return Variables$Mutation$CreateUser._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -461,8 +461,8 @@ class Variables$Mutation$createUser {
     return result$data;
   }
 
-  CopyWith$Variables$Mutation$createUser<Variables$Mutation$createUser>
-      get copyWith => CopyWith$Variables$Mutation$createUser(
+  CopyWith$Variables$Mutation$CreateUser<Variables$Mutation$CreateUser>
+      get copyWith => CopyWith$Variables$Mutation$CreateUser(
             this,
             (i) => i,
           );
@@ -472,7 +472,7 @@ class Variables$Mutation$createUser {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$createUser) ||
+    if (!(other is Variables$Mutation$CreateUser) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -491,73 +491,71 @@ class Variables$Mutation$createUser {
   }
 }
 
-abstract class CopyWith$Variables$Mutation$createUser<TRes> {
-  factory CopyWith$Variables$Mutation$createUser(
-    Variables$Mutation$createUser instance,
-    TRes Function(Variables$Mutation$createUser) then,
-  ) = _CopyWithImpl$Variables$Mutation$createUser;
+abstract class CopyWith$Variables$Mutation$CreateUser<TRes> {
+  factory CopyWith$Variables$Mutation$CreateUser(
+    Variables$Mutation$CreateUser instance,
+    TRes Function(Variables$Mutation$CreateUser) then,
+  ) = _CopyWithImpl$Variables$Mutation$CreateUser;
 
-  factory CopyWith$Variables$Mutation$createUser.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Mutation$createUser;
+  factory CopyWith$Variables$Mutation$CreateUser.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$CreateUser;
 
   TRes call({String? email});
 }
 
-class _CopyWithImpl$Variables$Mutation$createUser<TRes>
-    implements CopyWith$Variables$Mutation$createUser<TRes> {
-  _CopyWithImpl$Variables$Mutation$createUser(
+class _CopyWithImpl$Variables$Mutation$CreateUser<TRes>
+    implements CopyWith$Variables$Mutation$CreateUser<TRes> {
+  _CopyWithImpl$Variables$Mutation$CreateUser(
     this._instance,
     this._then,
   );
 
-  final Variables$Mutation$createUser _instance;
+  final Variables$Mutation$CreateUser _instance;
 
-  final TRes Function(Variables$Mutation$createUser) _then;
+  final TRes Function(Variables$Mutation$CreateUser) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({Object? email = _undefined}) =>
-      _then(Variables$Mutation$createUser._({
+      _then(Variables$Mutation$CreateUser._({
         ..._instance._$data,
         if (email != _undefined && email != null) 'email': (email as String),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Mutation$createUser<TRes>
-    implements CopyWith$Variables$Mutation$createUser<TRes> {
-  _CopyWithStubImpl$Variables$Mutation$createUser(this._res);
+class _CopyWithStubImpl$Variables$Mutation$CreateUser<TRes>
+    implements CopyWith$Variables$Mutation$CreateUser<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$CreateUser(this._res);
 
   TRes _res;
 
   call({String? email}) => _res;
 }
 
-class Mutation$createUser {
-  Mutation$createUser({
-    this.createUser,
+class Mutation$CreateUser {
+  Mutation$CreateUser({
+    required this.createUser,
     this.$__typename = 'Mutation',
   });
 
-  factory Mutation$createUser.fromJson(Map<String, dynamic> json) {
+  factory Mutation$CreateUser.fromJson(Map<String, dynamic> json) {
     final l$createUser = json['createUser'];
     final l$$__typename = json['__typename'];
-    return Mutation$createUser(
-      createUser: l$createUser == null
-          ? null
-          : Fragment$UserFields.fromJson(
-              (l$createUser as Map<String, dynamic>)),
+    return Mutation$CreateUser(
+      createUser:
+          Fragment$UserFields.fromJson((l$createUser as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Fragment$UserFields? createUser;
+  final Fragment$UserFields createUser;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$createUser = createUser;
-    _resultData['createUser'] = l$createUser?.toJson();
+    _resultData['createUser'] = l$createUser.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -578,7 +576,7 @@ class Mutation$createUser {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$createUser) || runtimeType != other.runtimeType) {
+    if (!(other is Mutation$CreateUser) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$createUser = createUser;
@@ -595,22 +593,22 @@ class Mutation$createUser {
   }
 }
 
-extension UtilityExtension$Mutation$createUser on Mutation$createUser {
-  CopyWith$Mutation$createUser<Mutation$createUser> get copyWith =>
-      CopyWith$Mutation$createUser(
+extension UtilityExtension$Mutation$CreateUser on Mutation$CreateUser {
+  CopyWith$Mutation$CreateUser<Mutation$CreateUser> get copyWith =>
+      CopyWith$Mutation$CreateUser(
         this,
         (i) => i,
       );
 }
 
-abstract class CopyWith$Mutation$createUser<TRes> {
-  factory CopyWith$Mutation$createUser(
-    Mutation$createUser instance,
-    TRes Function(Mutation$createUser) then,
-  ) = _CopyWithImpl$Mutation$createUser;
+abstract class CopyWith$Mutation$CreateUser<TRes> {
+  factory CopyWith$Mutation$CreateUser(
+    Mutation$CreateUser instance,
+    TRes Function(Mutation$CreateUser) then,
+  ) = _CopyWithImpl$Mutation$CreateUser;
 
-  factory CopyWith$Mutation$createUser.stub(TRes res) =
-      _CopyWithStubImpl$Mutation$createUser;
+  factory CopyWith$Mutation$CreateUser.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$CreateUser;
 
   TRes call({
     Fragment$UserFields? createUser,
@@ -619,16 +617,16 @@ abstract class CopyWith$Mutation$createUser<TRes> {
   CopyWith$Fragment$UserFields<TRes> get createUser;
 }
 
-class _CopyWithImpl$Mutation$createUser<TRes>
-    implements CopyWith$Mutation$createUser<TRes> {
-  _CopyWithImpl$Mutation$createUser(
+class _CopyWithImpl$Mutation$CreateUser<TRes>
+    implements CopyWith$Mutation$CreateUser<TRes> {
+  _CopyWithImpl$Mutation$CreateUser(
     this._instance,
     this._then,
   );
 
-  final Mutation$createUser _instance;
+  final Mutation$CreateUser _instance;
 
-  final TRes Function(Mutation$createUser) _then;
+  final TRes Function(Mutation$CreateUser) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -636,10 +634,10 @@ class _CopyWithImpl$Mutation$createUser<TRes>
     Object? createUser = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Mutation$createUser(
-        createUser: createUser == _undefined
+      _then(Mutation$CreateUser(
+        createUser: createUser == _undefined || createUser == null
             ? _instance.createUser
-            : (createUser as Fragment$UserFields?),
+            : (createUser as Fragment$UserFields),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -647,16 +645,14 @@ class _CopyWithImpl$Mutation$createUser<TRes>
 
   CopyWith$Fragment$UserFields<TRes> get createUser {
     final local$createUser = _instance.createUser;
-    return local$createUser == null
-        ? CopyWith$Fragment$UserFields.stub(_then(_instance))
-        : CopyWith$Fragment$UserFields(
-            local$createUser, (e) => call(createUser: e));
+    return CopyWith$Fragment$UserFields(
+        local$createUser, (e) => call(createUser: e));
   }
 }
 
-class _CopyWithStubImpl$Mutation$createUser<TRes>
-    implements CopyWith$Mutation$createUser<TRes> {
-  _CopyWithStubImpl$Mutation$createUser(this._res);
+class _CopyWithStubImpl$Mutation$CreateUser<TRes>
+    implements CopyWith$Mutation$CreateUser<TRes> {
+  _CopyWithStubImpl$Mutation$CreateUser(this._res);
 
   TRes _res;
 
@@ -670,10 +666,10 @@ class _CopyWithStubImpl$Mutation$createUser<TRes>
       CopyWith$Fragment$UserFields.stub(_res);
 }
 
-const documentNodeMutationcreateUser = DocumentNode(definitions: [
+const documentNodeMutationCreateUser = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.mutation,
-    name: NameNode(value: 'createUser'),
+    name: NameNode(value: 'CreateUser'),
     variableDefinitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'email')),
@@ -722,26 +718,26 @@ const documentNodeMutationcreateUser = DocumentNode(definitions: [
   ),
   fragmentDefinitionUserFields,
 ]);
-Mutation$createUser _parserFn$Mutation$createUser(Map<String, dynamic> data) =>
-    Mutation$createUser.fromJson(data);
-typedef OnMutationCompleted$Mutation$createUser = FutureOr<void> Function(
+Mutation$CreateUser _parserFn$Mutation$CreateUser(Map<String, dynamic> data) =>
+    Mutation$CreateUser.fromJson(data);
+typedef OnMutationCompleted$Mutation$CreateUser = FutureOr<void> Function(
   Map<String, dynamic>?,
-  Mutation$createUser?,
+  Mutation$CreateUser?,
 );
 
-class Options$Mutation$createUser
-    extends graphql.MutationOptions<Mutation$createUser> {
-  Options$Mutation$createUser({
+class Options$Mutation$CreateUser
+    extends graphql.MutationOptions<Mutation$CreateUser> {
+  Options$Mutation$CreateUser({
     String? operationName,
-    required Variables$Mutation$createUser variables,
+    required Variables$Mutation$CreateUser variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Mutation$createUser? typedOptimisticResult,
+    Mutation$CreateUser? typedOptimisticResult,
     graphql.Context? context,
-    OnMutationCompleted$Mutation$createUser? onCompleted,
-    graphql.OnMutationUpdate<Mutation$createUser>? update,
+    OnMutationCompleted$Mutation$CreateUser? onCompleted,
+    graphql.OnMutationUpdate<Mutation$CreateUser>? update,
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
@@ -756,15 +752,15 @@ class Options$Mutation$createUser
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null ? null : _parserFn$Mutation$createUser(data),
+                    data == null ? null : _parserFn$Mutation$CreateUser(data),
                   ),
           update: update,
           onError: onError,
-          document: documentNodeMutationcreateUser,
-          parserFn: _parserFn$Mutation$createUser,
+          document: documentNodeMutationCreateUser,
+          parserFn: _parserFn$Mutation$CreateUser,
         );
 
-  final OnMutationCompleted$Mutation$createUser? onCompletedWithParsed;
+  final OnMutationCompleted$Mutation$CreateUser? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -775,16 +771,16 @@ class Options$Mutation$createUser
       ];
 }
 
-class WatchOptions$Mutation$createUser
-    extends graphql.WatchQueryOptions<Mutation$createUser> {
-  WatchOptions$Mutation$createUser({
+class WatchOptions$Mutation$CreateUser
+    extends graphql.WatchQueryOptions<Mutation$CreateUser> {
+  WatchOptions$Mutation$CreateUser({
     String? operationName,
-    required Variables$Mutation$createUser variables,
+    required Variables$Mutation$CreateUser variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Mutation$createUser? typedOptimisticResult,
+    Mutation$CreateUser? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -798,40 +794,40 @@ class WatchOptions$Mutation$createUser
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeMutationcreateUser,
+          document: documentNodeMutationCreateUser,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Mutation$createUser,
+          parserFn: _parserFn$Mutation$CreateUser,
         );
 }
 
-extension ClientExtension$Mutation$createUser on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$createUser>> mutate$createUser(
-          Options$Mutation$createUser options) async =>
+extension ClientExtension$Mutation$CreateUser on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$CreateUser>> mutate$CreateUser(
+          Options$Mutation$CreateUser options) async =>
       await this.mutate(options);
-  graphql.ObservableQuery<Mutation$createUser> watchMutation$createUser(
-          WatchOptions$Mutation$createUser options) =>
+  graphql.ObservableQuery<Mutation$CreateUser> watchMutation$CreateUser(
+          WatchOptions$Mutation$CreateUser options) =>
       this.watchMutation(options);
 }
 
-class Mutation$createUser$HookResult {
-  Mutation$createUser$HookResult(
+class Mutation$CreateUser$HookResult {
+  Mutation$CreateUser$HookResult(
     this.runMutation,
     this.result,
   );
 
-  final RunMutation$Mutation$createUser runMutation;
+  final RunMutation$Mutation$CreateUser runMutation;
 
-  final graphql.QueryResult<Mutation$createUser> result;
+  final graphql.QueryResult<Mutation$CreateUser> result;
 }
 
-Mutation$createUser$HookResult useMutation$createUser(
-    [WidgetOptions$Mutation$createUser? options]) {
+Mutation$CreateUser$HookResult useMutation$CreateUser(
+    [WidgetOptions$Mutation$CreateUser? options]) {
   final result = graphql_flutter
-      .useMutation(options ?? WidgetOptions$Mutation$createUser());
-  return Mutation$createUser$HookResult(
+      .useMutation(options ?? WidgetOptions$Mutation$CreateUser());
+  return Mutation$CreateUser$HookResult(
     (variables, {optimisticResult, typedOptimisticResult}) =>
         result.runMutation(
       variables.toJson(),
@@ -841,22 +837,22 @@ Mutation$createUser$HookResult useMutation$createUser(
   );
 }
 
-graphql.ObservableQuery<Mutation$createUser> useWatchMutation$createUser(
-        WatchOptions$Mutation$createUser options) =>
+graphql.ObservableQuery<Mutation$CreateUser> useWatchMutation$CreateUser(
+        WatchOptions$Mutation$CreateUser options) =>
     graphql_flutter.useWatchMutation(options);
 
-class WidgetOptions$Mutation$createUser
-    extends graphql.MutationOptions<Mutation$createUser> {
-  WidgetOptions$Mutation$createUser({
+class WidgetOptions$Mutation$CreateUser
+    extends graphql.MutationOptions<Mutation$CreateUser> {
+  WidgetOptions$Mutation$CreateUser({
     String? operationName,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Mutation$createUser? typedOptimisticResult,
+    Mutation$CreateUser? typedOptimisticResult,
     graphql.Context? context,
-    OnMutationCompleted$Mutation$createUser? onCompleted,
-    graphql.OnMutationUpdate<Mutation$createUser>? update,
+    OnMutationCompleted$Mutation$CreateUser? onCompleted,
+    graphql.OnMutationUpdate<Mutation$CreateUser>? update,
     graphql.OnError? onError,
   })  : onCompletedWithParsed = onCompleted,
         super(
@@ -870,15 +866,15 @@ class WidgetOptions$Mutation$createUser
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null ? null : _parserFn$Mutation$createUser(data),
+                    data == null ? null : _parserFn$Mutation$CreateUser(data),
                   ),
           update: update,
           onError: onError,
-          document: documentNodeMutationcreateUser,
-          parserFn: _parserFn$Mutation$createUser,
+          document: documentNodeMutationCreateUser,
+          parserFn: _parserFn$Mutation$CreateUser,
         );
 
-  final OnMutationCompleted$Mutation$createUser? onCompletedWithParsed;
+  final OnMutationCompleted$Mutation$CreateUser? onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -889,26 +885,26 @@ class WidgetOptions$Mutation$createUser
       ];
 }
 
-typedef RunMutation$Mutation$createUser
-    = graphql.MultiSourceResult<Mutation$createUser> Function(
-  Variables$Mutation$createUser, {
+typedef RunMutation$Mutation$CreateUser
+    = graphql.MultiSourceResult<Mutation$CreateUser> Function(
+  Variables$Mutation$CreateUser, {
   Object? optimisticResult,
-  Mutation$createUser? typedOptimisticResult,
+  Mutation$CreateUser? typedOptimisticResult,
 });
-typedef Builder$Mutation$createUser = widgets.Widget Function(
-  RunMutation$Mutation$createUser,
-  graphql.QueryResult<Mutation$createUser>?,
+typedef Builder$Mutation$CreateUser = widgets.Widget Function(
+  RunMutation$Mutation$CreateUser,
+  graphql.QueryResult<Mutation$CreateUser>?,
 );
 
-class Mutation$createUser$Widget
-    extends graphql_flutter.Mutation<Mutation$createUser> {
-  Mutation$createUser$Widget({
+class Mutation$CreateUser$Widget
+    extends graphql_flutter.Mutation<Mutation$CreateUser> {
+  Mutation$CreateUser$Widget({
     widgets.Key? key,
-    WidgetOptions$Mutation$createUser? options,
-    required Builder$Mutation$createUser builder,
+    WidgetOptions$Mutation$CreateUser? options,
+    required Builder$Mutation$CreateUser builder,
   }) : super(
           key: key,
-          options: options ?? WidgetOptions$Mutation$createUser(),
+          options: options ?? WidgetOptions$Mutation$CreateUser(),
           builder: (
             run,
             result,

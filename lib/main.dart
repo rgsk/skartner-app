@@ -5,16 +5,13 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
-import 'package:skartner_app/__generated/schema.graphql.dart';
 import 'package:skartner_app/firebase_options.dart';
 import 'package:skartner_app/hooks/app/use_subscribe_to_notification_from_server.dart';
 import 'package:skartner_app/providers/auth_repository_provider.dart';
 import 'package:skartner_app/providers/graphql_client_provider.dart';
-import 'package:skartner_app/providers/user_provider.dart';
 import 'package:skartner_app/router.dart';
 import 'package:skartner_app/widgets/common/error_text_view.dart';
 import 'package:skartner_app/widgets/common/loader_view.dart';
-import 'package:skartner_app/widgets/login/__generated/login_page.graphql.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,20 +47,11 @@ class MyApp extends HookConsumerWidget {
                 debugShowCheckedModeBanner: false,
                 routerDelegate: RoutemasterDelegate(
                   routesBuilder: (context) {
+                    ref.read(authRepositoryProvider).updateUser(
+                          context: context,
+                          user: user,
+                        );
                     if (user != null) {
-                      graphqlClient.query$User(
-                        Options$Query$User(
-                            variables: Variables$Query$User(
-                              where:
-                                  Input$UserWhereUniqueInput(email: user.email),
-                            ),
-                            onComplete: (data, parsedData) {
-                              if (parsedData != null) {
-                                ref.read(userProvider.notifier).state =
-                                    parsedData.user;
-                              }
-                            }),
-                      );
                       return loggedInRoutes;
                     }
                     return loggedOutRoutes;
