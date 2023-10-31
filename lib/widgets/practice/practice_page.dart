@@ -63,7 +63,7 @@ class PracticePage extends HookConsumerWidget {
             Text('Counter: $counter'),
             ElevatedButton(
               onPressed: () {
-                ref.read(counterProvider.notifier).state++;
+                ref.watch(counterProvider.notifier).state++;
               },
               child: Text('incr'),
             ),
@@ -79,7 +79,7 @@ class PracticePage extends HookConsumerWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                ref.read(windowSizeProvider.notifier).addHeight();
+                ref.watch(windowSizeProvider.notifier).addHeight();
               },
               child: Text('incr'),
             ),

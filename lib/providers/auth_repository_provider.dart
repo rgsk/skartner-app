@@ -14,15 +14,15 @@ import 'package:skartner_app/widgets/login/__generated/login_page.graphql.dart';
 
 final authRepositoryProvider = Provider(
   (ref) => AuthRepository(
-    auth: ref.read(authProvider),
-    googleSignIn: ref.read(googleSignInProvider),
-    graphQLClient: ref.read(graphqlClientProvider),
+    auth: ref.watch(authProvider),
+    googleSignIn: ref.watch(googleSignInProvider),
+    graphQLClient: ref.watch(graphqlClientProvider),
     ref: ref,
   ),
 );
 
 final authStateChangeProvider = StreamProvider((ref) {
-  return ref.read(authRepositoryProvider).authStateChange;
+  return ref.watch(authRepositoryProvider).authStateChange;
 });
 
 class AuthRepository {
@@ -60,7 +60,7 @@ class AuthRepository {
       } else {
         final dbUser = queryResult.parsedData!.user;
         if (dbUser != null) {
-          _ref.read(dbUserProvider.notifier).state = dbUser;
+          _ref.watch(dbUserProvider.notifier).state = dbUser;
         } else {
           final email = user.email;
           if (email != null) {
@@ -76,7 +76,7 @@ class AuthRepository {
               displayError(context: context);
             } else {
               final dbUser = mutationResult.parsedData!.createUser;
-              _ref.read(dbUserProvider.notifier).state = dbUser;
+              _ref.watch(dbUserProvider.notifier).state = dbUser;
             }
           } else {
             const errorMessage = 'email not present';
@@ -90,7 +90,7 @@ class AuthRepository {
       }
     } else {
       Future(() {
-        _ref.read(dbUserProvider.notifier).state = null;
+        _ref.watch(dbUserProvider.notifier).state = null;
       });
     }
   }

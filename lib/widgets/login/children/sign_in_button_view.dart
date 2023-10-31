@@ -10,7 +10,7 @@ class SignInButtonView extends HookConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) {
-    ref.read(authRepositoryProvider).signInWithGoogle(context);
+    ref.watch(authRepositoryProvider).signInWithGoogle(context);
   }
 
   @override

@@ -32,7 +32,7 @@ class MyApp extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final graphqlClient = ref.read(graphqlClientProvider);
+    final graphqlClient = ref.watch(graphqlClientProvider);
     return ref.watch(authStateChangeProvider).when(
         data: (user) => GraphQLProvider(
               client: ValueNotifier(graphqlClient),
@@ -46,7 +46,7 @@ class MyApp extends HookConsumerWidget {
                 debugShowCheckedModeBanner: false,
                 routerDelegate: RoutemasterDelegate(
                   routesBuilder: (context) {
-                    ref.read(authRepositoryProvider).updateUser(
+                    ref.watch(authRepositoryProvider).updateUser(
                           context: context,
                           user: user,
                         );
