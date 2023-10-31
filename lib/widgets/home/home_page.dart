@@ -29,6 +29,12 @@ class HomePage extends HookConsumerWidget {
           ),
           ElevatedButton(
             onPressed: () {
+              Routemaster.of(context).push(Routes.login);
+            },
+            child: Text('Login'),
+          ),
+          ElevatedButton(
+            onPressed: () {
               Routemaster.of(context).push(Routes.gre);
             },
             child: Text('Gre'),
