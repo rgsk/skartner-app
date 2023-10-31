@@ -9,6 +9,11 @@ import 'package:skartner_app/router.dart';
 import 'package:skartner_app/utils/environment_vars.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
+
   await dotenv.load(fileName: ".env");
   // https://github.com/zino-hofmann/graphql-flutter/issues/729#issuecomment-1466752764
   final url = '${EnvironmentVars.skartnerServer}/graphql';
