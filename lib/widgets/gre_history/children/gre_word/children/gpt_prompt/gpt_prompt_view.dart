@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:skartner_app/utils/ui_utils.dart';
 import 'package:skartner_app/widgets/gre_history/__generated/gre_history_page.graphql.dart';
 import 'package:skartner_app/widgets/gre_history/children/gre_word/children/gpt_prompt/__generated/gpt_prompt_view.graphql.dart';
+import 'package:skartner_app/widgets/gre_history/children/gre_word/children/gpt_prompt/children/gpt_response_view.dart';
 
 class GptPromptView extends HookWidget {
   final Fragment$GreWordFields$gptPrompts gptPrompt;
@@ -86,13 +87,31 @@ class GptPromptView extends HookWidget {
                   ],
                 ),
                 if (activeTab.value == 'edited')
-                  Text(gptPrompt.editedResponse!)
+                  GptResponseView(
+                    response: gptPrompt.editedResponse!,
+                    gptPromptId: gptPrompt.id,
+                    onMutate: onMutate,
+                  )
                 else
-                  Text(gptPrompt.response)
+                  GptResponseView(
+                    response: gptPrompt.response,
+                    gptPromptId: gptPrompt.id,
+                    onMutate: () {
+                      activeTab.value = 'edited';
+                      onMutate();
+                    },
+                  )
               ],
             )
           else
-            Text(gptPrompt.response),
+            GptResponseView(
+              response: gptPrompt.response,
+              gptPromptId: gptPrompt.id,
+              onMutate: () {
+                activeTab.value = 'edited';
+                onMutate();
+              },
+            )
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql/client.dart';
+import 'package:skartner_app/utils/graphql_utils.dart';
 
 void showSnackBar(BuildContext context, String text) {
   ScaffoldMessenger.of(context)
@@ -28,6 +29,13 @@ void showDebugSnackBar(BuildContext context, String text) {
   }
 }
 
+void displayError({
+  required BuildContext context,
+  String errorMessage = 'Some Error Occurred',
+}) {
+  showSnackBar(context, errorMessage);
+}
+
 void setupMutation<T>({
   required BuildContext context,
   String errorMessage =
@@ -43,14 +51,13 @@ void setupMutation<T>({
 
   final exception = result?.exception;
   if (exception != null) {
-    if (kDebugMode) {
-      final graphqlErrorMessage = exception.graphqlErrors[0].message;
-      print('Graphql Mutation Error:');
-      print(graphqlErrorMessage);
-    }
     revertOptimisticUpdate?.call();
     onError?.call(result?.exception);
-    showSnackBar(context, errorMessage);
+    displayError(
+      context: context,
+      errorMessage: errorMessage,
+    );
+    reportGraphqlException(exception);
   } else {
     onComplete?.call(result?.data, result?.parsedData);
   }
