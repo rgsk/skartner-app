@@ -7,7 +7,12 @@ import 'package:skartner_app/widgets/gre_history/children/gre_word/gre_word_view
 
 class WordSearchResultView extends HookWidget {
   final String word;
-  const WordSearchResultView({super.key, required this.word});
+  final List<String> selectedTags;
+  const WordSearchResultView({
+    super.key,
+    required this.word,
+    required this.selectedTags,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +97,12 @@ class WordSearchResultView extends HookWidget {
                                             promptResponse: promptResponse,
                                             userId:
                                                 'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
+                                            greWordTags:
+                                                selectedTags.map((tagName) {
+                                              return Input$GreWordTagWhereUniqueInput(
+                                                name: tagName,
+                                              );
+                                            }).toList(),
                                           ),
                                         )
                                         .networkResult;
