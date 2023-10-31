@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/__generated/schema.graphql.dart';
+import 'package:skartner_app/providers/db_user_provider.dart';
 import 'package:skartner_app/utils/graphql_utils.dart';
 import 'package:skartner_app/widgets/gre/__generated/gre_page.graphql.dart';
 import 'package:skartner_app/widgets/gre_history/children/gre_word/gre_word_view.dart';
 
-class WordSearchResultView extends HookWidget {
+class WordSearchResultView extends HookConsumerWidget {
   final String word;
   final List<String> selectedTags;
   const WordSearchResultView({
@@ -15,17 +16,17 @@ class WordSearchResultView extends HookWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
     final promptInput =
         "list meaning and 3 easy example sentences for word - ${word}";
-
+    final dbUser = ref.watch(dbUserProvider)!;
     final greWordQuery = useQuery$GreWord(
       Options$Query$GreWord(
         variables: Variables$Query$GreWord(
           where: Input$GreWordWhereUniqueInput(
             spelling_userId: Input$GreWordSpellingUserIdCompoundUniqueInput(
               spelling: word,
-              userId: 'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
+              userId: dbUser.id,
             ),
           ),
         ),
@@ -95,8 +96,7 @@ class WordSearchResultView extends HookWidget {
                                             spelling: word,
                                             promptInput: promptInput,
                                             promptResponse: promptResponse,
-                                            userId:
-                                                'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
+                                            userId: dbUser.id,
                                             greWordTags:
                                                 selectedTags.map((tagName) {
                                               return Input$GreWordTagWhereUniqueInput(

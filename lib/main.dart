@@ -1,4 +1,3 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -6,7 +5,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 import 'package:skartner_app/firebase_options.dart';
-import 'package:skartner_app/hooks/app/use_subscribe_to_notification_from_server.dart';
+import 'package:skartner_app/global_wrapper_view.dart';
 import 'package:skartner_app/providers/auth_repository_provider.dart';
 import 'package:skartner_app/providers/graphql_client_provider.dart';
 import 'package:skartner_app/router.dart';
@@ -73,22 +72,5 @@ class MyApp extends HookConsumerWidget {
         loading: () {
           return LoaderView();
         });
-  }
-}
-
-class GlobalWrapper extends HookConsumerWidget {
-  final Widget child;
-  const GlobalWrapper({
-    Key? key,
-    required this.child,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context, ref) {
-    useSubscribeToNotificationsFromServer(context, ref);
-
-    return Scaffold(
-      body: child,
-    );
   }
 }

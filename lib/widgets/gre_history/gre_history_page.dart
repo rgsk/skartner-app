@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/__generated/schema.graphql.dart';
+import 'package:skartner_app/providers/db_user_provider.dart';
 import 'package:skartner_app/widgets/common/pagination_controls_view.dart';
 import 'package:skartner_app/widgets/gre_history/__generated/gre_history_page.graphql.dart';
 import 'package:skartner_app/widgets/gre_history/children/gre_word/gre_word_view.dart';
@@ -17,7 +19,8 @@ final sortedGreWordStatuses = [
   Enum$GreWordStatus.MASTERED,
 ];
 
-QueryHookResult<Query$GreWordTags> useGreWordTagsQuery() {
+QueryHookResult<Query$GreWordTags> useGreWordTagsQuery(WidgetRef ref) {
+  final dbUser = ref.watch(dbUserProvider)!;
   final greWordTagsQuery = useQuery$GreWordTags(
     Options$Query$GreWordTags(
       // cacheFirst is important otherwise this call will be made many times
@@ -25,7 +28,7 @@ QueryHookResult<Query$GreWordTags> useGreWordTagsQuery() {
       variables: Variables$Query$GreWordTags(
         where: Input$GreWordTagWhereInput(
           userId: Input$StringFilter(
-            equals: 'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
+            equals: dbUser.id,
           ),
         ),
       ),
@@ -34,11 +37,12 @@ QueryHookResult<Query$GreWordTags> useGreWordTagsQuery() {
   return greWordTagsQuery;
 }
 
-class GreHistoryPage extends HookWidget {
+class GreHistoryPage extends HookConsumerWidget {
   const GreHistoryPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
+    final dbUser = ref.watch(dbUserProvider)!;
     final currentPage = useState(1);
     final selectedStatuses = useState(sortedGreWordStatuses);
     final selectedTags = useState<List<String>>([]);
@@ -48,7 +52,7 @@ class GreHistoryPage extends HookWidget {
         variables: Variables$Query$GreWords(
           where: Input$GreWordWhereInput(
             userId: Input$StringFilter(
-              equals: 'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
+              equals: dbUser.id,
             ),
             spelling: Input$StringFilter(
               startsWith: queryInput.value,
@@ -78,7 +82,7 @@ class GreHistoryPage extends HookWidget {
         ),
       ),
     );
-    final greWordTagsQuery = useGreWordTagsQuery();
+    final greWordTagsQuery = useGreWordTagsQuery(ref);
     final greWordTags = greWordTagsQuery.result.parsedData?.greWordTags ?? [];
 
     final parsedData = greWordsQuery.result.parsedData;

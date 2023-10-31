@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:skartner_app/providers/db_user_provider.dart';
 import 'package:skartner_app/utils/graphql_utils.dart';
 import 'package:skartner_app/widgets/gre_history/children/gre_word/__generated/gre_word_view.graphql.dart';
 import 'package:skartner_app/widgets/gre_history/gre_history_page.dart';
 
-class TagInputView extends HookWidget {
+class TagInputView extends HookConsumerWidget {
   final Function(String tagName) onSelected;
   const TagInputView({
     super.key,
@@ -12,11 +14,12 @@ class TagInputView extends HookWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
+    final dbUser = ref.watch(dbUserProvider)!;
     final matchExists = useState(true);
     final tagSearchInput = useState('');
     final createGreWordTagMutation = useMutation$CreateGreWordTag();
-    final greWordTagsQuery = useGreWordTagsQuery();
+    final greWordTagsQuery = useGreWordTagsQuery(ref);
     final greWordTags = greWordTagsQuery.result.parsedData?.greWordTags ?? [];
     final tagNames = greWordTags.map((e) => e.name).toList();
     return Row(
@@ -52,7 +55,7 @@ class TagInputView extends HookWidget {
                       .runMutation(
                         Variables$Mutation$CreateGreWordTag(
                           name: tagSearchInput.value,
-                          userId: 'd710d741-afa1-4ab5-9a3f-8132bb2e63c5',
+                          userId: dbUser.id,
                         ),
                       )
                       .networkResult;
