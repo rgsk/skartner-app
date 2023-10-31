@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/constants/local_images.dart';
-import 'package:skartner_app/providers/auth_controler_provider.dart';
+import 'package:skartner_app/providers/auth_repository_provider.dart';
 
 class SignInButtonView extends HookConsumerWidget {
   const SignInButtonView({super.key});
@@ -10,7 +10,7 @@ class SignInButtonView extends HookConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) {
-    ref.read(authControllerProvider.notifier).signInWithGoogle(context);
+    ref.read(authRepositoryProvider).signInWithGoogle();
   }
 
   @override

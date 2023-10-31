@@ -8,7 +8,7 @@ import 'package:routemaster/routemaster.dart';
 import 'package:skartner_app/__generated/schema.graphql.dart';
 import 'package:skartner_app/firebase_options.dart';
 import 'package:skartner_app/hooks/app/use_subscribe_to_notification_from_server.dart';
-import 'package:skartner_app/providers/auth_controler_provider.dart';
+import 'package:skartner_app/providers/auth_repository_provider.dart';
 import 'package:skartner_app/providers/graphql_client_provider.dart';
 import 'package:skartner_app/providers/user_provider.dart';
 import 'package:skartner_app/router.dart';

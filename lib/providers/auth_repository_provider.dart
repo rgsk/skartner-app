@@ -11,6 +11,10 @@ final authRepositoryProvider = Provider(
   ),
 );
 
+final authStateChangeProvider = StreamProvider((ref) {
+  return ref.read(authRepositoryProvider).authStateChange;
+});
+
 class AuthRepository {
   final FirebaseAuth _auth;
   final GoogleSignIn _googleSignIn;
@@ -42,10 +46,14 @@ class AuthRepository {
       }
 
       final user = userCredential.user;
-      print('wohoo authentication working');
-      print(user);
+      if (kDebugMode) {
+        print('authentication working');
+        print(user);
+      }
     } catch (e) {
-      print(e);
+      if (kDebugMode) {
+        print(e);
+      }
     }
   }
 }
