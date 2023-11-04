@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 import 'package:skartner_app/providers/auth_repository_provider.dart';
+import 'package:skartner_app/providers/db_user_provider.dart';
 import 'package:skartner_app/router.dart';
 
 class HomePage extends HookConsumerWidget {
@@ -10,16 +11,18 @@ class HomePage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final authRespository = ref.watch(authRepositoryProvider);
+    final dbUser = ref.watch(dbUserProvider);
     return Scaffold(
       appBar: AppBar(
         title: Text('Home'),
         actions: [
-          ElevatedButton(
-            onPressed: () {
-              authRespository.signOut();
-            },
-            child: Text('Logout'),
-          ),
+          if (dbUser != null)
+            ElevatedButton(
+              onPressed: () {
+                authRespository.signOut();
+              },
+              child: Text('Logout'),
+            ),
         ],
       ),
       body: Container(
