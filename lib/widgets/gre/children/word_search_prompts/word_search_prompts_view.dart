@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/__generated/schema.graphql.dart';
+import 'package:skartner_app/constants/general_constants.dart';
 import 'package:skartner_app/providers/auth_repository_provider.dart';
 import 'package:skartner_app/providers/db_user_provider.dart';
 import 'package:skartner_app/utils/graphql_utils.dart';
@@ -122,6 +123,8 @@ class WordSearchPromptsView extends HookConsumerWidget {
     final greWordSearchPromptInputs = greWordSearchPromptInputsQuery
         .result.parsedData?.greWordSearchPromptInputs;
 
+    const errorMessage = 'Text must contain the string "${wordPlaceholder}"';
+
     return Column(
       children: [
         Text(
@@ -136,37 +139,57 @@ class WordSearchPromptsView extends HookConsumerWidget {
             ElevatedButton(
               onPressed: () {
                 _textEditingController.text = '';
+
                 showDialog(
                     context: context,
                     builder: (context) {
-                      return AlertDialog(
-                        title: const Text('Create New Prompt'),
-                        content: TextField(
-                          controller: _textEditingController,
-                          decoration: const InputDecoration(
-                            hintText: 'Text must contain the string "{word}"',
-                          ),
-                        ),
-                        actions: <Widget>[
-                          MaterialButton(
-                            color: Colors.red,
-                            textColor: Colors.white,
-                            child: const Text('CANCEL'),
-                            onPressed: () {
-                              Navigator.pop(context);
+                      var error = false;
+                      return StatefulBuilder(builder: (context, setState) {
+                        return AlertDialog(
+                          title: const Text('Create New Prompt'),
+                          content: TextField(
+                            controller: _textEditingController,
+                            decoration: InputDecoration(
+                              hintText: errorMessage,
+                              errorText: error ? errorMessage : null,
+                            ),
+                            onChanged: (value) {
+                              if (_textEditingController.text
+                                  .contains(wordPlaceholder)) {
+                                setState(() {
+                                  error = false;
+                                });
+                              }
                             },
                           ),
-                          MaterialButton(
-                            color: Colors.green,
-                            textColor: Colors.white,
-                            child: const Text('OK'),
-                            onPressed: () {
-                              Navigator.pop(context);
-                              createInput(text: _textEditingController.text);
-                            },
-                          ),
-                        ],
-                      );
+                          actions: <Widget>[
+                            MaterialButton(
+                              color: Colors.red,
+                              textColor: Colors.white,
+                              child: const Text('CANCEL'),
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            ),
+                            MaterialButton(
+                              color: Colors.green,
+                              textColor: Colors.white,
+                              child: const Text('OK'),
+                              onPressed: () {
+                                if (!_textEditingController.text
+                                    .contains(wordPlaceholder)) {
+                                  setState(() {
+                                    error = true;
+                                  });
+                                  return;
+                                }
+                                Navigator.pop(context);
+                                createInput(text: _textEditingController.text);
+                              },
+                            ),
+                          ],
+                        );
+                      });
                     });
               },
               child: Row(children: [
@@ -226,16 +249,26 @@ class WordSearchPromptsView extends HookConsumerWidget {
                                   context: context,
                                   builder: (context) {
                                     var loading = false;
+                                    var error = false;
                                     return StatefulBuilder(
                                       builder: (context, setState) {
                                         return AlertDialog(
-                                          title: const Text('Edit Prompt'),
+                                          title: Text('Edit Prompt'),
                                           content: TextField(
                                             controller: _textEditingController,
-                                            decoration: const InputDecoration(
-                                              hintText:
-                                                  'Text must contain the string "{word}"',
+                                            decoration: InputDecoration(
+                                              hintText: errorMessage,
+                                              errorText:
+                                                  error ? errorMessage : null,
                                             ),
+                                            onChanged: (value) {
+                                              if (_textEditingController.text
+                                                  .contains(wordPlaceholder)) {
+                                                setState(() {
+                                                  error = false;
+                                                });
+                                              }
+                                            },
                                           ),
                                           actions: <Widget>[
                                             MaterialButton(
@@ -253,6 +286,15 @@ class WordSearchPromptsView extends HookConsumerWidget {
                                                   ? CircularProgressIndicator()
                                                   : Text('OK'),
                                               onPressed: () async {
+                                                if (!_textEditingController.text
+                                                    .contains(
+                                                  wordPlaceholder,
+                                                )) {
+                                                  setState(() {
+                                                    error = true;
+                                                  });
+                                                  return;
+                                                }
                                                 setState(() {
                                                   loading = true;
                                                 });

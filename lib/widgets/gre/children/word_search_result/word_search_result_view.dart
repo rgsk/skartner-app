@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/__generated/schema.graphql.dart';
+import 'package:skartner_app/constants/general_constants.dart';
 import 'package:skartner_app/providers/db_user_provider.dart';
 import 'package:skartner_app/providers/graphql_client_provider.dart';
 import 'package:skartner_app/utils/graphql_utils.dart';
@@ -21,8 +22,8 @@ class WordSearchResultView extends HookConsumerWidget {
   Widget build(BuildContext context, ref) {
     final dbUser = ref.watch(dbUserProvider)!;
     final promptInput = (dbUser.meta.defaultGreWordSearchPromptInput ??
-            'list meaning and 3 easy example sentences for word - {word}')
-        .replaceAll('{word}', word);
+            'list meaning and 3 easy example sentences for word - ${wordPlaceholder}')
+        .replaceAll(wordPlaceholder, word);
     final promptLoading = useState(false);
     final indexesFetchedForWord = useState<List<int>>([]);
     final graphQLClient = ref.watch(graphQLClientProvider);
