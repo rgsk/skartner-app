@@ -46,8 +46,14 @@ class WordSearchPromptsView extends HookConsumerWidget {
     final createGreWordSearchPromptInputMutation =
         useMutation$CreateGreWordSearchPromptInput();
 
-    void updateInput({required String id, required String text}) {
-      setupMutation(
+    final deletedPromptId = useState<String?>(null);
+
+    Future<void> updateInput({
+      required String id,
+      required String text,
+      required VoidCallback onSuccess,
+    }) async {
+      await setupMutation(
         context: context,
         runMutation: () async {
           return updateGreWordSearchPromptInputMutation
@@ -61,6 +67,7 @@ class WordSearchPromptsView extends HookConsumerWidget {
         },
         onComplete: (data, parsedData) {
           greWordSearchPromptInputsQuery.refetch();
+          onSuccess();
         },
       );
     }
@@ -162,7 +169,11 @@ class WordSearchPromptsView extends HookConsumerWidget {
                       );
                     });
               },
-              child: Text('Add New'),
+              child: Row(children: [
+                Text('Add New'),
+                if (createGreWordSearchPromptInputMutation.result.isLoading)
+                  CircularProgressIndicator(),
+              ]),
             ),
           ],
         ),
@@ -187,90 +198,116 @@ class WordSearchPromptsView extends HookConsumerWidget {
               },
             ),
           ),
-        if (greWordSearchPromptInputs != null)
-          SizedBox(
-            height: 200,
-            child: ListView.builder(
-              itemCount: greWordSearchPromptInputs.length,
-              itemBuilder: (context, index) {
-                final input = greWordSearchPromptInputs[index];
+        greWordSearchPromptInputs == null ||
+                greWordSearchPromptInputsQuery.result.isLoading
+            ? CircularProgressIndicator()
+            : SizedBox(
+                height: 200,
+                child: ListView.builder(
+                  itemCount: greWordSearchPromptInputs.length,
+                  itemBuilder: (context, index) {
+                    final input = greWordSearchPromptInputs[index];
 
-                return Row(
-                  children: [
-                    Checkbox(
-                      value: defaultPrompt.value == input.text,
-                      onChanged: (newValue) {
-                        if (defaultPrompt.value != input.text) {
-                          updateDefaultPrompt(input.text);
-                        }
-                      },
-                    ),
-                    Text(input.text),
-                    IconButton(
-                        onPressed: () {
-                          _textEditingController.text = input.text;
-                          showDialog(
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  title: const Text('Edit Prompt'),
-                                  content: TextField(
-                                    controller: _textEditingController,
-                                    decoration: const InputDecoration(
-                                      hintText:
-                                          'Text must contain the string "{word}"',
-                                    ),
-                                  ),
-                                  actions: <Widget>[
-                                    MaterialButton(
-                                      color: Colors.red,
-                                      textColor: Colors.white,
-                                      child: const Text('CANCEL'),
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                      },
-                                    ),
-                                    MaterialButton(
-                                      color: Colors.green,
-                                      textColor: Colors.white,
-                                      child: const Text('OK'),
-                                      onPressed: () {
-                                        Navigator.pop(context);
-                                        updateInput(
-                                          id: input.id,
-                                          text: _textEditingController.text,
+                    return Row(
+                      children: [
+                        Checkbox(
+                          value: defaultPrompt.value == input.text,
+                          onChanged: (newValue) {
+                            if (defaultPrompt.value != input.text) {
+                              updateDefaultPrompt(input.text);
+                            }
+                          },
+                        ),
+                        Text(input.text),
+                        IconButton(
+                            onPressed: () {
+                              _textEditingController.text = input.text;
+                              showDialog(
+                                  context: context,
+                                  builder: (context) {
+                                    var loading = false;
+                                    return StatefulBuilder(
+                                      builder: (context, setState) {
+                                        return AlertDialog(
+                                          title: const Text('Edit Prompt'),
+                                          content: TextField(
+                                            controller: _textEditingController,
+                                            decoration: const InputDecoration(
+                                              hintText:
+                                                  'Text must contain the string "{word}"',
+                                            ),
+                                          ),
+                                          actions: <Widget>[
+                                            MaterialButton(
+                                              color: Colors.red,
+                                              textColor: Colors.white,
+                                              child: const Text('CANCEL'),
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                            ),
+                                            MaterialButton(
+                                              color: Colors.green,
+                                              textColor: Colors.white,
+                                              child: loading
+                                                  ? CircularProgressIndicator()
+                                                  : Text('OK'),
+                                              onPressed: () async {
+                                                setState(() {
+                                                  loading = true;
+                                                });
+                                                await updateInput(
+                                                    id: input.id,
+                                                    text: _textEditingController
+                                                        .text,
+                                                    onSuccess: () {
+                                                      Navigator.pop(context);
+                                                    });
+                                                setState(() {
+                                                  loading = false;
+                                                });
+                                              },
+                                            ),
+                                          ],
                                         );
                                       },
-                                    ),
-                                  ],
-                                );
-                              });
-                        },
-                        icon: Icon(Icons.edit)),
-                    IconButton(
-                        onPressed: () {
-                          setupMutation(
-                            context: context,
-                            runMutation: () async {
-                              return deleteGreWordSearchPromptInputMutation
-                                  .runMutation(
-                                    Variables$Mutation$DeleteGreWordSearchPromptInput(
-                                      id: input.id,
-                                    ),
-                                  )
-                                  .networkResult;
+                                    );
+                                  });
                             },
-                            onComplete: (data, parsedData) {
-                              greWordSearchPromptInputsQuery.refetch();
-                            },
-                          );
-                        },
-                        icon: Icon(Icons.delete)),
-                  ],
-                );
-              },
-            ),
-          )
+                            icon: Icon(Icons.edit)),
+                        IconButton(
+                          onPressed: () {
+                            deletedPromptId.value = input.id;
+                            setupMutation(
+                              context: context,
+                              runMutation: () async {
+                                return deleteGreWordSearchPromptInputMutation
+                                    .runMutation(
+                                      Variables$Mutation$DeleteGreWordSearchPromptInput(
+                                        id: input.id,
+                                      ),
+                                    )
+                                    .networkResult;
+                              },
+                              onComplete: (data, parsedData) {
+                                greWordSearchPromptInputsQuery.refetch();
+                              },
+                              onFinish: (result) {
+                                deletedPromptId.value = null;
+                              },
+                            );
+                          },
+                          icon: deletedPromptId.value == input.id
+                              ? CircularProgressIndicator()
+                              : Icon(
+                                  Icons.delete,
+                                ),
+                        )
+                      ],
+                    );
+                  },
+                ),
+              )
       ],
     );
   }
