@@ -16,7 +16,7 @@ final authRepositoryProvider = Provider(
   (ref) => AuthRepository(
     auth: ref.watch(authProvider),
     googleSignIn: ref.watch(googleSignInProvider),
-    graphQLClient: ref.watch(graphqlClientProvider),
+    graphQLClient: ref.watch(graphQLClientProvider),
     ref: ref,
   ),
 );

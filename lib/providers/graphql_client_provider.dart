@@ -17,7 +17,7 @@ final link = Link.split(
   httpLink,
 );
 
-final graphqlClientProvider = Provider(
+final graphQLClientProvider = Provider(
   (ref) => GraphQLClient(
     link: link,
     cache: GraphQLCache(

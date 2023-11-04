@@ -32,7 +32,7 @@ class MyApp extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final graphqlClient = ref.watch(graphqlClientProvider);
+    final graphqlClient = ref.watch(graphQLClientProvider);
     return ref.watch(authStateChangeProvider).when(
         data: (user) => GraphQLProvider(
               client: ValueNotifier(graphqlClient),

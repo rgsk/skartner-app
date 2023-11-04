@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/__generated/schema.graphql.dart';
 import 'package:skartner_app/providers/db_user_provider.dart';
+import 'package:skartner_app/providers/graphql_client_provider.dart';
 import 'package:skartner_app/utils/graphql_utils.dart';
 import 'package:skartner_app/widgets/gre/__generated/gre_page.graphql.dart';
 import 'package:skartner_app/widgets/gre_history/children/gre_word/gre_word_view.dart';
@@ -20,6 +22,8 @@ class WordSearchResultView extends HookConsumerWidget {
     final promptInput =
         "list meaning and 3 easy example sentences for word - ${word}";
     final dbUser = ref.watch(dbUserProvider)!;
+    final indexesFetchedForWord = useState<List<int>>([]);
+    final graphQLClient = ref.watch(graphQLClientProvider);
     final greWordQuery = useQuery$GreWord(
       Options$Query$GreWord(
         variables: Variables$Query$GreWord(
@@ -33,20 +37,50 @@ class WordSearchResultView extends HookConsumerWidget {
       ),
     );
 
-    final sendSinglePromptQuery = useQuery$SendSinglePrompt(
-      Options$Query$SendSinglePrompt(
-        variables: Variables$Query$SendSinglePrompt(
-          input: promptInput,
+    final sendSinglePromptQueryParsedData =
+        useState<Query$SendSinglePrompt?>(null);
+
+    final resultIndexFetched =
+        sendSinglePromptQueryParsedData.value?.sendSinglePrompt.resultIndex;
+
+    useEffect(() {
+      if (resultIndexFetched != null) {
+        indexesFetchedForWord.value = [
+          ...indexesFetchedForWord.value,
+          resultIndexFetched
+        ];
+      }
+      return null;
+    }, [resultIndexFetched]);
+
+    void submitWord() async {
+      final skipCache = indexesFetchedForWord.value.length ==
+          sendSinglePromptQueryParsedData
+              .value?.sendSinglePrompt.totalResultsInCache;
+
+      final result = await graphQLClient.query$SendSinglePrompt(
+        Options$Query$SendSinglePrompt(
+          variables: Variables$Query$SendSinglePrompt(
+            input: promptInput,
+            indexesReturned: indexesFetchedForWord.value,
+            skipCache: skipCache,
+          ),
         ),
-      ),
-    );
+      );
+      sendSinglePromptQueryParsedData.value = result.parsedData;
+    }
+
+    useEffect(() {
+      submitWord();
+      return null;
+    }, []);
 
     final createGreWordMutation = useMutation$CreateGreWord();
     final createGptPromptMuation = useMutation$CreateGptPrompt();
 
     final greWord = greWordQuery.result.parsedData?.greWord;
     final promptResponse =
-        sendSinglePromptQuery.result.parsedData?.sendSinglePrompt.result;
+        sendSinglePromptQueryParsedData.value?.sendSinglePrompt.result;
 
     return SingleChildScrollView(
       child: Container(
@@ -71,11 +105,23 @@ class WordSearchResultView extends HookConsumerWidget {
               ),
             Column(
               children: [
-                Text(
-                  'Search Result',
-                  style: TextStyle(
-                    fontSize: 20,
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      'Search Result',
+                      style: TextStyle(
+                        fontSize: 20,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        submitWord();
+                      },
+                      icon: Icon(
+                        Icons.refresh,
+                      ),
+                    ),
+                  ],
                 ),
                 promptResponse == null
                     ? CircularProgressIndicator()
