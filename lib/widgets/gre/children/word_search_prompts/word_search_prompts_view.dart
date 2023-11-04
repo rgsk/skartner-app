@@ -5,6 +5,7 @@ import 'package:skartner_app/__generated/schema.graphql.dart';
 import 'package:skartner_app/providers/auth_repository_provider.dart';
 import 'package:skartner_app/providers/db_user_provider.dart';
 import 'package:skartner_app/utils/graphql_utils.dart';
+import 'package:skartner_app/widgets/gre/__generated/gre_page.graphql.dart';
 import 'package:skartner_app/widgets/gre/children/word_search_prompts/__generated/word_search_prompts.graphql.dart';
 import 'package:skartner_app/widgets/login/__generated/login_page.graphql.dart';
 
@@ -27,10 +28,14 @@ class WordSearchPromptsView extends HookConsumerWidget {
       ),
     );
 
+    final greConfigurationQuery = useQuery$GreConfiguration();
+    final generalPrompts = greConfigurationQuery
+        .result.parsedData?.greConfiguration.defaultGreWordSearchPromptInputs;
     final defaultPrompt = useState(dbUser.meta.defaultGreWordSearchPromptInput);
 
     useEffect(() {
       defaultPrompt.value = dbUser.meta.defaultGreWordSearchPromptInput;
+      return null;
     }, [dbUser.meta.defaultGreWordSearchPromptInput]);
 
     final deleteGreWordSearchPromptInputMutation =
@@ -161,6 +166,27 @@ class WordSearchPromptsView extends HookConsumerWidget {
             ),
           ],
         ),
+        if (generalPrompts != null)
+          SizedBox(
+            height: 200,
+            child: ListView.builder(
+              itemCount: generalPrompts.length,
+              itemBuilder: (context, index) {
+                final prompt = generalPrompts[index];
+                return Row(children: [
+                  Checkbox(
+                    value: defaultPrompt.value == prompt,
+                    onChanged: (newValue) {
+                      if (defaultPrompt.value != prompt) {
+                        updateDefaultPrompt(prompt);
+                      }
+                    },
+                  ),
+                  Text(prompt),
+                ]);
+              },
+            ),
+          ),
         if (greWordSearchPromptInputs != null)
           SizedBox(
             height: 200,

@@ -19,9 +19,11 @@ class WordSearchResultView extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final promptInput =
-        "list meaning and 3 easy example sentences for word - ${word}";
     final dbUser = ref.watch(dbUserProvider)!;
+    final promptInput = (dbUser.meta.defaultGreWordSearchPromptInput ??
+            'list meaning and 3 easy example sentences for word - {word}')
+        .replaceAll('{word}', word);
+    final promptLoading = useState(false);
     final indexesFetchedForWord = useState<List<int>>([]);
     final graphQLClient = ref.watch(graphQLClientProvider);
     final greWordQuery = useQuery$GreWord(
@@ -57,7 +59,7 @@ class WordSearchResultView extends HookConsumerWidget {
       final skipCache = indexesFetchedForWord.value.length ==
           sendSinglePromptQueryParsedData
               .value?.sendSinglePrompt.totalResultsInCache;
-
+      promptLoading.value = true;
       final result = await graphQLClient.query$SendSinglePrompt(
         Options$Query$SendSinglePrompt(
           variables: Variables$Query$SendSinglePrompt(
@@ -67,13 +69,19 @@ class WordSearchResultView extends HookConsumerWidget {
           ),
         ),
       );
+      promptLoading.value = false;
       sendSinglePromptQueryParsedData.value = result.parsedData;
     }
 
     useEffect(() {
+      indexesFetchedForWord.value = [];
+      return null;
+    }, [promptInput]);
+
+    useEffect(() {
       submitWord();
       return null;
-    }, []);
+    }, [promptInput]);
 
     final createGreWordMutation = useMutation$CreateGreWord();
     final createGptPromptMuation = useMutation$CreateGptPrompt();
@@ -123,6 +131,7 @@ class WordSearchResultView extends HookConsumerWidget {
                     ),
                   ],
                 ),
+                if (promptLoading.value) CircularProgressIndicator(),
                 promptResponse == null
                     ? CircularProgressIndicator()
                     : Column(

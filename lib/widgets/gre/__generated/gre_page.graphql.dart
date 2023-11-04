@@ -2663,3 +2663,467 @@ class _CopyWithStubImpl$Mutation$CreateGptPrompt$createGptPrompt<TRes>
   }) =>
       _res;
 }
+
+class Query$GreConfiguration {
+  Query$GreConfiguration({
+    required this.greConfiguration,
+    this.$__typename = 'Query',
+  });
+
+  factory Query$GreConfiguration.fromJson(Map<String, dynamic> json) {
+    final l$greConfiguration = json['greConfiguration'];
+    final l$$__typename = json['__typename'];
+    return Query$GreConfiguration(
+      greConfiguration: Query$GreConfiguration$greConfiguration.fromJson(
+          (l$greConfiguration as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Query$GreConfiguration$greConfiguration greConfiguration;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$greConfiguration = greConfiguration;
+    _resultData['greConfiguration'] = l$greConfiguration.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$greConfiguration = greConfiguration;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$greConfiguration,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GreConfiguration) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$greConfiguration = greConfiguration;
+    final lOther$greConfiguration = other.greConfiguration;
+    if (l$greConfiguration != lOther$greConfiguration) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GreConfiguration on Query$GreConfiguration {
+  CopyWith$Query$GreConfiguration<Query$GreConfiguration> get copyWith =>
+      CopyWith$Query$GreConfiguration(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$GreConfiguration<TRes> {
+  factory CopyWith$Query$GreConfiguration(
+    Query$GreConfiguration instance,
+    TRes Function(Query$GreConfiguration) then,
+  ) = _CopyWithImpl$Query$GreConfiguration;
+
+  factory CopyWith$Query$GreConfiguration.stub(TRes res) =
+      _CopyWithStubImpl$Query$GreConfiguration;
+
+  TRes call({
+    Query$GreConfiguration$greConfiguration? greConfiguration,
+    String? $__typename,
+  });
+  CopyWith$Query$GreConfiguration$greConfiguration<TRes> get greConfiguration;
+}
+
+class _CopyWithImpl$Query$GreConfiguration<TRes>
+    implements CopyWith$Query$GreConfiguration<TRes> {
+  _CopyWithImpl$Query$GreConfiguration(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GreConfiguration _instance;
+
+  final TRes Function(Query$GreConfiguration) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? greConfiguration = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GreConfiguration(
+        greConfiguration:
+            greConfiguration == _undefined || greConfiguration == null
+                ? _instance.greConfiguration
+                : (greConfiguration as Query$GreConfiguration$greConfiguration),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWith$Query$GreConfiguration$greConfiguration<TRes> get greConfiguration {
+    final local$greConfiguration = _instance.greConfiguration;
+    return CopyWith$Query$GreConfiguration$greConfiguration(
+        local$greConfiguration, (e) => call(greConfiguration: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$GreConfiguration<TRes>
+    implements CopyWith$Query$GreConfiguration<TRes> {
+  _CopyWithStubImpl$Query$GreConfiguration(this._res);
+
+  TRes _res;
+
+  call({
+    Query$GreConfiguration$greConfiguration? greConfiguration,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWith$Query$GreConfiguration$greConfiguration<TRes> get greConfiguration =>
+      CopyWith$Query$GreConfiguration$greConfiguration.stub(_res);
+}
+
+const documentNodeQueryGreConfiguration = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GreConfiguration'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'greConfiguration'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'defaultGreWordSearchPromptInputs'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Query$GreConfiguration _parserFn$Query$GreConfiguration(
+        Map<String, dynamic> data) =>
+    Query$GreConfiguration.fromJson(data);
+typedef OnQueryComplete$Query$GreConfiguration = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Query$GreConfiguration?,
+);
+
+class Options$Query$GreConfiguration
+    extends graphql.QueryOptions<Query$GreConfiguration> {
+  Options$Query$GreConfiguration({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GreConfiguration? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$GreConfiguration? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$GreConfiguration(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryGreConfiguration,
+          parserFn: _parserFn$Query$GreConfiguration,
+        );
+
+  final OnQueryComplete$Query$GreConfiguration? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$GreConfiguration
+    extends graphql.WatchQueryOptions<Query$GreConfiguration> {
+  WatchOptions$Query$GreConfiguration({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GreConfiguration? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryGreConfiguration,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$GreConfiguration,
+        );
+}
+
+class FetchMoreOptions$Query$GreConfiguration extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GreConfiguration(
+      {required graphql.UpdateQuery updateQuery})
+      : super(
+          updateQuery: updateQuery,
+          document: documentNodeQueryGreConfiguration,
+        );
+}
+
+extension ClientExtension$Query$GreConfiguration on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GreConfiguration>> query$GreConfiguration(
+          [Options$Query$GreConfiguration? options]) async =>
+      await this.query(options ?? Options$Query$GreConfiguration());
+  graphql.ObservableQuery<Query$GreConfiguration> watchQuery$GreConfiguration(
+          [WatchOptions$Query$GreConfiguration? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$GreConfiguration());
+  void writeQuery$GreConfiguration({
+    required Query$GreConfiguration data,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+            operation:
+                graphql.Operation(document: documentNodeQueryGreConfiguration)),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$GreConfiguration? readQuery$GreConfiguration({bool optimistic = true}) {
+    final result = this.readQuery(
+      graphql.Request(
+          operation:
+              graphql.Operation(document: documentNodeQueryGreConfiguration)),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Query$GreConfiguration.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$GreConfiguration>
+    useQuery$GreConfiguration([Options$Query$GreConfiguration? options]) =>
+        graphql_flutter.useQuery(options ?? Options$Query$GreConfiguration());
+graphql.ObservableQuery<Query$GreConfiguration> useWatchQuery$GreConfiguration(
+        [WatchOptions$Query$GreConfiguration? options]) =>
+    graphql_flutter
+        .useWatchQuery(options ?? WatchOptions$Query$GreConfiguration());
+
+class Query$GreConfiguration$Widget
+    extends graphql_flutter.Query<Query$GreConfiguration> {
+  Query$GreConfiguration$Widget({
+    widgets.Key? key,
+    Options$Query$GreConfiguration? options,
+    required graphql_flutter.QueryBuilder<Query$GreConfiguration> builder,
+  }) : super(
+          key: key,
+          options: options ?? Options$Query$GreConfiguration(),
+          builder: builder,
+        );
+}
+
+class Query$GreConfiguration$greConfiguration {
+  Query$GreConfiguration$greConfiguration({
+    required this.defaultGreWordSearchPromptInputs,
+    this.$__typename = 'GreConfiguration',
+  });
+
+  factory Query$GreConfiguration$greConfiguration.fromJson(
+      Map<String, dynamic> json) {
+    final l$defaultGreWordSearchPromptInputs =
+        json['defaultGreWordSearchPromptInputs'];
+    final l$$__typename = json['__typename'];
+    return Query$GreConfiguration$greConfiguration(
+      defaultGreWordSearchPromptInputs:
+          (l$defaultGreWordSearchPromptInputs as List<dynamic>)
+              .map((e) => (e as String))
+              .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<String> defaultGreWordSearchPromptInputs;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$defaultGreWordSearchPromptInputs = defaultGreWordSearchPromptInputs;
+    _resultData['defaultGreWordSearchPromptInputs'] =
+        l$defaultGreWordSearchPromptInputs.map((e) => e).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$defaultGreWordSearchPromptInputs = defaultGreWordSearchPromptInputs;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      Object.hashAll(l$defaultGreWordSearchPromptInputs.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GreConfiguration$greConfiguration) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$defaultGreWordSearchPromptInputs = defaultGreWordSearchPromptInputs;
+    final lOther$defaultGreWordSearchPromptInputs =
+        other.defaultGreWordSearchPromptInputs;
+    if (l$defaultGreWordSearchPromptInputs.length !=
+        lOther$defaultGreWordSearchPromptInputs.length) {
+      return false;
+    }
+    for (int i = 0; i < l$defaultGreWordSearchPromptInputs.length; i++) {
+      final l$defaultGreWordSearchPromptInputs$entry =
+          l$defaultGreWordSearchPromptInputs[i];
+      final lOther$defaultGreWordSearchPromptInputs$entry =
+          lOther$defaultGreWordSearchPromptInputs[i];
+      if (l$defaultGreWordSearchPromptInputs$entry !=
+          lOther$defaultGreWordSearchPromptInputs$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GreConfiguration$greConfiguration
+    on Query$GreConfiguration$greConfiguration {
+  CopyWith$Query$GreConfiguration$greConfiguration<
+          Query$GreConfiguration$greConfiguration>
+      get copyWith => CopyWith$Query$GreConfiguration$greConfiguration(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GreConfiguration$greConfiguration<TRes> {
+  factory CopyWith$Query$GreConfiguration$greConfiguration(
+    Query$GreConfiguration$greConfiguration instance,
+    TRes Function(Query$GreConfiguration$greConfiguration) then,
+  ) = _CopyWithImpl$Query$GreConfiguration$greConfiguration;
+
+  factory CopyWith$Query$GreConfiguration$greConfiguration.stub(TRes res) =
+      _CopyWithStubImpl$Query$GreConfiguration$greConfiguration;
+
+  TRes call({
+    List<String>? defaultGreWordSearchPromptInputs,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$GreConfiguration$greConfiguration<TRes>
+    implements CopyWith$Query$GreConfiguration$greConfiguration<TRes> {
+  _CopyWithImpl$Query$GreConfiguration$greConfiguration(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GreConfiguration$greConfiguration _instance;
+
+  final TRes Function(Query$GreConfiguration$greConfiguration) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? defaultGreWordSearchPromptInputs = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GreConfiguration$greConfiguration(
+        defaultGreWordSearchPromptInputs:
+            defaultGreWordSearchPromptInputs == _undefined ||
+                    defaultGreWordSearchPromptInputs == null
+                ? _instance.defaultGreWordSearchPromptInputs
+                : (defaultGreWordSearchPromptInputs as List<String>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$GreConfiguration$greConfiguration<TRes>
+    implements CopyWith$Query$GreConfiguration$greConfiguration<TRes> {
+  _CopyWithStubImpl$Query$GreConfiguration$greConfiguration(this._res);
+
+  TRes _res;
+
+  call({
+    List<String>? defaultGreWordSearchPromptInputs,
+    String? $__typename,
+  }) =>
+      _res;
+}

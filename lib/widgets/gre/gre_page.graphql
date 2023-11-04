@@ -51,3 +51,9 @@ mutation CreateGptPrompt(
     response
   }
 }
+
+query GreConfiguration {
+  greConfiguration {
+    defaultGreWordSearchPromptInputs
+  }
+}
