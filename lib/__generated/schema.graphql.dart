@@ -448,12 +448,12 @@ class Input$GreWordSearchPromptInputWhereInput {
   factory Input$GreWordSearchPromptInputWhereInput({
     Input$StringFilter? id,
     Input$StringFilter? text,
-    Input$StringFilter? userId,
+    Input$UserListRelationFilter? users,
   }) =>
       Input$GreWordSearchPromptInputWhereInput._({
         if (id != null) r'id': id,
         if (text != null) r'text': text,
-        if (userId != null) r'userId': userId,
+        if (users != null) r'users': users,
       });
 
   Input$GreWordSearchPromptInputWhereInput._(this._$data);
@@ -473,11 +473,12 @@ class Input$GreWordSearchPromptInputWhereInput {
           ? null
           : Input$StringFilter.fromJson((l$text as Map<String, dynamic>));
     }
-    if (data.containsKey('userId')) {
-      final l$userId = data['userId'];
-      result$data['userId'] = l$userId == null
+    if (data.containsKey('users')) {
+      final l$users = data['users'];
+      result$data['users'] = l$users == null
           ? null
-          : Input$StringFilter.fromJson((l$userId as Map<String, dynamic>));
+          : Input$UserListRelationFilter.fromJson(
+              (l$users as Map<String, dynamic>));
     }
     return Input$GreWordSearchPromptInputWhereInput._(result$data);
   }
@@ -488,7 +489,8 @@ class Input$GreWordSearchPromptInputWhereInput {
 
   Input$StringFilter? get text => (_$data['text'] as Input$StringFilter?);
 
-  Input$StringFilter? get userId => (_$data['userId'] as Input$StringFilter?);
+  Input$UserListRelationFilter? get users =>
+      (_$data['users'] as Input$UserListRelationFilter?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -500,9 +502,9 @@ class Input$GreWordSearchPromptInputWhereInput {
       final l$text = text;
       result$data['text'] = l$text?.toJson();
     }
-    if (_$data.containsKey('userId')) {
-      final l$userId = userId;
-      result$data['userId'] = l$userId?.toJson();
+    if (_$data.containsKey('users')) {
+      final l$users = users;
+      result$data['users'] = l$users?.toJson();
     }
     return result$data;
   }
@@ -539,12 +541,12 @@ class Input$GreWordSearchPromptInputWhereInput {
     if (l$text != lOther$text) {
       return false;
     }
-    final l$userId = userId;
-    final lOther$userId = other.userId;
-    if (_$data.containsKey('userId') != other._$data.containsKey('userId')) {
+    final l$users = users;
+    final lOther$users = other.users;
+    if (_$data.containsKey('users') != other._$data.containsKey('users')) {
       return false;
     }
-    if (l$userId != lOther$userId) {
+    if (l$users != lOther$users) {
       return false;
     }
     return true;
@@ -554,11 +556,11 @@ class Input$GreWordSearchPromptInputWhereInput {
   int get hashCode {
     final l$id = id;
     final l$text = text;
-    final l$userId = userId;
+    final l$users = users;
     return Object.hashAll([
       _$data.containsKey('id') ? l$id : const {},
       _$data.containsKey('text') ? l$text : const {},
-      _$data.containsKey('userId') ? l$userId : const {},
+      _$data.containsKey('users') ? l$users : const {},
     ]);
   }
 }
@@ -575,11 +577,11 @@ abstract class CopyWith$Input$GreWordSearchPromptInputWhereInput<TRes> {
   TRes call({
     Input$StringFilter? id,
     Input$StringFilter? text,
-    Input$StringFilter? userId,
+    Input$UserListRelationFilter? users,
   });
   CopyWith$Input$StringFilter<TRes> get id;
   CopyWith$Input$StringFilter<TRes> get text;
-  CopyWith$Input$StringFilter<TRes> get userId;
+  CopyWith$Input$UserListRelationFilter<TRes> get users;
 }
 
 class _CopyWithImpl$Input$GreWordSearchPromptInputWhereInput<TRes>
@@ -598,13 +600,14 @@ class _CopyWithImpl$Input$GreWordSearchPromptInputWhereInput<TRes>
   TRes call({
     Object? id = _undefined,
     Object? text = _undefined,
-    Object? userId = _undefined,
+    Object? users = _undefined,
   }) =>
       _then(Input$GreWordSearchPromptInputWhereInput._({
         ..._instance._$data,
         if (id != _undefined) 'id': (id as Input$StringFilter?),
         if (text != _undefined) 'text': (text as Input$StringFilter?),
-        if (userId != _undefined) 'userId': (userId as Input$StringFilter?),
+        if (users != _undefined)
+          'users': (users as Input$UserListRelationFilter?),
       }));
 
   CopyWith$Input$StringFilter<TRes> get id {
@@ -621,11 +624,12 @@ class _CopyWithImpl$Input$GreWordSearchPromptInputWhereInput<TRes>
         : CopyWith$Input$StringFilter(local$text, (e) => call(text: e));
   }
 
-  CopyWith$Input$StringFilter<TRes> get userId {
-    final local$userId = _instance.userId;
-    return local$userId == null
-        ? CopyWith$Input$StringFilter.stub(_then(_instance))
-        : CopyWith$Input$StringFilter(local$userId, (e) => call(userId: e));
+  CopyWith$Input$UserListRelationFilter<TRes> get users {
+    final local$users = _instance.users;
+    return local$users == null
+        ? CopyWith$Input$UserListRelationFilter.stub(_then(_instance))
+        : CopyWith$Input$UserListRelationFilter(
+            local$users, (e) => call(users: e));
   }
 }
 
@@ -638,7 +642,7 @@ class _CopyWithStubImpl$Input$GreWordSearchPromptInputWhereInput<TRes>
   call({
     Input$StringFilter? id,
     Input$StringFilter? text,
-    Input$StringFilter? userId,
+    Input$UserListRelationFilter? users,
   }) =>
       _res;
 
@@ -648,8 +652,8 @@ class _CopyWithStubImpl$Input$GreWordSearchPromptInputWhereInput<TRes>
   CopyWith$Input$StringFilter<TRes> get text =>
       CopyWith$Input$StringFilter.stub(_res);
 
-  CopyWith$Input$StringFilter<TRes> get userId =>
-      CopyWith$Input$StringFilter.stub(_res);
+  CopyWith$Input$UserListRelationFilter<TRes> get users =>
+      CopyWith$Input$UserListRelationFilter.stub(_res);
 }
 
 class Input$GreWordSpellingUserIdCompoundUniqueInput {
@@ -2406,6 +2410,212 @@ class _CopyWithStubImpl$Input$StringFilter<TRes>
     String? startsWith,
   }) =>
       _res;
+}
+
+class Input$UserListRelationFilter {
+  factory Input$UserListRelationFilter({
+    Input$UserWhereInput? every,
+    Input$UserWhereInput? none,
+    Input$UserWhereInput? some,
+  }) =>
+      Input$UserListRelationFilter._({
+        if (every != null) r'every': every,
+        if (none != null) r'none': none,
+        if (some != null) r'some': some,
+      });
+
+  Input$UserListRelationFilter._(this._$data);
+
+  factory Input$UserListRelationFilter.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('every')) {
+      final l$every = data['every'];
+      result$data['every'] = l$every == null
+          ? null
+          : Input$UserWhereInput.fromJson((l$every as Map<String, dynamic>));
+    }
+    if (data.containsKey('none')) {
+      final l$none = data['none'];
+      result$data['none'] = l$none == null
+          ? null
+          : Input$UserWhereInput.fromJson((l$none as Map<String, dynamic>));
+    }
+    if (data.containsKey('some')) {
+      final l$some = data['some'];
+      result$data['some'] = l$some == null
+          ? null
+          : Input$UserWhereInput.fromJson((l$some as Map<String, dynamic>));
+    }
+    return Input$UserListRelationFilter._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$UserWhereInput? get every => (_$data['every'] as Input$UserWhereInput?);
+
+  Input$UserWhereInput? get none => (_$data['none'] as Input$UserWhereInput?);
+
+  Input$UserWhereInput? get some => (_$data['some'] as Input$UserWhereInput?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('every')) {
+      final l$every = every;
+      result$data['every'] = l$every?.toJson();
+    }
+    if (_$data.containsKey('none')) {
+      final l$none = none;
+      result$data['none'] = l$none?.toJson();
+    }
+    if (_$data.containsKey('some')) {
+      final l$some = some;
+      result$data['some'] = l$some?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$UserListRelationFilter<Input$UserListRelationFilter>
+      get copyWith => CopyWith$Input$UserListRelationFilter(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$UserListRelationFilter) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$every = every;
+    final lOther$every = other.every;
+    if (_$data.containsKey('every') != other._$data.containsKey('every')) {
+      return false;
+    }
+    if (l$every != lOther$every) {
+      return false;
+    }
+    final l$none = none;
+    final lOther$none = other.none;
+    if (_$data.containsKey('none') != other._$data.containsKey('none')) {
+      return false;
+    }
+    if (l$none != lOther$none) {
+      return false;
+    }
+    final l$some = some;
+    final lOther$some = other.some;
+    if (_$data.containsKey('some') != other._$data.containsKey('some')) {
+      return false;
+    }
+    if (l$some != lOther$some) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$every = every;
+    final l$none = none;
+    final l$some = some;
+    return Object.hashAll([
+      _$data.containsKey('every') ? l$every : const {},
+      _$data.containsKey('none') ? l$none : const {},
+      _$data.containsKey('some') ? l$some : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$UserListRelationFilter<TRes> {
+  factory CopyWith$Input$UserListRelationFilter(
+    Input$UserListRelationFilter instance,
+    TRes Function(Input$UserListRelationFilter) then,
+  ) = _CopyWithImpl$Input$UserListRelationFilter;
+
+  factory CopyWith$Input$UserListRelationFilter.stub(TRes res) =
+      _CopyWithStubImpl$Input$UserListRelationFilter;
+
+  TRes call({
+    Input$UserWhereInput? every,
+    Input$UserWhereInput? none,
+    Input$UserWhereInput? some,
+  });
+  CopyWith$Input$UserWhereInput<TRes> get every;
+  CopyWith$Input$UserWhereInput<TRes> get none;
+  CopyWith$Input$UserWhereInput<TRes> get some;
+}
+
+class _CopyWithImpl$Input$UserListRelationFilter<TRes>
+    implements CopyWith$Input$UserListRelationFilter<TRes> {
+  _CopyWithImpl$Input$UserListRelationFilter(
+    this._instance,
+    this._then,
+  );
+
+  final Input$UserListRelationFilter _instance;
+
+  final TRes Function(Input$UserListRelationFilter) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? every = _undefined,
+    Object? none = _undefined,
+    Object? some = _undefined,
+  }) =>
+      _then(Input$UserListRelationFilter._({
+        ..._instance._$data,
+        if (every != _undefined) 'every': (every as Input$UserWhereInput?),
+        if (none != _undefined) 'none': (none as Input$UserWhereInput?),
+        if (some != _undefined) 'some': (some as Input$UserWhereInput?),
+      }));
+
+  CopyWith$Input$UserWhereInput<TRes> get every {
+    final local$every = _instance.every;
+    return local$every == null
+        ? CopyWith$Input$UserWhereInput.stub(_then(_instance))
+        : CopyWith$Input$UserWhereInput(local$every, (e) => call(every: e));
+  }
+
+  CopyWith$Input$UserWhereInput<TRes> get none {
+    final local$none = _instance.none;
+    return local$none == null
+        ? CopyWith$Input$UserWhereInput.stub(_then(_instance))
+        : CopyWith$Input$UserWhereInput(local$none, (e) => call(none: e));
+  }
+
+  CopyWith$Input$UserWhereInput<TRes> get some {
+    final local$some = _instance.some;
+    return local$some == null
+        ? CopyWith$Input$UserWhereInput.stub(_then(_instance))
+        : CopyWith$Input$UserWhereInput(local$some, (e) => call(some: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$UserListRelationFilter<TRes>
+    implements CopyWith$Input$UserListRelationFilter<TRes> {
+  _CopyWithStubImpl$Input$UserListRelationFilter(this._res);
+
+  TRes _res;
+
+  call({
+    Input$UserWhereInput? every,
+    Input$UserWhereInput? none,
+    Input$UserWhereInput? some,
+  }) =>
+      _res;
+
+  CopyWith$Input$UserWhereInput<TRes> get every =>
+      CopyWith$Input$UserWhereInput.stub(_res);
+
+  CopyWith$Input$UserWhereInput<TRes> get none =>
+      CopyWith$Input$UserWhereInput.stub(_res);
+
+  CopyWith$Input$UserWhereInput<TRes> get some =>
+      CopyWith$Input$UserWhereInput.stub(_res);
 }
 
 class Input$UserMetaParsedJsonValueInput {

@@ -17,12 +17,34 @@ class WordSearchPromptsView extends HookConsumerWidget {
   Widget build(BuildContext context, ref) {
     final dbUser = ref.watch(dbUserProvider)!;
     final updateMetaForUserMutation = useMutation$UpdateMetaForUser();
+
+    final otherGreWordSearchPromptInputsQuery =
+        useQuery$GreWordSearchPromptInputs(
+      Options$Query$GreWordSearchPromptInputs(
+        variables: Variables$Query$GreWordSearchPromptInputs(
+          where: Input$GreWordSearchPromptInputWhereInput(
+            users: Input$UserListRelationFilter(
+              none: Input$UserWhereInput(
+                id: Input$StringFilter(
+                  equals: dbUser.id,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+
     final greWordSearchPromptInputsQuery = useQuery$GreWordSearchPromptInputs(
       Options$Query$GreWordSearchPromptInputs(
         variables: Variables$Query$GreWordSearchPromptInputs(
           where: Input$GreWordSearchPromptInputWhereInput(
-            userId: Input$StringFilter(
-              equals: dbUser.id,
+            users: Input$UserListRelationFilter(
+              some: Input$UserWhereInput(
+                id: Input$StringFilter(
+                  equals: dbUser.id,
+                ),
+              ),
             ),
           ),
         ),
@@ -39,8 +61,6 @@ class WordSearchPromptsView extends HookConsumerWidget {
       return null;
     }, [dbUser.meta.defaultGreWordSearchPromptInput]);
 
-    final deleteGreWordSearchPromptInputMutation =
-        useMutation$DeleteGreWordSearchPromptInput();
     final updateGreWordSearchPromptInputMutation =
         useMutation$UpdateGreWordSearchPromptInput();
 
@@ -48,11 +68,15 @@ class WordSearchPromptsView extends HookConsumerWidget {
         useMutation$CreateGreWordSearchPromptInput();
 
     final deletedPromptId = useState<String?>(null);
+    final promptSelectionLoading = useState(false);
 
     Future<void> updateInput({
       required String id,
-      required String text,
-      required VoidCallback onSuccess,
+      String? text,
+      String? connectedUserId,
+      String? disconnectedUserId,
+      VoidCallback? onSuccess,
+      VoidCallback? onFinished,
     }) async {
       await setupMutation(
         context: context,
@@ -60,15 +84,21 @@ class WordSearchPromptsView extends HookConsumerWidget {
           return updateGreWordSearchPromptInputMutation
               .runMutation(
                 Variables$Mutation$UpdateGreWordSearchPromptInput(
-                  text: text,
                   id: id,
+                  text: text,
+                  connectedUserId: connectedUserId,
+                  disconnectedUserId: disconnectedUserId,
                 ),
               )
               .networkResult;
         },
         onComplete: (data, parsedData) {
           greWordSearchPromptInputsQuery.refetch();
-          onSuccess();
+          otherGreWordSearchPromptInputsQuery.refetch();
+          onSuccess?.call();
+        },
+        onFinish: (result) {
+          onFinished?.call();
         },
       );
     }
@@ -122,6 +152,9 @@ class WordSearchPromptsView extends HookConsumerWidget {
 
     final greWordSearchPromptInputs = greWordSearchPromptInputsQuery
         .result.parsedData?.greWordSearchPromptInputs;
+    final otherGreWordSearchPromptInputs = otherGreWordSearchPromptInputsQuery
+        .result.parsedData?.greWordSearchPromptInputs;
+    final otherPromptTexts = otherGreWordSearchPromptInputs?.map((e) => e.text);
 
     const errorMessage = 'Text must contain the string "${wordPlaceholder}"';
 
@@ -133,6 +166,36 @@ class WordSearchPromptsView extends HookConsumerWidget {
             fontSize: 20,
           ),
         ),
+        if (otherPromptTexts != null && otherGreWordSearchPromptInputs != null)
+          Row(
+            children: [
+              Expanded(
+                child: Autocomplete<String>(
+                  optionsBuilder: (TextEditingValue textEditingValue) {
+                    final newMatches = otherPromptTexts.where((String text) {
+                      return text
+                          .toLowerCase()
+                          .contains(textEditingValue.text.toLowerCase());
+                    }).toList();
+
+                    return newMatches;
+                  },
+                  onSelected: (text) {
+                    final found = otherGreWordSearchPromptInputs
+                        .firstWhere((element) => element.text == text);
+                    promptSelectionLoading.value = true;
+                    updateInput(
+                        id: found.id,
+                        connectedUserId: dbUser.id,
+                        onFinished: () {
+                          promptSelectionLoading.value = false;
+                        });
+                  },
+                ),
+              ),
+              if (promptSelectionLoading.value) CircularProgressIndicator(),
+            ],
+          ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -322,21 +385,10 @@ class WordSearchPromptsView extends HookConsumerWidget {
                               ? null
                               : () {
                                   deletedPromptId.value = input.id;
-                                  setupMutation(
-                                    context: context,
-                                    runMutation: () async {
-                                      return deleteGreWordSearchPromptInputMutation
-                                          .runMutation(
-                                            Variables$Mutation$DeleteGreWordSearchPromptInput(
-                                              id: input.id,
-                                            ),
-                                          )
-                                          .networkResult;
-                                    },
-                                    onComplete: (data, parsedData) {
-                                      greWordSearchPromptInputsQuery.refetch();
-                                    },
-                                    onFinish: (result) {
+                                  updateInput(
+                                    id: input.id,
+                                    disconnectedUserId: dbUser.id,
+                                    onFinished: () {
                                       deletedPromptId.value = null;
                                     },
                                   );
