@@ -276,27 +276,29 @@ class WordSearchPromptsView extends HookConsumerWidget {
                             },
                             icon: Icon(Icons.edit)),
                         IconButton(
-                          onPressed: () {
-                            deletedPromptId.value = input.id;
-                            setupMutation(
-                              context: context,
-                              runMutation: () async {
-                                return deleteGreWordSearchPromptInputMutation
-                                    .runMutation(
-                                      Variables$Mutation$DeleteGreWordSearchPromptInput(
-                                        id: input.id,
-                                      ),
-                                    )
-                                    .networkResult;
-                              },
-                              onComplete: (data, parsedData) {
-                                greWordSearchPromptInputsQuery.refetch();
-                              },
-                              onFinish: (result) {
-                                deletedPromptId.value = null;
-                              },
-                            );
-                          },
+                          onPressed: defaultPrompt.value == input.text
+                              ? null
+                              : () {
+                                  deletedPromptId.value = input.id;
+                                  setupMutation(
+                                    context: context,
+                                    runMutation: () async {
+                                      return deleteGreWordSearchPromptInputMutation
+                                          .runMutation(
+                                            Variables$Mutation$DeleteGreWordSearchPromptInput(
+                                              id: input.id,
+                                            ),
+                                          )
+                                          .networkResult;
+                                    },
+                                    onComplete: (data, parsedData) {
+                                      greWordSearchPromptInputsQuery.refetch();
+                                    },
+                                    onFinish: (result) {
+                                      deletedPromptId.value = null;
+                                    },
+                                  );
+                                },
                           icon: deletedPromptId.value == input.id
                               ? CircularProgressIndicator()
                               : Icon(
