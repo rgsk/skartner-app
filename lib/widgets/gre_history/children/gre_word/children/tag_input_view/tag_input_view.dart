@@ -15,13 +15,17 @@ class TagInputView extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, ref) {
-    final dbUser = ref.watch(dbUserProvider)!;
+    final dbUser = ref.watch(dbUserProvider);
+    if (dbUser == null) {
+      return Container();
+    }
     final matchExists = useState(true);
     final tagSearchInput = useState('');
     final createGreWordTagMutation = useMutation$CreateGreWordTag();
     final greWordTagsQuery = useGreWordTagsQuery(ref);
     final greWordTags = greWordTagsQuery.result.parsedData?.greWordTags ?? [];
     final tagNames = greWordTags.map((e) => e.name).toList();
+
     return Row(
       children: [
         Expanded(
@@ -34,7 +38,7 @@ class TagInputView extends HookConsumerWidget {
                     .contains(textEditingValue.text.toLowerCase());
               }).toList();
 
-              if (newMatches.isNotEmpty) {
+              if (textEditingValue.text == '' || newMatches.isNotEmpty) {
                 matchExists.value = true;
               } else {
                 matchExists.value = false;
