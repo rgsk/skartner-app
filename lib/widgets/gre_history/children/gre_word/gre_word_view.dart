@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/__generated/schema.graphql.dart';
+import 'package:skartner_app/providers/db_user_provider.dart';
 import 'package:skartner_app/utils/graphql_utils.dart';
 import 'package:skartner_app/widgets/gre_history/__generated/gre_history_page.graphql.dart';
 import 'package:skartner_app/widgets/gre_history/children/gre_word/__generated/gre_word_view.graphql.dart';
@@ -8,7 +10,7 @@ import 'package:skartner_app/widgets/gre_history/children/gre_word/children/gpt_
 import 'package:skartner_app/widgets/gre_history/children/gre_word/children/tag_input_view/tag_input_view.dart';
 import 'package:skartner_app/widgets/gre_history/gre_history_page.dart';
 
-class GreWordView extends HookWidget {
+class GreWordView extends HookConsumerWidget {
   final Fragment$GreWordFields greWord;
   final VoidCallback onMutate;
   const GreWordView({
@@ -18,7 +20,8 @@ class GreWordView extends HookWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, ref) {
+    final dbUser = ref.watch(dbUserProvider)!;
     final deleteGreWordMutation = useMutation$DeleteGreWord();
     final updateGreWordMutation = useMutation$updateGreWord();
     final selectedStatus = useState(greWord.status);
@@ -44,7 +47,11 @@ class GreWordView extends HookWidget {
                   greWordTags: selectedTags.value
                       .map(
                         (tagName) => Input$GreWordTagWhereUniqueInput(
-                          name: tagName,
+                          name_userId:
+                              Input$GreWordTagNameUserIdCompoundUniqueInput(
+                            name: tagName,
+                            userId: dbUser.id,
+                          ),
                         ),
                       )
                       .toList(),

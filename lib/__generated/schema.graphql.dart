@@ -1000,6 +1000,137 @@ class _CopyWithStubImpl$Input$GreWordTagListRelationFilter<TRes>
       CopyWith$Input$GreWordTagWhereInput.stub(_res);
 }
 
+class Input$GreWordTagNameUserIdCompoundUniqueInput {
+  factory Input$GreWordTagNameUserIdCompoundUniqueInput({
+    required String name,
+    required String userId,
+  }) =>
+      Input$GreWordTagNameUserIdCompoundUniqueInput._({
+        r'name': name,
+        r'userId': userId,
+      });
+
+  Input$GreWordTagNameUserIdCompoundUniqueInput._(this._$data);
+
+  factory Input$GreWordTagNameUserIdCompoundUniqueInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$name = data['name'];
+    result$data['name'] = (l$name as String);
+    final l$userId = data['userId'];
+    result$data['userId'] = (l$userId as String);
+    return Input$GreWordTagNameUserIdCompoundUniqueInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get name => (_$data['name'] as String);
+
+  String get userId => (_$data['userId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$name = name;
+    result$data['name'] = l$name;
+    final l$userId = userId;
+    result$data['userId'] = l$userId;
+    return result$data;
+  }
+
+  CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput<
+          Input$GreWordTagNameUserIdCompoundUniqueInput>
+      get copyWith => CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$GreWordTagNameUserIdCompoundUniqueInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    final l$userId = userId;
+    return Object.hashAll([
+      l$name,
+      l$userId,
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput<TRes> {
+  factory CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput(
+    Input$GreWordTagNameUserIdCompoundUniqueInput instance,
+    TRes Function(Input$GreWordTagNameUserIdCompoundUniqueInput) then,
+  ) = _CopyWithImpl$Input$GreWordTagNameUserIdCompoundUniqueInput;
+
+  factory CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$GreWordTagNameUserIdCompoundUniqueInput;
+
+  TRes call({
+    String? name,
+    String? userId,
+  });
+}
+
+class _CopyWithImpl$Input$GreWordTagNameUserIdCompoundUniqueInput<TRes>
+    implements CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput<TRes> {
+  _CopyWithImpl$Input$GreWordTagNameUserIdCompoundUniqueInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$GreWordTagNameUserIdCompoundUniqueInput _instance;
+
+  final TRes Function(Input$GreWordTagNameUserIdCompoundUniqueInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? name = _undefined,
+    Object? userId = _undefined,
+  }) =>
+      _then(Input$GreWordTagNameUserIdCompoundUniqueInput._({
+        ..._instance._$data,
+        if (name != _undefined && name != null) 'name': (name as String),
+        if (userId != _undefined && userId != null)
+          'userId': (userId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Input$GreWordTagNameUserIdCompoundUniqueInput<TRes>
+    implements CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput<TRes> {
+  _CopyWithStubImpl$Input$GreWordTagNameUserIdCompoundUniqueInput(this._res);
+
+  TRes _res;
+
+  call({
+    String? name,
+    String? userId,
+  }) =>
+      _res;
+}
+
 class Input$GreWordTagWhereInput {
   factory Input$GreWordTagWhereInput({
     Input$StringFilter? id,
@@ -1209,11 +1340,11 @@ class _CopyWithStubImpl$Input$GreWordTagWhereInput<TRes>
 class Input$GreWordTagWhereUniqueInput {
   factory Input$GreWordTagWhereUniqueInput({
     String? id,
-    String? name,
+    Input$GreWordTagNameUserIdCompoundUniqueInput? name_userId,
   }) =>
       Input$GreWordTagWhereUniqueInput._({
         if (id != null) r'id': id,
-        if (name != null) r'name': name,
+        if (name_userId != null) r'name_userId': name_userId,
       });
 
   Input$GreWordTagWhereUniqueInput._(this._$data);
@@ -1224,9 +1355,12 @@ class Input$GreWordTagWhereUniqueInput {
       final l$id = data['id'];
       result$data['id'] = (l$id as String?);
     }
-    if (data.containsKey('name')) {
-      final l$name = data['name'];
-      result$data['name'] = (l$name as String?);
+    if (data.containsKey('name_userId')) {
+      final l$name_userId = data['name_userId'];
+      result$data['name_userId'] = l$name_userId == null
+          ? null
+          : Input$GreWordTagNameUserIdCompoundUniqueInput.fromJson(
+              (l$name_userId as Map<String, dynamic>));
     }
     return Input$GreWordTagWhereUniqueInput._(result$data);
   }
@@ -1235,7 +1369,8 @@ class Input$GreWordTagWhereUniqueInput {
 
   String? get id => (_$data['id'] as String?);
 
-  String? get name => (_$data['name'] as String?);
+  Input$GreWordTagNameUserIdCompoundUniqueInput? get name_userId =>
+      (_$data['name_userId'] as Input$GreWordTagNameUserIdCompoundUniqueInput?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -1243,9 +1378,9 @@ class Input$GreWordTagWhereUniqueInput {
       final l$id = id;
       result$data['id'] = l$id;
     }
-    if (_$data.containsKey('name')) {
-      final l$name = name;
-      result$data['name'] = l$name;
+    if (_$data.containsKey('name_userId')) {
+      final l$name_userId = name_userId;
+      result$data['name_userId'] = l$name_userId?.toJson();
     }
     return result$data;
   }
@@ -1273,12 +1408,13 @@ class Input$GreWordTagWhereUniqueInput {
     if (l$id != lOther$id) {
       return false;
     }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+    final l$name_userId = name_userId;
+    final lOther$name_userId = other.name_userId;
+    if (_$data.containsKey('name_userId') !=
+        other._$data.containsKey('name_userId')) {
       return false;
     }
-    if (l$name != lOther$name) {
+    if (l$name_userId != lOther$name_userId) {
       return false;
     }
     return true;
@@ -1287,10 +1423,10 @@ class Input$GreWordTagWhereUniqueInput {
   @override
   int get hashCode {
     final l$id = id;
-    final l$name = name;
+    final l$name_userId = name_userId;
     return Object.hashAll([
       _$data.containsKey('id') ? l$id : const {},
-      _$data.containsKey('name') ? l$name : const {},
+      _$data.containsKey('name_userId') ? l$name_userId : const {},
     ]);
   }
 }
@@ -1306,8 +1442,9 @@ abstract class CopyWith$Input$GreWordTagWhereUniqueInput<TRes> {
 
   TRes call({
     String? id,
-    String? name,
+    Input$GreWordTagNameUserIdCompoundUniqueInput? name_userId,
   });
+  CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput<TRes> get name_userId;
 }
 
 class _CopyWithImpl$Input$GreWordTagWhereUniqueInput<TRes>
@@ -1325,13 +1462,24 @@ class _CopyWithImpl$Input$GreWordTagWhereUniqueInput<TRes>
 
   TRes call({
     Object? id = _undefined,
-    Object? name = _undefined,
+    Object? name_userId = _undefined,
   }) =>
       _then(Input$GreWordTagWhereUniqueInput._({
         ..._instance._$data,
         if (id != _undefined) 'id': (id as String?),
-        if (name != _undefined) 'name': (name as String?),
+        if (name_userId != _undefined)
+          'name_userId':
+              (name_userId as Input$GreWordTagNameUserIdCompoundUniqueInput?),
       }));
+
+  CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput<TRes> get name_userId {
+    final local$name_userId = _instance.name_userId;
+    return local$name_userId == null
+        ? CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput.stub(
+            _then(_instance))
+        : CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput(
+            local$name_userId, (e) => call(name_userId: e));
+  }
 }
 
 class _CopyWithStubImpl$Input$GreWordTagWhereUniqueInput<TRes>
@@ -1342,9 +1490,13 @@ class _CopyWithStubImpl$Input$GreWordTagWhereUniqueInput<TRes>
 
   call({
     String? id,
-    String? name,
+    Input$GreWordTagNameUserIdCompoundUniqueInput? name_userId,
   }) =>
       _res;
+
+  CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput<TRes>
+      get name_userId =>
+          CopyWith$Input$GreWordTagNameUserIdCompoundUniqueInput.stub(_res);
 }
 
 class Input$GreWordWhereInput {

@@ -2042,3 +2042,682 @@ class _CopyWithStubImpl$Query$GreWordTags$greWordTags<TRes>
   }) =>
       _res;
 }
+
+class Variables$Mutation$DeleteGreWordTag {
+  factory Variables$Mutation$DeleteGreWordTag({
+    required String name,
+    required String userId,
+  }) =>
+      Variables$Mutation$DeleteGreWordTag._({
+        r'name': name,
+        r'userId': userId,
+      });
+
+  Variables$Mutation$DeleteGreWordTag._(this._$data);
+
+  factory Variables$Mutation$DeleteGreWordTag.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$name = data['name'];
+    result$data['name'] = (l$name as String);
+    final l$userId = data['userId'];
+    result$data['userId'] = (l$userId as String);
+    return Variables$Mutation$DeleteGreWordTag._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get name => (_$data['name'] as String);
+
+  String get userId => (_$data['userId'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$name = name;
+    result$data['name'] = l$name;
+    final l$userId = userId;
+    result$data['userId'] = l$userId;
+    return result$data;
+  }
+
+  CopyWith$Variables$Mutation$DeleteGreWordTag<
+          Variables$Mutation$DeleteGreWordTag>
+      get copyWith => CopyWith$Variables$Mutation$DeleteGreWordTag(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Mutation$DeleteGreWordTag) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    final l$userId = userId;
+    return Object.hashAll([
+      l$name,
+      l$userId,
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Mutation$DeleteGreWordTag<TRes> {
+  factory CopyWith$Variables$Mutation$DeleteGreWordTag(
+    Variables$Mutation$DeleteGreWordTag instance,
+    TRes Function(Variables$Mutation$DeleteGreWordTag) then,
+  ) = _CopyWithImpl$Variables$Mutation$DeleteGreWordTag;
+
+  factory CopyWith$Variables$Mutation$DeleteGreWordTag.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$DeleteGreWordTag;
+
+  TRes call({
+    String? name,
+    String? userId,
+  });
+}
+
+class _CopyWithImpl$Variables$Mutation$DeleteGreWordTag<TRes>
+    implements CopyWith$Variables$Mutation$DeleteGreWordTag<TRes> {
+  _CopyWithImpl$Variables$Mutation$DeleteGreWordTag(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Mutation$DeleteGreWordTag _instance;
+
+  final TRes Function(Variables$Mutation$DeleteGreWordTag) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? name = _undefined,
+    Object? userId = _undefined,
+  }) =>
+      _then(Variables$Mutation$DeleteGreWordTag._({
+        ..._instance._$data,
+        if (name != _undefined && name != null) 'name': (name as String),
+        if (userId != _undefined && userId != null)
+          'userId': (userId as String),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$DeleteGreWordTag<TRes>
+    implements CopyWith$Variables$Mutation$DeleteGreWordTag<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$DeleteGreWordTag(this._res);
+
+  TRes _res;
+
+  call({
+    String? name,
+    String? userId,
+  }) =>
+      _res;
+}
+
+class Mutation$DeleteGreWordTag {
+  Mutation$DeleteGreWordTag({
+    required this.deleteGreWordTag,
+    this.$__typename = 'Mutation',
+  });
+
+  factory Mutation$DeleteGreWordTag.fromJson(Map<String, dynamic> json) {
+    final l$deleteGreWordTag = json['deleteGreWordTag'];
+    final l$$__typename = json['__typename'];
+    return Mutation$DeleteGreWordTag(
+      deleteGreWordTag: Mutation$DeleteGreWordTag$deleteGreWordTag.fromJson(
+          (l$deleteGreWordTag as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Mutation$DeleteGreWordTag$deleteGreWordTag deleteGreWordTag;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$deleteGreWordTag = deleteGreWordTag;
+    _resultData['deleteGreWordTag'] = l$deleteGreWordTag.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$deleteGreWordTag = deleteGreWordTag;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$deleteGreWordTag,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$DeleteGreWordTag) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$deleteGreWordTag = deleteGreWordTag;
+    final lOther$deleteGreWordTag = other.deleteGreWordTag;
+    if (l$deleteGreWordTag != lOther$deleteGreWordTag) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$DeleteGreWordTag
+    on Mutation$DeleteGreWordTag {
+  CopyWith$Mutation$DeleteGreWordTag<Mutation$DeleteGreWordTag> get copyWith =>
+      CopyWith$Mutation$DeleteGreWordTag(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Mutation$DeleteGreWordTag<TRes> {
+  factory CopyWith$Mutation$DeleteGreWordTag(
+    Mutation$DeleteGreWordTag instance,
+    TRes Function(Mutation$DeleteGreWordTag) then,
+  ) = _CopyWithImpl$Mutation$DeleteGreWordTag;
+
+  factory CopyWith$Mutation$DeleteGreWordTag.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$DeleteGreWordTag;
+
+  TRes call({
+    Mutation$DeleteGreWordTag$deleteGreWordTag? deleteGreWordTag,
+    String? $__typename,
+  });
+  CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag<TRes>
+      get deleteGreWordTag;
+}
+
+class _CopyWithImpl$Mutation$DeleteGreWordTag<TRes>
+    implements CopyWith$Mutation$DeleteGreWordTag<TRes> {
+  _CopyWithImpl$Mutation$DeleteGreWordTag(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$DeleteGreWordTag _instance;
+
+  final TRes Function(Mutation$DeleteGreWordTag) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? deleteGreWordTag = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$DeleteGreWordTag(
+        deleteGreWordTag: deleteGreWordTag == _undefined ||
+                deleteGreWordTag == null
+            ? _instance.deleteGreWordTag
+            : (deleteGreWordTag as Mutation$DeleteGreWordTag$deleteGreWordTag),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag<TRes>
+      get deleteGreWordTag {
+    final local$deleteGreWordTag = _instance.deleteGreWordTag;
+    return CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag(
+        local$deleteGreWordTag, (e) => call(deleteGreWordTag: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$DeleteGreWordTag<TRes>
+    implements CopyWith$Mutation$DeleteGreWordTag<TRes> {
+  _CopyWithStubImpl$Mutation$DeleteGreWordTag(this._res);
+
+  TRes _res;
+
+  call({
+    Mutation$DeleteGreWordTag$deleteGreWordTag? deleteGreWordTag,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag<TRes>
+      get deleteGreWordTag =>
+          CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag.stub(_res);
+}
+
+const documentNodeMutationDeleteGreWordTag = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'DeleteGreWordTag'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'name')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'userId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'deleteGreWordTag'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'name'),
+            value: VariableNode(name: NameNode(value: 'name')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'userId'),
+            value: VariableNode(name: NameNode(value: 'userId')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'name'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Mutation$DeleteGreWordTag _parserFn$Mutation$DeleteGreWordTag(
+        Map<String, dynamic> data) =>
+    Mutation$DeleteGreWordTag.fromJson(data);
+typedef OnMutationCompleted$Mutation$DeleteGreWordTag = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Mutation$DeleteGreWordTag?,
+);
+
+class Options$Mutation$DeleteGreWordTag
+    extends graphql.MutationOptions<Mutation$DeleteGreWordTag> {
+  Options$Mutation$DeleteGreWordTag({
+    String? operationName,
+    required Variables$Mutation$DeleteGreWordTag variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$DeleteGreWordTag? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$DeleteGreWordTag? onCompleted,
+    graphql.OnMutationUpdate<Mutation$DeleteGreWordTag>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$DeleteGreWordTag(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationDeleteGreWordTag,
+          parserFn: _parserFn$Mutation$DeleteGreWordTag,
+        );
+
+  final OnMutationCompleted$Mutation$DeleteGreWordTag? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+class WatchOptions$Mutation$DeleteGreWordTag
+    extends graphql.WatchQueryOptions<Mutation$DeleteGreWordTag> {
+  WatchOptions$Mutation$DeleteGreWordTag({
+    String? operationName,
+    required Variables$Mutation$DeleteGreWordTag variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$DeleteGreWordTag? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeMutationDeleteGreWordTag,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$DeleteGreWordTag,
+        );
+}
+
+extension ClientExtension$Mutation$DeleteGreWordTag on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$DeleteGreWordTag>>
+      mutate$DeleteGreWordTag(
+              Options$Mutation$DeleteGreWordTag options) async =>
+          await this.mutate(options);
+  graphql.ObservableQuery<Mutation$DeleteGreWordTag>
+      watchMutation$DeleteGreWordTag(
+              WatchOptions$Mutation$DeleteGreWordTag options) =>
+          this.watchMutation(options);
+}
+
+class Mutation$DeleteGreWordTag$HookResult {
+  Mutation$DeleteGreWordTag$HookResult(
+    this.runMutation,
+    this.result,
+  );
+
+  final RunMutation$Mutation$DeleteGreWordTag runMutation;
+
+  final graphql.QueryResult<Mutation$DeleteGreWordTag> result;
+}
+
+Mutation$DeleteGreWordTag$HookResult useMutation$DeleteGreWordTag(
+    [WidgetOptions$Mutation$DeleteGreWordTag? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$DeleteGreWordTag());
+  return Mutation$DeleteGreWordTag$HookResult(
+    (variables, {optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
+      variables.toJson(),
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+    ),
+    result.result,
+  );
+}
+
+graphql.ObservableQuery<Mutation$DeleteGreWordTag>
+    useWatchMutation$DeleteGreWordTag(
+            WatchOptions$Mutation$DeleteGreWordTag options) =>
+        graphql_flutter.useWatchMutation(options);
+
+class WidgetOptions$Mutation$DeleteGreWordTag
+    extends graphql.MutationOptions<Mutation$DeleteGreWordTag> {
+  WidgetOptions$Mutation$DeleteGreWordTag({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$DeleteGreWordTag? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$DeleteGreWordTag? onCompleted,
+    graphql.OnMutationUpdate<Mutation$DeleteGreWordTag>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$DeleteGreWordTag(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationDeleteGreWordTag,
+          parserFn: _parserFn$Mutation$DeleteGreWordTag,
+        );
+
+  final OnMutationCompleted$Mutation$DeleteGreWordTag? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+typedef RunMutation$Mutation$DeleteGreWordTag
+    = graphql.MultiSourceResult<Mutation$DeleteGreWordTag> Function(
+  Variables$Mutation$DeleteGreWordTag, {
+  Object? optimisticResult,
+  Mutation$DeleteGreWordTag? typedOptimisticResult,
+});
+typedef Builder$Mutation$DeleteGreWordTag = widgets.Widget Function(
+  RunMutation$Mutation$DeleteGreWordTag,
+  graphql.QueryResult<Mutation$DeleteGreWordTag>?,
+);
+
+class Mutation$DeleteGreWordTag$Widget
+    extends graphql_flutter.Mutation<Mutation$DeleteGreWordTag> {
+  Mutation$DeleteGreWordTag$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$DeleteGreWordTag? options,
+    required Builder$Mutation$DeleteGreWordTag builder,
+  }) : super(
+          key: key,
+          options: options ?? WidgetOptions$Mutation$DeleteGreWordTag(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            (
+              variables, {
+              optimisticResult,
+              typedOptimisticResult,
+            }) =>
+                run(
+              variables.toJson(),
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
+            ),
+            result,
+          ),
+        );
+}
+
+class Mutation$DeleteGreWordTag$deleteGreWordTag {
+  Mutation$DeleteGreWordTag$deleteGreWordTag({
+    required this.name,
+    this.$__typename = 'GreWordTag',
+  });
+
+  factory Mutation$DeleteGreWordTag$deleteGreWordTag.fromJson(
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Mutation$DeleteGreWordTag$deleteGreWordTag(
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$DeleteGreWordTag$deleteGreWordTag) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$DeleteGreWordTag$deleteGreWordTag
+    on Mutation$DeleteGreWordTag$deleteGreWordTag {
+  CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag<
+          Mutation$DeleteGreWordTag$deleteGreWordTag>
+      get copyWith => CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag<TRes> {
+  factory CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag(
+    Mutation$DeleteGreWordTag$deleteGreWordTag instance,
+    TRes Function(Mutation$DeleteGreWordTag$deleteGreWordTag) then,
+  ) = _CopyWithImpl$Mutation$DeleteGreWordTag$deleteGreWordTag;
+
+  factory CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$DeleteGreWordTag$deleteGreWordTag;
+
+  TRes call({
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$DeleteGreWordTag$deleteGreWordTag<TRes>
+    implements CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag<TRes> {
+  _CopyWithImpl$Mutation$DeleteGreWordTag$deleteGreWordTag(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$DeleteGreWordTag$deleteGreWordTag _instance;
+
+  final TRes Function(Mutation$DeleteGreWordTag$deleteGreWordTag) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$DeleteGreWordTag$deleteGreWordTag(
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$DeleteGreWordTag$deleteGreWordTag<TRes>
+    implements CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag<TRes> {
+  _CopyWithStubImpl$Mutation$DeleteGreWordTag$deleteGreWordTag(this._res);
+
+  TRes _res;
+
+  call({
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
+}

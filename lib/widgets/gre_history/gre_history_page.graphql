@@ -31,3 +31,9 @@ query GreWordTags($where: GreWordTagWhereInput) {
     name
   }
 }
+mutation DeleteGreWordTag($name: String!, $userId: String!) {
+  deleteGreWordTag(name: $name, userId: $userId) {
+    id
+    name
+  }
+}

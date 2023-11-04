@@ -4,6 +4,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/__generated/schema.graphql.dart';
 import 'package:skartner_app/providers/db_user_provider.dart';
+import 'package:skartner_app/utils/graphql_utils.dart';
 import 'package:skartner_app/widgets/common/pagination_controls_view.dart';
 import 'package:skartner_app/widgets/gre_history/__generated/gre_history_page.graphql.dart';
 import 'package:skartner_app/widgets/gre_history/children/gre_word/gre_word_view.dart';
@@ -47,6 +48,7 @@ class GreHistoryPage extends HookConsumerWidget {
     final selectedStatuses = useState(sortedGreWordStatuses);
     final selectedTags = useState<List<String>>([]);
     final queryInput = useState('');
+    final deleteGreWordTagMutation = useMutation$DeleteGreWordTag();
     final greWordsQuery = useQuery$GreWords(
       Options$Query$GreWords(
         variables: Variables$Query$GreWords(
@@ -158,18 +160,47 @@ class GreHistoryPage extends HookConsumerWidget {
                     greWordTags.length,
                     (int index) {
                       final greWordTag = greWordTags[index];
-                      return IconButton(
-                        icon: Text(
-                          greWordTag.name,
-                          style: TextStyle(
-                            color: selectedTags.value.contains(greWordTag.name)
-                                ? Colors.blue
-                                : null,
+                      return Row(
+                        children: [
+                          IconButton(
+                            icon: Text(
+                              greWordTag.name,
+                              style: TextStyle(
+                                color:
+                                    selectedTags.value.contains(greWordTag.name)
+                                        ? Colors.blue
+                                        : null,
+                              ),
+                            ),
+                            onPressed: () {
+                              toggleTag(greWordTag.name);
+                            },
                           ),
-                        ),
-                        onPressed: () {
-                          toggleTag(greWordTag.name);
-                        },
+                          IconButton(
+                            onPressed: () {
+                              setupMutation(
+                                runMutation: () async {
+                                  return deleteGreWordTagMutation
+                                      .runMutation(
+                                        Variables$Mutation$DeleteGreWordTag(
+                                          name: greWordTag.name,
+                                          userId: dbUser.id,
+                                        ),
+                                      )
+                                      .networkResult;
+                                },
+                                context: context,
+                                onComplete: (data, parsedData) {
+                                  greWordTagsQuery.refetch();
+                                  greWordsQuery.refetch();
+                                },
+                              );
+                            },
+                            icon: Icon(
+                              Icons.delete,
+                            ),
+                          ),
+                        ],
                       );
                     },
                   ),

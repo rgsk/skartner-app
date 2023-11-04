@@ -146,7 +146,11 @@ class WordSearchResultView extends HookConsumerWidget {
                                             greWordTags:
                                                 selectedTags.map((tagName) {
                                               return Input$GreWordTagWhereUniqueInput(
-                                                name: tagName,
+                                                name_userId:
+                                                    Input$GreWordTagNameUserIdCompoundUniqueInput(
+                                                  name: tagName,
+                                                  userId: dbUser.id,
+                                                ),
                                               );
                                             }).toList(),
                                           ),
