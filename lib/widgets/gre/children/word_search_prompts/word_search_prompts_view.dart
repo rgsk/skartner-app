@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/__generated/schema.graphql.dart';
+import 'package:skartner_app/providers/auth_repository_provider.dart';
 import 'package:skartner_app/providers/db_user_provider.dart';
 import 'package:skartner_app/utils/graphql_utils.dart';
 import 'package:skartner_app/widgets/gre/children/word_search_prompts/__generated/word_search_prompts.graphql.dart';
+import 'package:skartner_app/widgets/login/__generated/login_page.graphql.dart';
 
 class WordSearchPromptsView extends HookConsumerWidget {
   WordSearchPromptsView({super.key});
@@ -11,6 +14,7 @@ class WordSearchPromptsView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final dbUser = ref.watch(dbUserProvider)!;
+    final updateMetaForUserMutation = useMutation$UpdateMetaForUser();
     final greWordSearchPromptInputsQuery = useQuery$GreWordSearchPromptInputs(
       Options$Query$GreWordSearchPromptInputs(
         variables: Variables$Query$GreWordSearchPromptInputs(
@@ -22,19 +26,26 @@ class WordSearchPromptsView extends HookConsumerWidget {
         ),
       ),
     );
+
+    final defaultPrompt = useState(dbUser.meta.defaultGreWordSearchPromptInput);
+
+    useEffect(() {
+      defaultPrompt.value = dbUser.meta.defaultGreWordSearchPromptInput;
+    }, [dbUser.meta.defaultGreWordSearchPromptInput]);
+
     final deleteGreWordSearchPromptInputMutation =
         useMutation$DeleteGreWordSearchPromptInput();
-    final updateGreWordSearchPromptInput =
+    final updateGreWordSearchPromptInputMutation =
         useMutation$UpdateGreWordSearchPromptInput();
 
-    final createGreWordSearchPromptInput =
+    final createGreWordSearchPromptInputMutation =
         useMutation$CreateGreWordSearchPromptInput();
 
     void updateInput({required String id, required String text}) {
       setupMutation(
         context: context,
         runMutation: () async {
-          return updateGreWordSearchPromptInput
+          return updateGreWordSearchPromptInputMutation
               .runMutation(
                 Variables$Mutation$UpdateGreWordSearchPromptInput(
                   text: text,
@@ -53,7 +64,7 @@ class WordSearchPromptsView extends HookConsumerWidget {
       setupMutation(
         context: context,
         runMutation: () async {
-          return createGreWordSearchPromptInput
+          return createGreWordSearchPromptInputMutation
               .runMutation(
                 Variables$Mutation$CreateGreWordSearchPromptInput(
                   text: text,
@@ -64,6 +75,34 @@ class WordSearchPromptsView extends HookConsumerWidget {
         },
         onComplete: (data, parsedData) {
           greWordSearchPromptInputsQuery.refetch();
+        },
+      );
+    }
+
+    void updateDefaultPrompt(String newPrompt) {
+      final oldPrompt = defaultPrompt.value;
+      setupMutation(
+        context: context,
+        optimisticUpdate: () {
+          defaultPrompt.value = newPrompt;
+        },
+        revertOptimisticUpdate: () {
+          defaultPrompt.value = oldPrompt;
+        },
+        runMutation: () async {
+          return updateMetaForUserMutation
+              .runMutation(
+                variables: Variables$Mutation$UpdateMetaForUser(
+                  id: dbUser.id,
+                  meta: Input$UserMetaParsedJsonValueInput(
+                    defaultGreWordSearchPromptInput: newPrompt,
+                  ),
+                ),
+              )
+              .networkResult;
+        },
+        onComplete: (data, parsedData) {
+          ref.watch(authRepositoryProvider).refetchUser(context: context);
         },
       );
     }
@@ -129,8 +168,17 @@ class WordSearchPromptsView extends HookConsumerWidget {
               itemCount: greWordSearchPromptInputs.length,
               itemBuilder: (context, index) {
                 final input = greWordSearchPromptInputs[index];
+
                 return Row(
                   children: [
+                    Checkbox(
+                      value: defaultPrompt.value == input.text,
+                      onChanged: (newValue) {
+                        if (defaultPrompt.value != input.text) {
+                          updateDefaultPrompt(input.text);
+                        }
+                      },
+                    ),
                     Text(input.text),
                     IconButton(
                         onPressed: () {

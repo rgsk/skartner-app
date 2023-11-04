@@ -1354,3 +1354,613 @@ class Query$User$Widget extends graphql_flutter.Query<Query$User> {
           builder: builder,
         );
 }
+
+class Variables$Mutation$UpdateMetaForUser {
+  factory Variables$Mutation$UpdateMetaForUser({
+    String? id,
+    String? email,
+    Input$UserMetaParsedJsonValueInput? meta,
+  }) =>
+      Variables$Mutation$UpdateMetaForUser._({
+        if (id != null) r'id': id,
+        if (email != null) r'email': email,
+        if (meta != null) r'meta': meta,
+      });
+
+  Variables$Mutation$UpdateMetaForUser._(this._$data);
+
+  factory Variables$Mutation$UpdateMetaForUser.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] = (l$id as String?);
+    }
+    if (data.containsKey('email')) {
+      final l$email = data['email'];
+      result$data['email'] = (l$email as String?);
+    }
+    if (data.containsKey('meta')) {
+      final l$meta = data['meta'];
+      result$data['meta'] = l$meta == null
+          ? null
+          : Input$UserMetaParsedJsonValueInput.fromJson(
+              (l$meta as Map<String, dynamic>));
+    }
+    return Variables$Mutation$UpdateMetaForUser._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get id => (_$data['id'] as String?);
+
+  String? get email => (_$data['email'] as String?);
+
+  Input$UserMetaParsedJsonValueInput? get meta =>
+      (_$data['meta'] as Input$UserMetaParsedJsonValueInput?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id;
+    }
+    if (_$data.containsKey('email')) {
+      final l$email = email;
+      result$data['email'] = l$email;
+    }
+    if (_$data.containsKey('meta')) {
+      final l$meta = meta;
+      result$data['meta'] = l$meta?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Variables$Mutation$UpdateMetaForUser<
+          Variables$Mutation$UpdateMetaForUser>
+      get copyWith => CopyWith$Variables$Mutation$UpdateMetaForUser(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Mutation$UpdateMetaForUser) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$email = email;
+    final lOther$email = other.email;
+    if (_$data.containsKey('email') != other._$data.containsKey('email')) {
+      return false;
+    }
+    if (l$email != lOther$email) {
+      return false;
+    }
+    final l$meta = meta;
+    final lOther$meta = other.meta;
+    if (_$data.containsKey('meta') != other._$data.containsKey('meta')) {
+      return false;
+    }
+    if (l$meta != lOther$meta) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$email = email;
+    final l$meta = meta;
+    return Object.hashAll([
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('email') ? l$email : const {},
+      _$data.containsKey('meta') ? l$meta : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Variables$Mutation$UpdateMetaForUser<TRes> {
+  factory CopyWith$Variables$Mutation$UpdateMetaForUser(
+    Variables$Mutation$UpdateMetaForUser instance,
+    TRes Function(Variables$Mutation$UpdateMetaForUser) then,
+  ) = _CopyWithImpl$Variables$Mutation$UpdateMetaForUser;
+
+  factory CopyWith$Variables$Mutation$UpdateMetaForUser.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$UpdateMetaForUser;
+
+  TRes call({
+    String? id,
+    String? email,
+    Input$UserMetaParsedJsonValueInput? meta,
+  });
+}
+
+class _CopyWithImpl$Variables$Mutation$UpdateMetaForUser<TRes>
+    implements CopyWith$Variables$Mutation$UpdateMetaForUser<TRes> {
+  _CopyWithImpl$Variables$Mutation$UpdateMetaForUser(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Mutation$UpdateMetaForUser _instance;
+
+  final TRes Function(Variables$Mutation$UpdateMetaForUser) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? email = _undefined,
+    Object? meta = _undefined,
+  }) =>
+      _then(Variables$Mutation$UpdateMetaForUser._({
+        ..._instance._$data,
+        if (id != _undefined) 'id': (id as String?),
+        if (email != _undefined) 'email': (email as String?),
+        if (meta != _undefined)
+          'meta': (meta as Input$UserMetaParsedJsonValueInput?),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Mutation$UpdateMetaForUser<TRes>
+    implements CopyWith$Variables$Mutation$UpdateMetaForUser<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$UpdateMetaForUser(this._res);
+
+  TRes _res;
+
+  call({
+    String? id,
+    String? email,
+    Input$UserMetaParsedJsonValueInput? meta,
+  }) =>
+      _res;
+}
+
+class Mutation$UpdateMetaForUser {
+  Mutation$UpdateMetaForUser({
+    this.updateUser,
+    this.$__typename = 'Mutation',
+  });
+
+  factory Mutation$UpdateMetaForUser.fromJson(Map<String, dynamic> json) {
+    final l$updateUser = json['updateUser'];
+    final l$$__typename = json['__typename'];
+    return Mutation$UpdateMetaForUser(
+      updateUser: l$updateUser == null
+          ? null
+          : Fragment$UserFields.fromJson(
+              (l$updateUser as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Fragment$UserFields? updateUser;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$updateUser = updateUser;
+    _resultData['updateUser'] = l$updateUser?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$updateUser = updateUser;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$updateUser,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$UpdateMetaForUser) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$updateUser = updateUser;
+    final lOther$updateUser = other.updateUser;
+    if (l$updateUser != lOther$updateUser) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$UpdateMetaForUser
+    on Mutation$UpdateMetaForUser {
+  CopyWith$Mutation$UpdateMetaForUser<Mutation$UpdateMetaForUser>
+      get copyWith => CopyWith$Mutation$UpdateMetaForUser(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$UpdateMetaForUser<TRes> {
+  factory CopyWith$Mutation$UpdateMetaForUser(
+    Mutation$UpdateMetaForUser instance,
+    TRes Function(Mutation$UpdateMetaForUser) then,
+  ) = _CopyWithImpl$Mutation$UpdateMetaForUser;
+
+  factory CopyWith$Mutation$UpdateMetaForUser.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$UpdateMetaForUser;
+
+  TRes call({
+    Fragment$UserFields? updateUser,
+    String? $__typename,
+  });
+  CopyWith$Fragment$UserFields<TRes> get updateUser;
+}
+
+class _CopyWithImpl$Mutation$UpdateMetaForUser<TRes>
+    implements CopyWith$Mutation$UpdateMetaForUser<TRes> {
+  _CopyWithImpl$Mutation$UpdateMetaForUser(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$UpdateMetaForUser _instance;
+
+  final TRes Function(Mutation$UpdateMetaForUser) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? updateUser = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$UpdateMetaForUser(
+        updateUser: updateUser == _undefined
+            ? _instance.updateUser
+            : (updateUser as Fragment$UserFields?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWith$Fragment$UserFields<TRes> get updateUser {
+    final local$updateUser = _instance.updateUser;
+    return local$updateUser == null
+        ? CopyWith$Fragment$UserFields.stub(_then(_instance))
+        : CopyWith$Fragment$UserFields(
+            local$updateUser, (e) => call(updateUser: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$UpdateMetaForUser<TRes>
+    implements CopyWith$Mutation$UpdateMetaForUser<TRes> {
+  _CopyWithStubImpl$Mutation$UpdateMetaForUser(this._res);
+
+  TRes _res;
+
+  call({
+    Fragment$UserFields? updateUser,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWith$Fragment$UserFields<TRes> get updateUser =>
+      CopyWith$Fragment$UserFields.stub(_res);
+}
+
+const documentNodeMutationUpdateMetaForUser = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.mutation,
+    name: NameNode(value: 'UpdateMetaForUser'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'email')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'meta')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'UserMetaParsedJsonValueInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'updateUser'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'id'),
+            value: VariableNode(name: NameNode(value: 'id')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'email'),
+            value: VariableNode(name: NameNode(value: 'email')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'meta'),
+            value: VariableNode(name: NameNode(value: 'meta')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FragmentSpreadNode(
+            name: NameNode(value: 'UserFields'),
+            directives: [],
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+  fragmentDefinitionUserFields,
+]);
+Mutation$UpdateMetaForUser _parserFn$Mutation$UpdateMetaForUser(
+        Map<String, dynamic> data) =>
+    Mutation$UpdateMetaForUser.fromJson(data);
+typedef OnMutationCompleted$Mutation$UpdateMetaForUser = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Mutation$UpdateMetaForUser?,
+);
+
+class Options$Mutation$UpdateMetaForUser
+    extends graphql.MutationOptions<Mutation$UpdateMetaForUser> {
+  Options$Mutation$UpdateMetaForUser({
+    String? operationName,
+    Variables$Mutation$UpdateMetaForUser? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$UpdateMetaForUser? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$UpdateMetaForUser? onCompleted,
+    graphql.OnMutationUpdate<Mutation$UpdateMetaForUser>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$UpdateMetaForUser(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationUpdateMetaForUser,
+          parserFn: _parserFn$Mutation$UpdateMetaForUser,
+        );
+
+  final OnMutationCompleted$Mutation$UpdateMetaForUser? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+class WatchOptions$Mutation$UpdateMetaForUser
+    extends graphql.WatchQueryOptions<Mutation$UpdateMetaForUser> {
+  WatchOptions$Mutation$UpdateMetaForUser({
+    String? operationName,
+    Variables$Mutation$UpdateMetaForUser? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$UpdateMetaForUser? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeMutationUpdateMetaForUser,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Mutation$UpdateMetaForUser,
+        );
+}
+
+extension ClientExtension$Mutation$UpdateMetaForUser on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Mutation$UpdateMetaForUser>>
+      mutate$UpdateMetaForUser(
+              [Options$Mutation$UpdateMetaForUser? options]) async =>
+          await this.mutate(options ?? Options$Mutation$UpdateMetaForUser());
+  graphql.ObservableQuery<Mutation$UpdateMetaForUser>
+      watchMutation$UpdateMetaForUser(
+              [WatchOptions$Mutation$UpdateMetaForUser? options]) =>
+          this.watchMutation(
+              options ?? WatchOptions$Mutation$UpdateMetaForUser());
+}
+
+class Mutation$UpdateMetaForUser$HookResult {
+  Mutation$UpdateMetaForUser$HookResult(
+    this.runMutation,
+    this.result,
+  );
+
+  final RunMutation$Mutation$UpdateMetaForUser runMutation;
+
+  final graphql.QueryResult<Mutation$UpdateMetaForUser> result;
+}
+
+Mutation$UpdateMetaForUser$HookResult useMutation$UpdateMetaForUser(
+    [WidgetOptions$Mutation$UpdateMetaForUser? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$UpdateMetaForUser());
+  return Mutation$UpdateMetaForUser$HookResult(
+    ({variables, optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
+      variables?.toJson() ?? const {},
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+    ),
+    result.result,
+  );
+}
+
+graphql.ObservableQuery<Mutation$UpdateMetaForUser>
+    useWatchMutation$UpdateMetaForUser(
+            [WatchOptions$Mutation$UpdateMetaForUser? options]) =>
+        graphql_flutter.useWatchMutation(
+            options ?? WatchOptions$Mutation$UpdateMetaForUser());
+
+class WidgetOptions$Mutation$UpdateMetaForUser
+    extends graphql.MutationOptions<Mutation$UpdateMetaForUser> {
+  WidgetOptions$Mutation$UpdateMetaForUser({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$UpdateMetaForUser? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$UpdateMetaForUser? onCompleted,
+    graphql.OnMutationUpdate<Mutation$UpdateMetaForUser>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$UpdateMetaForUser(data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationUpdateMetaForUser,
+          parserFn: _parserFn$Mutation$UpdateMetaForUser,
+        );
+
+  final OnMutationCompleted$Mutation$UpdateMetaForUser? onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+typedef RunMutation$Mutation$UpdateMetaForUser
+    = graphql.MultiSourceResult<Mutation$UpdateMetaForUser> Function({
+  Variables$Mutation$UpdateMetaForUser? variables,
+  Object? optimisticResult,
+  Mutation$UpdateMetaForUser? typedOptimisticResult,
+});
+typedef Builder$Mutation$UpdateMetaForUser = widgets.Widget Function(
+  RunMutation$Mutation$UpdateMetaForUser,
+  graphql.QueryResult<Mutation$UpdateMetaForUser>?,
+);
+
+class Mutation$UpdateMetaForUser$Widget
+    extends graphql_flutter.Mutation<Mutation$UpdateMetaForUser> {
+  Mutation$UpdateMetaForUser$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$UpdateMetaForUser? options,
+    required Builder$Mutation$UpdateMetaForUser builder,
+  }) : super(
+          key: key,
+          options: options ?? WidgetOptions$Mutation$UpdateMetaForUser(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            ({
+              variables,
+              optimisticResult,
+              typedOptimisticResult,
+            }) =>
+                run(
+              variables?.toJson() ?? const {},
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
+            ),
+            result,
+          ),
+        );
+}

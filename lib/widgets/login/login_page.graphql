@@ -18,3 +18,13 @@ query User($where: UserWhereUniqueInput!) {
     ...UserFields
   }
 }
+
+mutation UpdateMetaForUser(
+  $id: String
+  $email: String
+  $meta: UserMetaParsedJsonValueInput
+) {
+  updateUser(id: $id, email: $email, meta: $meta) {
+    ...UserFields
+  }
+}

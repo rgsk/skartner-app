@@ -43,6 +43,30 @@ class AuthRepository {
 
   Stream<User?> get authStateChange => _auth.authStateChanges();
 
+  void refetchUser({required BuildContext context}) async {
+    final prevDbUser = _ref.watch(dbUserProvider.notifier).state;
+    if (prevDbUser != null) {
+      final queryResult = await _graphQLClient.query$User(
+        Options$Query$User(
+          variables: Variables$Query$User(
+            where: Input$UserWhereUniqueInput(email: prevDbUser.email),
+          ),
+        ),
+      );
+      // print('queryResult.parsedData?.user');
+      // print(queryResult.parsedData?.user);
+      if (queryResult.hasException) {
+        reportGraphqlException(queryResult.exception!);
+        displayError(context: context);
+      } else {
+        final dbUser = queryResult.parsedData!.user;
+        if (dbUser != null) {
+          _ref.watch(dbUserProvider.notifier).state = dbUser;
+        }
+      }
+    }
+  }
+
   void updateUser({required BuildContext context, User? user}) async {
     if (user != null) {
       final queryResult = await _graphQLClient.query$User(
