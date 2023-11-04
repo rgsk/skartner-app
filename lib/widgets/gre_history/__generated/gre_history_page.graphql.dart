@@ -2355,6 +2355,13 @@ const documentNodeMutationDeleteGreWordTag = DocumentNode(definitions: [
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'name'),
             alias: null,
             arguments: [],
@@ -2597,19 +2604,24 @@ class Mutation$DeleteGreWordTag$Widget
 
 class Mutation$DeleteGreWordTag$deleteGreWordTag {
   Mutation$DeleteGreWordTag$deleteGreWordTag({
+    required this.id,
     required this.name,
     this.$__typename = 'GreWordTag',
   });
 
   factory Mutation$DeleteGreWordTag$deleteGreWordTag.fromJson(
       Map<String, dynamic> json) {
+    final l$id = json['id'];
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
     return Mutation$DeleteGreWordTag$deleteGreWordTag(
+      id: (l$id as String),
       name: (l$name as String),
       $__typename: (l$$__typename as String),
     );
   }
+
+  final String id;
 
   final String name;
 
@@ -2617,6 +2629,8 @@ class Mutation$DeleteGreWordTag$deleteGreWordTag {
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
     final l$name = name;
     _resultData['name'] = l$name;
     final l$$__typename = $__typename;
@@ -2626,9 +2640,11 @@ class Mutation$DeleteGreWordTag$deleteGreWordTag {
 
   @override
   int get hashCode {
+    final l$id = id;
     final l$name = name;
     final l$$__typename = $__typename;
     return Object.hashAll([
+      l$id,
       l$name,
       l$$__typename,
     ]);
@@ -2641,6 +2657,11 @@ class Mutation$DeleteGreWordTag$deleteGreWordTag {
     }
     if (!(other is Mutation$DeleteGreWordTag$deleteGreWordTag) ||
         runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
       return false;
     }
     final l$name = name;
@@ -2677,6 +2698,7 @@ abstract class CopyWith$Mutation$DeleteGreWordTag$deleteGreWordTag<TRes> {
       _CopyWithStubImpl$Mutation$DeleteGreWordTag$deleteGreWordTag;
 
   TRes call({
+    String? id,
     String? name,
     String? $__typename,
   });
@@ -2696,10 +2718,12 @@ class _CopyWithImpl$Mutation$DeleteGreWordTag$deleteGreWordTag<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? id = _undefined,
     Object? name = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$DeleteGreWordTag$deleteGreWordTag(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
         name: name == _undefined || name == null
             ? _instance.name
             : (name as String),
@@ -2716,6 +2740,7 @@ class _CopyWithStubImpl$Mutation$DeleteGreWordTag$deleteGreWordTag<TRes>
   TRes _res;
 
   call({
+    String? id,
     String? name,
     String? $__typename,
   }) =>

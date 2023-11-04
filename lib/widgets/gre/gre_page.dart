@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:skartner_app/widgets/gre/children/word_search_prompts/word_search_prompts_view.dart';
 import 'package:skartner_app/widgets/gre/children/word_search_result/word_search_result_view.dart';
 import 'package:skartner_app/widgets/gre_history/children/gre_word/children/tag_input_view/tag_input_view.dart';
 
@@ -49,6 +50,7 @@ class GrePage extends HookConsumerWidget {
                 ];
               },
             ),
+            WordSearchPromptsView(),
             TextField(
               controller: _textEditingController,
               focusNode: _wordInputFocusNode,

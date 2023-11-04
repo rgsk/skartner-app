@@ -1,0 +1,29 @@
+query GreWordSearchPromptInputs($where: GreWordSearchPromptInputWhereInput) {
+  greWordSearchPromptInputs(where: $where) {
+    id
+    text
+    userId
+  }
+}
+
+mutation CreateGreWordSearchPromptInput($text: String!, $userId: String!) {
+  createGreWordSearchPromptInput(text: $text, userId: $userId) {
+    id
+    text
+    userId
+  }
+}
+
+mutation UpdateGreWordSearchPromptInput($text: String!, $id: String!) {
+  updateGreWordSearchPromptInput(text: $text, id: $id) {
+    id
+    text
+    userId
+  }
+}
+
+mutation DeleteGreWordSearchPromptInput($id: String!) {
+  deleteGreWordSearchPromptInput(id: $id) {
+    id
+  }
+}
