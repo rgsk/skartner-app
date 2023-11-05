@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:routemaster/routemaster.dart';
+import 'package:qlevar_router/qlevar_router.dart';
 import 'package:skartner_app/firebase_options.dart';
 import 'package:skartner_app/global_wrapper_view.dart';
 import 'package:skartner_app/providers/auth_repository_provider.dart';
@@ -38,43 +38,38 @@ class MyApp extends HookConsumerWidget {
   Widget build(BuildContext context, ref) {
     final graphqlClient = ref.watch(graphQLClientProvider);
     return ref.watch(authStateChangeProvider).when(
-        data: (user) => GraphQLProvider(
-              client: ValueNotifier(graphqlClient),
-              child: MaterialApp.router(
-                title: 'Skartner',
-                theme: ThemeData(
-                  colorScheme:
-                      ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                  useMaterial3: true,
-                ),
-                debugShowCheckedModeBanner: false,
-                routerDelegate: RoutemasterDelegate(
-                  routesBuilder: (context) {
-                    ref.watch(authRepositoryProvider).updateUser(
-                          context: context,
-                          user: user,
-                        );
-                    if (user != null) {
-                      return loggedInRoutes;
-                    }
-                    return loggedOutRoutes;
-                  },
-                ),
-                routeInformationParser: RoutemasterParser(),
-                builder: (context, child) {
-                  return GlobalWrapper(
-                    child: child!,
-                  );
-                },
-              ),
+      data: (user) {
+        ref.watch(authRepositoryProvider).updateUser(
+              context: context,
+              user: user,
+            );
+        return GraphQLProvider(
+          client: ValueNotifier(graphqlClient),
+          child: MaterialApp.router(
+            title: 'Skartner',
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
             ),
-        error: (error, stackTrace) {
-          return ErrorTextView(
-            error: error.toString(),
-          );
-        },
-        loading: () {
-          return LoaderView();
-        });
+            debugShowCheckedModeBanner: false,
+            routerDelegate: QRouterDelegate(getRoutes(ref)),
+            routeInformationParser: const QRouteInformationParser(),
+            builder: (context, child) {
+              return GlobalWrapper(
+                child: child!,
+              );
+            },
+          ),
+        );
+      },
+      error: (error, stackTrace) {
+        return ErrorTextView(
+          error: error.toString(),
+        );
+      },
+      loading: () {
+        return LoaderView();
+      },
+    );
   }
 }

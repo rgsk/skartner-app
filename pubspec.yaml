@@ -37,7 +37,6 @@ dependencies:
   graphql_flutter: ^5.1.2
   flutter_hooks: ^0.20.0
   graphql: ^5.2.0-beta.1
-  routemaster: ^1.0.1
   flutter_riverpod: ^2.4.4
   hooks_riverpod: ^2.4.4
   flutter_dotenv: ^5.1.0
@@ -47,6 +46,7 @@ dependencies:
   dio: ^5.3.3
   fl_query: ^1.0.0
   fl_query_hooks: ^1.0.0
+  qlevar_router: ^1.10.0
 
 dev_dependencies:
   flutter_test:
