@@ -6,6 +6,7 @@ import 'package:skartner_app/widgets/home/home_page.dart';
 import 'package:skartner_app/widgets/login/login_page.dart';
 import 'package:skartner_app/widgets/practice/practice_page.dart';
 import 'package:skartner_app/widgets/samples/pagination_sample_view.dart';
+import 'package:skartner_app/widgets/samples/rest_api_sample_view.dart';
 
 class Routes {
   static String practice = '/practice';
@@ -27,6 +28,6 @@ final loggedInRoutes = RouteMap(routes: {
   Routes.gre: (_) => MaterialPage(child: GrePage()),
   Routes.greHistory: (_) => MaterialPage(child: GreHistoryPage()),
   Routes.practice: (_) => MaterialPage(child: PracticePage()),
-  Routes.sample: (_) => MaterialPage(child: PaginationSampleView()),
+  Routes.sample: (_) => MaterialPage(child: RestApiSampleView()),
   Routes.login: (_) => MaterialPage(child: LoginPage()),
 });
