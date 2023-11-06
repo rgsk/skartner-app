@@ -52,7 +52,7 @@ class MyApp extends HookConsumerWidget {
               useMaterial3: true,
             ),
             debugShowCheckedModeBanner: false,
-            routerDelegate: QRouterDelegate(getRoutes(ref)),
+            routerDelegate: QRouterDelegate(ref.watch(routesProvider)),
             routeInformationParser: const QRouteInformationParser(),
             builder: (context, child) {
               return GlobalWrapper(

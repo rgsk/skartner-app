@@ -8,7 +8,7 @@ import 'package:skartner_app/widgets/home/home_page.dart';
 import 'package:skartner_app/widgets/login/login_page.dart' deferred as login;
 import 'package:skartner_app/widgets/practice/practice_page.dart'
     deferred as practice;
-import 'package:skartner_app/widgets/samples/pagination_sample_view.dart';
+import 'package:skartner_app/widgets/samples/set_interval_sample_view.dart';
 
 class Routes {
   static String practice = '/practice';
@@ -29,7 +29,12 @@ class DefferedLoader extends QMiddleware {
   }
 }
 
-List<QRoute> getRoutes(WidgetRef ref) {
+final routesProvider = Provider(
+  (ref) => getRoutes(ref),
+);
+
+List<QRoute> getRoutes(Ref ref) {
+  final authMiddleware = AuthMiddleware(ref: ref);
   final routes = [
     QRoute(
       path: Routes.home,
@@ -44,7 +49,7 @@ List<QRoute> getRoutes(WidgetRef ref) {
     ),
     QRoute(
       path: Routes.sample,
-      builder: () => PaginationSampleView(),
+      builder: () => SetIntervalSampleView(),
     ),
     QRoute(
       path: Routes.login,
@@ -57,16 +62,16 @@ List<QRoute> getRoutes(WidgetRef ref) {
       path: Routes.gre,
       builder: () => gre.GrePage(),
       middleware: [
+        authMiddleware,
         DefferedLoader(gre.loadLibrary),
-        AuthMiddleware(ref: ref),
       ],
     ),
     QRoute(
       path: Routes.greHistory,
       builder: () => greHistory.GreHistoryPage(),
       middleware: [
+        authMiddleware,
         DefferedLoader(greHistory.loadLibrary),
-        AuthMiddleware(ref: ref),
       ],
     ),
   ];
@@ -74,14 +79,13 @@ List<QRoute> getRoutes(WidgetRef ref) {
 }
 
 class AuthMiddleware extends QMiddleware {
-  WidgetRef ref;
+  Ref ref;
 
   AuthMiddleware({required this.ref});
 
   @override
   Future<String?> redirectGuard(String path) async {
     final user = ref.watch(authProvider).currentUser;
-    print('redirectGuard: ${user}');
     if (user == null) {
       // redirect back to home
       return Routes.home;
