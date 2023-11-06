@@ -10,3 +10,13 @@ query Hello {
     message
   }
 }
+
+query Authenticate {
+  authenticate {
+    message
+  }
+}
+
+subscription Truths {
+  truths
+}

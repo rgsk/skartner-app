@@ -845,7 +845,7 @@ class Query$Hello$Widget extends graphql_flutter.Query<Query$Hello> {
 class Query$Hello$hello {
   Query$Hello$hello({
     required this.message,
-    this.$__typename = 'helloWorld',
+    this.$__typename = 'HelloWorld',
   });
 
   factory Query$Hello$hello.fromJson(Map<String, dynamic> json) {
@@ -963,4 +963,637 @@ class _CopyWithStubImpl$Query$Hello$hello<TRes>
     String? $__typename,
   }) =>
       _res;
+}
+
+class Query$Authenticate {
+  Query$Authenticate({
+    required this.authenticate,
+    this.$__typename = 'Query',
+  });
+
+  factory Query$Authenticate.fromJson(Map<String, dynamic> json) {
+    final l$authenticate = json['authenticate'];
+    final l$$__typename = json['__typename'];
+    return Query$Authenticate(
+      authenticate: Query$Authenticate$authenticate.fromJson(
+          (l$authenticate as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Query$Authenticate$authenticate authenticate;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$authenticate = authenticate;
+    _resultData['authenticate'] = l$authenticate.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$authenticate = authenticate;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$authenticate,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Authenticate) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$authenticate = authenticate;
+    final lOther$authenticate = other.authenticate;
+    if (l$authenticate != lOther$authenticate) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$Authenticate on Query$Authenticate {
+  CopyWith$Query$Authenticate<Query$Authenticate> get copyWith =>
+      CopyWith$Query$Authenticate(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Query$Authenticate<TRes> {
+  factory CopyWith$Query$Authenticate(
+    Query$Authenticate instance,
+    TRes Function(Query$Authenticate) then,
+  ) = _CopyWithImpl$Query$Authenticate;
+
+  factory CopyWith$Query$Authenticate.stub(TRes res) =
+      _CopyWithStubImpl$Query$Authenticate;
+
+  TRes call({
+    Query$Authenticate$authenticate? authenticate,
+    String? $__typename,
+  });
+  CopyWith$Query$Authenticate$authenticate<TRes> get authenticate;
+}
+
+class _CopyWithImpl$Query$Authenticate<TRes>
+    implements CopyWith$Query$Authenticate<TRes> {
+  _CopyWithImpl$Query$Authenticate(
+    this._instance,
+    this._then,
+  );
+
+  final Query$Authenticate _instance;
+
+  final TRes Function(Query$Authenticate) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? authenticate = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$Authenticate(
+        authenticate: authenticate == _undefined || authenticate == null
+            ? _instance.authenticate
+            : (authenticate as Query$Authenticate$authenticate),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWith$Query$Authenticate$authenticate<TRes> get authenticate {
+    final local$authenticate = _instance.authenticate;
+    return CopyWith$Query$Authenticate$authenticate(
+        local$authenticate, (e) => call(authenticate: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$Authenticate<TRes>
+    implements CopyWith$Query$Authenticate<TRes> {
+  _CopyWithStubImpl$Query$Authenticate(this._res);
+
+  TRes _res;
+
+  call({
+    Query$Authenticate$authenticate? authenticate,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWith$Query$Authenticate$authenticate<TRes> get authenticate =>
+      CopyWith$Query$Authenticate$authenticate.stub(_res);
+}
+
+const documentNodeQueryAuthenticate = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'Authenticate'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'authenticate'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'message'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Query$Authenticate _parserFn$Query$Authenticate(Map<String, dynamic> data) =>
+    Query$Authenticate.fromJson(data);
+typedef OnQueryComplete$Query$Authenticate = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Query$Authenticate?,
+);
+
+class Options$Query$Authenticate
+    extends graphql.QueryOptions<Query$Authenticate> {
+  Options$Query$Authenticate({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$Authenticate? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$Authenticate? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null ? null : _parserFn$Query$Authenticate(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryAuthenticate,
+          parserFn: _parserFn$Query$Authenticate,
+        );
+
+  final OnQueryComplete$Query$Authenticate? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$Authenticate
+    extends graphql.WatchQueryOptions<Query$Authenticate> {
+  WatchOptions$Query$Authenticate({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$Authenticate? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryAuthenticate,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$Authenticate,
+        );
+}
+
+class FetchMoreOptions$Query$Authenticate extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$Authenticate(
+      {required graphql.UpdateQuery updateQuery})
+      : super(
+          updateQuery: updateQuery,
+          document: documentNodeQueryAuthenticate,
+        );
+}
+
+extension ClientExtension$Query$Authenticate on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$Authenticate>> query$Authenticate(
+          [Options$Query$Authenticate? options]) async =>
+      await this.query(options ?? Options$Query$Authenticate());
+  graphql.ObservableQuery<Query$Authenticate> watchQuery$Authenticate(
+          [WatchOptions$Query$Authenticate? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$Authenticate());
+  void writeQuery$Authenticate({
+    required Query$Authenticate data,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+            operation:
+                graphql.Operation(document: documentNodeQueryAuthenticate)),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$Authenticate? readQuery$Authenticate({bool optimistic = true}) {
+    final result = this.readQuery(
+      graphql.Request(
+          operation:
+              graphql.Operation(document: documentNodeQueryAuthenticate)),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Query$Authenticate.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$Authenticate> useQuery$Authenticate(
+        [Options$Query$Authenticate? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$Authenticate());
+graphql.ObservableQuery<Query$Authenticate> useWatchQuery$Authenticate(
+        [WatchOptions$Query$Authenticate? options]) =>
+    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$Authenticate());
+
+class Query$Authenticate$Widget
+    extends graphql_flutter.Query<Query$Authenticate> {
+  Query$Authenticate$Widget({
+    widgets.Key? key,
+    Options$Query$Authenticate? options,
+    required graphql_flutter.QueryBuilder<Query$Authenticate> builder,
+  }) : super(
+          key: key,
+          options: options ?? Options$Query$Authenticate(),
+          builder: builder,
+        );
+}
+
+class Query$Authenticate$authenticate {
+  Query$Authenticate$authenticate({
+    required this.message,
+    this.$__typename = 'AuthenticateResponse',
+  });
+
+  factory Query$Authenticate$authenticate.fromJson(Map<String, dynamic> json) {
+    final l$message = json['message'];
+    final l$$__typename = json['__typename'];
+    return Query$Authenticate$authenticate(
+      message: (l$message as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String message;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$message = message;
+    _resultData['message'] = l$message;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$message = message;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$message,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$Authenticate$authenticate) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$message = message;
+    final lOther$message = other.message;
+    if (l$message != lOther$message) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$Authenticate$authenticate
+    on Query$Authenticate$authenticate {
+  CopyWith$Query$Authenticate$authenticate<Query$Authenticate$authenticate>
+      get copyWith => CopyWith$Query$Authenticate$authenticate(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$Authenticate$authenticate<TRes> {
+  factory CopyWith$Query$Authenticate$authenticate(
+    Query$Authenticate$authenticate instance,
+    TRes Function(Query$Authenticate$authenticate) then,
+  ) = _CopyWithImpl$Query$Authenticate$authenticate;
+
+  factory CopyWith$Query$Authenticate$authenticate.stub(TRes res) =
+      _CopyWithStubImpl$Query$Authenticate$authenticate;
+
+  TRes call({
+    String? message,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$Authenticate$authenticate<TRes>
+    implements CopyWith$Query$Authenticate$authenticate<TRes> {
+  _CopyWithImpl$Query$Authenticate$authenticate(
+    this._instance,
+    this._then,
+  );
+
+  final Query$Authenticate$authenticate _instance;
+
+  final TRes Function(Query$Authenticate$authenticate) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? message = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$Authenticate$authenticate(
+        message: message == _undefined || message == null
+            ? _instance.message
+            : (message as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$Authenticate$authenticate<TRes>
+    implements CopyWith$Query$Authenticate$authenticate<TRes> {
+  _CopyWithStubImpl$Query$Authenticate$authenticate(this._res);
+
+  TRes _res;
+
+  call({
+    String? message,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Subscription$Truths {
+  Subscription$Truths({this.truths});
+
+  factory Subscription$Truths.fromJson(Map<String, dynamic> json) {
+    final l$truths = json['truths'];
+    return Subscription$Truths(truths: (l$truths as bool?));
+  }
+
+  final bool? truths;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$truths = truths;
+    _resultData['truths'] = l$truths;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$truths = truths;
+    return Object.hashAll([l$truths]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Subscription$Truths) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$truths = truths;
+    final lOther$truths = other.truths;
+    if (l$truths != lOther$truths) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Subscription$Truths on Subscription$Truths {
+  CopyWith$Subscription$Truths<Subscription$Truths> get copyWith =>
+      CopyWith$Subscription$Truths(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Subscription$Truths<TRes> {
+  factory CopyWith$Subscription$Truths(
+    Subscription$Truths instance,
+    TRes Function(Subscription$Truths) then,
+  ) = _CopyWithImpl$Subscription$Truths;
+
+  factory CopyWith$Subscription$Truths.stub(TRes res) =
+      _CopyWithStubImpl$Subscription$Truths;
+
+  TRes call({bool? truths});
+}
+
+class _CopyWithImpl$Subscription$Truths<TRes>
+    implements CopyWith$Subscription$Truths<TRes> {
+  _CopyWithImpl$Subscription$Truths(
+    this._instance,
+    this._then,
+  );
+
+  final Subscription$Truths _instance;
+
+  final TRes Function(Subscription$Truths) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? truths = _undefined}) => _then(Subscription$Truths(
+      truths: truths == _undefined ? _instance.truths : (truths as bool?)));
+}
+
+class _CopyWithStubImpl$Subscription$Truths<TRes>
+    implements CopyWith$Subscription$Truths<TRes> {
+  _CopyWithStubImpl$Subscription$Truths(this._res);
+
+  TRes _res;
+
+  call({bool? truths}) => _res;
+}
+
+const documentNodeSubscriptionTruths = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.subscription,
+    name: NameNode(value: 'Truths'),
+    variableDefinitions: [],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'truths'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      )
+    ]),
+  ),
+]);
+Subscription$Truths _parserFn$Subscription$Truths(Map<String, dynamic> data) =>
+    Subscription$Truths.fromJson(data);
+
+class Options$Subscription$Truths
+    extends graphql.SubscriptionOptions<Subscription$Truths> {
+  Options$Subscription$Truths({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Subscription$Truths? typedOptimisticResult,
+    graphql.Context? context,
+  }) : super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeSubscriptionTruths,
+          parserFn: _parserFn$Subscription$Truths,
+        );
+}
+
+class WatchOptions$Subscription$Truths
+    extends graphql.WatchQueryOptions<Subscription$Truths> {
+  WatchOptions$Subscription$Truths({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Subscription$Truths? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeSubscriptionTruths,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Subscription$Truths,
+        );
+}
+
+class FetchMoreOptions$Subscription$Truths extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Subscription$Truths(
+      {required graphql.UpdateQuery updateQuery})
+      : super(
+          updateQuery: updateQuery,
+          document: documentNodeSubscriptionTruths,
+        );
+}
+
+extension ClientExtension$Subscription$Truths on graphql.GraphQLClient {
+  Stream<graphql.QueryResult<Subscription$Truths>> subscribe$Truths(
+          [Options$Subscription$Truths? options]) =>
+      this.subscribe(options ?? Options$Subscription$Truths());
+  graphql.ObservableQuery<Subscription$Truths> watchSubscription$Truths(
+          [WatchOptions$Subscription$Truths? options]) =>
+      this.watchQuery(options ?? WatchOptions$Subscription$Truths());
+}
+
+graphql.QueryResult<Subscription$Truths> useSubscription$Truths(
+        Options$Subscription$Truths options) =>
+    graphql_flutter.useSubscription(options);
+
+class Subscription$Truths$Widget
+    extends graphql_flutter.Subscription<Subscription$Truths> {
+  Subscription$Truths$Widget({
+    widgets.Key? key,
+    Options$Subscription$Truths? options,
+    required graphql_flutter.SubscriptionBuilder<Subscription$Truths> builder,
+    graphql_flutter.OnSubscriptionResult<Subscription$Truths>?
+        onSubscriptionResult,
+  }) : super(
+          key: key,
+          options: options ?? Options$Subscription$Truths(),
+          builder: builder,
+          onSubscriptionResult: onSubscriptionResult,
+        );
 }

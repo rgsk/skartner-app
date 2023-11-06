@@ -8,7 +8,7 @@ import 'package:skartner_app/widgets/home/home_page.dart';
 import 'package:skartner_app/widgets/login/login_page.dart' deferred as login;
 import 'package:skartner_app/widgets/practice/practice_page.dart'
     deferred as practice;
-import 'package:skartner_app/widgets/samples/set_interval_sample_view.dart';
+import 'package:skartner_app/widgets/samples/truths_subscription_sample_view.dart';
 
 class Routes {
   static String practice = '/practice';
@@ -49,7 +49,7 @@ List<QRoute> getRoutes(Ref ref) {
     ),
     QRoute(
       path: Routes.sample,
-      builder: () => SetIntervalSampleView(),
+      builder: () => TruthsSubscriptionSampleView(),
     ),
     QRoute(
       path: Routes.login,

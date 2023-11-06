@@ -8,7 +8,7 @@ final graphQLClientProvider = Provider(
 // https://github.com/zino-hofmann/graphql-flutter/issues/729#issuecomment-1466752764
     final url = '${EnvironmentVars.skartnerServer}/graphql';
     final httpLink = HttpLink(url);
-    final AuthLink authLink = AuthLink(
+    final authLink = AuthLink(
       getToken: () async {
         final auth = ref.watch(authProvider);
         final token = await auth.currentUser?.getIdToken();
@@ -20,13 +20,20 @@ final graphQLClientProvider = Provider(
         }
         return null;
       },
+      headerKey: 'Authorization',
     );
     final link = authLink.concat(httpLink);
-
     final wsUrl = url.replaceFirst('http', 'ws');
     final webSocketLink = WebSocketLink(
       wsUrl,
       subProtocol: GraphQLProtocol.graphqlTransportWs,
+      config: SocketClientConfig(initialPayload: () async {
+        final auth = ref.watch(authProvider);
+        final token = await auth.currentUser?.getIdToken();
+        return {
+          'token': token,
+        };
+      }),
     );
 
     final splitLink = Link.split(

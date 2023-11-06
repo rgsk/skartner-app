@@ -23,15 +23,15 @@ class PracticePage extends HookConsumerWidget {
     final screenWidthGte = useScreenWidthGte(context);
     final screenSize = useScreenSize(context);
 
-    final helloQuery = useQuery$Hello();
+    final authenticateQuery = useQuery$Authenticate();
     useEffect(() {
-      if (helloQuery.result.parsedData != null) {
+      if (authenticateQuery.result.parsedData != null) {
         print(
-          'helloQuery.result.parsedData!.hello.message: ${helloQuery.result.parsedData!.hello.message}',
+          'authenticateQuery.result.parsedData!.authenticate.message: ${authenticateQuery.result.parsedData!.authenticate.message}',
         );
       }
       return null;
-    }, [helloQuery.result.parsedData]);
+    }, [authenticateQuery.result.parsedData]);
 
     useEffect(() {
       print('dbUser 123');
