@@ -3,7 +3,7 @@ import 'package:qlevar_router/qlevar_router.dart';
 import 'package:skartner_app/providers/firebase_providers.dart';
 import 'package:skartner_app/widgets/gre/gre_page.dart' deferred as gre;
 import 'package:skartner_app/widgets/gre_history/gre_history_page.dart'
-    deferred as greHistory;
+    deferred as gre_history;
 import 'package:skartner_app/widgets/home/home_page.dart';
 import 'package:skartner_app/widgets/login/login_page.dart' deferred as login;
 import 'package:skartner_app/widgets/practice/practice_page.dart'
@@ -68,10 +68,10 @@ List<QRoute> getRoutes(Ref ref) {
     ),
     QRoute(
       path: Routes.greHistory,
-      builder: () => greHistory.GreHistoryPage(),
+      builder: () => gre_history.GreHistoryPage(),
       middleware: [
         authMiddleware,
-        DefferedLoader(greHistory.loadLibrary),
+        DefferedLoader(gre_history.loadLibrary),
       ],
     ),
   ];
