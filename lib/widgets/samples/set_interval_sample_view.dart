@@ -73,7 +73,7 @@ class ContinuedStateChange extends HookConsumerWidget {
     final intervalHandler = useSetInterval();
 
     useEffect(() {
-      final every1Second = intervalHandler.setInterval(() {
+      intervalHandler.setInterval(() {
         print('every 1 second');
         counter.value += 1;
       }, 1000);
@@ -105,11 +105,11 @@ class ContinuedStateProviderChange extends HookConsumerWidget {
     final intervalHandler = useSetInterval();
 
     useEffect(() {
-      final every1Second = intervalHandler.setInterval(() {
+      intervalHandler.setInterval(() {
         print('every 1 second');
         ref.watch(counterProvider.notifier).state++;
       }, 1000);
-      final every2Second = intervalHandler.setInterval(() {
+      intervalHandler.setInterval(() {
         print('every 2 second');
         print(counter);
         print(
