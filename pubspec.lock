@@ -784,6 +784,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.3"
+  qlevar_router:
+    dependency: "direct main"
+    description:
+      name: qlevar_router
+      sha256: cbae5028bdeaf6e64b469bf26172710283dbcf129034283a0b8a546069545015
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.10.0"
   quiver:
     dependency: transitive
     description:
@@ -808,14 +816,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.4"
-  routemaster:
-    dependency: "direct main"
-    description:
-      name: routemaster
-      sha256: b3b10b6ee31c741b453091e6b33323cc96631b19e4a14fc6069e9de056c7311c
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.1"
   rxdart:
     dependency: transitive
     description:

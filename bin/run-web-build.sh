@@ -5,4 +5,4 @@ flutter build web
 cd build/web
 
 # serve with python
-python -m http.server 4006
+python -m http.server 4007
