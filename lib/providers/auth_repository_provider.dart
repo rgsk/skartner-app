@@ -26,6 +26,7 @@ final authStateChangeProvider = StreamProvider((ref) {
 });
 
 // if token is needed synchronously we can use this
+final tokenProvider = StateProvider<String?>((ref) => null);
 
 class AuthRepository {
   final FirebaseAuth _auth;
@@ -71,6 +72,7 @@ class AuthRepository {
 
   void updateUser({required BuildContext context, User? user}) async {
     if (user != null) {
+      _ref.watch(tokenProvider.notifier).state = await user.getIdToken();
       final queryResult = await _graphQLClient.query$User(
         Options$Query$User(
           variables: Variables$Query$User(
@@ -116,6 +118,7 @@ class AuthRepository {
       }
     } else {
       Future(() {
+        _ref.watch(tokenProvider.notifier).state = null;
         _ref.watch(dbUserProvider.notifier).state = null;
       });
     }

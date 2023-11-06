@@ -31,7 +31,7 @@ final graphQLClientProvider = Provider(
         final auth = ref.watch(authProvider);
         final token = await auth.currentUser?.getIdToken();
         return {
-          'token': token,
+          'Authorization': 'Bearer ${token}',
         };
       }),
     );
