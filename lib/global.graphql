@@ -1,7 +1,6 @@
-subscription NotificationReceived($userId: String!) {
-  notificationReceived(userId: $userId) {
+subscription NotificationReceived($token: String!) {
+  notificationReceived(token: $token) {
     message
-    userId
   }
 }
 

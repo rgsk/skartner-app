@@ -6,9 +6,9 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
 class Variables$Subscription$NotificationReceived {
   factory Variables$Subscription$NotificationReceived(
-          {required String userId}) =>
+          {required String token}) =>
       Variables$Subscription$NotificationReceived._({
-        r'userId': userId,
+        r'token': token,
       });
 
   Variables$Subscription$NotificationReceived._(this._$data);
@@ -16,19 +16,19 @@ class Variables$Subscription$NotificationReceived {
   factory Variables$Subscription$NotificationReceived.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$userId = data['userId'];
-    result$data['userId'] = (l$userId as String);
+    final l$token = data['token'];
+    result$data['token'] = (l$token as String);
     return Variables$Subscription$NotificationReceived._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get userId => (_$data['userId'] as String);
+  String get token => (_$data['token'] as String);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$userId = userId;
-    result$data['userId'] = l$userId;
+    final l$token = token;
+    result$data['token'] = l$token;
     return result$data;
   }
 
@@ -48,9 +48,9 @@ class Variables$Subscription$NotificationReceived {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$userId = userId;
-    final lOther$userId = other.userId;
-    if (l$userId != lOther$userId) {
+    final l$token = token;
+    final lOther$token = other.token;
+    if (l$token != lOther$token) {
       return false;
     }
     return true;
@@ -58,8 +58,8 @@ class Variables$Subscription$NotificationReceived {
 
   @override
   int get hashCode {
-    final l$userId = userId;
-    return Object.hashAll([l$userId]);
+    final l$token = token;
+    return Object.hashAll([l$token]);
   }
 }
 
@@ -72,7 +72,7 @@ abstract class CopyWith$Variables$Subscription$NotificationReceived<TRes> {
   factory CopyWith$Variables$Subscription$NotificationReceived.stub(TRes res) =
       _CopyWithStubImpl$Variables$Subscription$NotificationReceived;
 
-  TRes call({String? userId});
+  TRes call({String? token});
 }
 
 class _CopyWithImpl$Variables$Subscription$NotificationReceived<TRes>
@@ -88,11 +88,10 @@ class _CopyWithImpl$Variables$Subscription$NotificationReceived<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? userId = _undefined}) =>
+  TRes call({Object? token = _undefined}) =>
       _then(Variables$Subscription$NotificationReceived._({
         ..._instance._$data,
-        if (userId != _undefined && userId != null)
-          'userId': (userId as String),
+        if (token != _undefined && token != null) 'token': (token as String),
       }));
 }
 
@@ -102,7 +101,7 @@ class _CopyWithStubImpl$Variables$Subscription$NotificationReceived<TRes>
 
   TRes _res;
 
-  call({String? userId}) => _res;
+  call({String? token}) => _res;
 }
 
 class Subscription$NotificationReceived {
@@ -231,7 +230,7 @@ const documentNodeSubscriptionNotificationReceived = DocumentNode(definitions: [
     name: NameNode(value: 'NotificationReceived'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userId')),
+        variable: VariableNode(name: NameNode(value: 'token')),
         type: NamedTypeNode(
           name: NameNode(value: 'String'),
           isNonNull: true,
@@ -247,21 +246,14 @@ const documentNodeSubscriptionNotificationReceived = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'userId'),
-            value: VariableNode(name: NameNode(value: 'userId')),
+            name: NameNode(value: 'token'),
+            value: VariableNode(name: NameNode(value: 'token')),
           )
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
           FieldNode(
             name: NameNode(value: 'message'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'userId'),
             alias: null,
             arguments: [],
             directives: [],
@@ -389,25 +381,20 @@ class Subscription$NotificationReceived$Widget
 class Subscription$NotificationReceived$notificationReceived {
   Subscription$NotificationReceived$notificationReceived({
     required this.message,
-    required this.userId,
     this.$__typename = 'Notification',
   });
 
   factory Subscription$NotificationReceived$notificationReceived.fromJson(
       Map<String, dynamic> json) {
     final l$message = json['message'];
-    final l$userId = json['userId'];
     final l$$__typename = json['__typename'];
     return Subscription$NotificationReceived$notificationReceived(
       message: (l$message as String),
-      userId: (l$userId as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final String message;
-
-  final String userId;
 
   final String $__typename;
 
@@ -415,8 +402,6 @@ class Subscription$NotificationReceived$notificationReceived {
     final _resultData = <String, dynamic>{};
     final l$message = message;
     _resultData['message'] = l$message;
-    final l$userId = userId;
-    _resultData['userId'] = l$userId;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -425,11 +410,9 @@ class Subscription$NotificationReceived$notificationReceived {
   @override
   int get hashCode {
     final l$message = message;
-    final l$userId = userId;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$message,
-      l$userId,
       l$$__typename,
     ]);
   }
@@ -446,11 +429,6 @@ class Subscription$NotificationReceived$notificationReceived {
     final l$message = message;
     final lOther$message = other.message;
     if (l$message != lOther$message) {
-      return false;
-    }
-    final l$userId = userId;
-    final lOther$userId = other.userId;
-    if (l$userId != lOther$userId) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -486,7 +464,6 @@ abstract class CopyWith$Subscription$NotificationReceived$notificationReceived<
 
   TRes call({
     String? message,
-    String? userId,
     String? $__typename,
   });
 }
@@ -508,16 +485,12 @@ class _CopyWithImpl$Subscription$NotificationReceived$notificationReceived<TRes>
 
   TRes call({
     Object? message = _undefined,
-    Object? userId = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Subscription$NotificationReceived$notificationReceived(
         message: message == _undefined || message == null
             ? _instance.message
             : (message as String),
-        userId: userId == _undefined || userId == null
-            ? _instance.userId
-            : (userId as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -535,7 +508,6 @@ class _CopyWithStubImpl$Subscription$NotificationReceived$notificationReceived<
 
   call({
     String? message,
-    String? userId,
     String? $__typename,
   }) =>
       _res;
