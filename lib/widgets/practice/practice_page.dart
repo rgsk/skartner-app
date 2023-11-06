@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:skartner_app/__generated/global.graphql.dart';
 import 'package:skartner_app/hooks/general/use_screen_size.dart';
 import 'package:skartner_app/hooks/general/use_screen_width_gte.dart';
 import 'package:skartner_app/providers/counter_provider.dart';
@@ -21,6 +22,16 @@ class PracticePage extends HookConsumerWidget {
     final windowSize = ref.watch(windowSizeProvider);
     final screenWidthGte = useScreenWidthGte(context);
     final screenSize = useScreenSize(context);
+
+    final helloQuery = useQuery$Hello();
+    useEffect(() {
+      if (helloQuery.result.parsedData != null) {
+        print(
+          'helloQuery.result.parsedData!.hello.message: ${helloQuery.result.parsedData!.hello.message}',
+        );
+      }
+      return null;
+    }, [helloQuery.result.parsedData]);
 
     useEffect(() {
       print('dbUser 123');

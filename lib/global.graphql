@@ -4,3 +4,9 @@ subscription NotificationReceived($userId: String!) {
     userId
   }
 }
+
+query Hello {
+  hello {
+    message
+  }
+}
