@@ -166,7 +166,9 @@ class WordSearchPromptsView extends HookConsumerWidget {
             fontSize: 20,
           ),
         ),
-        if (otherPromptTexts != null && otherGreWordSearchPromptInputs != null)
+        if (otherPromptTexts != null &&
+            otherGreWordSearchPromptInputs != null &&
+            !otherGreWordSearchPromptInputsQuery.result.isLoading)
           Row(
             children: [
               Expanded(
