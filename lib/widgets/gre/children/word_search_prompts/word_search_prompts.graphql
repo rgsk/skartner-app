@@ -28,3 +28,10 @@ mutation UpdateGreWordSearchPromptInput(
     text
   }
 }
+
+query WordsCountForGptPrompts($prompts: [String!]!) {
+  wordsCountForGptPrompts(prompts: $prompts) {
+    count
+    prompt
+  }
+}

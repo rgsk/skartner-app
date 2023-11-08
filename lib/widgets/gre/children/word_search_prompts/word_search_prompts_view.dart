@@ -34,6 +34,36 @@ class WordSearchPromptsView extends HookConsumerWidget {
         ),
       ),
     );
+    final otherGreWordSearchPromptInputs = otherGreWordSearchPromptInputsQuery
+        .result.parsedData?.greWordSearchPromptInputs;
+    final otherPromptTexts =
+        otherGreWordSearchPromptInputs?.map((e) => e.text).toList();
+    final wordsCountForGptPromptsQuery = useQuery$WordsCountForGptPrompts(
+      Options$Query$WordsCountForGptPrompts(
+        variables: Variables$Query$WordsCountForGptPrompts(
+          prompts: otherPromptTexts ?? [],
+        ),
+      ),
+    );
+
+    final wordCounts =
+        wordsCountForGptPromptsQuery.result.parsedData?.wordsCountForGptPrompts;
+
+    final promptToCountMap = useMemoized(() {
+      final result = {};
+      if (wordCounts == null || otherPromptTexts == null) {
+        return result;
+      }
+      for (final text in otherPromptTexts) {
+        result[text] =
+            wordCounts.firstWhere((element) => element.prompt == text).count;
+      }
+      return result;
+    }, [otherPromptTexts, wordCounts]);
+
+    otherPromptTexts?.sort(
+      (a, b) => (promptToCountMap[b] ?? 0) - (promptToCountMap[a] ?? 0),
+    );
 
     final greWordSearchPromptInputsQuery = useQuery$GreWordSearchPromptInputs(
       Options$Query$GreWordSearchPromptInputs(
@@ -152,9 +182,6 @@ class WordSearchPromptsView extends HookConsumerWidget {
 
     final greWordSearchPromptInputs = greWordSearchPromptInputsQuery
         .result.parsedData?.greWordSearchPromptInputs;
-    final otherGreWordSearchPromptInputs = otherGreWordSearchPromptInputsQuery
-        .result.parsedData?.greWordSearchPromptInputs;
-    final otherPromptTexts = otherGreWordSearchPromptInputs?.map((e) => e.text);
 
     const errorMessage = 'Text must contain the string "${wordPlaceholder}"';
 
@@ -182,6 +209,8 @@ class WordSearchPromptsView extends HookConsumerWidget {
 
                     return newMatches;
                   },
+                  displayStringForOption: (option) =>
+                      '${option}, count = ${promptToCountMap[option] ?? 0}',
                   onSelected: (text) {
                     final found = otherGreWordSearchPromptInputs
                         .firstWhere((element) => element.text == text);

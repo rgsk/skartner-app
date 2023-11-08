@@ -2278,3 +2278,663 @@ class _CopyWithStubImpl$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSea
   }) =>
       _res;
 }
+
+class Variables$Query$WordsCountForGptPrompts {
+  factory Variables$Query$WordsCountForGptPrompts(
+          {required List<String> prompts}) =>
+      Variables$Query$WordsCountForGptPrompts._({
+        r'prompts': prompts,
+      });
+
+  Variables$Query$WordsCountForGptPrompts._(this._$data);
+
+  factory Variables$Query$WordsCountForGptPrompts.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$prompts = data['prompts'];
+    result$data['prompts'] =
+        (l$prompts as List<dynamic>).map((e) => (e as String)).toList();
+    return Variables$Query$WordsCountForGptPrompts._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  List<String> get prompts => (_$data['prompts'] as List<String>);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$prompts = prompts;
+    result$data['prompts'] = l$prompts.map((e) => e).toList();
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$WordsCountForGptPrompts<
+          Variables$Query$WordsCountForGptPrompts>
+      get copyWith => CopyWith$Variables$Query$WordsCountForGptPrompts(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$WordsCountForGptPrompts) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$prompts = prompts;
+    final lOther$prompts = other.prompts;
+    if (l$prompts.length != lOther$prompts.length) {
+      return false;
+    }
+    for (int i = 0; i < l$prompts.length; i++) {
+      final l$prompts$entry = l$prompts[i];
+      final lOther$prompts$entry = lOther$prompts[i];
+      if (l$prompts$entry != lOther$prompts$entry) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$prompts = prompts;
+    return Object.hashAll([Object.hashAll(l$prompts.map((v) => v))]);
+  }
+}
+
+abstract class CopyWith$Variables$Query$WordsCountForGptPrompts<TRes> {
+  factory CopyWith$Variables$Query$WordsCountForGptPrompts(
+    Variables$Query$WordsCountForGptPrompts instance,
+    TRes Function(Variables$Query$WordsCountForGptPrompts) then,
+  ) = _CopyWithImpl$Variables$Query$WordsCountForGptPrompts;
+
+  factory CopyWith$Variables$Query$WordsCountForGptPrompts.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$WordsCountForGptPrompts;
+
+  TRes call({List<String>? prompts});
+}
+
+class _CopyWithImpl$Variables$Query$WordsCountForGptPrompts<TRes>
+    implements CopyWith$Variables$Query$WordsCountForGptPrompts<TRes> {
+  _CopyWithImpl$Variables$Query$WordsCountForGptPrompts(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Query$WordsCountForGptPrompts _instance;
+
+  final TRes Function(Variables$Query$WordsCountForGptPrompts) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? prompts = _undefined}) =>
+      _then(Variables$Query$WordsCountForGptPrompts._({
+        ..._instance._$data,
+        if (prompts != _undefined && prompts != null)
+          'prompts': (prompts as List<String>),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Query$WordsCountForGptPrompts<TRes>
+    implements CopyWith$Variables$Query$WordsCountForGptPrompts<TRes> {
+  _CopyWithStubImpl$Variables$Query$WordsCountForGptPrompts(this._res);
+
+  TRes _res;
+
+  call({List<String>? prompts}) => _res;
+}
+
+class Query$WordsCountForGptPrompts {
+  Query$WordsCountForGptPrompts({
+    required this.wordsCountForGptPrompts,
+    this.$__typename = 'Query',
+  });
+
+  factory Query$WordsCountForGptPrompts.fromJson(Map<String, dynamic> json) {
+    final l$wordsCountForGptPrompts = json['wordsCountForGptPrompts'];
+    final l$$__typename = json['__typename'];
+    return Query$WordsCountForGptPrompts(
+      wordsCountForGptPrompts: (l$wordsCountForGptPrompts as List<dynamic>)
+          .map((e) =>
+              Query$WordsCountForGptPrompts$wordsCountForGptPrompts.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<Query$WordsCountForGptPrompts$wordsCountForGptPrompts>
+      wordsCountForGptPrompts;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$wordsCountForGptPrompts = wordsCountForGptPrompts;
+    _resultData['wordsCountForGptPrompts'] =
+        l$wordsCountForGptPrompts.map((e) => e.toJson()).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$wordsCountForGptPrompts = wordsCountForGptPrompts;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      Object.hashAll(l$wordsCountForGptPrompts.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$WordsCountForGptPrompts) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$wordsCountForGptPrompts = wordsCountForGptPrompts;
+    final lOther$wordsCountForGptPrompts = other.wordsCountForGptPrompts;
+    if (l$wordsCountForGptPrompts.length !=
+        lOther$wordsCountForGptPrompts.length) {
+      return false;
+    }
+    for (int i = 0; i < l$wordsCountForGptPrompts.length; i++) {
+      final l$wordsCountForGptPrompts$entry = l$wordsCountForGptPrompts[i];
+      final lOther$wordsCountForGptPrompts$entry =
+          lOther$wordsCountForGptPrompts[i];
+      if (l$wordsCountForGptPrompts$entry !=
+          lOther$wordsCountForGptPrompts$entry) {
+        return false;
+      }
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$WordsCountForGptPrompts
+    on Query$WordsCountForGptPrompts {
+  CopyWith$Query$WordsCountForGptPrompts<Query$WordsCountForGptPrompts>
+      get copyWith => CopyWith$Query$WordsCountForGptPrompts(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$WordsCountForGptPrompts<TRes> {
+  factory CopyWith$Query$WordsCountForGptPrompts(
+    Query$WordsCountForGptPrompts instance,
+    TRes Function(Query$WordsCountForGptPrompts) then,
+  ) = _CopyWithImpl$Query$WordsCountForGptPrompts;
+
+  factory CopyWith$Query$WordsCountForGptPrompts.stub(TRes res) =
+      _CopyWithStubImpl$Query$WordsCountForGptPrompts;
+
+  TRes call({
+    List<Query$WordsCountForGptPrompts$wordsCountForGptPrompts>?
+        wordsCountForGptPrompts,
+    String? $__typename,
+  });
+  TRes wordsCountForGptPrompts(
+      Iterable<Query$WordsCountForGptPrompts$wordsCountForGptPrompts> Function(
+              Iterable<
+                  CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<
+                      Query$WordsCountForGptPrompts$wordsCountForGptPrompts>>)
+          _fn);
+}
+
+class _CopyWithImpl$Query$WordsCountForGptPrompts<TRes>
+    implements CopyWith$Query$WordsCountForGptPrompts<TRes> {
+  _CopyWithImpl$Query$WordsCountForGptPrompts(
+    this._instance,
+    this._then,
+  );
+
+  final Query$WordsCountForGptPrompts _instance;
+
+  final TRes Function(Query$WordsCountForGptPrompts) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? wordsCountForGptPrompts = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$WordsCountForGptPrompts(
+        wordsCountForGptPrompts: wordsCountForGptPrompts == _undefined ||
+                wordsCountForGptPrompts == null
+            ? _instance.wordsCountForGptPrompts
+            : (wordsCountForGptPrompts
+                as List<Query$WordsCountForGptPrompts$wordsCountForGptPrompts>),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  TRes wordsCountForGptPrompts(
+          Iterable<Query$WordsCountForGptPrompts$wordsCountForGptPrompts> Function(
+                  Iterable<
+                      CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<
+                          Query$WordsCountForGptPrompts$wordsCountForGptPrompts>>)
+              _fn) =>
+      call(
+          wordsCountForGptPrompts: _fn(_instance.wordsCountForGptPrompts.map(
+              (e) =>
+                  CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
+                    e,
+                    (i) => i,
+                  ))).toList());
+}
+
+class _CopyWithStubImpl$Query$WordsCountForGptPrompts<TRes>
+    implements CopyWith$Query$WordsCountForGptPrompts<TRes> {
+  _CopyWithStubImpl$Query$WordsCountForGptPrompts(this._res);
+
+  TRes _res;
+
+  call({
+    List<Query$WordsCountForGptPrompts$wordsCountForGptPrompts>?
+        wordsCountForGptPrompts,
+    String? $__typename,
+  }) =>
+      _res;
+
+  wordsCountForGptPrompts(_fn) => _res;
+}
+
+const documentNodeQueryWordsCountForGptPrompts = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'WordsCountForGptPrompts'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'prompts')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: true,
+          ),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'wordsCountForGptPrompts'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'prompts'),
+            value: VariableNode(name: NameNode(value: 'prompts')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'count'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'prompt'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Query$WordsCountForGptPrompts _parserFn$Query$WordsCountForGptPrompts(
+        Map<String, dynamic> data) =>
+    Query$WordsCountForGptPrompts.fromJson(data);
+typedef OnQueryComplete$Query$WordsCountForGptPrompts = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Query$WordsCountForGptPrompts?,
+);
+
+class Options$Query$WordsCountForGptPrompts
+    extends graphql.QueryOptions<Query$WordsCountForGptPrompts> {
+  Options$Query$WordsCountForGptPrompts({
+    String? operationName,
+    required Variables$Query$WordsCountForGptPrompts variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$WordsCountForGptPrompts? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$WordsCountForGptPrompts? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$WordsCountForGptPrompts(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryWordsCountForGptPrompts,
+          parserFn: _parserFn$Query$WordsCountForGptPrompts,
+        );
+
+  final OnQueryComplete$Query$WordsCountForGptPrompts? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$WordsCountForGptPrompts
+    extends graphql.WatchQueryOptions<Query$WordsCountForGptPrompts> {
+  WatchOptions$Query$WordsCountForGptPrompts({
+    String? operationName,
+    required Variables$Query$WordsCountForGptPrompts variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$WordsCountForGptPrompts? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryWordsCountForGptPrompts,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$WordsCountForGptPrompts,
+        );
+}
+
+class FetchMoreOptions$Query$WordsCountForGptPrompts
+    extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$WordsCountForGptPrompts({
+    required graphql.UpdateQuery updateQuery,
+    required Variables$Query$WordsCountForGptPrompts variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables.toJson(),
+          document: documentNodeQueryWordsCountForGptPrompts,
+        );
+}
+
+extension ClientExtension$Query$WordsCountForGptPrompts
+    on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$WordsCountForGptPrompts>>
+      query$WordsCountForGptPrompts(
+              Options$Query$WordsCountForGptPrompts options) async =>
+          await this.query(options);
+  graphql.ObservableQuery<Query$WordsCountForGptPrompts>
+      watchQuery$WordsCountForGptPrompts(
+              WatchOptions$Query$WordsCountForGptPrompts options) =>
+          this.watchQuery(options);
+  void writeQuery$WordsCountForGptPrompts({
+    required Query$WordsCountForGptPrompts data,
+    required Variables$Query$WordsCountForGptPrompts variables,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+          operation: graphql.Operation(
+              document: documentNodeQueryWordsCountForGptPrompts),
+          variables: variables.toJson(),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$WordsCountForGptPrompts? readQuery$WordsCountForGptPrompts({
+    required Variables$Query$WordsCountForGptPrompts variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQueryWordsCountForGptPrompts),
+        variables: variables.toJson(),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null
+        ? null
+        : Query$WordsCountForGptPrompts.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$WordsCountForGptPrompts>
+    useQuery$WordsCountForGptPrompts(
+            Options$Query$WordsCountForGptPrompts options) =>
+        graphql_flutter.useQuery(options);
+graphql.ObservableQuery<Query$WordsCountForGptPrompts>
+    useWatchQuery$WordsCountForGptPrompts(
+            WatchOptions$Query$WordsCountForGptPrompts options) =>
+        graphql_flutter.useWatchQuery(options);
+
+class Query$WordsCountForGptPrompts$Widget
+    extends graphql_flutter.Query<Query$WordsCountForGptPrompts> {
+  Query$WordsCountForGptPrompts$Widget({
+    widgets.Key? key,
+    required Options$Query$WordsCountForGptPrompts options,
+    required graphql_flutter.QueryBuilder<Query$WordsCountForGptPrompts>
+        builder,
+  }) : super(
+          key: key,
+          options: options,
+          builder: builder,
+        );
+}
+
+class Query$WordsCountForGptPrompts$wordsCountForGptPrompts {
+  Query$WordsCountForGptPrompts$wordsCountForGptPrompts({
+    required this.count,
+    required this.prompt,
+    this.$__typename = 'WordsCountForGptPrompts',
+  });
+
+  factory Query$WordsCountForGptPrompts$wordsCountForGptPrompts.fromJson(
+      Map<String, dynamic> json) {
+    final l$count = json['count'];
+    final l$prompt = json['prompt'];
+    final l$$__typename = json['__typename'];
+    return Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
+      count: (l$count as int),
+      prompt: (l$prompt as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int count;
+
+  final String prompt;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$count = count;
+    _resultData['count'] = l$count;
+    final l$prompt = prompt;
+    _resultData['prompt'] = l$prompt;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$count = count;
+    final l$prompt = prompt;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$count,
+      l$prompt,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$WordsCountForGptPrompts$wordsCountForGptPrompts) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$count = count;
+    final lOther$count = other.count;
+    if (l$count != lOther$count) {
+      return false;
+    }
+    final l$prompt = prompt;
+    final lOther$prompt = other.prompt;
+    if (l$prompt != lOther$prompt) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$WordsCountForGptPrompts$wordsCountForGptPrompts
+    on Query$WordsCountForGptPrompts$wordsCountForGptPrompts {
+  CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<
+          Query$WordsCountForGptPrompts$wordsCountForGptPrompts>
+      get copyWith =>
+          CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<
+    TRes> {
+  factory CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
+    Query$WordsCountForGptPrompts$wordsCountForGptPrompts instance,
+    TRes Function(Query$WordsCountForGptPrompts$wordsCountForGptPrompts) then,
+  ) = _CopyWithImpl$Query$WordsCountForGptPrompts$wordsCountForGptPrompts;
+
+  factory CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$WordsCountForGptPrompts$wordsCountForGptPrompts;
+
+  TRes call({
+    int? count,
+    String? prompt,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<TRes>
+    implements
+        CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<TRes> {
+  _CopyWithImpl$Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
+    this._instance,
+    this._then,
+  );
+
+  final Query$WordsCountForGptPrompts$wordsCountForGptPrompts _instance;
+
+  final TRes Function(Query$WordsCountForGptPrompts$wordsCountForGptPrompts)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? count = _undefined,
+    Object? prompt = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
+        count: count == _undefined || count == null
+            ? _instance.count
+            : (count as int),
+        prompt: prompt == _undefined || prompt == null
+            ? _instance.prompt
+            : (prompt as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<
+        TRes>
+    implements
+        CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<TRes> {
+  _CopyWithStubImpl$Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? count,
+    String? prompt,
+    String? $__typename,
+  }) =>
+      _res;
+}
