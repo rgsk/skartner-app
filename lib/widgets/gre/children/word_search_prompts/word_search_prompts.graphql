@@ -1,37 +1,28 @@
+fragment GreWordSearchPromptInputFields on GreWordSearchPromptInput {
+  id
+  text
+}
+
 query GreWordSearchPromptInputs($where: GreWordSearchPromptInputWhereInput) {
   greWordSearchPromptInputs(where: $where) {
-    id
-    text
+    ...GreWordSearchPromptInputFields
   }
 }
 
 mutation CreateGreWordSearchPromptInput($text: String!, $userId: String!) {
   createGreWordSearchPromptInput(text: $text, userId: $userId) {
-    id
-    text
+    ...GreWordSearchPromptInputFields
   }
 }
 
-mutation UpdateGreWordSearchPromptInput(
-  $text: String
-  $id: String!
-  $connectedUserId: String
-  $disconnectedUserId: String
-) {
-  updateGreWordSearchPromptInput(
-    text: $text
-    id: $id
-    connectedUserId: $connectedUserId
-    disconnectedUserId: $disconnectedUserId
-  ) {
-    id
-    text
+mutation UpdateGreWordSearchPromptInput($text: String, $id: String!) {
+  updateGreWordSearchPromptInput(text: $text, id: $id) {
+    ...GreWordSearchPromptInputFields
   }
 }
 
-query WordsCountForGptPrompts($prompts: [String!]!) {
-  wordsCountForGptPrompts(prompts: $prompts) {
-    count
-    prompt
+mutation DeleteGreWordSearchPromptInput($id: String!) {
+  deleteGreWordSearchPromptInput(id: $id) {
+    ...GreWordSearchPromptInputFields
   }
 }

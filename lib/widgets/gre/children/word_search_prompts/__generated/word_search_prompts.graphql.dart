@@ -5,6 +5,227 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
+class Fragment$GreWordSearchPromptInputFields {
+  Fragment$GreWordSearchPromptInputFields({
+    required this.id,
+    required this.text,
+    this.$__typename = 'GreWordSearchPromptInput',
+  });
+
+  factory Fragment$GreWordSearchPromptInputFields.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$text = json['text'];
+    final l$$__typename = json['__typename'];
+    return Fragment$GreWordSearchPromptInputFields(
+      id: (l$id as String),
+      text: (l$text as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String id;
+
+  final String text;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$text = text;
+    _resultData['text'] = l$text;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$text = text;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$text,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$GreWordSearchPromptInputFields) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$text = text;
+    final lOther$text = other.text;
+    if (l$text != lOther$text) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$GreWordSearchPromptInputFields
+    on Fragment$GreWordSearchPromptInputFields {
+  CopyWith$Fragment$GreWordSearchPromptInputFields<
+          Fragment$GreWordSearchPromptInputFields>
+      get copyWith => CopyWith$Fragment$GreWordSearchPromptInputFields(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$GreWordSearchPromptInputFields<TRes> {
+  factory CopyWith$Fragment$GreWordSearchPromptInputFields(
+    Fragment$GreWordSearchPromptInputFields instance,
+    TRes Function(Fragment$GreWordSearchPromptInputFields) then,
+  ) = _CopyWithImpl$Fragment$GreWordSearchPromptInputFields;
+
+  factory CopyWith$Fragment$GreWordSearchPromptInputFields.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$GreWordSearchPromptInputFields;
+
+  TRes call({
+    String? id,
+    String? text,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$GreWordSearchPromptInputFields<TRes>
+    implements CopyWith$Fragment$GreWordSearchPromptInputFields<TRes> {
+  _CopyWithImpl$Fragment$GreWordSearchPromptInputFields(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$GreWordSearchPromptInputFields _instance;
+
+  final TRes Function(Fragment$GreWordSearchPromptInputFields) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? text = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$GreWordSearchPromptInputFields(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        text: text == _undefined || text == null
+            ? _instance.text
+            : (text as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$GreWordSearchPromptInputFields<TRes>
+    implements CopyWith$Fragment$GreWordSearchPromptInputFields<TRes> {
+  _CopyWithStubImpl$Fragment$GreWordSearchPromptInputFields(this._res);
+
+  TRes _res;
+
+  call({
+    String? id,
+    String? text,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+const fragmentDefinitionGreWordSearchPromptInputFields = FragmentDefinitionNode(
+  name: NameNode(value: 'GreWordSearchPromptInputFields'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'GreWordSearchPromptInput'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'id'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'text'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentGreWordSearchPromptInputFields =
+    DocumentNode(definitions: [
+  fragmentDefinitionGreWordSearchPromptInputFields,
+]);
+
+extension ClientExtension$Fragment$GreWordSearchPromptInputFields
+    on graphql.GraphQLClient {
+  void writeFragment$GreWordSearchPromptInputFields({
+    required Fragment$GreWordSearchPromptInputFields data,
+    required Map<String, dynamic> idFields,
+    bool broadcast = true,
+  }) =>
+      this.writeFragment(
+        graphql.FragmentRequest(
+          idFields: idFields,
+          fragment: const graphql.Fragment(
+            fragmentName: 'GreWordSearchPromptInputFields',
+            document: documentNodeFragmentGreWordSearchPromptInputFields,
+          ),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Fragment$GreWordSearchPromptInputFields?
+      readFragment$GreWordSearchPromptInputFields({
+    required Map<String, dynamic> idFields,
+    bool optimistic = true,
+  }) {
+    final result = this.readFragment(
+      graphql.FragmentRequest(
+        idFields: idFields,
+        fragment: const graphql.Fragment(
+          fragmentName: 'GreWordSearchPromptInputFields',
+          document: documentNodeFragmentGreWordSearchPromptInputFields,
+        ),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null
+        ? null
+        : Fragment$GreWordSearchPromptInputFields.fromJson(result);
+  }
+}
+
 class Variables$Query$GreWordSearchPromptInputs {
   factory Variables$Query$GreWordSearchPromptInputs(
           {Input$GreWordSearchPromptInputWhereInput? where}) =>
@@ -128,15 +349,14 @@ class Query$GreWordSearchPromptInputs {
     final l$$__typename = json['__typename'];
     return Query$GreWordSearchPromptInputs(
       greWordSearchPromptInputs: (l$greWordSearchPromptInputs as List<dynamic>)
-          .map((e) => Query$GreWordSearchPromptInputs$greWordSearchPromptInputs
-              .fromJson((e as Map<String, dynamic>)))
+          .map((e) => Fragment$GreWordSearchPromptInputFields.fromJson(
+              (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<Query$GreWordSearchPromptInputs$greWordSearchPromptInputs>
-      greWordSearchPromptInputs;
+  final List<Fragment$GreWordSearchPromptInputFields> greWordSearchPromptInputs;
 
   final String $__typename;
 
@@ -212,15 +432,14 @@ abstract class CopyWith$Query$GreWordSearchPromptInputs<TRes> {
       _CopyWithStubImpl$Query$GreWordSearchPromptInputs;
 
   TRes call({
-    List<Query$GreWordSearchPromptInputs$greWordSearchPromptInputs>?
-        greWordSearchPromptInputs,
+    List<Fragment$GreWordSearchPromptInputFields>? greWordSearchPromptInputs,
     String? $__typename,
   });
   TRes greWordSearchPromptInputs(
-      Iterable<Query$GreWordSearchPromptInputs$greWordSearchPromptInputs> Function(
+      Iterable<Fragment$GreWordSearchPromptInputFields> Function(
               Iterable<
-                  CopyWith$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs<
-                      Query$GreWordSearchPromptInputs$greWordSearchPromptInputs>>)
+                  CopyWith$Fragment$GreWordSearchPromptInputFields<
+                      Fragment$GreWordSearchPromptInputFields>>)
           _fn);
 }
 
@@ -245,23 +464,22 @@ class _CopyWithImpl$Query$GreWordSearchPromptInputs<TRes>
         greWordSearchPromptInputs: greWordSearchPromptInputs == _undefined ||
                 greWordSearchPromptInputs == null
             ? _instance.greWordSearchPromptInputs
-            : (greWordSearchPromptInputs as List<
-                Query$GreWordSearchPromptInputs$greWordSearchPromptInputs>),
+            : (greWordSearchPromptInputs
+                as List<Fragment$GreWordSearchPromptInputFields>),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
   TRes greWordSearchPromptInputs(
-          Iterable<Query$GreWordSearchPromptInputs$greWordSearchPromptInputs> Function(
+          Iterable<Fragment$GreWordSearchPromptInputFields> Function(
                   Iterable<
-                      CopyWith$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs<
-                          Query$GreWordSearchPromptInputs$greWordSearchPromptInputs>>)
+                      CopyWith$Fragment$GreWordSearchPromptInputFields<
+                          Fragment$GreWordSearchPromptInputFields>>)
               _fn) =>
       call(
           greWordSearchPromptInputs: _fn(_instance.greWordSearchPromptInputs
-              .map((e) =>
-                  CopyWith$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs(
+              .map((e) => CopyWith$Fragment$GreWordSearchPromptInputFields(
                     e,
                     (i) => i,
                   ))).toList());
@@ -274,8 +492,7 @@ class _CopyWithStubImpl$Query$GreWordSearchPromptInputs<TRes>
   TRes _res;
 
   call({
-    List<Query$GreWordSearchPromptInputs$greWordSearchPromptInputs>?
-        greWordSearchPromptInputs,
+    List<Fragment$GreWordSearchPromptInputFields>? greWordSearchPromptInputs,
     String? $__typename,
   }) =>
       _res;
@@ -311,19 +528,9 @@ const documentNodeQueryGreWordSearchPromptInputs = DocumentNode(definitions: [
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
+          FragmentSpreadNode(
+            name: NameNode(value: 'GreWordSearchPromptInputFields'),
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'text'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -343,6 +550,7 @@ const documentNodeQueryGreWordSearchPromptInputs = DocumentNode(definitions: [
       ),
     ]),
   ),
+  fragmentDefinitionGreWordSearchPromptInputFields,
 ]);
 Query$GreWordSearchPromptInputs _parserFn$Query$GreWordSearchPromptInputs(
         Map<String, dynamic> data) =>
@@ -514,163 +722,6 @@ class Query$GreWordSearchPromptInputs$Widget
         );
 }
 
-class Query$GreWordSearchPromptInputs$greWordSearchPromptInputs {
-  Query$GreWordSearchPromptInputs$greWordSearchPromptInputs({
-    required this.id,
-    required this.text,
-    this.$__typename = 'GreWordSearchPromptInput',
-  });
-
-  factory Query$GreWordSearchPromptInputs$greWordSearchPromptInputs.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$text = json['text'];
-    final l$$__typename = json['__typename'];
-    return Query$GreWordSearchPromptInputs$greWordSearchPromptInputs(
-      id: (l$id as String),
-      text: (l$text as String),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String id;
-
-  final String text;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$text = text;
-    _resultData['text'] = l$text;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$text = text;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$text,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$GreWordSearchPromptInputs$greWordSearchPromptInputs) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$text = text;
-    final lOther$text = other.text;
-    if (l$text != lOther$text) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs
-    on Query$GreWordSearchPromptInputs$greWordSearchPromptInputs {
-  CopyWith$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs<
-          Query$GreWordSearchPromptInputs$greWordSearchPromptInputs>
-      get copyWith =>
-          CopyWith$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs<
-    TRes> {
-  factory CopyWith$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs(
-    Query$GreWordSearchPromptInputs$greWordSearchPromptInputs instance,
-    TRes Function(Query$GreWordSearchPromptInputs$greWordSearchPromptInputs)
-        then,
-  ) = _CopyWithImpl$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs;
-
-  factory CopyWith$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs;
-
-  TRes call({
-    String? id,
-    String? text,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs<
-        TRes>
-    implements
-        CopyWith$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs<
-            TRes> {
-  _CopyWithImpl$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs(
-    this._instance,
-    this._then,
-  );
-
-  final Query$GreWordSearchPromptInputs$greWordSearchPromptInputs _instance;
-
-  final TRes Function(Query$GreWordSearchPromptInputs$greWordSearchPromptInputs)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? text = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$GreWordSearchPromptInputs$greWordSearchPromptInputs(
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        text: text == _undefined || text == null
-            ? _instance.text
-            : (text as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs<
-        TRes>
-    implements
-        CopyWith$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs<
-            TRes> {
-  _CopyWithStubImpl$Query$GreWordSearchPromptInputs$greWordSearchPromptInputs(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? id,
-    String? text,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
 class Variables$Mutation$CreateGreWordSearchPromptInput {
   factory Variables$Mutation$CreateGreWordSearchPromptInput({
     required String text,
@@ -820,15 +871,13 @@ class Mutation$CreateGreWordSearchPromptInput {
     final l$$__typename = json['__typename'];
     return Mutation$CreateGreWordSearchPromptInput(
       createGreWordSearchPromptInput:
-          Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput
-              .fromJson(
-                  (l$createGreWordSearchPromptInput as Map<String, dynamic>)),
+          Fragment$GreWordSearchPromptInputFields.fromJson(
+              (l$createGreWordSearchPromptInput as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput
-      createGreWordSearchPromptInput;
+  final Fragment$GreWordSearchPromptInputFields createGreWordSearchPromptInput;
 
   final String $__typename;
 
@@ -897,12 +946,11 @@ abstract class CopyWith$Mutation$CreateGreWordSearchPromptInput<TRes> {
       _CopyWithStubImpl$Mutation$CreateGreWordSearchPromptInput;
 
   TRes call({
-    Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput?
-        createGreWordSearchPromptInput,
+    Fragment$GreWordSearchPromptInputFields? createGreWordSearchPromptInput,
     String? $__typename,
   });
-  CopyWith$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput<
-      TRes> get createGreWordSearchPromptInput;
+  CopyWith$Fragment$GreWordSearchPromptInputFields<TRes>
+      get createGreWordSearchPromptInput;
 }
 
 class _CopyWithImpl$Mutation$CreateGreWordSearchPromptInput<TRes>
@@ -923,22 +971,22 @@ class _CopyWithImpl$Mutation$CreateGreWordSearchPromptInput<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$CreateGreWordSearchPromptInput(
-        createGreWordSearchPromptInput: createGreWordSearchPromptInput ==
-                    _undefined ||
-                createGreWordSearchPromptInput == null
-            ? _instance.createGreWordSearchPromptInput
-            : (createGreWordSearchPromptInput
-                as Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput),
+        createGreWordSearchPromptInput:
+            createGreWordSearchPromptInput == _undefined ||
+                    createGreWordSearchPromptInput == null
+                ? _instance.createGreWordSearchPromptInput
+                : (createGreWordSearchPromptInput
+                    as Fragment$GreWordSearchPromptInputFields),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput<
-      TRes> get createGreWordSearchPromptInput {
+  CopyWith$Fragment$GreWordSearchPromptInputFields<TRes>
+      get createGreWordSearchPromptInput {
     final local$createGreWordSearchPromptInput =
         _instance.createGreWordSearchPromptInput;
-    return CopyWith$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput(
+    return CopyWith$Fragment$GreWordSearchPromptInputFields(
         local$createGreWordSearchPromptInput,
         (e) => call(createGreWordSearchPromptInput: e));
   }
@@ -951,17 +999,14 @@ class _CopyWithStubImpl$Mutation$CreateGreWordSearchPromptInput<TRes>
   TRes _res;
 
   call({
-    Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput?
-        createGreWordSearchPromptInput,
+    Fragment$GreWordSearchPromptInputFields? createGreWordSearchPromptInput,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput<
-          TRes>
+  CopyWith$Fragment$GreWordSearchPromptInputFields<TRes>
       get createGreWordSearchPromptInput =>
-          CopyWith$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput
-              .stub(_res);
+          CopyWith$Fragment$GreWordSearchPromptInputFields.stub(_res);
 }
 
 const documentNodeMutationCreateGreWordSearchPromptInput =
@@ -1006,19 +1051,9 @@ const documentNodeMutationCreateGreWordSearchPromptInput =
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
+          FragmentSpreadNode(
+            name: NameNode(value: 'GreWordSearchPromptInputFields'),
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'text'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -1038,6 +1073,7 @@ const documentNodeMutationCreateGreWordSearchPromptInput =
       ),
     ]),
   ),
+  fragmentDefinitionGreWordSearchPromptInputFields,
 ]);
 Mutation$CreateGreWordSearchPromptInput
     _parserFn$Mutation$CreateGreWordSearchPromptInput(
@@ -1265,182 +1301,14 @@ class Mutation$CreateGreWordSearchPromptInput$Widget
         );
 }
 
-class Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput {
-  Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput({
-    required this.id,
-    required this.text,
-    this.$__typename = 'GreWordSearchPromptInput',
-  });
-
-  factory Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$text = json['text'];
-    final l$$__typename = json['__typename'];
-    return Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput(
-      id: (l$id as String),
-      text: (l$text as String),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String id;
-
-  final String text;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$text = text;
-    _resultData['text'] = l$text;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$text = text;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$text,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other
-            is Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$text = text;
-    final lOther$text = other.text;
-    if (l$text != lOther$text) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput
-    on Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput {
-  CopyWith$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput<
-          Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput>
-      get copyWith =>
-          CopyWith$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput<
-    TRes> {
-  factory CopyWith$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput(
-    Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput
-        instance,
-    TRes Function(
-            Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput)
-        then,
-  ) = _CopyWithImpl$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput;
-
-  factory CopyWith$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput;
-
-  TRes call({
-    String? id,
-    String? text,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput<
-        TRes>
-    implements
-        CopyWith$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput<
-            TRes> {
-  _CopyWithImpl$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput(
-    this._instance,
-    this._then,
-  );
-
-  final Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput
-      _instance;
-
-  final TRes Function(
-          Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? text = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput(
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        text: text == _undefined || text == null
-            ? _instance.text
-            : (text as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput<
-        TRes>
-    implements
-        CopyWith$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput<
-            TRes> {
-  _CopyWithStubImpl$Mutation$CreateGreWordSearchPromptInput$createGreWordSearchPromptInput(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? id,
-    String? text,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
 class Variables$Mutation$UpdateGreWordSearchPromptInput {
   factory Variables$Mutation$UpdateGreWordSearchPromptInput({
     String? text,
     required String id,
-    String? connectedUserId,
-    String? disconnectedUserId,
   }) =>
       Variables$Mutation$UpdateGreWordSearchPromptInput._({
         if (text != null) r'text': text,
         r'id': id,
-        if (connectedUserId != null) r'connectedUserId': connectedUserId,
-        if (disconnectedUserId != null)
-          r'disconnectedUserId': disconnectedUserId,
       });
 
   Variables$Mutation$UpdateGreWordSearchPromptInput._(this._$data);
@@ -1454,14 +1322,6 @@ class Variables$Mutation$UpdateGreWordSearchPromptInput {
     }
     final l$id = data['id'];
     result$data['id'] = (l$id as String);
-    if (data.containsKey('connectedUserId')) {
-      final l$connectedUserId = data['connectedUserId'];
-      result$data['connectedUserId'] = (l$connectedUserId as String?);
-    }
-    if (data.containsKey('disconnectedUserId')) {
-      final l$disconnectedUserId = data['disconnectedUserId'];
-      result$data['disconnectedUserId'] = (l$disconnectedUserId as String?);
-    }
     return Variables$Mutation$UpdateGreWordSearchPromptInput._(result$data);
   }
 
@@ -1471,10 +1331,6 @@ class Variables$Mutation$UpdateGreWordSearchPromptInput {
 
   String get id => (_$data['id'] as String);
 
-  String? get connectedUserId => (_$data['connectedUserId'] as String?);
-
-  String? get disconnectedUserId => (_$data['disconnectedUserId'] as String?);
-
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('text')) {
@@ -1483,14 +1339,6 @@ class Variables$Mutation$UpdateGreWordSearchPromptInput {
     }
     final l$id = id;
     result$data['id'] = l$id;
-    if (_$data.containsKey('connectedUserId')) {
-      final l$connectedUserId = connectedUserId;
-      result$data['connectedUserId'] = l$connectedUserId;
-    }
-    if (_$data.containsKey('disconnectedUserId')) {
-      final l$disconnectedUserId = disconnectedUserId;
-      result$data['disconnectedUserId'] = l$disconnectedUserId;
-    }
     return result$data;
   }
 
@@ -1524,24 +1372,6 @@ class Variables$Mutation$UpdateGreWordSearchPromptInput {
     if (l$id != lOther$id) {
       return false;
     }
-    final l$connectedUserId = connectedUserId;
-    final lOther$connectedUserId = other.connectedUserId;
-    if (_$data.containsKey('connectedUserId') !=
-        other._$data.containsKey('connectedUserId')) {
-      return false;
-    }
-    if (l$connectedUserId != lOther$connectedUserId) {
-      return false;
-    }
-    final l$disconnectedUserId = disconnectedUserId;
-    final lOther$disconnectedUserId = other.disconnectedUserId;
-    if (_$data.containsKey('disconnectedUserId') !=
-        other._$data.containsKey('disconnectedUserId')) {
-      return false;
-    }
-    if (l$disconnectedUserId != lOther$disconnectedUserId) {
-      return false;
-    }
     return true;
   }
 
@@ -1549,15 +1379,9 @@ class Variables$Mutation$UpdateGreWordSearchPromptInput {
   int get hashCode {
     final l$text = text;
     final l$id = id;
-    final l$connectedUserId = connectedUserId;
-    final l$disconnectedUserId = disconnectedUserId;
     return Object.hashAll([
       _$data.containsKey('text') ? l$text : const {},
       l$id,
-      _$data.containsKey('connectedUserId') ? l$connectedUserId : const {},
-      _$data.containsKey('disconnectedUserId')
-          ? l$disconnectedUserId
-          : const {},
     ]);
   }
 }
@@ -1576,8 +1400,6 @@ abstract class CopyWith$Variables$Mutation$UpdateGreWordSearchPromptInput<
   TRes call({
     String? text,
     String? id,
-    String? connectedUserId,
-    String? disconnectedUserId,
   });
 }
 
@@ -1598,17 +1420,11 @@ class _CopyWithImpl$Variables$Mutation$UpdateGreWordSearchPromptInput<TRes>
   TRes call({
     Object? text = _undefined,
     Object? id = _undefined,
-    Object? connectedUserId = _undefined,
-    Object? disconnectedUserId = _undefined,
   }) =>
       _then(Variables$Mutation$UpdateGreWordSearchPromptInput._({
         ..._instance._$data,
         if (text != _undefined) 'text': (text as String?),
         if (id != _undefined && id != null) 'id': (id as String),
-        if (connectedUserId != _undefined)
-          'connectedUserId': (connectedUserId as String?),
-        if (disconnectedUserId != _undefined)
-          'disconnectedUserId': (disconnectedUserId as String?),
       }));
 }
 
@@ -1623,8 +1439,6 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateGreWordSearchPromptInput<TRes>
   call({
     String? text,
     String? id,
-    String? connectedUserId,
-    String? disconnectedUserId,
   }) =>
       _res;
 }
@@ -1643,15 +1457,13 @@ class Mutation$UpdateGreWordSearchPromptInput {
     return Mutation$UpdateGreWordSearchPromptInput(
       updateGreWordSearchPromptInput: l$updateGreWordSearchPromptInput == null
           ? null
-          : Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput
-              .fromJson(
-                  (l$updateGreWordSearchPromptInput as Map<String, dynamic>)),
+          : Fragment$GreWordSearchPromptInputFields.fromJson(
+              (l$updateGreWordSearchPromptInput as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput?
-      updateGreWordSearchPromptInput;
+  final Fragment$GreWordSearchPromptInputFields? updateGreWordSearchPromptInput;
 
   final String $__typename;
 
@@ -1720,12 +1532,11 @@ abstract class CopyWith$Mutation$UpdateGreWordSearchPromptInput<TRes> {
       _CopyWithStubImpl$Mutation$UpdateGreWordSearchPromptInput;
 
   TRes call({
-    Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput?
-        updateGreWordSearchPromptInput,
+    Fragment$GreWordSearchPromptInputFields? updateGreWordSearchPromptInput,
     String? $__typename,
   });
-  CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput<
-      TRes> get updateGreWordSearchPromptInput;
+  CopyWith$Fragment$GreWordSearchPromptInputFields<TRes>
+      get updateGreWordSearchPromptInput;
 }
 
 class _CopyWithImpl$Mutation$UpdateGreWordSearchPromptInput<TRes>
@@ -1746,24 +1557,24 @@ class _CopyWithImpl$Mutation$UpdateGreWordSearchPromptInput<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$UpdateGreWordSearchPromptInput(
-        updateGreWordSearchPromptInput: updateGreWordSearchPromptInput ==
-                _undefined
-            ? _instance.updateGreWordSearchPromptInput
-            : (updateGreWordSearchPromptInput
-                as Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput?),
+        updateGreWordSearchPromptInput:
+            updateGreWordSearchPromptInput == _undefined
+                ? _instance.updateGreWordSearchPromptInput
+                : (updateGreWordSearchPromptInput
+                    as Fragment$GreWordSearchPromptInputFields?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput<
-      TRes> get updateGreWordSearchPromptInput {
+  CopyWith$Fragment$GreWordSearchPromptInputFields<TRes>
+      get updateGreWordSearchPromptInput {
     final local$updateGreWordSearchPromptInput =
         _instance.updateGreWordSearchPromptInput;
     return local$updateGreWordSearchPromptInput == null
-        ? CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput
-            .stub(_then(_instance))
-        : CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput(
+        ? CopyWith$Fragment$GreWordSearchPromptInputFields.stub(
+            _then(_instance))
+        : CopyWith$Fragment$GreWordSearchPromptInputFields(
             local$updateGreWordSearchPromptInput,
             (e) => call(updateGreWordSearchPromptInput: e));
   }
@@ -1776,17 +1587,14 @@ class _CopyWithStubImpl$Mutation$UpdateGreWordSearchPromptInput<TRes>
   TRes _res;
 
   call({
-    Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput?
-        updateGreWordSearchPromptInput,
+    Fragment$GreWordSearchPromptInputFields? updateGreWordSearchPromptInput,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput<
-          TRes>
+  CopyWith$Fragment$GreWordSearchPromptInputFields<TRes>
       get updateGreWordSearchPromptInput =>
-          CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput
-              .stub(_res);
+          CopyWith$Fragment$GreWordSearchPromptInputFields.stub(_res);
 }
 
 const documentNodeMutationUpdateGreWordSearchPromptInput =
@@ -1813,24 +1621,6 @@ const documentNodeMutationUpdateGreWordSearchPromptInput =
         defaultValue: DefaultValueNode(value: null),
         directives: [],
       ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'connectedUserId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'disconnectedUserId')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: false,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -1846,30 +1636,12 @@ const documentNodeMutationUpdateGreWordSearchPromptInput =
             name: NameNode(value: 'id'),
             value: VariableNode(name: NameNode(value: 'id')),
           ),
-          ArgumentNode(
-            name: NameNode(value: 'connectedUserId'),
-            value: VariableNode(name: NameNode(value: 'connectedUserId')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'disconnectedUserId'),
-            value: VariableNode(name: NameNode(value: 'disconnectedUserId')),
-          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
+          FragmentSpreadNode(
+            name: NameNode(value: 'GreWordSearchPromptInputFields'),
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'text'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -1889,6 +1661,7 @@ const documentNodeMutationUpdateGreWordSearchPromptInput =
       ),
     ]),
   ),
+  fragmentDefinitionGreWordSearchPromptInputFields,
 ]);
 Mutation$UpdateGreWordSearchPromptInput
     _parserFn$Mutation$UpdateGreWordSearchPromptInput(
@@ -2116,61 +1889,48 @@ class Mutation$UpdateGreWordSearchPromptInput$Widget
         );
 }
 
-class Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput {
-  Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput({
-    required this.id,
-    required this.text,
-    this.$__typename = 'GreWordSearchPromptInput',
-  });
+class Variables$Mutation$DeleteGreWordSearchPromptInput {
+  factory Variables$Mutation$DeleteGreWordSearchPromptInput(
+          {required String id}) =>
+      Variables$Mutation$DeleteGreWordSearchPromptInput._({
+        r'id': id,
+      });
 
-  factory Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$text = json['text'];
-    final l$$__typename = json['__typename'];
-    return Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput(
-      id: (l$id as String),
-      text: (l$text as String),
-      $__typename: (l$$__typename as String),
-    );
+  Variables$Mutation$DeleteGreWordSearchPromptInput._(this._$data);
+
+  factory Variables$Mutation$DeleteGreWordSearchPromptInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$id = data['id'];
+    result$data['id'] = (l$id as String);
+    return Variables$Mutation$DeleteGreWordSearchPromptInput._(result$data);
   }
 
-  final String id;
+  Map<String, dynamic> _$data;
 
-  final String text;
-
-  final String $__typename;
+  String get id => (_$data['id'] as String);
 
   Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
+    final result$data = <String, dynamic>{};
     final l$id = id;
-    _resultData['id'] = l$id;
-    final l$text = text;
-    _resultData['text'] = l$text;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
+    result$data['id'] = l$id;
+    return result$data;
   }
 
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$text = text;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$text,
-      l$$__typename,
-    ]);
-  }
+  CopyWith$Variables$Mutation$DeleteGreWordSearchPromptInput<
+          Variables$Mutation$DeleteGreWordSearchPromptInput>
+      get copyWith =>
+          CopyWith$Variables$Mutation$DeleteGreWordSearchPromptInput(
+            this,
+            (i) => i,
+          );
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput) ||
+    if (!(other is Variables$Mutation$DeleteGreWordSearchPromptInput) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2179,244 +1939,91 @@ class Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput {
     if (l$id != lOther$id) {
       return false;
     }
-    final l$text = text;
-    final lOther$text = other.text;
-    if (l$text != lOther$text) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput
-    on Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput {
-  CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput<
-          Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput>
-      get copyWith =>
-          CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput<
-    TRes> {
-  factory CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput(
-    Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput
-        instance,
-    TRes Function(
-            Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput)
-        then,
-  ) = _CopyWithImpl$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput;
-
-  factory CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput;
-
-  TRes call({
-    String? id,
-    String? text,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput<
-        TRes>
-    implements
-        CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput<
-            TRes> {
-  _CopyWithImpl$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput(
-    this._instance,
-    this._then,
-  );
-
-  final Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput
-      _instance;
-
-  final TRes Function(
-          Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? text = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(
-          Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput(
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        text: text == _undefined || text == null
-            ? _instance.text
-            : (text as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput<
-        TRes>
-    implements
-        CopyWith$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput<
-            TRes> {
-  _CopyWithStubImpl$Mutation$UpdateGreWordSearchPromptInput$updateGreWordSearchPromptInput(
-      this._res);
-
-  TRes _res;
-
-  call({
-    String? id,
-    String? text,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class Variables$Query$WordsCountForGptPrompts {
-  factory Variables$Query$WordsCountForGptPrompts(
-          {required List<String> prompts}) =>
-      Variables$Query$WordsCountForGptPrompts._({
-        r'prompts': prompts,
-      });
-
-  Variables$Query$WordsCountForGptPrompts._(this._$data);
-
-  factory Variables$Query$WordsCountForGptPrompts.fromJson(
-      Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    final l$prompts = data['prompts'];
-    result$data['prompts'] =
-        (l$prompts as List<dynamic>).map((e) => (e as String)).toList();
-    return Variables$Query$WordsCountForGptPrompts._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  List<String> get prompts => (_$data['prompts'] as List<String>);
-
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    final l$prompts = prompts;
-    result$data['prompts'] = l$prompts.map((e) => e).toList();
-    return result$data;
-  }
-
-  CopyWith$Variables$Query$WordsCountForGptPrompts<
-          Variables$Query$WordsCountForGptPrompts>
-      get copyWith => CopyWith$Variables$Query$WordsCountForGptPrompts(
-            this,
-            (i) => i,
-          );
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Variables$Query$WordsCountForGptPrompts) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$prompts = prompts;
-    final lOther$prompts = other.prompts;
-    if (l$prompts.length != lOther$prompts.length) {
-      return false;
-    }
-    for (int i = 0; i < l$prompts.length; i++) {
-      final l$prompts$entry = l$prompts[i];
-      final lOther$prompts$entry = lOther$prompts[i];
-      if (l$prompts$entry != lOther$prompts$entry) {
-        return false;
-      }
-    }
     return true;
   }
 
   @override
   int get hashCode {
-    final l$prompts = prompts;
-    return Object.hashAll([Object.hashAll(l$prompts.map((v) => v))]);
+    final l$id = id;
+    return Object.hashAll([l$id]);
   }
 }
 
-abstract class CopyWith$Variables$Query$WordsCountForGptPrompts<TRes> {
-  factory CopyWith$Variables$Query$WordsCountForGptPrompts(
-    Variables$Query$WordsCountForGptPrompts instance,
-    TRes Function(Variables$Query$WordsCountForGptPrompts) then,
-  ) = _CopyWithImpl$Variables$Query$WordsCountForGptPrompts;
+abstract class CopyWith$Variables$Mutation$DeleteGreWordSearchPromptInput<
+    TRes> {
+  factory CopyWith$Variables$Mutation$DeleteGreWordSearchPromptInput(
+    Variables$Mutation$DeleteGreWordSearchPromptInput instance,
+    TRes Function(Variables$Mutation$DeleteGreWordSearchPromptInput) then,
+  ) = _CopyWithImpl$Variables$Mutation$DeleteGreWordSearchPromptInput;
 
-  factory CopyWith$Variables$Query$WordsCountForGptPrompts.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Query$WordsCountForGptPrompts;
+  factory CopyWith$Variables$Mutation$DeleteGreWordSearchPromptInput.stub(
+          TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$DeleteGreWordSearchPromptInput;
 
-  TRes call({List<String>? prompts});
+  TRes call({String? id});
 }
 
-class _CopyWithImpl$Variables$Query$WordsCountForGptPrompts<TRes>
-    implements CopyWith$Variables$Query$WordsCountForGptPrompts<TRes> {
-  _CopyWithImpl$Variables$Query$WordsCountForGptPrompts(
+class _CopyWithImpl$Variables$Mutation$DeleteGreWordSearchPromptInput<TRes>
+    implements
+        CopyWith$Variables$Mutation$DeleteGreWordSearchPromptInput<TRes> {
+  _CopyWithImpl$Variables$Mutation$DeleteGreWordSearchPromptInput(
     this._instance,
     this._then,
   );
 
-  final Variables$Query$WordsCountForGptPrompts _instance;
+  final Variables$Mutation$DeleteGreWordSearchPromptInput _instance;
 
-  final TRes Function(Variables$Query$WordsCountForGptPrompts) _then;
+  final TRes Function(Variables$Mutation$DeleteGreWordSearchPromptInput) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? prompts = _undefined}) =>
-      _then(Variables$Query$WordsCountForGptPrompts._({
+  TRes call({Object? id = _undefined}) =>
+      _then(Variables$Mutation$DeleteGreWordSearchPromptInput._({
         ..._instance._$data,
-        if (prompts != _undefined && prompts != null)
-          'prompts': (prompts as List<String>),
+        if (id != _undefined && id != null) 'id': (id as String),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$WordsCountForGptPrompts<TRes>
-    implements CopyWith$Variables$Query$WordsCountForGptPrompts<TRes> {
-  _CopyWithStubImpl$Variables$Query$WordsCountForGptPrompts(this._res);
+class _CopyWithStubImpl$Variables$Mutation$DeleteGreWordSearchPromptInput<TRes>
+    implements
+        CopyWith$Variables$Mutation$DeleteGreWordSearchPromptInput<TRes> {
+  _CopyWithStubImpl$Variables$Mutation$DeleteGreWordSearchPromptInput(
+      this._res);
 
   TRes _res;
 
-  call({List<String>? prompts}) => _res;
+  call({String? id}) => _res;
 }
 
-class Query$WordsCountForGptPrompts {
-  Query$WordsCountForGptPrompts({
-    required this.wordsCountForGptPrompts,
-    this.$__typename = 'Query',
+class Mutation$DeleteGreWordSearchPromptInput {
+  Mutation$DeleteGreWordSearchPromptInput({
+    this.deleteGreWordSearchPromptInput,
+    this.$__typename = 'Mutation',
   });
 
-  factory Query$WordsCountForGptPrompts.fromJson(Map<String, dynamic> json) {
-    final l$wordsCountForGptPrompts = json['wordsCountForGptPrompts'];
+  factory Mutation$DeleteGreWordSearchPromptInput.fromJson(
+      Map<String, dynamic> json) {
+    final l$deleteGreWordSearchPromptInput =
+        json['deleteGreWordSearchPromptInput'];
     final l$$__typename = json['__typename'];
-    return Query$WordsCountForGptPrompts(
-      wordsCountForGptPrompts: (l$wordsCountForGptPrompts as List<dynamic>)
-          .map((e) =>
-              Query$WordsCountForGptPrompts$wordsCountForGptPrompts.fromJson(
-                  (e as Map<String, dynamic>)))
-          .toList(),
+    return Mutation$DeleteGreWordSearchPromptInput(
+      deleteGreWordSearchPromptInput: l$deleteGreWordSearchPromptInput == null
+          ? null
+          : Fragment$GreWordSearchPromptInputFields.fromJson(
+              (l$deleteGreWordSearchPromptInput as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<Query$WordsCountForGptPrompts$wordsCountForGptPrompts>
-      wordsCountForGptPrompts;
+  final Fragment$GreWordSearchPromptInputFields? deleteGreWordSearchPromptInput;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$wordsCountForGptPrompts = wordsCountForGptPrompts;
-    _resultData['wordsCountForGptPrompts'] =
-        l$wordsCountForGptPrompts.map((e) => e.toJson()).toList();
+    final l$deleteGreWordSearchPromptInput = deleteGreWordSearchPromptInput;
+    _resultData['deleteGreWordSearchPromptInput'] =
+        l$deleteGreWordSearchPromptInput?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -2424,10 +2031,10 @@ class Query$WordsCountForGptPrompts {
 
   @override
   int get hashCode {
-    final l$wordsCountForGptPrompts = wordsCountForGptPrompts;
+    final l$deleteGreWordSearchPromptInput = deleteGreWordSearchPromptInput;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      Object.hashAll(l$wordsCountForGptPrompts.map((v) => v)),
+      l$deleteGreWordSearchPromptInput,
       l$$__typename,
     ]);
   }
@@ -2437,24 +2044,16 @@ class Query$WordsCountForGptPrompts {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$WordsCountForGptPrompts) ||
+    if (!(other is Mutation$DeleteGreWordSearchPromptInput) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$wordsCountForGptPrompts = wordsCountForGptPrompts;
-    final lOther$wordsCountForGptPrompts = other.wordsCountForGptPrompts;
-    if (l$wordsCountForGptPrompts.length !=
-        lOther$wordsCountForGptPrompts.length) {
+    final l$deleteGreWordSearchPromptInput = deleteGreWordSearchPromptInput;
+    final lOther$deleteGreWordSearchPromptInput =
+        other.deleteGreWordSearchPromptInput;
+    if (l$deleteGreWordSearchPromptInput !=
+        lOther$deleteGreWordSearchPromptInput) {
       return false;
-    }
-    for (int i = 0; i < l$wordsCountForGptPrompts.length; i++) {
-      final l$wordsCountForGptPrompts$entry = l$wordsCountForGptPrompts[i];
-      final lOther$wordsCountForGptPrompts$entry =
-          lOther$wordsCountForGptPrompts[i];
-      if (l$wordsCountForGptPrompts$entry !=
-          lOther$wordsCountForGptPrompts$entry) {
-        return false;
-      }
     }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
@@ -2465,108 +2064,101 @@ class Query$WordsCountForGptPrompts {
   }
 }
 
-extension UtilityExtension$Query$WordsCountForGptPrompts
-    on Query$WordsCountForGptPrompts {
-  CopyWith$Query$WordsCountForGptPrompts<Query$WordsCountForGptPrompts>
-      get copyWith => CopyWith$Query$WordsCountForGptPrompts(
+extension UtilityExtension$Mutation$DeleteGreWordSearchPromptInput
+    on Mutation$DeleteGreWordSearchPromptInput {
+  CopyWith$Mutation$DeleteGreWordSearchPromptInput<
+          Mutation$DeleteGreWordSearchPromptInput>
+      get copyWith => CopyWith$Mutation$DeleteGreWordSearchPromptInput(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$WordsCountForGptPrompts<TRes> {
-  factory CopyWith$Query$WordsCountForGptPrompts(
-    Query$WordsCountForGptPrompts instance,
-    TRes Function(Query$WordsCountForGptPrompts) then,
-  ) = _CopyWithImpl$Query$WordsCountForGptPrompts;
+abstract class CopyWith$Mutation$DeleteGreWordSearchPromptInput<TRes> {
+  factory CopyWith$Mutation$DeleteGreWordSearchPromptInput(
+    Mutation$DeleteGreWordSearchPromptInput instance,
+    TRes Function(Mutation$DeleteGreWordSearchPromptInput) then,
+  ) = _CopyWithImpl$Mutation$DeleteGreWordSearchPromptInput;
 
-  factory CopyWith$Query$WordsCountForGptPrompts.stub(TRes res) =
-      _CopyWithStubImpl$Query$WordsCountForGptPrompts;
+  factory CopyWith$Mutation$DeleteGreWordSearchPromptInput.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$DeleteGreWordSearchPromptInput;
 
   TRes call({
-    List<Query$WordsCountForGptPrompts$wordsCountForGptPrompts>?
-        wordsCountForGptPrompts,
+    Fragment$GreWordSearchPromptInputFields? deleteGreWordSearchPromptInput,
     String? $__typename,
   });
-  TRes wordsCountForGptPrompts(
-      Iterable<Query$WordsCountForGptPrompts$wordsCountForGptPrompts> Function(
-              Iterable<
-                  CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<
-                      Query$WordsCountForGptPrompts$wordsCountForGptPrompts>>)
-          _fn);
+  CopyWith$Fragment$GreWordSearchPromptInputFields<TRes>
+      get deleteGreWordSearchPromptInput;
 }
 
-class _CopyWithImpl$Query$WordsCountForGptPrompts<TRes>
-    implements CopyWith$Query$WordsCountForGptPrompts<TRes> {
-  _CopyWithImpl$Query$WordsCountForGptPrompts(
+class _CopyWithImpl$Mutation$DeleteGreWordSearchPromptInput<TRes>
+    implements CopyWith$Mutation$DeleteGreWordSearchPromptInput<TRes> {
+  _CopyWithImpl$Mutation$DeleteGreWordSearchPromptInput(
     this._instance,
     this._then,
   );
 
-  final Query$WordsCountForGptPrompts _instance;
+  final Mutation$DeleteGreWordSearchPromptInput _instance;
 
-  final TRes Function(Query$WordsCountForGptPrompts) _then;
+  final TRes Function(Mutation$DeleteGreWordSearchPromptInput) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? wordsCountForGptPrompts = _undefined,
+    Object? deleteGreWordSearchPromptInput = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$WordsCountForGptPrompts(
-        wordsCountForGptPrompts: wordsCountForGptPrompts == _undefined ||
-                wordsCountForGptPrompts == null
-            ? _instance.wordsCountForGptPrompts
-            : (wordsCountForGptPrompts
-                as List<Query$WordsCountForGptPrompts$wordsCountForGptPrompts>),
+      _then(Mutation$DeleteGreWordSearchPromptInput(
+        deleteGreWordSearchPromptInput:
+            deleteGreWordSearchPromptInput == _undefined
+                ? _instance.deleteGreWordSearchPromptInput
+                : (deleteGreWordSearchPromptInput
+                    as Fragment$GreWordSearchPromptInputFields?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  TRes wordsCountForGptPrompts(
-          Iterable<Query$WordsCountForGptPrompts$wordsCountForGptPrompts> Function(
-                  Iterable<
-                      CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<
-                          Query$WordsCountForGptPrompts$wordsCountForGptPrompts>>)
-              _fn) =>
-      call(
-          wordsCountForGptPrompts: _fn(_instance.wordsCountForGptPrompts.map(
-              (e) =>
-                  CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
-                    e,
-                    (i) => i,
-                  ))).toList());
+  CopyWith$Fragment$GreWordSearchPromptInputFields<TRes>
+      get deleteGreWordSearchPromptInput {
+    final local$deleteGreWordSearchPromptInput =
+        _instance.deleteGreWordSearchPromptInput;
+    return local$deleteGreWordSearchPromptInput == null
+        ? CopyWith$Fragment$GreWordSearchPromptInputFields.stub(
+            _then(_instance))
+        : CopyWith$Fragment$GreWordSearchPromptInputFields(
+            local$deleteGreWordSearchPromptInput,
+            (e) => call(deleteGreWordSearchPromptInput: e));
+  }
 }
 
-class _CopyWithStubImpl$Query$WordsCountForGptPrompts<TRes>
-    implements CopyWith$Query$WordsCountForGptPrompts<TRes> {
-  _CopyWithStubImpl$Query$WordsCountForGptPrompts(this._res);
+class _CopyWithStubImpl$Mutation$DeleteGreWordSearchPromptInput<TRes>
+    implements CopyWith$Mutation$DeleteGreWordSearchPromptInput<TRes> {
+  _CopyWithStubImpl$Mutation$DeleteGreWordSearchPromptInput(this._res);
 
   TRes _res;
 
   call({
-    List<Query$WordsCountForGptPrompts$wordsCountForGptPrompts>?
-        wordsCountForGptPrompts,
+    Fragment$GreWordSearchPromptInputFields? deleteGreWordSearchPromptInput,
     String? $__typename,
   }) =>
       _res;
 
-  wordsCountForGptPrompts(_fn) => _res;
+  CopyWith$Fragment$GreWordSearchPromptInputFields<TRes>
+      get deleteGreWordSearchPromptInput =>
+          CopyWith$Fragment$GreWordSearchPromptInputFields.stub(_res);
 }
 
-const documentNodeQueryWordsCountForGptPrompts = DocumentNode(definitions: [
+const documentNodeMutationDeleteGreWordSearchPromptInput =
+    DocumentNode(definitions: [
   OperationDefinitionNode(
-    type: OperationType.query,
-    name: NameNode(value: 'WordsCountForGptPrompts'),
+    type: OperationType.mutation,
+    name: NameNode(value: 'DeleteGreWordSearchPromptInput'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'prompts')),
-        type: ListTypeNode(
-          type: NamedTypeNode(
-            name: NameNode(value: 'String'),
-            isNonNull: true,
-          ),
+        variable: VariableNode(name: NameNode(value: 'id')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -2576,29 +2168,19 @@ const documentNodeQueryWordsCountForGptPrompts = DocumentNode(definitions: [
     directives: [],
     selectionSet: SelectionSetNode(selections: [
       FieldNode(
-        name: NameNode(value: 'wordsCountForGptPrompts'),
+        name: NameNode(value: 'deleteGreWordSearchPromptInput'),
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'prompts'),
-            value: VariableNode(name: NameNode(value: 'prompts')),
+            name: NameNode(value: 'id'),
+            value: VariableNode(name: NameNode(value: 'id')),
           )
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'count'),
-            alias: null,
-            arguments: [],
+          FragmentSpreadNode(
+            name: NameNode(value: 'GreWordSearchPromptInputFields'),
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'prompt'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -2618,30 +2200,33 @@ const documentNodeQueryWordsCountForGptPrompts = DocumentNode(definitions: [
       ),
     ]),
   ),
+  fragmentDefinitionGreWordSearchPromptInputFields,
 ]);
-Query$WordsCountForGptPrompts _parserFn$Query$WordsCountForGptPrompts(
-        Map<String, dynamic> data) =>
-    Query$WordsCountForGptPrompts.fromJson(data);
-typedef OnQueryComplete$Query$WordsCountForGptPrompts = FutureOr<void> Function(
+Mutation$DeleteGreWordSearchPromptInput
+    _parserFn$Mutation$DeleteGreWordSearchPromptInput(
+            Map<String, dynamic> data) =>
+        Mutation$DeleteGreWordSearchPromptInput.fromJson(data);
+typedef OnMutationCompleted$Mutation$DeleteGreWordSearchPromptInput
+    = FutureOr<void> Function(
   Map<String, dynamic>?,
-  Query$WordsCountForGptPrompts?,
+  Mutation$DeleteGreWordSearchPromptInput?,
 );
 
-class Options$Query$WordsCountForGptPrompts
-    extends graphql.QueryOptions<Query$WordsCountForGptPrompts> {
-  Options$Query$WordsCountForGptPrompts({
+class Options$Mutation$DeleteGreWordSearchPromptInput
+    extends graphql.MutationOptions<Mutation$DeleteGreWordSearchPromptInput> {
+  Options$Mutation$DeleteGreWordSearchPromptInput({
     String? operationName,
-    required Variables$Query$WordsCountForGptPrompts variables,
+    required Variables$Mutation$DeleteGreWordSearchPromptInput variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$WordsCountForGptPrompts? typedOptimisticResult,
-    Duration? pollInterval,
+    Mutation$DeleteGreWordSearchPromptInput? typedOptimisticResult,
     graphql.Context? context,
-    OnQueryComplete$Query$WordsCountForGptPrompts? onComplete,
-    graphql.OnQueryError? onError,
-  })  : onCompleteWithParsed = onComplete,
+    OnMutationCompleted$Mutation$DeleteGreWordSearchPromptInput? onCompleted,
+    graphql.OnMutationUpdate<Mutation$DeleteGreWordSearchPromptInput>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
         super(
           variables: variables.toJson(),
           operationName: operationName,
@@ -2649,42 +2234,44 @@ class Options$Query$WordsCountForGptPrompts
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
-          pollInterval: pollInterval,
           context: context,
-          onComplete: onComplete == null
+          onCompleted: onCompleted == null
               ? null
-              : (data) => onComplete(
+              : (data) => onCompleted(
                     data,
                     data == null
                         ? null
-                        : _parserFn$Query$WordsCountForGptPrompts(data),
+                        : _parserFn$Mutation$DeleteGreWordSearchPromptInput(
+                            data),
                   ),
+          update: update,
           onError: onError,
-          document: documentNodeQueryWordsCountForGptPrompts,
-          parserFn: _parserFn$Query$WordsCountForGptPrompts,
+          document: documentNodeMutationDeleteGreWordSearchPromptInput,
+          parserFn: _parserFn$Mutation$DeleteGreWordSearchPromptInput,
         );
 
-  final OnQueryComplete$Query$WordsCountForGptPrompts? onCompleteWithParsed;
+  final OnMutationCompleted$Mutation$DeleteGreWordSearchPromptInput?
+      onCompletedWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
+        ...super.onCompleted == null
             ? super.properties
-            : super.properties.where((property) => property != onComplete),
-        onCompleteWithParsed,
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
       ];
 }
 
-class WatchOptions$Query$WordsCountForGptPrompts
-    extends graphql.WatchQueryOptions<Query$WordsCountForGptPrompts> {
-  WatchOptions$Query$WordsCountForGptPrompts({
+class WatchOptions$Mutation$DeleteGreWordSearchPromptInput
+    extends graphql.WatchQueryOptions<Mutation$DeleteGreWordSearchPromptInput> {
+  WatchOptions$Mutation$DeleteGreWordSearchPromptInput({
     String? operationName,
-    required Variables$Query$WordsCountForGptPrompts variables,
+    required Variables$Mutation$DeleteGreWordSearchPromptInput variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$WordsCountForGptPrompts? typedOptimisticResult,
+    Mutation$DeleteGreWordSearchPromptInput? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -2698,243 +2285,145 @@ class WatchOptions$Query$WordsCountForGptPrompts
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeQueryWordsCountForGptPrompts,
+          document: documentNodeMutationDeleteGreWordSearchPromptInput,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$WordsCountForGptPrompts,
+          parserFn: _parserFn$Mutation$DeleteGreWordSearchPromptInput,
         );
 }
 
-class FetchMoreOptions$Query$WordsCountForGptPrompts
-    extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$WordsCountForGptPrompts({
-    required graphql.UpdateQuery updateQuery,
-    required Variables$Query$WordsCountForGptPrompts variables,
-  }) : super(
-          updateQuery: updateQuery,
-          variables: variables.toJson(),
-          document: documentNodeQueryWordsCountForGptPrompts,
-        );
-}
-
-extension ClientExtension$Query$WordsCountForGptPrompts
+extension ClientExtension$Mutation$DeleteGreWordSearchPromptInput
     on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$WordsCountForGptPrompts>>
-      query$WordsCountForGptPrompts(
-              Options$Query$WordsCountForGptPrompts options) async =>
-          await this.query(options);
-  graphql.ObservableQuery<Query$WordsCountForGptPrompts>
-      watchQuery$WordsCountForGptPrompts(
-              WatchOptions$Query$WordsCountForGptPrompts options) =>
-          this.watchQuery(options);
-  void writeQuery$WordsCountForGptPrompts({
-    required Query$WordsCountForGptPrompts data,
-    required Variables$Query$WordsCountForGptPrompts variables,
-    bool broadcast = true,
-  }) =>
-      this.writeQuery(
-        graphql.Request(
-          operation: graphql.Operation(
-              document: documentNodeQueryWordsCountForGptPrompts),
-          variables: variables.toJson(),
-        ),
-        data: data.toJson(),
-        broadcast: broadcast,
-      );
-  Query$WordsCountForGptPrompts? readQuery$WordsCountForGptPrompts({
-    required Variables$Query$WordsCountForGptPrompts variables,
-    bool optimistic = true,
-  }) {
-    final result = this.readQuery(
-      graphql.Request(
-        operation: graphql.Operation(
-            document: documentNodeQueryWordsCountForGptPrompts),
-        variables: variables.toJson(),
-      ),
-      optimistic: optimistic,
-    );
-    return result == null
-        ? null
-        : Query$WordsCountForGptPrompts.fromJson(result);
-  }
+  Future<graphql.QueryResult<Mutation$DeleteGreWordSearchPromptInput>>
+      mutate$DeleteGreWordSearchPromptInput(
+              Options$Mutation$DeleteGreWordSearchPromptInput options) async =>
+          await this.mutate(options);
+  graphql.ObservableQuery<Mutation$DeleteGreWordSearchPromptInput>
+      watchMutation$DeleteGreWordSearchPromptInput(
+              WatchOptions$Mutation$DeleteGreWordSearchPromptInput options) =>
+          this.watchMutation(options);
 }
 
-graphql_flutter.QueryHookResult<Query$WordsCountForGptPrompts>
-    useQuery$WordsCountForGptPrompts(
-            Options$Query$WordsCountForGptPrompts options) =>
-        graphql_flutter.useQuery(options);
-graphql.ObservableQuery<Query$WordsCountForGptPrompts>
-    useWatchQuery$WordsCountForGptPrompts(
-            WatchOptions$Query$WordsCountForGptPrompts options) =>
-        graphql_flutter.useWatchQuery(options);
-
-class Query$WordsCountForGptPrompts$Widget
-    extends graphql_flutter.Query<Query$WordsCountForGptPrompts> {
-  Query$WordsCountForGptPrompts$Widget({
-    widgets.Key? key,
-    required Options$Query$WordsCountForGptPrompts options,
-    required graphql_flutter.QueryBuilder<Query$WordsCountForGptPrompts>
-        builder,
-  }) : super(
-          key: key,
-          options: options,
-          builder: builder,
-        );
-}
-
-class Query$WordsCountForGptPrompts$wordsCountForGptPrompts {
-  Query$WordsCountForGptPrompts$wordsCountForGptPrompts({
-    required this.count,
-    required this.prompt,
-    this.$__typename = 'WordsCountForGptPrompts',
-  });
-
-  factory Query$WordsCountForGptPrompts$wordsCountForGptPrompts.fromJson(
-      Map<String, dynamic> json) {
-    final l$count = json['count'];
-    final l$prompt = json['prompt'];
-    final l$$__typename = json['__typename'];
-    return Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
-      count: (l$count as int),
-      prompt: (l$prompt as String),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int count;
-
-  final String prompt;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$count = count;
-    _resultData['count'] = l$count;
-    final l$prompt = prompt;
-    _resultData['prompt'] = l$prompt;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$count = count;
-    final l$prompt = prompt;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$count,
-      l$prompt,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$WordsCountForGptPrompts$wordsCountForGptPrompts) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$count = count;
-    final lOther$count = other.count;
-    if (l$count != lOther$count) {
-      return false;
-    }
-    final l$prompt = prompt;
-    final lOther$prompt = other.prompt;
-    if (l$prompt != lOther$prompt) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$WordsCountForGptPrompts$wordsCountForGptPrompts
-    on Query$WordsCountForGptPrompts$wordsCountForGptPrompts {
-  CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<
-          Query$WordsCountForGptPrompts$wordsCountForGptPrompts>
-      get copyWith =>
-          CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<
-    TRes> {
-  factory CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
-    Query$WordsCountForGptPrompts$wordsCountForGptPrompts instance,
-    TRes Function(Query$WordsCountForGptPrompts$wordsCountForGptPrompts) then,
-  ) = _CopyWithImpl$Query$WordsCountForGptPrompts$wordsCountForGptPrompts;
-
-  factory CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$WordsCountForGptPrompts$wordsCountForGptPrompts;
-
-  TRes call({
-    int? count,
-    String? prompt,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<TRes>
-    implements
-        CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<TRes> {
-  _CopyWithImpl$Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
-    this._instance,
-    this._then,
+class Mutation$DeleteGreWordSearchPromptInput$HookResult {
+  Mutation$DeleteGreWordSearchPromptInput$HookResult(
+    this.runMutation,
+    this.result,
   );
 
-  final Query$WordsCountForGptPrompts$wordsCountForGptPrompts _instance;
+  final RunMutation$Mutation$DeleteGreWordSearchPromptInput runMutation;
 
-  final TRes Function(Query$WordsCountForGptPrompts$wordsCountForGptPrompts)
-      _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? count = _undefined,
-    Object? prompt = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
-        count: count == _undefined || count == null
-            ? _instance.count
-            : (count as int),
-        prompt: prompt == _undefined || prompt == null
-            ? _instance.prompt
-            : (prompt as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
+  final graphql.QueryResult<Mutation$DeleteGreWordSearchPromptInput> result;
 }
 
-class _CopyWithStubImpl$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<
-        TRes>
-    implements
-        CopyWith$Query$WordsCountForGptPrompts$wordsCountForGptPrompts<TRes> {
-  _CopyWithStubImpl$Query$WordsCountForGptPrompts$wordsCountForGptPrompts(
-      this._res);
+Mutation$DeleteGreWordSearchPromptInput$HookResult
+    useMutation$DeleteGreWordSearchPromptInput(
+        [WidgetOptions$Mutation$DeleteGreWordSearchPromptInput? options]) {
+  final result = graphql_flutter.useMutation(
+      options ?? WidgetOptions$Mutation$DeleteGreWordSearchPromptInput());
+  return Mutation$DeleteGreWordSearchPromptInput$HookResult(
+    (variables, {optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
+      variables.toJson(),
+      optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+    ),
+    result.result,
+  );
+}
 
-  TRes _res;
+graphql.ObservableQuery<Mutation$DeleteGreWordSearchPromptInput>
+    useWatchMutation$DeleteGreWordSearchPromptInput(
+            WatchOptions$Mutation$DeleteGreWordSearchPromptInput options) =>
+        graphql_flutter.useWatchMutation(options);
 
-  call({
-    int? count,
-    String? prompt,
-    String? $__typename,
-  }) =>
-      _res;
+class WidgetOptions$Mutation$DeleteGreWordSearchPromptInput
+    extends graphql.MutationOptions<Mutation$DeleteGreWordSearchPromptInput> {
+  WidgetOptions$Mutation$DeleteGreWordSearchPromptInput({
+    String? operationName,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Mutation$DeleteGreWordSearchPromptInput? typedOptimisticResult,
+    graphql.Context? context,
+    OnMutationCompleted$Mutation$DeleteGreWordSearchPromptInput? onCompleted,
+    graphql.OnMutationUpdate<Mutation$DeleteGreWordSearchPromptInput>? update,
+    graphql.OnError? onError,
+  })  : onCompletedWithParsed = onCompleted,
+        super(
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          onCompleted: onCompleted == null
+              ? null
+              : (data) => onCompleted(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$DeleteGreWordSearchPromptInput(
+                            data),
+                  ),
+          update: update,
+          onError: onError,
+          document: documentNodeMutationDeleteGreWordSearchPromptInput,
+          parserFn: _parserFn$Mutation$DeleteGreWordSearchPromptInput,
+        );
+
+  final OnMutationCompleted$Mutation$DeleteGreWordSearchPromptInput?
+      onCompletedWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
+        onCompletedWithParsed,
+      ];
+}
+
+typedef RunMutation$Mutation$DeleteGreWordSearchPromptInput
+    = graphql.MultiSourceResult<Mutation$DeleteGreWordSearchPromptInput>
+        Function(
+  Variables$Mutation$DeleteGreWordSearchPromptInput, {
+  Object? optimisticResult,
+  Mutation$DeleteGreWordSearchPromptInput? typedOptimisticResult,
+});
+typedef Builder$Mutation$DeleteGreWordSearchPromptInput = widgets.Widget
+    Function(
+  RunMutation$Mutation$DeleteGreWordSearchPromptInput,
+  graphql.QueryResult<Mutation$DeleteGreWordSearchPromptInput>?,
+);
+
+class Mutation$DeleteGreWordSearchPromptInput$Widget
+    extends graphql_flutter.Mutation<Mutation$DeleteGreWordSearchPromptInput> {
+  Mutation$DeleteGreWordSearchPromptInput$Widget({
+    widgets.Key? key,
+    WidgetOptions$Mutation$DeleteGreWordSearchPromptInput? options,
+    required Builder$Mutation$DeleteGreWordSearchPromptInput builder,
+  }) : super(
+          key: key,
+          options: options ??
+              WidgetOptions$Mutation$DeleteGreWordSearchPromptInput(),
+          builder: (
+            run,
+            result,
+          ) =>
+              builder(
+            (
+              variables, {
+              optimisticResult,
+              typedOptimisticResult,
+            }) =>
+                run(
+              variables.toJson(),
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
+            ),
+            result,
+          ),
+        );
 }

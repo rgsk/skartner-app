@@ -18,63 +18,12 @@ class WordSearchPromptsView extends HookConsumerWidget {
     final dbUser = ref.watch(dbUserProvider)!;
     final updateMetaForUserMutation = useMutation$UpdateMetaForUser();
 
-    final otherGreWordSearchPromptInputsQuery =
-        useQuery$GreWordSearchPromptInputs(
-      Options$Query$GreWordSearchPromptInputs(
-        variables: Variables$Query$GreWordSearchPromptInputs(
-          where: Input$GreWordSearchPromptInputWhereInput(
-            users: Input$UserListRelationFilter(
-              none: Input$UserWhereInput(
-                id: Input$StringFilter(
-                  equals: dbUser.id,
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-    final otherGreWordSearchPromptInputs = otherGreWordSearchPromptInputsQuery
-        .result.parsedData?.greWordSearchPromptInputs;
-    final otherPromptTexts =
-        otherGreWordSearchPromptInputs?.map((e) => e.text).toList();
-    final wordsCountForGptPromptsQuery = useQuery$WordsCountForGptPrompts(
-      Options$Query$WordsCountForGptPrompts(
-        variables: Variables$Query$WordsCountForGptPrompts(
-          prompts: otherPromptTexts ?? [],
-        ),
-      ),
-    );
-
-    final wordCounts =
-        wordsCountForGptPromptsQuery.result.parsedData?.wordsCountForGptPrompts;
-
-    final promptToCountMap = useMemoized(() {
-      final result = {};
-      if (wordCounts == null || otherPromptTexts == null) {
-        return result;
-      }
-      for (final text in otherPromptTexts) {
-        result[text] =
-            wordCounts.firstWhere((element) => element.prompt == text).count;
-      }
-      return result;
-    }, [otherPromptTexts, wordCounts]);
-
-    otherPromptTexts?.sort(
-      (a, b) => (promptToCountMap[b] ?? 0) - (promptToCountMap[a] ?? 0),
-    );
-
     final greWordSearchPromptInputsQuery = useQuery$GreWordSearchPromptInputs(
       Options$Query$GreWordSearchPromptInputs(
         variables: Variables$Query$GreWordSearchPromptInputs(
           where: Input$GreWordSearchPromptInputWhereInput(
-            users: Input$UserListRelationFilter(
-              some: Input$UserWhereInput(
-                id: Input$StringFilter(
-                  equals: dbUser.id,
-                ),
-              ),
+            userId: Input$StringFilter(
+              equals: dbUser.id,
             ),
           ),
         ),
@@ -94,17 +43,17 @@ class WordSearchPromptsView extends HookConsumerWidget {
     final updateGreWordSearchPromptInputMutation =
         useMutation$UpdateGreWordSearchPromptInput();
 
+    final deleteGreWordSearchPromptInput =
+        useMutation$DeleteGreWordSearchPromptInput();
+
     final createGreWordSearchPromptInputMutation =
         useMutation$CreateGreWordSearchPromptInput();
 
     final deletedPromptId = useState<String?>(null);
-    final promptSelectionLoading = useState(false);
 
     Future<void> updateInput({
       required String id,
       String? text,
-      String? connectedUserId,
-      String? disconnectedUserId,
       VoidCallback? onSuccess,
       VoidCallback? onFinished,
     }) async {
@@ -116,15 +65,12 @@ class WordSearchPromptsView extends HookConsumerWidget {
                 Variables$Mutation$UpdateGreWordSearchPromptInput(
                   id: id,
                   text: text,
-                  connectedUserId: connectedUserId,
-                  disconnectedUserId: disconnectedUserId,
                 ),
               )
               .networkResult;
         },
         onComplete: (data, parsedData) {
           greWordSearchPromptInputsQuery.refetch();
-          otherGreWordSearchPromptInputsQuery.refetch();
           onSuccess?.call();
         },
         onFinish: (result) {
@@ -193,40 +139,6 @@ class WordSearchPromptsView extends HookConsumerWidget {
             fontSize: 20,
           ),
         ),
-        if (otherPromptTexts != null &&
-            otherGreWordSearchPromptInputs != null &&
-            !otherGreWordSearchPromptInputsQuery.result.isLoading)
-          Row(
-            children: [
-              Expanded(
-                child: Autocomplete<String>(
-                  optionsBuilder: (TextEditingValue textEditingValue) {
-                    final newMatches = otherPromptTexts.where((String text) {
-                      return text
-                          .toLowerCase()
-                          .contains(textEditingValue.text.toLowerCase());
-                    }).toList();
-
-                    return newMatches;
-                  },
-                  displayStringForOption: (option) =>
-                      '${option}, count = ${promptToCountMap[option] ?? 0}',
-                  onSelected: (text) {
-                    final found = otherGreWordSearchPromptInputs
-                        .firstWhere((element) => element.text == text);
-                    promptSelectionLoading.value = true;
-                    updateInput(
-                        id: found.id,
-                        connectedUserId: dbUser.id,
-                        onFinished: () {
-                          promptSelectionLoading.value = false;
-                        });
-                  },
-                ),
-              ),
-              if (promptSelectionLoading.value) CircularProgressIndicator(),
-            ],
-          ),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -416,10 +328,21 @@ class WordSearchPromptsView extends HookConsumerWidget {
                               ? null
                               : () {
                                   deletedPromptId.value = input.id;
-                                  updateInput(
-                                    id: input.id,
-                                    disconnectedUserId: dbUser.id,
-                                    onFinished: () {
+                                  setupMutation(
+                                    context: context,
+                                    runMutation: () async {
+                                      return deleteGreWordSearchPromptInput
+                                          .runMutation(
+                                            Variables$Mutation$DeleteGreWordSearchPromptInput(
+                                              id: input.id,
+                                            ),
+                                          )
+                                          .networkResult;
+                                    },
+                                    onComplete: (data, parsedData) {
+                                      greWordSearchPromptInputsQuery.refetch();
+                                    },
+                                    onFinish: (result) {
                                       deletedPromptId.value = null;
                                     },
                                   );

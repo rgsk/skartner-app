@@ -534,12 +534,12 @@ class Input$GreWordSearchPromptInputWhereInput {
   factory Input$GreWordSearchPromptInputWhereInput({
     Input$StringFilter? id,
     Input$StringFilter? text,
-    Input$UserListRelationFilter? users,
+    Input$StringFilter? userId,
   }) =>
       Input$GreWordSearchPromptInputWhereInput._({
         if (id != null) r'id': id,
         if (text != null) r'text': text,
-        if (users != null) r'users': users,
+        if (userId != null) r'userId': userId,
       });
 
   Input$GreWordSearchPromptInputWhereInput._(this._$data);
@@ -559,12 +559,11 @@ class Input$GreWordSearchPromptInputWhereInput {
           ? null
           : Input$StringFilter.fromJson((l$text as Map<String, dynamic>));
     }
-    if (data.containsKey('users')) {
-      final l$users = data['users'];
-      result$data['users'] = l$users == null
+    if (data.containsKey('userId')) {
+      final l$userId = data['userId'];
+      result$data['userId'] = l$userId == null
           ? null
-          : Input$UserListRelationFilter.fromJson(
-              (l$users as Map<String, dynamic>));
+          : Input$StringFilter.fromJson((l$userId as Map<String, dynamic>));
     }
     return Input$GreWordSearchPromptInputWhereInput._(result$data);
   }
@@ -575,8 +574,7 @@ class Input$GreWordSearchPromptInputWhereInput {
 
   Input$StringFilter? get text => (_$data['text'] as Input$StringFilter?);
 
-  Input$UserListRelationFilter? get users =>
-      (_$data['users'] as Input$UserListRelationFilter?);
+  Input$StringFilter? get userId => (_$data['userId'] as Input$StringFilter?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -588,9 +586,9 @@ class Input$GreWordSearchPromptInputWhereInput {
       final l$text = text;
       result$data['text'] = l$text?.toJson();
     }
-    if (_$data.containsKey('users')) {
-      final l$users = users;
-      result$data['users'] = l$users?.toJson();
+    if (_$data.containsKey('userId')) {
+      final l$userId = userId;
+      result$data['userId'] = l$userId?.toJson();
     }
     return result$data;
   }
@@ -627,12 +625,12 @@ class Input$GreWordSearchPromptInputWhereInput {
     if (l$text != lOther$text) {
       return false;
     }
-    final l$users = users;
-    final lOther$users = other.users;
-    if (_$data.containsKey('users') != other._$data.containsKey('users')) {
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (_$data.containsKey('userId') != other._$data.containsKey('userId')) {
       return false;
     }
-    if (l$users != lOther$users) {
+    if (l$userId != lOther$userId) {
       return false;
     }
     return true;
@@ -642,11 +640,11 @@ class Input$GreWordSearchPromptInputWhereInput {
   int get hashCode {
     final l$id = id;
     final l$text = text;
-    final l$users = users;
+    final l$userId = userId;
     return Object.hashAll([
       _$data.containsKey('id') ? l$id : const {},
       _$data.containsKey('text') ? l$text : const {},
-      _$data.containsKey('users') ? l$users : const {},
+      _$data.containsKey('userId') ? l$userId : const {},
     ]);
   }
 }
@@ -663,11 +661,11 @@ abstract class CopyWith$Input$GreWordSearchPromptInputWhereInput<TRes> {
   TRes call({
     Input$StringFilter? id,
     Input$StringFilter? text,
-    Input$UserListRelationFilter? users,
+    Input$StringFilter? userId,
   });
   CopyWith$Input$StringFilter<TRes> get id;
   CopyWith$Input$StringFilter<TRes> get text;
-  CopyWith$Input$UserListRelationFilter<TRes> get users;
+  CopyWith$Input$StringFilter<TRes> get userId;
 }
 
 class _CopyWithImpl$Input$GreWordSearchPromptInputWhereInput<TRes>
@@ -686,14 +684,13 @@ class _CopyWithImpl$Input$GreWordSearchPromptInputWhereInput<TRes>
   TRes call({
     Object? id = _undefined,
     Object? text = _undefined,
-    Object? users = _undefined,
+    Object? userId = _undefined,
   }) =>
       _then(Input$GreWordSearchPromptInputWhereInput._({
         ..._instance._$data,
         if (id != _undefined) 'id': (id as Input$StringFilter?),
         if (text != _undefined) 'text': (text as Input$StringFilter?),
-        if (users != _undefined)
-          'users': (users as Input$UserListRelationFilter?),
+        if (userId != _undefined) 'userId': (userId as Input$StringFilter?),
       }));
 
   CopyWith$Input$StringFilter<TRes> get id {
@@ -710,12 +707,11 @@ class _CopyWithImpl$Input$GreWordSearchPromptInputWhereInput<TRes>
         : CopyWith$Input$StringFilter(local$text, (e) => call(text: e));
   }
 
-  CopyWith$Input$UserListRelationFilter<TRes> get users {
-    final local$users = _instance.users;
-    return local$users == null
-        ? CopyWith$Input$UserListRelationFilter.stub(_then(_instance))
-        : CopyWith$Input$UserListRelationFilter(
-            local$users, (e) => call(users: e));
+  CopyWith$Input$StringFilter<TRes> get userId {
+    final local$userId = _instance.userId;
+    return local$userId == null
+        ? CopyWith$Input$StringFilter.stub(_then(_instance))
+        : CopyWith$Input$StringFilter(local$userId, (e) => call(userId: e));
   }
 }
 
@@ -728,7 +724,7 @@ class _CopyWithStubImpl$Input$GreWordSearchPromptInputWhereInput<TRes>
   call({
     Input$StringFilter? id,
     Input$StringFilter? text,
-    Input$UserListRelationFilter? users,
+    Input$StringFilter? userId,
   }) =>
       _res;
 
@@ -738,8 +734,8 @@ class _CopyWithStubImpl$Input$GreWordSearchPromptInputWhereInput<TRes>
   CopyWith$Input$StringFilter<TRes> get text =>
       CopyWith$Input$StringFilter.stub(_res);
 
-  CopyWith$Input$UserListRelationFilter<TRes> get users =>
-      CopyWith$Input$UserListRelationFilter.stub(_res);
+  CopyWith$Input$StringFilter<TRes> get userId =>
+      CopyWith$Input$StringFilter.stub(_res);
 }
 
 class Input$GreWordTagListRelationFilter {
