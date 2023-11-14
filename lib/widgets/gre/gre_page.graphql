@@ -1,33 +1,31 @@
 query SendSinglePrompt(
-  $input: String!
-  $skipCache: Boolean
-  $indexesReturned: [Int!]
+  $prompt: String!
+  $word: String!
   $resultIndexFromCache: Int
+  $indexesReturned: [Int!]
+  $skipCache: Boolean
 ) {
   sendSinglePrompt(
-    input: $input
-    skipCache: $skipCache
-    indexesReturned: $indexesReturned
+    prompt: $prompt
+    word: $word
     resultIndexFromCache: $resultIndexFromCache
+    indexesReturned: $indexesReturned
+    skipCache: $skipCache
   ) {
     result
     resultIndex
-    error
     totalResultsInCache
+    cacheResponseId
   }
 }
 
 mutation CreateGreWord(
-  $spelling: String!
-  $promptInput: String!
-  $promptResponse: String!
+  $cacheResponseId: String!
   $userId: String!
   $greWordTags: [GreWordTagWhereUniqueInput]
 ) {
   createGreWord(
-    spelling: $spelling
-    promptInput: $promptInput
-    promptResponse: $promptResponse
+    cacheResponseId: $cacheResponseId
     userId: $userId
     greWordTags: $greWordTags
   ) {
@@ -35,20 +33,15 @@ mutation CreateGreWord(
   }
 }
 
-query GreWord($where: GreWordWhereUniqueInput) {
+query GreWord($where: GreWordWhereInput) {
   greWord(where: $where) {
     ...GreWordFields
   }
 }
 
-mutation CreateGptPrompt(
-  $input: String!
-  $response: String!
-  $greWordId: String!
-) {
-  createGptPrompt(input: $input, response: $response, greWordId: $greWordId) {
-    id
-    response
+mutation CreateGptPrompt($cacheResponseId: String!, $greWordId: String!) {
+  createGptPrompt(cacheResponseId: $cacheResponseId, greWordId: $greWordId) {
+    ...GptPromptFields
   }
 }
 

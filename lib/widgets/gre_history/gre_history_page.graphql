@@ -1,19 +1,33 @@
+fragment GptPromptFields on GptPrompt {
+  id
+  cacheResponse {
+    cachePrompt {
+      text
+    }
+    cacheWord {
+      text
+    }
+    text
+  }
+  editedResponse
+  greWordId
+}
+
 fragment GreWordFields on GreWord {
   id
-  spelling
+  cacheWord {
+    text
+  }
   status
   gptPrompts {
-    id
-    input
-    response
-    editedResponse
-    greWordId
+    ...GptPromptFields
   }
   greWordTags {
     id
     name
   }
 }
+
 query GreWords(
   $where: GreWordWhereInput
   $skip: Int

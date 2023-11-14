@@ -1,3 +1,119 @@
+class Input$CacheWordWhereInput {
+  factory Input$CacheWordWhereInput({Input$StringFilter? text}) =>
+      Input$CacheWordWhereInput._({
+        if (text != null) r'text': text,
+      });
+
+  Input$CacheWordWhereInput._(this._$data);
+
+  factory Input$CacheWordWhereInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('text')) {
+      final l$text = data['text'];
+      result$data['text'] = l$text == null
+          ? null
+          : Input$StringFilter.fromJson((l$text as Map<String, dynamic>));
+    }
+    return Input$CacheWordWhereInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$StringFilter? get text => (_$data['text'] as Input$StringFilter?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('text')) {
+      final l$text = text;
+      result$data['text'] = l$text?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$CacheWordWhereInput<Input$CacheWordWhereInput> get copyWith =>
+      CopyWith$Input$CacheWordWhereInput(
+        this,
+        (i) => i,
+      );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$CacheWordWhereInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$text = text;
+    final lOther$text = other.text;
+    if (_$data.containsKey('text') != other._$data.containsKey('text')) {
+      return false;
+    }
+    if (l$text != lOther$text) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$text = text;
+    return Object.hashAll([_$data.containsKey('text') ? l$text : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$CacheWordWhereInput<TRes> {
+  factory CopyWith$Input$CacheWordWhereInput(
+    Input$CacheWordWhereInput instance,
+    TRes Function(Input$CacheWordWhereInput) then,
+  ) = _CopyWithImpl$Input$CacheWordWhereInput;
+
+  factory CopyWith$Input$CacheWordWhereInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$CacheWordWhereInput;
+
+  TRes call({Input$StringFilter? text});
+  CopyWith$Input$StringFilter<TRes> get text;
+}
+
+class _CopyWithImpl$Input$CacheWordWhereInput<TRes>
+    implements CopyWith$Input$CacheWordWhereInput<TRes> {
+  _CopyWithImpl$Input$CacheWordWhereInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$CacheWordWhereInput _instance;
+
+  final TRes Function(Input$CacheWordWhereInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? text = _undefined}) => _then(Input$CacheWordWhereInput._({
+        ..._instance._$data,
+        if (text != _undefined) 'text': (text as Input$StringFilter?),
+      }));
+
+  CopyWith$Input$StringFilter<TRes> get text {
+    final local$text = _instance.text;
+    return local$text == null
+        ? CopyWith$Input$StringFilter.stub(_then(_instance))
+        : CopyWith$Input$StringFilter(local$text, (e) => call(text: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$CacheWordWhereInput<TRes>
+    implements CopyWith$Input$CacheWordWhereInput<TRes> {
+  _CopyWithStubImpl$Input$CacheWordWhereInput(this._res);
+
+  TRes _res;
+
+  call({Input$StringFilter? text}) => _res;
+
+  CopyWith$Input$StringFilter<TRes> get text =>
+      CopyWith$Input$StringFilter.stub(_res);
+}
+
 class Input$EnumGreWordStatusFilter {
   factory Input$EnumGreWordStatusFilter({
     Enum$GreWordStatus? equals,
@@ -238,13 +354,11 @@ class Input$GreWordOrderByWithRelationInput {
   factory Input$GreWordOrderByWithRelationInput({
     Enum$SortOrder? createdAt,
     Enum$SortOrder? id,
-    Enum$SortOrder? spelling,
     Enum$SortOrder? updatedAt,
   }) =>
       Input$GreWordOrderByWithRelationInput._({
         if (createdAt != null) r'createdAt': createdAt,
         if (id != null) r'id': id,
-        if (spelling != null) r'spelling': spelling,
         if (updatedAt != null) r'updatedAt': updatedAt,
       });
 
@@ -264,12 +378,6 @@ class Input$GreWordOrderByWithRelationInput {
       result$data['id'] =
           l$id == null ? null : fromJson$Enum$SortOrder((l$id as String));
     }
-    if (data.containsKey('spelling')) {
-      final l$spelling = data['spelling'];
-      result$data['spelling'] = l$spelling == null
-          ? null
-          : fromJson$Enum$SortOrder((l$spelling as String));
-    }
     if (data.containsKey('updatedAt')) {
       final l$updatedAt = data['updatedAt'];
       result$data['updatedAt'] = l$updatedAt == null
@@ -285,8 +393,6 @@ class Input$GreWordOrderByWithRelationInput {
 
   Enum$SortOrder? get id => (_$data['id'] as Enum$SortOrder?);
 
-  Enum$SortOrder? get spelling => (_$data['spelling'] as Enum$SortOrder?);
-
   Enum$SortOrder? get updatedAt => (_$data['updatedAt'] as Enum$SortOrder?);
 
   Map<String, dynamic> toJson() {
@@ -299,11 +405,6 @@ class Input$GreWordOrderByWithRelationInput {
     if (_$data.containsKey('id')) {
       final l$id = id;
       result$data['id'] = l$id == null ? null : toJson$Enum$SortOrder(l$id);
-    }
-    if (_$data.containsKey('spelling')) {
-      final l$spelling = spelling;
-      result$data['spelling'] =
-          l$spelling == null ? null : toJson$Enum$SortOrder(l$spelling);
     }
     if (_$data.containsKey('updatedAt')) {
       final l$updatedAt = updatedAt;
@@ -346,15 +447,6 @@ class Input$GreWordOrderByWithRelationInput {
     if (l$id != lOther$id) {
       return false;
     }
-    final l$spelling = spelling;
-    final lOther$spelling = other.spelling;
-    if (_$data.containsKey('spelling') !=
-        other._$data.containsKey('spelling')) {
-      return false;
-    }
-    if (l$spelling != lOther$spelling) {
-      return false;
-    }
     final l$updatedAt = updatedAt;
     final lOther$updatedAt = other.updatedAt;
     if (_$data.containsKey('updatedAt') !=
@@ -371,12 +463,10 @@ class Input$GreWordOrderByWithRelationInput {
   int get hashCode {
     final l$createdAt = createdAt;
     final l$id = id;
-    final l$spelling = spelling;
     final l$updatedAt = updatedAt;
     return Object.hashAll([
       _$data.containsKey('createdAt') ? l$createdAt : const {},
       _$data.containsKey('id') ? l$id : const {},
-      _$data.containsKey('spelling') ? l$spelling : const {},
       _$data.containsKey('updatedAt') ? l$updatedAt : const {},
     ]);
   }
@@ -394,7 +484,6 @@ abstract class CopyWith$Input$GreWordOrderByWithRelationInput<TRes> {
   TRes call({
     Enum$SortOrder? createdAt,
     Enum$SortOrder? id,
-    Enum$SortOrder? spelling,
     Enum$SortOrder? updatedAt,
   });
 }
@@ -415,7 +504,6 @@ class _CopyWithImpl$Input$GreWordOrderByWithRelationInput<TRes>
   TRes call({
     Object? createdAt = _undefined,
     Object? id = _undefined,
-    Object? spelling = _undefined,
     Object? updatedAt = _undefined,
   }) =>
       _then(Input$GreWordOrderByWithRelationInput._({
@@ -423,7 +511,6 @@ class _CopyWithImpl$Input$GreWordOrderByWithRelationInput<TRes>
         if (createdAt != _undefined)
           'createdAt': (createdAt as Enum$SortOrder?),
         if (id != _undefined) 'id': (id as Enum$SortOrder?),
-        if (spelling != _undefined) 'spelling': (spelling as Enum$SortOrder?),
         if (updatedAt != _undefined)
           'updatedAt': (updatedAt as Enum$SortOrder?),
       }));
@@ -438,7 +525,6 @@ class _CopyWithStubImpl$Input$GreWordOrderByWithRelationInput<TRes>
   call({
     Enum$SortOrder? createdAt,
     Enum$SortOrder? id,
-    Enum$SortOrder? spelling,
     Enum$SortOrder? updatedAt,
   }) =>
       _res;
@@ -654,138 +740,6 @@ class _CopyWithStubImpl$Input$GreWordSearchPromptInputWhereInput<TRes>
 
   CopyWith$Input$UserListRelationFilter<TRes> get users =>
       CopyWith$Input$UserListRelationFilter.stub(_res);
-}
-
-class Input$GreWordSpellingUserIdCompoundUniqueInput {
-  factory Input$GreWordSpellingUserIdCompoundUniqueInput({
-    required String spelling,
-    required String userId,
-  }) =>
-      Input$GreWordSpellingUserIdCompoundUniqueInput._({
-        r'spelling': spelling,
-        r'userId': userId,
-      });
-
-  Input$GreWordSpellingUserIdCompoundUniqueInput._(this._$data);
-
-  factory Input$GreWordSpellingUserIdCompoundUniqueInput.fromJson(
-      Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    final l$spelling = data['spelling'];
-    result$data['spelling'] = (l$spelling as String);
-    final l$userId = data['userId'];
-    result$data['userId'] = (l$userId as String);
-    return Input$GreWordSpellingUserIdCompoundUniqueInput._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  String get spelling => (_$data['spelling'] as String);
-
-  String get userId => (_$data['userId'] as String);
-
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    final l$spelling = spelling;
-    result$data['spelling'] = l$spelling;
-    final l$userId = userId;
-    result$data['userId'] = l$userId;
-    return result$data;
-  }
-
-  CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput<
-          Input$GreWordSpellingUserIdCompoundUniqueInput>
-      get copyWith => CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput(
-            this,
-            (i) => i,
-          );
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$GreWordSpellingUserIdCompoundUniqueInput) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$spelling = spelling;
-    final lOther$spelling = other.spelling;
-    if (l$spelling != lOther$spelling) {
-      return false;
-    }
-    final l$userId = userId;
-    final lOther$userId = other.userId;
-    if (l$userId != lOther$userId) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$spelling = spelling;
-    final l$userId = userId;
-    return Object.hashAll([
-      l$spelling,
-      l$userId,
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput<TRes> {
-  factory CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput(
-    Input$GreWordSpellingUserIdCompoundUniqueInput instance,
-    TRes Function(Input$GreWordSpellingUserIdCompoundUniqueInput) then,
-  ) = _CopyWithImpl$Input$GreWordSpellingUserIdCompoundUniqueInput;
-
-  factory CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput.stub(
-          TRes res) =
-      _CopyWithStubImpl$Input$GreWordSpellingUserIdCompoundUniqueInput;
-
-  TRes call({
-    String? spelling,
-    String? userId,
-  });
-}
-
-class _CopyWithImpl$Input$GreWordSpellingUserIdCompoundUniqueInput<TRes>
-    implements CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput<TRes> {
-  _CopyWithImpl$Input$GreWordSpellingUserIdCompoundUniqueInput(
-    this._instance,
-    this._then,
-  );
-
-  final Input$GreWordSpellingUserIdCompoundUniqueInput _instance;
-
-  final TRes Function(Input$GreWordSpellingUserIdCompoundUniqueInput) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? spelling = _undefined,
-    Object? userId = _undefined,
-  }) =>
-      _then(Input$GreWordSpellingUserIdCompoundUniqueInput._({
-        ..._instance._$data,
-        if (spelling != _undefined && spelling != null)
-          'spelling': (spelling as String),
-        if (userId != _undefined && userId != null)
-          'userId': (userId as String),
-      }));
-}
-
-class _CopyWithStubImpl$Input$GreWordSpellingUserIdCompoundUniqueInput<TRes>
-    implements CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput<TRes> {
-  _CopyWithStubImpl$Input$GreWordSpellingUserIdCompoundUniqueInput(this._res);
-
-  TRes _res;
-
-  call({
-    String? spelling,
-    String? userId,
-  }) =>
-      _res;
 }
 
 class Input$GreWordTagListRelationFilter {
@@ -1505,17 +1459,17 @@ class _CopyWithStubImpl$Input$GreWordTagWhereUniqueInput<TRes>
 
 class Input$GreWordWhereInput {
   factory Input$GreWordWhereInput({
+    Input$CacheWordWhereInput? cacheWord,
     Input$GreWordTagListRelationFilter? greWordTags,
     Input$StringFilter? id,
-    Input$StringFilter? spelling,
     Input$EnumGreWordStatusFilter? status,
     Input$UserWhereInput? user,
     Input$StringFilter? userId,
   }) =>
       Input$GreWordWhereInput._({
+        if (cacheWord != null) r'cacheWord': cacheWord,
         if (greWordTags != null) r'greWordTags': greWordTags,
         if (id != null) r'id': id,
-        if (spelling != null) r'spelling': spelling,
         if (status != null) r'status': status,
         if (user != null) r'user': user,
         if (userId != null) r'userId': userId,
@@ -1525,6 +1479,13 @@ class Input$GreWordWhereInput {
 
   factory Input$GreWordWhereInput.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
+    if (data.containsKey('cacheWord')) {
+      final l$cacheWord = data['cacheWord'];
+      result$data['cacheWord'] = l$cacheWord == null
+          ? null
+          : Input$CacheWordWhereInput.fromJson(
+              (l$cacheWord as Map<String, dynamic>));
+    }
     if (data.containsKey('greWordTags')) {
       final l$greWordTags = data['greWordTags'];
       result$data['greWordTags'] = l$greWordTags == null
@@ -1537,12 +1498,6 @@ class Input$GreWordWhereInput {
       result$data['id'] = l$id == null
           ? null
           : Input$StringFilter.fromJson((l$id as Map<String, dynamic>));
-    }
-    if (data.containsKey('spelling')) {
-      final l$spelling = data['spelling'];
-      result$data['spelling'] = l$spelling == null
-          ? null
-          : Input$StringFilter.fromJson((l$spelling as Map<String, dynamic>));
     }
     if (data.containsKey('status')) {
       final l$status = data['status'];
@@ -1568,13 +1523,13 @@ class Input$GreWordWhereInput {
 
   Map<String, dynamic> _$data;
 
+  Input$CacheWordWhereInput? get cacheWord =>
+      (_$data['cacheWord'] as Input$CacheWordWhereInput?);
+
   Input$GreWordTagListRelationFilter? get greWordTags =>
       (_$data['greWordTags'] as Input$GreWordTagListRelationFilter?);
 
   Input$StringFilter? get id => (_$data['id'] as Input$StringFilter?);
-
-  Input$StringFilter? get spelling =>
-      (_$data['spelling'] as Input$StringFilter?);
 
   Input$EnumGreWordStatusFilter? get status =>
       (_$data['status'] as Input$EnumGreWordStatusFilter?);
@@ -1585,6 +1540,10 @@ class Input$GreWordWhereInput {
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
+    if (_$data.containsKey('cacheWord')) {
+      final l$cacheWord = cacheWord;
+      result$data['cacheWord'] = l$cacheWord?.toJson();
+    }
     if (_$data.containsKey('greWordTags')) {
       final l$greWordTags = greWordTags;
       result$data['greWordTags'] = l$greWordTags?.toJson();
@@ -1592,10 +1551,6 @@ class Input$GreWordWhereInput {
     if (_$data.containsKey('id')) {
       final l$id = id;
       result$data['id'] = l$id?.toJson();
-    }
-    if (_$data.containsKey('spelling')) {
-      final l$spelling = spelling;
-      result$data['spelling'] = l$spelling?.toJson();
     }
     if (_$data.containsKey('status')) {
       final l$status = status;
@@ -1627,6 +1582,15 @@ class Input$GreWordWhereInput {
         runtimeType != other.runtimeType) {
       return false;
     }
+    final l$cacheWord = cacheWord;
+    final lOther$cacheWord = other.cacheWord;
+    if (_$data.containsKey('cacheWord') !=
+        other._$data.containsKey('cacheWord')) {
+      return false;
+    }
+    if (l$cacheWord != lOther$cacheWord) {
+      return false;
+    }
     final l$greWordTags = greWordTags;
     final lOther$greWordTags = other.greWordTags;
     if (_$data.containsKey('greWordTags') !=
@@ -1642,15 +1606,6 @@ class Input$GreWordWhereInput {
       return false;
     }
     if (l$id != lOther$id) {
-      return false;
-    }
-    final l$spelling = spelling;
-    final lOther$spelling = other.spelling;
-    if (_$data.containsKey('spelling') !=
-        other._$data.containsKey('spelling')) {
-      return false;
-    }
-    if (l$spelling != lOther$spelling) {
       return false;
     }
     final l$status = status;
@@ -1682,16 +1637,16 @@ class Input$GreWordWhereInput {
 
   @override
   int get hashCode {
+    final l$cacheWord = cacheWord;
     final l$greWordTags = greWordTags;
     final l$id = id;
-    final l$spelling = spelling;
     final l$status = status;
     final l$user = user;
     final l$userId = userId;
     return Object.hashAll([
+      _$data.containsKey('cacheWord') ? l$cacheWord : const {},
       _$data.containsKey('greWordTags') ? l$greWordTags : const {},
       _$data.containsKey('id') ? l$id : const {},
-      _$data.containsKey('spelling') ? l$spelling : const {},
       _$data.containsKey('status') ? l$status : const {},
       _$data.containsKey('user') ? l$user : const {},
       _$data.containsKey('userId') ? l$userId : const {},
@@ -1709,16 +1664,16 @@ abstract class CopyWith$Input$GreWordWhereInput<TRes> {
       _CopyWithStubImpl$Input$GreWordWhereInput;
 
   TRes call({
+    Input$CacheWordWhereInput? cacheWord,
     Input$GreWordTagListRelationFilter? greWordTags,
     Input$StringFilter? id,
-    Input$StringFilter? spelling,
     Input$EnumGreWordStatusFilter? status,
     Input$UserWhereInput? user,
     Input$StringFilter? userId,
   });
+  CopyWith$Input$CacheWordWhereInput<TRes> get cacheWord;
   CopyWith$Input$GreWordTagListRelationFilter<TRes> get greWordTags;
   CopyWith$Input$StringFilter<TRes> get id;
-  CopyWith$Input$StringFilter<TRes> get spelling;
   CopyWith$Input$EnumGreWordStatusFilter<TRes> get status;
   CopyWith$Input$UserWhereInput<TRes> get user;
   CopyWith$Input$StringFilter<TRes> get userId;
@@ -1738,25 +1693,33 @@ class _CopyWithImpl$Input$GreWordWhereInput<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
+    Object? cacheWord = _undefined,
     Object? greWordTags = _undefined,
     Object? id = _undefined,
-    Object? spelling = _undefined,
     Object? status = _undefined,
     Object? user = _undefined,
     Object? userId = _undefined,
   }) =>
       _then(Input$GreWordWhereInput._({
         ..._instance._$data,
+        if (cacheWord != _undefined)
+          'cacheWord': (cacheWord as Input$CacheWordWhereInput?),
         if (greWordTags != _undefined)
           'greWordTags': (greWordTags as Input$GreWordTagListRelationFilter?),
         if (id != _undefined) 'id': (id as Input$StringFilter?),
-        if (spelling != _undefined)
-          'spelling': (spelling as Input$StringFilter?),
         if (status != _undefined)
           'status': (status as Input$EnumGreWordStatusFilter?),
         if (user != _undefined) 'user': (user as Input$UserWhereInput?),
         if (userId != _undefined) 'userId': (userId as Input$StringFilter?),
       }));
+
+  CopyWith$Input$CacheWordWhereInput<TRes> get cacheWord {
+    final local$cacheWord = _instance.cacheWord;
+    return local$cacheWord == null
+        ? CopyWith$Input$CacheWordWhereInput.stub(_then(_instance))
+        : CopyWith$Input$CacheWordWhereInput(
+            local$cacheWord, (e) => call(cacheWord: e));
+  }
 
   CopyWith$Input$GreWordTagListRelationFilter<TRes> get greWordTags {
     final local$greWordTags = _instance.greWordTags;
@@ -1771,13 +1734,6 @@ class _CopyWithImpl$Input$GreWordWhereInput<TRes>
     return local$id == null
         ? CopyWith$Input$StringFilter.stub(_then(_instance))
         : CopyWith$Input$StringFilter(local$id, (e) => call(id: e));
-  }
-
-  CopyWith$Input$StringFilter<TRes> get spelling {
-    final local$spelling = _instance.spelling;
-    return local$spelling == null
-        ? CopyWith$Input$StringFilter.stub(_then(_instance))
-        : CopyWith$Input$StringFilter(local$spelling, (e) => call(spelling: e));
   }
 
   CopyWith$Input$EnumGreWordStatusFilter<TRes> get status {
@@ -1810,22 +1766,22 @@ class _CopyWithStubImpl$Input$GreWordWhereInput<TRes>
   TRes _res;
 
   call({
+    Input$CacheWordWhereInput? cacheWord,
     Input$GreWordTagListRelationFilter? greWordTags,
     Input$StringFilter? id,
-    Input$StringFilter? spelling,
     Input$EnumGreWordStatusFilter? status,
     Input$UserWhereInput? user,
     Input$StringFilter? userId,
   }) =>
       _res;
 
+  CopyWith$Input$CacheWordWhereInput<TRes> get cacheWord =>
+      CopyWith$Input$CacheWordWhereInput.stub(_res);
+
   CopyWith$Input$GreWordTagListRelationFilter<TRes> get greWordTags =>
       CopyWith$Input$GreWordTagListRelationFilter.stub(_res);
 
   CopyWith$Input$StringFilter<TRes> get id =>
-      CopyWith$Input$StringFilter.stub(_res);
-
-  CopyWith$Input$StringFilter<TRes> get spelling =>
       CopyWith$Input$StringFilter.stub(_res);
 
   CopyWith$Input$EnumGreWordStatusFilter<TRes> get status =>
@@ -1836,171 +1792,6 @@ class _CopyWithStubImpl$Input$GreWordWhereInput<TRes>
 
   CopyWith$Input$StringFilter<TRes> get userId =>
       CopyWith$Input$StringFilter.stub(_res);
-}
-
-class Input$GreWordWhereUniqueInput {
-  factory Input$GreWordWhereUniqueInput({
-    String? id,
-    Input$GreWordSpellingUserIdCompoundUniqueInput? spelling_userId,
-  }) =>
-      Input$GreWordWhereUniqueInput._({
-        if (id != null) r'id': id,
-        if (spelling_userId != null) r'spelling_userId': spelling_userId,
-      });
-
-  Input$GreWordWhereUniqueInput._(this._$data);
-
-  factory Input$GreWordWhereUniqueInput.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('id')) {
-      final l$id = data['id'];
-      result$data['id'] = (l$id as String?);
-    }
-    if (data.containsKey('spelling_userId')) {
-      final l$spelling_userId = data['spelling_userId'];
-      result$data['spelling_userId'] = l$spelling_userId == null
-          ? null
-          : Input$GreWordSpellingUserIdCompoundUniqueInput.fromJson(
-              (l$spelling_userId as Map<String, dynamic>));
-    }
-    return Input$GreWordWhereUniqueInput._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  String? get id => (_$data['id'] as String?);
-
-  Input$GreWordSpellingUserIdCompoundUniqueInput? get spelling_userId =>
-      (_$data['spelling_userId']
-          as Input$GreWordSpellingUserIdCompoundUniqueInput?);
-
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('id')) {
-      final l$id = id;
-      result$data['id'] = l$id;
-    }
-    if (_$data.containsKey('spelling_userId')) {
-      final l$spelling_userId = spelling_userId;
-      result$data['spelling_userId'] = l$spelling_userId?.toJson();
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$GreWordWhereUniqueInput<Input$GreWordWhereUniqueInput>
-      get copyWith => CopyWith$Input$GreWordWhereUniqueInput(
-            this,
-            (i) => i,
-          );
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$GreWordWhereUniqueInput) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
-      return false;
-    }
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$spelling_userId = spelling_userId;
-    final lOther$spelling_userId = other.spelling_userId;
-    if (_$data.containsKey('spelling_userId') !=
-        other._$data.containsKey('spelling_userId')) {
-      return false;
-    }
-    if (l$spelling_userId != lOther$spelling_userId) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$spelling_userId = spelling_userId;
-    return Object.hashAll([
-      _$data.containsKey('id') ? l$id : const {},
-      _$data.containsKey('spelling_userId') ? l$spelling_userId : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$GreWordWhereUniqueInput<TRes> {
-  factory CopyWith$Input$GreWordWhereUniqueInput(
-    Input$GreWordWhereUniqueInput instance,
-    TRes Function(Input$GreWordWhereUniqueInput) then,
-  ) = _CopyWithImpl$Input$GreWordWhereUniqueInput;
-
-  factory CopyWith$Input$GreWordWhereUniqueInput.stub(TRes res) =
-      _CopyWithStubImpl$Input$GreWordWhereUniqueInput;
-
-  TRes call({
-    String? id,
-    Input$GreWordSpellingUserIdCompoundUniqueInput? spelling_userId,
-  });
-  CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput<TRes>
-      get spelling_userId;
-}
-
-class _CopyWithImpl$Input$GreWordWhereUniqueInput<TRes>
-    implements CopyWith$Input$GreWordWhereUniqueInput<TRes> {
-  _CopyWithImpl$Input$GreWordWhereUniqueInput(
-    this._instance,
-    this._then,
-  );
-
-  final Input$GreWordWhereUniqueInput _instance;
-
-  final TRes Function(Input$GreWordWhereUniqueInput) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? spelling_userId = _undefined,
-  }) =>
-      _then(Input$GreWordWhereUniqueInput._({
-        ..._instance._$data,
-        if (id != _undefined) 'id': (id as String?),
-        if (spelling_userId != _undefined)
-          'spelling_userId': (spelling_userId
-              as Input$GreWordSpellingUserIdCompoundUniqueInput?),
-      }));
-
-  CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput<TRes>
-      get spelling_userId {
-    final local$spelling_userId = _instance.spelling_userId;
-    return local$spelling_userId == null
-        ? CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput.stub(
-            _then(_instance))
-        : CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput(
-            local$spelling_userId, (e) => call(spelling_userId: e));
-  }
-}
-
-class _CopyWithStubImpl$Input$GreWordWhereUniqueInput<TRes>
-    implements CopyWith$Input$GreWordWhereUniqueInput<TRes> {
-  _CopyWithStubImpl$Input$GreWordWhereUniqueInput(this._res);
-
-  TRes _res;
-
-  call({
-    String? id,
-    Input$GreWordSpellingUserIdCompoundUniqueInput? spelling_userId,
-  }) =>
-      _res;
-
-  CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput<TRes>
-      get spelling_userId =>
-          CopyWith$Input$GreWordSpellingUserIdCompoundUniqueInput.stub(_res);
 }
 
 class Input$StringFilter {

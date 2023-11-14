@@ -21,19 +21,23 @@ class WordSearchResultView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final dbUser = ref.watch(dbUserProvider)!;
-    final promptInput = (dbUser.meta.defaultGreWordSearchPromptInput ??
-            'list meaning and 3 easy example sentences for word - ${wordPlaceholder}')
-        .replaceAll(wordPlaceholder, word);
+    final prompt = dbUser.meta.defaultGreWordSearchPromptInput ??
+        'list meaning and 3 easy example sentences for word - ${wordPlaceholder}';
     final promptLoading = useState(false);
     final indexesFetchedForWord = useState<List<int>>([]);
     final graphQLClient = ref.watch(graphQLClientProvider);
+
     final greWordQuery = useQuery$GreWord(
       Options$Query$GreWord(
         variables: Variables$Query$GreWord(
-          where: Input$GreWordWhereUniqueInput(
-            spelling_userId: Input$GreWordSpellingUserIdCompoundUniqueInput(
-              spelling: word,
-              userId: dbUser.id,
+          where: Input$GreWordWhereInput(
+            cacheWord: Input$CacheWordWhereInput(
+              text: Input$StringFilter(
+                equals: word,
+              ),
+            ),
+            userId: Input$StringFilter(
+              equals: dbUser.id,
             ),
           ),
         ),
@@ -64,7 +68,8 @@ class WordSearchResultView extends HookConsumerWidget {
       final result = await graphQLClient.query$SendSinglePrompt(
         Options$Query$SendSinglePrompt(
           variables: Variables$Query$SendSinglePrompt(
-            input: promptInput,
+            prompt: prompt,
+            word: word,
             indexesReturned: indexesFetchedForWord.value,
             skipCache: skipCache,
           ),
@@ -77,12 +82,12 @@ class WordSearchResultView extends HookConsumerWidget {
     useEffect(() {
       indexesFetchedForWord.value = [];
       return null;
-    }, [promptInput]);
+    }, [prompt, word]);
 
     useEffect(() {
       submitWord();
       return null;
-    }, [promptInput]);
+    }, [prompt, word]);
 
     final createGreWordMutation = useMutation$CreateGreWord();
     final createGptPromptMuation = useMutation$CreateGptPrompt();
@@ -90,6 +95,9 @@ class WordSearchResultView extends HookConsumerWidget {
     final greWord = greWordQuery.result.parsedData?.greWord;
     final promptResponse =
         sendSinglePromptQueryParsedData.value?.sendSinglePrompt.result;
+
+    final cacheResponseId =
+        sendSinglePromptQueryParsedData.value?.sendSinglePrompt.cacheResponseId;
 
     return SingleChildScrollView(
       child: Container(
@@ -133,7 +141,7 @@ class WordSearchResultView extends HookConsumerWidget {
                   ],
                 ),
                 if (promptLoading.value) CircularProgressIndicator(),
-                promptResponse == null
+                promptResponse == null || cacheResponseId == null
                     ? CircularProgressIndicator()
                     : Column(
                         children: [
@@ -149,9 +157,6 @@ class WordSearchResultView extends HookConsumerWidget {
                                     final result = await createGreWordMutation
                                         .runMutation(
                                           Variables$Mutation$CreateGreWord(
-                                            spelling: word,
-                                            promptInput: promptInput,
-                                            promptResponse: promptResponse,
                                             userId: dbUser.id,
                                             greWordTags:
                                                 selectedTags.map((tagName) {
@@ -163,6 +168,7 @@ class WordSearchResultView extends HookConsumerWidget {
                                                 ),
                                               );
                                             }).toList(),
+                                            cacheResponseId: cacheResponseId,
                                           ),
                                         )
                                         .networkResult;
@@ -170,11 +176,11 @@ class WordSearchResultView extends HookConsumerWidget {
                                   } else {
                                     final result = await createGptPromptMuation
                                         .runMutation(
-                                            Variables$Mutation$CreateGptPrompt(
-                                          input: promptInput,
-                                          response: promptResponse,
-                                          greWordId: greWord.id,
-                                        ))
+                                          Variables$Mutation$CreateGptPrompt(
+                                            greWordId: greWord.id,
+                                            cacheResponseId: cacheResponseId,
+                                          ),
+                                        )
                                         .networkResult;
                                     return result;
                                   }
@@ -197,8 +203,8 @@ class WordSearchResultView extends HookConsumerWidget {
                               ],
                             ),
                           ),
-                          Text(createGreWordMutation
-                                  .result.parsedData?.createGreWord.spelling ??
+                          Text(createGreWordMutation.result.parsedData
+                                  ?.createGreWord.cacheWord.text ??
                               ''),
                         ],
                       ),

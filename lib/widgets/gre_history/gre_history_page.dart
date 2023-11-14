@@ -56,8 +56,10 @@ class GreHistoryPage extends HookConsumerWidget {
             userId: Input$StringFilter(
               equals: dbUser.id,
             ),
-            spelling: Input$StringFilter(
-              startsWith: queryInput.value,
+            cacheWord: Input$CacheWordWhereInput(
+              text: Input$StringFilter(
+                startsWith: queryInput.value,
+              ),
             ),
             status: Input$EnumGreWordStatusFilter(
               $in: selectedStatuses.value.isNotEmpty

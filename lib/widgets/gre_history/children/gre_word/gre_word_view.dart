@@ -12,6 +12,7 @@ import 'package:skartner_app/widgets/gre_history/gre_history_page.dart';
 
 class GreWordView extends HookConsumerWidget {
   final Fragment$GreWordFields greWord;
+
   final VoidCallback onMutate;
   const GreWordView({
     super.key,
@@ -73,7 +74,7 @@ class GreWordView extends HookConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                greWord.spelling,
+                greWord.cacheWord.text,
                 style: TextStyle(
                   fontSize: 30,
                 ),

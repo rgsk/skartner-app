@@ -5,10 +5,805 @@ import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
+class Fragment$GptPromptFields {
+  Fragment$GptPromptFields({
+    required this.id,
+    required this.cacheResponse,
+    this.editedResponse,
+    this.greWordId,
+    this.$__typename = 'GptPrompt',
+  });
+
+  factory Fragment$GptPromptFields.fromJson(Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$cacheResponse = json['cacheResponse'];
+    final l$editedResponse = json['editedResponse'];
+    final l$greWordId = json['greWordId'];
+    final l$$__typename = json['__typename'];
+    return Fragment$GptPromptFields(
+      id: (l$id as String),
+      cacheResponse: Fragment$GptPromptFields$cacheResponse.fromJson(
+          (l$cacheResponse as Map<String, dynamic>)),
+      editedResponse: (l$editedResponse as String?),
+      greWordId: (l$greWordId as String?),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String id;
+
+  final Fragment$GptPromptFields$cacheResponse cacheResponse;
+
+  final String? editedResponse;
+
+  final String? greWordId;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$cacheResponse = cacheResponse;
+    _resultData['cacheResponse'] = l$cacheResponse.toJson();
+    final l$editedResponse = editedResponse;
+    _resultData['editedResponse'] = l$editedResponse;
+    final l$greWordId = greWordId;
+    _resultData['greWordId'] = l$greWordId;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$cacheResponse = cacheResponse;
+    final l$editedResponse = editedResponse;
+    final l$greWordId = greWordId;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$cacheResponse,
+      l$editedResponse,
+      l$greWordId,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$GptPromptFields) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$cacheResponse = cacheResponse;
+    final lOther$cacheResponse = other.cacheResponse;
+    if (l$cacheResponse != lOther$cacheResponse) {
+      return false;
+    }
+    final l$editedResponse = editedResponse;
+    final lOther$editedResponse = other.editedResponse;
+    if (l$editedResponse != lOther$editedResponse) {
+      return false;
+    }
+    final l$greWordId = greWordId;
+    final lOther$greWordId = other.greWordId;
+    if (l$greWordId != lOther$greWordId) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$GptPromptFields
+    on Fragment$GptPromptFields {
+  CopyWith$Fragment$GptPromptFields<Fragment$GptPromptFields> get copyWith =>
+      CopyWith$Fragment$GptPromptFields(
+        this,
+        (i) => i,
+      );
+}
+
+abstract class CopyWith$Fragment$GptPromptFields<TRes> {
+  factory CopyWith$Fragment$GptPromptFields(
+    Fragment$GptPromptFields instance,
+    TRes Function(Fragment$GptPromptFields) then,
+  ) = _CopyWithImpl$Fragment$GptPromptFields;
+
+  factory CopyWith$Fragment$GptPromptFields.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$GptPromptFields;
+
+  TRes call({
+    String? id,
+    Fragment$GptPromptFields$cacheResponse? cacheResponse,
+    String? editedResponse,
+    String? greWordId,
+    String? $__typename,
+  });
+  CopyWith$Fragment$GptPromptFields$cacheResponse<TRes> get cacheResponse;
+}
+
+class _CopyWithImpl$Fragment$GptPromptFields<TRes>
+    implements CopyWith$Fragment$GptPromptFields<TRes> {
+  _CopyWithImpl$Fragment$GptPromptFields(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$GptPromptFields _instance;
+
+  final TRes Function(Fragment$GptPromptFields) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? cacheResponse = _undefined,
+    Object? editedResponse = _undefined,
+    Object? greWordId = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$GptPromptFields(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        cacheResponse: cacheResponse == _undefined || cacheResponse == null
+            ? _instance.cacheResponse
+            : (cacheResponse as Fragment$GptPromptFields$cacheResponse),
+        editedResponse: editedResponse == _undefined
+            ? _instance.editedResponse
+            : (editedResponse as String?),
+        greWordId: greWordId == _undefined
+            ? _instance.greWordId
+            : (greWordId as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWith$Fragment$GptPromptFields$cacheResponse<TRes> get cacheResponse {
+    final local$cacheResponse = _instance.cacheResponse;
+    return CopyWith$Fragment$GptPromptFields$cacheResponse(
+        local$cacheResponse, (e) => call(cacheResponse: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$GptPromptFields<TRes>
+    implements CopyWith$Fragment$GptPromptFields<TRes> {
+  _CopyWithStubImpl$Fragment$GptPromptFields(this._res);
+
+  TRes _res;
+
+  call({
+    String? id,
+    Fragment$GptPromptFields$cacheResponse? cacheResponse,
+    String? editedResponse,
+    String? greWordId,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWith$Fragment$GptPromptFields$cacheResponse<TRes> get cacheResponse =>
+      CopyWith$Fragment$GptPromptFields$cacheResponse.stub(_res);
+}
+
+const fragmentDefinitionGptPromptFields = FragmentDefinitionNode(
+  name: NameNode(value: 'GptPromptFields'),
+  typeCondition: TypeConditionNode(
+      on: NamedTypeNode(
+    name: NameNode(value: 'GptPrompt'),
+    isNonNull: false,
+  )),
+  directives: [],
+  selectionSet: SelectionSetNode(selections: [
+    FieldNode(
+      name: NameNode(value: 'id'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'cacheResponse'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+          name: NameNode(value: 'cachePrompt'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'text'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
+          name: NameNode(value: 'cacheWord'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: SelectionSetNode(selections: [
+            FieldNode(
+              name: NameNode(value: 'text'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+            FieldNode(
+              name: NameNode(value: '__typename'),
+              alias: null,
+              arguments: [],
+              directives: [],
+              selectionSet: null,
+            ),
+          ]),
+        ),
+        FieldNode(
+          name: NameNode(value: 'text'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
+    ),
+    FieldNode(
+      name: NameNode(value: 'editedResponse'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'greWordId'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: '__typename'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+  ]),
+);
+const documentNodeFragmentGptPromptFields = DocumentNode(definitions: [
+  fragmentDefinitionGptPromptFields,
+]);
+
+extension ClientExtension$Fragment$GptPromptFields on graphql.GraphQLClient {
+  void writeFragment$GptPromptFields({
+    required Fragment$GptPromptFields data,
+    required Map<String, dynamic> idFields,
+    bool broadcast = true,
+  }) =>
+      this.writeFragment(
+        graphql.FragmentRequest(
+          idFields: idFields,
+          fragment: const graphql.Fragment(
+            fragmentName: 'GptPromptFields',
+            document: documentNodeFragmentGptPromptFields,
+          ),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Fragment$GptPromptFields? readFragment$GptPromptFields({
+    required Map<String, dynamic> idFields,
+    bool optimistic = true,
+  }) {
+    final result = this.readFragment(
+      graphql.FragmentRequest(
+        idFields: idFields,
+        fragment: const graphql.Fragment(
+          fragmentName: 'GptPromptFields',
+          document: documentNodeFragmentGptPromptFields,
+        ),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Fragment$GptPromptFields.fromJson(result);
+  }
+}
+
+class Fragment$GptPromptFields$cacheResponse {
+  Fragment$GptPromptFields$cacheResponse({
+    required this.cachePrompt,
+    required this.cacheWord,
+    required this.text,
+    this.$__typename = 'CacheResponse',
+  });
+
+  factory Fragment$GptPromptFields$cacheResponse.fromJson(
+      Map<String, dynamic> json) {
+    final l$cachePrompt = json['cachePrompt'];
+    final l$cacheWord = json['cacheWord'];
+    final l$text = json['text'];
+    final l$$__typename = json['__typename'];
+    return Fragment$GptPromptFields$cacheResponse(
+      cachePrompt: Fragment$GptPromptFields$cacheResponse$cachePrompt.fromJson(
+          (l$cachePrompt as Map<String, dynamic>)),
+      cacheWord: Fragment$GptPromptFields$cacheResponse$cacheWord.fromJson(
+          (l$cacheWord as Map<String, dynamic>)),
+      text: (l$text as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Fragment$GptPromptFields$cacheResponse$cachePrompt cachePrompt;
+
+  final Fragment$GptPromptFields$cacheResponse$cacheWord cacheWord;
+
+  final String text;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$cachePrompt = cachePrompt;
+    _resultData['cachePrompt'] = l$cachePrompt.toJson();
+    final l$cacheWord = cacheWord;
+    _resultData['cacheWord'] = l$cacheWord.toJson();
+    final l$text = text;
+    _resultData['text'] = l$text;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$cachePrompt = cachePrompt;
+    final l$cacheWord = cacheWord;
+    final l$text = text;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$cachePrompt,
+      l$cacheWord,
+      l$text,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$GptPromptFields$cacheResponse) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$cachePrompt = cachePrompt;
+    final lOther$cachePrompt = other.cachePrompt;
+    if (l$cachePrompt != lOther$cachePrompt) {
+      return false;
+    }
+    final l$cacheWord = cacheWord;
+    final lOther$cacheWord = other.cacheWord;
+    if (l$cacheWord != lOther$cacheWord) {
+      return false;
+    }
+    final l$text = text;
+    final lOther$text = other.text;
+    if (l$text != lOther$text) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$GptPromptFields$cacheResponse
+    on Fragment$GptPromptFields$cacheResponse {
+  CopyWith$Fragment$GptPromptFields$cacheResponse<
+          Fragment$GptPromptFields$cacheResponse>
+      get copyWith => CopyWith$Fragment$GptPromptFields$cacheResponse(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$GptPromptFields$cacheResponse<TRes> {
+  factory CopyWith$Fragment$GptPromptFields$cacheResponse(
+    Fragment$GptPromptFields$cacheResponse instance,
+    TRes Function(Fragment$GptPromptFields$cacheResponse) then,
+  ) = _CopyWithImpl$Fragment$GptPromptFields$cacheResponse;
+
+  factory CopyWith$Fragment$GptPromptFields$cacheResponse.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$GptPromptFields$cacheResponse;
+
+  TRes call({
+    Fragment$GptPromptFields$cacheResponse$cachePrompt? cachePrompt,
+    Fragment$GptPromptFields$cacheResponse$cacheWord? cacheWord,
+    String? text,
+    String? $__typename,
+  });
+  CopyWith$Fragment$GptPromptFields$cacheResponse$cachePrompt<TRes>
+      get cachePrompt;
+  CopyWith$Fragment$GptPromptFields$cacheResponse$cacheWord<TRes> get cacheWord;
+}
+
+class _CopyWithImpl$Fragment$GptPromptFields$cacheResponse<TRes>
+    implements CopyWith$Fragment$GptPromptFields$cacheResponse<TRes> {
+  _CopyWithImpl$Fragment$GptPromptFields$cacheResponse(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$GptPromptFields$cacheResponse _instance;
+
+  final TRes Function(Fragment$GptPromptFields$cacheResponse) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? cachePrompt = _undefined,
+    Object? cacheWord = _undefined,
+    Object? text = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$GptPromptFields$cacheResponse(
+        cachePrompt: cachePrompt == _undefined || cachePrompt == null
+            ? _instance.cachePrompt
+            : (cachePrompt
+                as Fragment$GptPromptFields$cacheResponse$cachePrompt),
+        cacheWord: cacheWord == _undefined || cacheWord == null
+            ? _instance.cacheWord
+            : (cacheWord as Fragment$GptPromptFields$cacheResponse$cacheWord),
+        text: text == _undefined || text == null
+            ? _instance.text
+            : (text as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWith$Fragment$GptPromptFields$cacheResponse$cachePrompt<TRes>
+      get cachePrompt {
+    final local$cachePrompt = _instance.cachePrompt;
+    return CopyWith$Fragment$GptPromptFields$cacheResponse$cachePrompt(
+        local$cachePrompt, (e) => call(cachePrompt: e));
+  }
+
+  CopyWith$Fragment$GptPromptFields$cacheResponse$cacheWord<TRes>
+      get cacheWord {
+    final local$cacheWord = _instance.cacheWord;
+    return CopyWith$Fragment$GptPromptFields$cacheResponse$cacheWord(
+        local$cacheWord, (e) => call(cacheWord: e));
+  }
+}
+
+class _CopyWithStubImpl$Fragment$GptPromptFields$cacheResponse<TRes>
+    implements CopyWith$Fragment$GptPromptFields$cacheResponse<TRes> {
+  _CopyWithStubImpl$Fragment$GptPromptFields$cacheResponse(this._res);
+
+  TRes _res;
+
+  call({
+    Fragment$GptPromptFields$cacheResponse$cachePrompt? cachePrompt,
+    Fragment$GptPromptFields$cacheResponse$cacheWord? cacheWord,
+    String? text,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWith$Fragment$GptPromptFields$cacheResponse$cachePrompt<TRes>
+      get cachePrompt =>
+          CopyWith$Fragment$GptPromptFields$cacheResponse$cachePrompt.stub(
+              _res);
+
+  CopyWith$Fragment$GptPromptFields$cacheResponse$cacheWord<TRes>
+      get cacheWord =>
+          CopyWith$Fragment$GptPromptFields$cacheResponse$cacheWord.stub(_res);
+}
+
+class Fragment$GptPromptFields$cacheResponse$cachePrompt {
+  Fragment$GptPromptFields$cacheResponse$cachePrompt({
+    required this.text,
+    this.$__typename = 'CachePrompt',
+  });
+
+  factory Fragment$GptPromptFields$cacheResponse$cachePrompt.fromJson(
+      Map<String, dynamic> json) {
+    final l$text = json['text'];
+    final l$$__typename = json['__typename'];
+    return Fragment$GptPromptFields$cacheResponse$cachePrompt(
+      text: (l$text as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String text;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$text = text;
+    _resultData['text'] = l$text;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$text = text;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$text,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$GptPromptFields$cacheResponse$cachePrompt) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$text = text;
+    final lOther$text = other.text;
+    if (l$text != lOther$text) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$GptPromptFields$cacheResponse$cachePrompt
+    on Fragment$GptPromptFields$cacheResponse$cachePrompt {
+  CopyWith$Fragment$GptPromptFields$cacheResponse$cachePrompt<
+          Fragment$GptPromptFields$cacheResponse$cachePrompt>
+      get copyWith =>
+          CopyWith$Fragment$GptPromptFields$cacheResponse$cachePrompt(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$GptPromptFields$cacheResponse$cachePrompt<
+    TRes> {
+  factory CopyWith$Fragment$GptPromptFields$cacheResponse$cachePrompt(
+    Fragment$GptPromptFields$cacheResponse$cachePrompt instance,
+    TRes Function(Fragment$GptPromptFields$cacheResponse$cachePrompt) then,
+  ) = _CopyWithImpl$Fragment$GptPromptFields$cacheResponse$cachePrompt;
+
+  factory CopyWith$Fragment$GptPromptFields$cacheResponse$cachePrompt.stub(
+          TRes res) =
+      _CopyWithStubImpl$Fragment$GptPromptFields$cacheResponse$cachePrompt;
+
+  TRes call({
+    String? text,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$GptPromptFields$cacheResponse$cachePrompt<TRes>
+    implements
+        CopyWith$Fragment$GptPromptFields$cacheResponse$cachePrompt<TRes> {
+  _CopyWithImpl$Fragment$GptPromptFields$cacheResponse$cachePrompt(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$GptPromptFields$cacheResponse$cachePrompt _instance;
+
+  final TRes Function(Fragment$GptPromptFields$cacheResponse$cachePrompt) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? text = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$GptPromptFields$cacheResponse$cachePrompt(
+        text: text == _undefined || text == null
+            ? _instance.text
+            : (text as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$GptPromptFields$cacheResponse$cachePrompt<TRes>
+    implements
+        CopyWith$Fragment$GptPromptFields$cacheResponse$cachePrompt<TRes> {
+  _CopyWithStubImpl$Fragment$GptPromptFields$cacheResponse$cachePrompt(
+      this._res);
+
+  TRes _res;
+
+  call({
+    String? text,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Fragment$GptPromptFields$cacheResponse$cacheWord {
+  Fragment$GptPromptFields$cacheResponse$cacheWord({
+    required this.text,
+    this.$__typename = 'CacheWord',
+  });
+
+  factory Fragment$GptPromptFields$cacheResponse$cacheWord.fromJson(
+      Map<String, dynamic> json) {
+    final l$text = json['text'];
+    final l$$__typename = json['__typename'];
+    return Fragment$GptPromptFields$cacheResponse$cacheWord(
+      text: (l$text as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String text;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$text = text;
+    _resultData['text'] = l$text;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$text = text;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$text,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Fragment$GptPromptFields$cacheResponse$cacheWord) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$text = text;
+    final lOther$text = other.text;
+    if (l$text != lOther$text) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Fragment$GptPromptFields$cacheResponse$cacheWord
+    on Fragment$GptPromptFields$cacheResponse$cacheWord {
+  CopyWith$Fragment$GptPromptFields$cacheResponse$cacheWord<
+          Fragment$GptPromptFields$cacheResponse$cacheWord>
+      get copyWith => CopyWith$Fragment$GptPromptFields$cacheResponse$cacheWord(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Fragment$GptPromptFields$cacheResponse$cacheWord<TRes> {
+  factory CopyWith$Fragment$GptPromptFields$cacheResponse$cacheWord(
+    Fragment$GptPromptFields$cacheResponse$cacheWord instance,
+    TRes Function(Fragment$GptPromptFields$cacheResponse$cacheWord) then,
+  ) = _CopyWithImpl$Fragment$GptPromptFields$cacheResponse$cacheWord;
+
+  factory CopyWith$Fragment$GptPromptFields$cacheResponse$cacheWord.stub(
+          TRes res) =
+      _CopyWithStubImpl$Fragment$GptPromptFields$cacheResponse$cacheWord;
+
+  TRes call({
+    String? text,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Fragment$GptPromptFields$cacheResponse$cacheWord<TRes>
+    implements CopyWith$Fragment$GptPromptFields$cacheResponse$cacheWord<TRes> {
+  _CopyWithImpl$Fragment$GptPromptFields$cacheResponse$cacheWord(
+    this._instance,
+    this._then,
+  );
+
+  final Fragment$GptPromptFields$cacheResponse$cacheWord _instance;
+
+  final TRes Function(Fragment$GptPromptFields$cacheResponse$cacheWord) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? text = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Fragment$GptPromptFields$cacheResponse$cacheWord(
+        text: text == _undefined || text == null
+            ? _instance.text
+            : (text as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Fragment$GptPromptFields$cacheResponse$cacheWord<TRes>
+    implements CopyWith$Fragment$GptPromptFields$cacheResponse$cacheWord<TRes> {
+  _CopyWithStubImpl$Fragment$GptPromptFields$cacheResponse$cacheWord(this._res);
+
+  TRes _res;
+
+  call({
+    String? text,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
 class Fragment$GreWordFields {
   Fragment$GreWordFields({
     required this.id,
-    required this.spelling,
+    required this.cacheWord,
     required this.status,
     required this.gptPrompts,
     this.greWordTags,
@@ -17,18 +812,19 @@ class Fragment$GreWordFields {
 
   factory Fragment$GreWordFields.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
-    final l$spelling = json['spelling'];
+    final l$cacheWord = json['cacheWord'];
     final l$status = json['status'];
     final l$gptPrompts = json['gptPrompts'];
     final l$greWordTags = json['greWordTags'];
     final l$$__typename = json['__typename'];
     return Fragment$GreWordFields(
       id: (l$id as String),
-      spelling: (l$spelling as String),
+      cacheWord: Fragment$GreWordFields$cacheWord.fromJson(
+          (l$cacheWord as Map<String, dynamic>)),
       status: fromJson$Enum$GreWordStatus((l$status as String)),
       gptPrompts: (l$gptPrompts as List<dynamic>)
-          .map((e) => Fragment$GreWordFields$gptPrompts.fromJson(
-              (e as Map<String, dynamic>)))
+          .map((e) =>
+              Fragment$GptPromptFields.fromJson((e as Map<String, dynamic>)))
           .toList(),
       greWordTags: (l$greWordTags as List<dynamic>?)
           ?.map((e) => Fragment$GreWordFields$greWordTags.fromJson(
@@ -40,11 +836,11 @@ class Fragment$GreWordFields {
 
   final String id;
 
-  final String spelling;
+  final Fragment$GreWordFields$cacheWord cacheWord;
 
   final Enum$GreWordStatus status;
 
-  final List<Fragment$GreWordFields$gptPrompts> gptPrompts;
+  final List<Fragment$GptPromptFields> gptPrompts;
 
   final List<Fragment$GreWordFields$greWordTags>? greWordTags;
 
@@ -54,8 +850,8 @@ class Fragment$GreWordFields {
     final _resultData = <String, dynamic>{};
     final l$id = id;
     _resultData['id'] = l$id;
-    final l$spelling = spelling;
-    _resultData['spelling'] = l$spelling;
+    final l$cacheWord = cacheWord;
+    _resultData['cacheWord'] = l$cacheWord.toJson();
     final l$status = status;
     _resultData['status'] = toJson$Enum$GreWordStatus(l$status);
     final l$gptPrompts = gptPrompts;
@@ -70,14 +866,14 @@ class Fragment$GreWordFields {
   @override
   int get hashCode {
     final l$id = id;
-    final l$spelling = spelling;
+    final l$cacheWord = cacheWord;
     final l$status = status;
     final l$gptPrompts = gptPrompts;
     final l$greWordTags = greWordTags;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
-      l$spelling,
+      l$cacheWord,
       l$status,
       Object.hashAll(l$gptPrompts.map((v) => v)),
       l$greWordTags == null
@@ -101,9 +897,9 @@ class Fragment$GreWordFields {
     if (l$id != lOther$id) {
       return false;
     }
-    final l$spelling = spelling;
-    final lOther$spelling = other.spelling;
-    if (l$spelling != lOther$spelling) {
+    final l$cacheWord = cacheWord;
+    final lOther$cacheWord = other.cacheWord;
+    if (l$cacheWord != lOther$cacheWord) {
       return false;
     }
     final l$status = status;
@@ -167,17 +963,17 @@ abstract class CopyWith$Fragment$GreWordFields<TRes> {
 
   TRes call({
     String? id,
-    String? spelling,
+    Fragment$GreWordFields$cacheWord? cacheWord,
     Enum$GreWordStatus? status,
-    List<Fragment$GreWordFields$gptPrompts>? gptPrompts,
+    List<Fragment$GptPromptFields>? gptPrompts,
     List<Fragment$GreWordFields$greWordTags>? greWordTags,
     String? $__typename,
   });
+  CopyWith$Fragment$GreWordFields$cacheWord<TRes> get cacheWord;
   TRes gptPrompts(
-      Iterable<Fragment$GreWordFields$gptPrompts> Function(
+      Iterable<Fragment$GptPromptFields> Function(
               Iterable<
-                  CopyWith$Fragment$GreWordFields$gptPrompts<
-                      Fragment$GreWordFields$gptPrompts>>)
+                  CopyWith$Fragment$GptPromptFields<Fragment$GptPromptFields>>)
           _fn);
   TRes greWordTags(
       Iterable<Fragment$GreWordFields$greWordTags>? Function(
@@ -202,7 +998,7 @@ class _CopyWithImpl$Fragment$GreWordFields<TRes>
 
   TRes call({
     Object? id = _undefined,
-    Object? spelling = _undefined,
+    Object? cacheWord = _undefined,
     Object? status = _undefined,
     Object? gptPrompts = _undefined,
     Object? greWordTags = _undefined,
@@ -210,15 +1006,15 @@ class _CopyWithImpl$Fragment$GreWordFields<TRes>
   }) =>
       _then(Fragment$GreWordFields(
         id: id == _undefined || id == null ? _instance.id : (id as String),
-        spelling: spelling == _undefined || spelling == null
-            ? _instance.spelling
-            : (spelling as String),
+        cacheWord: cacheWord == _undefined || cacheWord == null
+            ? _instance.cacheWord
+            : (cacheWord as Fragment$GreWordFields$cacheWord),
         status: status == _undefined || status == null
             ? _instance.status
             : (status as Enum$GreWordStatus),
         gptPrompts: gptPrompts == _undefined || gptPrompts == null
             ? _instance.gptPrompts
-            : (gptPrompts as List<Fragment$GreWordFields$gptPrompts>),
+            : (gptPrompts as List<Fragment$GptPromptFields>),
         greWordTags: greWordTags == _undefined
             ? _instance.greWordTags
             : (greWordTags as List<Fragment$GreWordFields$greWordTags>?),
@@ -227,15 +1023,21 @@ class _CopyWithImpl$Fragment$GreWordFields<TRes>
             : ($__typename as String),
       ));
 
+  CopyWith$Fragment$GreWordFields$cacheWord<TRes> get cacheWord {
+    final local$cacheWord = _instance.cacheWord;
+    return CopyWith$Fragment$GreWordFields$cacheWord(
+        local$cacheWord, (e) => call(cacheWord: e));
+  }
+
   TRes gptPrompts(
-          Iterable<Fragment$GreWordFields$gptPrompts> Function(
+          Iterable<Fragment$GptPromptFields> Function(
                   Iterable<
-                      CopyWith$Fragment$GreWordFields$gptPrompts<
-                          Fragment$GreWordFields$gptPrompts>>)
+                      CopyWith$Fragment$GptPromptFields<
+                          Fragment$GptPromptFields>>)
               _fn) =>
       call(
-          gptPrompts: _fn(_instance.gptPrompts
-              .map((e) => CopyWith$Fragment$GreWordFields$gptPrompts(
+          gptPrompts: _fn(
+              _instance.gptPrompts.map((e) => CopyWith$Fragment$GptPromptFields(
                     e,
                     (i) => i,
                   ))).toList());
@@ -262,13 +1064,16 @@ class _CopyWithStubImpl$Fragment$GreWordFields<TRes>
 
   call({
     String? id,
-    String? spelling,
+    Fragment$GreWordFields$cacheWord? cacheWord,
     Enum$GreWordStatus? status,
-    List<Fragment$GreWordFields$gptPrompts>? gptPrompts,
+    List<Fragment$GptPromptFields>? gptPrompts,
     List<Fragment$GreWordFields$greWordTags>? greWordTags,
     String? $__typename,
   }) =>
       _res;
+
+  CopyWith$Fragment$GreWordFields$cacheWord<TRes> get cacheWord =>
+      CopyWith$Fragment$GreWordFields$cacheWord.stub(_res);
 
   gptPrompts(_fn) => _res;
 
@@ -292,11 +1097,26 @@ const fragmentDefinitionGreWordFields = FragmentDefinitionNode(
       selectionSet: null,
     ),
     FieldNode(
-      name: NameNode(value: 'spelling'),
+      name: NameNode(value: 'cacheWord'),
       alias: null,
       arguments: [],
       directives: [],
-      selectionSet: null,
+      selectionSet: SelectionSetNode(selections: [
+        FieldNode(
+          name: NameNode(value: 'text'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
+          name: NameNode(value: '__typename'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+      ]),
     ),
     FieldNode(
       name: NameNode(value: 'status'),
@@ -311,40 +1131,9 @@ const fragmentDefinitionGreWordFields = FragmentDefinitionNode(
       arguments: [],
       directives: [],
       selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-          name: NameNode(value: 'id'),
-          alias: null,
-          arguments: [],
+        FragmentSpreadNode(
+          name: NameNode(value: 'GptPromptFields'),
           directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'input'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'response'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'editedResponse'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
-        ),
-        FieldNode(
-          name: NameNode(value: 'greWordId'),
-          alias: null,
-          arguments: [],
-          directives: [],
-          selectionSet: null,
         ),
         FieldNode(
           name: NameNode(value: '__typename'),
@@ -395,6 +1184,7 @@ const fragmentDefinitionGreWordFields = FragmentDefinitionNode(
 );
 const documentNodeFragmentGreWordFields = DocumentNode(definitions: [
   fragmentDefinitionGreWordFields,
+  fragmentDefinitionGptPromptFields,
 ]);
 
 extension ClientExtension$Fragment$GreWordFields on graphql.GraphQLClient {
@@ -432,58 +1222,29 @@ extension ClientExtension$Fragment$GreWordFields on graphql.GraphQLClient {
   }
 }
 
-class Fragment$GreWordFields$gptPrompts {
-  Fragment$GreWordFields$gptPrompts({
-    required this.id,
-    required this.input,
-    required this.response,
-    this.editedResponse,
-    this.greWordId,
-    this.$__typename = 'GptPrompt',
+class Fragment$GreWordFields$cacheWord {
+  Fragment$GreWordFields$cacheWord({
+    required this.text,
+    this.$__typename = 'CacheWord',
   });
 
-  factory Fragment$GreWordFields$gptPrompts.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$input = json['input'];
-    final l$response = json['response'];
-    final l$editedResponse = json['editedResponse'];
-    final l$greWordId = json['greWordId'];
+  factory Fragment$GreWordFields$cacheWord.fromJson(Map<String, dynamic> json) {
+    final l$text = json['text'];
     final l$$__typename = json['__typename'];
-    return Fragment$GreWordFields$gptPrompts(
-      id: (l$id as String),
-      input: (l$input as String),
-      response: (l$response as String),
-      editedResponse: (l$editedResponse as String?),
-      greWordId: (l$greWordId as String?),
+    return Fragment$GreWordFields$cacheWord(
+      text: (l$text as String),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final String id;
-
-  final String input;
-
-  final String response;
-
-  final String? editedResponse;
-
-  final String? greWordId;
+  final String text;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$input = input;
-    _resultData['input'] = l$input;
-    final l$response = response;
-    _resultData['response'] = l$response;
-    final l$editedResponse = editedResponse;
-    _resultData['editedResponse'] = l$editedResponse;
-    final l$greWordId = greWordId;
-    _resultData['greWordId'] = l$greWordId;
+    final l$text = text;
+    _resultData['text'] = l$text;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -491,18 +1252,10 @@ class Fragment$GreWordFields$gptPrompts {
 
   @override
   int get hashCode {
-    final l$id = id;
-    final l$input = input;
-    final l$response = response;
-    final l$editedResponse = editedResponse;
-    final l$greWordId = greWordId;
+    final l$text = text;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$id,
-      l$input,
-      l$response,
-      l$editedResponse,
-      l$greWordId,
+      l$text,
       l$$__typename,
     ]);
   }
@@ -512,33 +1265,13 @@ class Fragment$GreWordFields$gptPrompts {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Fragment$GreWordFields$gptPrompts) ||
+    if (!(other is Fragment$GreWordFields$cacheWord) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$input = input;
-    final lOther$input = other.input;
-    if (l$input != lOther$input) {
-      return false;
-    }
-    final l$response = response;
-    final lOther$response = other.response;
-    if (l$response != lOther$response) {
-      return false;
-    }
-    final l$editedResponse = editedResponse;
-    final lOther$editedResponse = other.editedResponse;
-    if (l$editedResponse != lOther$editedResponse) {
-      return false;
-    }
-    final l$greWordId = greWordId;
-    final lOther$greWordId = other.greWordId;
-    if (l$greWordId != lOther$greWordId) {
+    final l$text = text;
+    final lOther$text = other.text;
+    if (l$text != lOther$text) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -550,87 +1283,65 @@ class Fragment$GreWordFields$gptPrompts {
   }
 }
 
-extension UtilityExtension$Fragment$GreWordFields$gptPrompts
-    on Fragment$GreWordFields$gptPrompts {
-  CopyWith$Fragment$GreWordFields$gptPrompts<Fragment$GreWordFields$gptPrompts>
-      get copyWith => CopyWith$Fragment$GreWordFields$gptPrompts(
+extension UtilityExtension$Fragment$GreWordFields$cacheWord
+    on Fragment$GreWordFields$cacheWord {
+  CopyWith$Fragment$GreWordFields$cacheWord<Fragment$GreWordFields$cacheWord>
+      get copyWith => CopyWith$Fragment$GreWordFields$cacheWord(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Fragment$GreWordFields$gptPrompts<TRes> {
-  factory CopyWith$Fragment$GreWordFields$gptPrompts(
-    Fragment$GreWordFields$gptPrompts instance,
-    TRes Function(Fragment$GreWordFields$gptPrompts) then,
-  ) = _CopyWithImpl$Fragment$GreWordFields$gptPrompts;
+abstract class CopyWith$Fragment$GreWordFields$cacheWord<TRes> {
+  factory CopyWith$Fragment$GreWordFields$cacheWord(
+    Fragment$GreWordFields$cacheWord instance,
+    TRes Function(Fragment$GreWordFields$cacheWord) then,
+  ) = _CopyWithImpl$Fragment$GreWordFields$cacheWord;
 
-  factory CopyWith$Fragment$GreWordFields$gptPrompts.stub(TRes res) =
-      _CopyWithStubImpl$Fragment$GreWordFields$gptPrompts;
+  factory CopyWith$Fragment$GreWordFields$cacheWord.stub(TRes res) =
+      _CopyWithStubImpl$Fragment$GreWordFields$cacheWord;
 
   TRes call({
-    String? id,
-    String? input,
-    String? response,
-    String? editedResponse,
-    String? greWordId,
+    String? text,
     String? $__typename,
   });
 }
 
-class _CopyWithImpl$Fragment$GreWordFields$gptPrompts<TRes>
-    implements CopyWith$Fragment$GreWordFields$gptPrompts<TRes> {
-  _CopyWithImpl$Fragment$GreWordFields$gptPrompts(
+class _CopyWithImpl$Fragment$GreWordFields$cacheWord<TRes>
+    implements CopyWith$Fragment$GreWordFields$cacheWord<TRes> {
+  _CopyWithImpl$Fragment$GreWordFields$cacheWord(
     this._instance,
     this._then,
   );
 
-  final Fragment$GreWordFields$gptPrompts _instance;
+  final Fragment$GreWordFields$cacheWord _instance;
 
-  final TRes Function(Fragment$GreWordFields$gptPrompts) _then;
+  final TRes Function(Fragment$GreWordFields$cacheWord) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? id = _undefined,
-    Object? input = _undefined,
-    Object? response = _undefined,
-    Object? editedResponse = _undefined,
-    Object? greWordId = _undefined,
+    Object? text = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Fragment$GreWordFields$gptPrompts(
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        input: input == _undefined || input == null
-            ? _instance.input
-            : (input as String),
-        response: response == _undefined || response == null
-            ? _instance.response
-            : (response as String),
-        editedResponse: editedResponse == _undefined
-            ? _instance.editedResponse
-            : (editedResponse as String?),
-        greWordId: greWordId == _undefined
-            ? _instance.greWordId
-            : (greWordId as String?),
+      _then(Fragment$GreWordFields$cacheWord(
+        text: text == _undefined || text == null
+            ? _instance.text
+            : (text as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Fragment$GreWordFields$gptPrompts<TRes>
-    implements CopyWith$Fragment$GreWordFields$gptPrompts<TRes> {
-  _CopyWithStubImpl$Fragment$GreWordFields$gptPrompts(this._res);
+class _CopyWithStubImpl$Fragment$GreWordFields$cacheWord<TRes>
+    implements CopyWith$Fragment$GreWordFields$cacheWord<TRes> {
+  _CopyWithStubImpl$Fragment$GreWordFields$cacheWord(this._res);
 
   TRes _res;
 
   call({
-    String? id,
-    String? input,
-    String? response,
-    String? editedResponse,
-    String? greWordId,
+    String? text,
     String? $__typename,
   }) =>
       _res;
@@ -1275,6 +1986,7 @@ const documentNodeQueryGreWords = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionGreWordFields,
+  fragmentDefinitionGptPromptFields,
 ]);
 Query$GreWords _parserFn$Query$GreWords(Map<String, dynamic> data) =>
     Query$GreWords.fromJson(data);

@@ -6,7 +6,7 @@ import 'package:skartner_app/widgets/gre_history/children/gre_word/children/gpt_
 import 'package:skartner_app/widgets/gre_history/children/gre_word/children/gpt_prompt/children/gpt_response_view.dart';
 
 class GptPromptView extends HookWidget {
-  final Fragment$GreWordFields$gptPrompts gptPrompt;
+  final Fragment$GptPromptFields gptPrompt;
   final VoidCallback onMutate;
   const GptPromptView({
     super.key,
@@ -25,7 +25,7 @@ class GptPromptView extends HookWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(gptPrompt.input),
+              Text(gptPrompt.cacheResponse.cachePrompt.text),
               IconButton(
                 onPressed: () async {
                   setupMutation(
@@ -94,7 +94,7 @@ class GptPromptView extends HookWidget {
                   )
                 else
                   GptResponseView(
-                    response: gptPrompt.response,
+                    response: gptPrompt.cacheResponse.text,
                     gptPromptId: gptPrompt.id,
                     onMutate: () {
                       activeTab.value = 'edited';
@@ -105,7 +105,7 @@ class GptPromptView extends HookWidget {
             )
           else
             GptResponseView(
-              response: gptPrompt.response,
+              response: gptPrompt.cacheResponse.text,
               gptPromptId: gptPrompt.id,
               onMutate: () {
                 activeTab.value = 'edited';

@@ -8,28 +8,32 @@ import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
 class Variables$Query$SendSinglePrompt {
   factory Variables$Query$SendSinglePrompt({
-    required String input,
-    bool? skipCache,
-    List<int>? indexesReturned,
+    required String prompt,
+    required String word,
     int? resultIndexFromCache,
+    List<int>? indexesReturned,
+    bool? skipCache,
   }) =>
       Variables$Query$SendSinglePrompt._({
-        r'input': input,
-        if (skipCache != null) r'skipCache': skipCache,
-        if (indexesReturned != null) r'indexesReturned': indexesReturned,
+        r'prompt': prompt,
+        r'word': word,
         if (resultIndexFromCache != null)
           r'resultIndexFromCache': resultIndexFromCache,
+        if (indexesReturned != null) r'indexesReturned': indexesReturned,
+        if (skipCache != null) r'skipCache': skipCache,
       });
 
   Variables$Query$SendSinglePrompt._(this._$data);
 
   factory Variables$Query$SendSinglePrompt.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$input = data['input'];
-    result$data['input'] = (l$input as String);
-    if (data.containsKey('skipCache')) {
-      final l$skipCache = data['skipCache'];
-      result$data['skipCache'] = (l$skipCache as bool?);
+    final l$prompt = data['prompt'];
+    result$data['prompt'] = (l$prompt as String);
+    final l$word = data['word'];
+    result$data['word'] = (l$word as String);
+    if (data.containsKey('resultIndexFromCache')) {
+      final l$resultIndexFromCache = data['resultIndexFromCache'];
+      result$data['resultIndexFromCache'] = (l$resultIndexFromCache as int?);
     }
     if (data.containsKey('indexesReturned')) {
       final l$indexesReturned = data['indexesReturned'];
@@ -37,39 +41,43 @@ class Variables$Query$SendSinglePrompt {
           ?.map((e) => (e as int))
           .toList();
     }
-    if (data.containsKey('resultIndexFromCache')) {
-      final l$resultIndexFromCache = data['resultIndexFromCache'];
-      result$data['resultIndexFromCache'] = (l$resultIndexFromCache as int?);
+    if (data.containsKey('skipCache')) {
+      final l$skipCache = data['skipCache'];
+      result$data['skipCache'] = (l$skipCache as bool?);
     }
     return Variables$Query$SendSinglePrompt._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  String get input => (_$data['input'] as String);
+  String get prompt => (_$data['prompt'] as String);
 
-  bool? get skipCache => (_$data['skipCache'] as bool?);
-
-  List<int>? get indexesReturned => (_$data['indexesReturned'] as List<int>?);
+  String get word => (_$data['word'] as String);
 
   int? get resultIndexFromCache => (_$data['resultIndexFromCache'] as int?);
 
+  List<int>? get indexesReturned => (_$data['indexesReturned'] as List<int>?);
+
+  bool? get skipCache => (_$data['skipCache'] as bool?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$input = input;
-    result$data['input'] = l$input;
-    if (_$data.containsKey('skipCache')) {
-      final l$skipCache = skipCache;
-      result$data['skipCache'] = l$skipCache;
+    final l$prompt = prompt;
+    result$data['prompt'] = l$prompt;
+    final l$word = word;
+    result$data['word'] = l$word;
+    if (_$data.containsKey('resultIndexFromCache')) {
+      final l$resultIndexFromCache = resultIndexFromCache;
+      result$data['resultIndexFromCache'] = l$resultIndexFromCache;
     }
     if (_$data.containsKey('indexesReturned')) {
       final l$indexesReturned = indexesReturned;
       result$data['indexesReturned'] =
           l$indexesReturned?.map((e) => e).toList();
     }
-    if (_$data.containsKey('resultIndexFromCache')) {
-      final l$resultIndexFromCache = resultIndexFromCache;
-      result$data['resultIndexFromCache'] = l$resultIndexFromCache;
+    if (_$data.containsKey('skipCache')) {
+      final l$skipCache = skipCache;
+      result$data['skipCache'] = l$skipCache;
     }
     return result$data;
   }
@@ -89,18 +97,23 @@ class Variables$Query$SendSinglePrompt {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$input = input;
-    final lOther$input = other.input;
-    if (l$input != lOther$input) {
+    final l$prompt = prompt;
+    final lOther$prompt = other.prompt;
+    if (l$prompt != lOther$prompt) {
       return false;
     }
-    final l$skipCache = skipCache;
-    final lOther$skipCache = other.skipCache;
-    if (_$data.containsKey('skipCache') !=
-        other._$data.containsKey('skipCache')) {
+    final l$word = word;
+    final lOther$word = other.word;
+    if (l$word != lOther$word) {
       return false;
     }
-    if (l$skipCache != lOther$skipCache) {
+    final l$resultIndexFromCache = resultIndexFromCache;
+    final lOther$resultIndexFromCache = other.resultIndexFromCache;
+    if (_$data.containsKey('resultIndexFromCache') !=
+        other._$data.containsKey('resultIndexFromCache')) {
+      return false;
+    }
+    if (l$resultIndexFromCache != lOther$resultIndexFromCache) {
       return false;
     }
     final l$indexesReturned = indexesReturned;
@@ -123,13 +136,13 @@ class Variables$Query$SendSinglePrompt {
     } else if (l$indexesReturned != lOther$indexesReturned) {
       return false;
     }
-    final l$resultIndexFromCache = resultIndexFromCache;
-    final lOther$resultIndexFromCache = other.resultIndexFromCache;
-    if (_$data.containsKey('resultIndexFromCache') !=
-        other._$data.containsKey('resultIndexFromCache')) {
+    final l$skipCache = skipCache;
+    final lOther$skipCache = other.skipCache;
+    if (_$data.containsKey('skipCache') !=
+        other._$data.containsKey('skipCache')) {
       return false;
     }
-    if (l$resultIndexFromCache != lOther$resultIndexFromCache) {
+    if (l$skipCache != lOther$skipCache) {
       return false;
     }
     return true;
@@ -137,21 +150,23 @@ class Variables$Query$SendSinglePrompt {
 
   @override
   int get hashCode {
-    final l$input = input;
-    final l$skipCache = skipCache;
-    final l$indexesReturned = indexesReturned;
+    final l$prompt = prompt;
+    final l$word = word;
     final l$resultIndexFromCache = resultIndexFromCache;
+    final l$indexesReturned = indexesReturned;
+    final l$skipCache = skipCache;
     return Object.hashAll([
-      l$input,
-      _$data.containsKey('skipCache') ? l$skipCache : const {},
+      l$prompt,
+      l$word,
+      _$data.containsKey('resultIndexFromCache')
+          ? l$resultIndexFromCache
+          : const {},
       _$data.containsKey('indexesReturned')
           ? l$indexesReturned == null
               ? null
               : Object.hashAll(l$indexesReturned.map((v) => v))
           : const {},
-      _$data.containsKey('resultIndexFromCache')
-          ? l$resultIndexFromCache
-          : const {},
+      _$data.containsKey('skipCache') ? l$skipCache : const {},
     ]);
   }
 }
@@ -166,10 +181,11 @@ abstract class CopyWith$Variables$Query$SendSinglePrompt<TRes> {
       _CopyWithStubImpl$Variables$Query$SendSinglePrompt;
 
   TRes call({
-    String? input,
-    bool? skipCache,
-    List<int>? indexesReturned,
+    String? prompt,
+    String? word,
     int? resultIndexFromCache,
+    List<int>? indexesReturned,
+    bool? skipCache,
   });
 }
 
@@ -187,19 +203,22 @@ class _CopyWithImpl$Variables$Query$SendSinglePrompt<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? input = _undefined,
-    Object? skipCache = _undefined,
-    Object? indexesReturned = _undefined,
+    Object? prompt = _undefined,
+    Object? word = _undefined,
     Object? resultIndexFromCache = _undefined,
+    Object? indexesReturned = _undefined,
+    Object? skipCache = _undefined,
   }) =>
       _then(Variables$Query$SendSinglePrompt._({
         ..._instance._$data,
-        if (input != _undefined && input != null) 'input': (input as String),
-        if (skipCache != _undefined) 'skipCache': (skipCache as bool?),
-        if (indexesReturned != _undefined)
-          'indexesReturned': (indexesReturned as List<int>?),
+        if (prompt != _undefined && prompt != null)
+          'prompt': (prompt as String),
+        if (word != _undefined && word != null) 'word': (word as String),
         if (resultIndexFromCache != _undefined)
           'resultIndexFromCache': (resultIndexFromCache as int?),
+        if (indexesReturned != _undefined)
+          'indexesReturned': (indexesReturned as List<int>?),
+        if (skipCache != _undefined) 'skipCache': (skipCache as bool?),
       }));
 }
 
@@ -210,10 +229,11 @@ class _CopyWithStubImpl$Variables$Query$SendSinglePrompt<TRes>
   TRes _res;
 
   call({
-    String? input,
-    bool? skipCache,
-    List<int>? indexesReturned,
+    String? prompt,
+    String? word,
     int? resultIndexFromCache,
+    List<int>? indexesReturned,
+    bool? skipCache,
   }) =>
       _res;
 }
@@ -360,7 +380,7 @@ const documentNodeQuerySendSinglePrompt = DocumentNode(definitions: [
     name: NameNode(value: 'SendSinglePrompt'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
+        variable: VariableNode(name: NameNode(value: 'prompt')),
         type: NamedTypeNode(
           name: NameNode(value: 'String'),
           isNonNull: true,
@@ -369,9 +389,18 @@ const documentNodeQuerySendSinglePrompt = DocumentNode(definitions: [
         directives: [],
       ),
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'skipCache')),
+        variable: VariableNode(name: NameNode(value: 'word')),
         type: NamedTypeNode(
-          name: NameNode(value: 'Boolean'),
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'resultIndexFromCache')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
           isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -390,9 +419,9 @@ const documentNodeQuerySendSinglePrompt = DocumentNode(definitions: [
         directives: [],
       ),
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'resultIndexFromCache')),
+        variable: VariableNode(name: NameNode(value: 'skipCache')),
         type: NamedTypeNode(
-          name: NameNode(value: 'Int'),
+          name: NameNode(value: 'Boolean'),
           isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -406,20 +435,24 @@ const documentNodeQuerySendSinglePrompt = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
+            name: NameNode(value: 'prompt'),
+            value: VariableNode(name: NameNode(value: 'prompt')),
           ),
           ArgumentNode(
-            name: NameNode(value: 'skipCache'),
-            value: VariableNode(name: NameNode(value: 'skipCache')),
+            name: NameNode(value: 'word'),
+            value: VariableNode(name: NameNode(value: 'word')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'resultIndexFromCache'),
+            value: VariableNode(name: NameNode(value: 'resultIndexFromCache')),
           ),
           ArgumentNode(
             name: NameNode(value: 'indexesReturned'),
             value: VariableNode(name: NameNode(value: 'indexesReturned')),
           ),
           ArgumentNode(
-            name: NameNode(value: 'resultIndexFromCache'),
-            value: VariableNode(name: NameNode(value: 'resultIndexFromCache')),
+            name: NameNode(value: 'skipCache'),
+            value: VariableNode(name: NameNode(value: 'skipCache')),
           ),
         ],
         directives: [],
@@ -439,14 +472,14 @@ const documentNodeQuerySendSinglePrompt = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'error'),
+            name: NameNode(value: 'totalResultsInCache'),
             alias: null,
             arguments: [],
             directives: [],
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'totalResultsInCache'),
+            name: NameNode(value: 'cacheResponseId'),
             alias: null,
             arguments: [],
             directives: [],
@@ -629,10 +662,10 @@ class Query$SendSinglePrompt$Widget
 
 class Query$SendSinglePrompt$sendSinglePrompt {
   Query$SendSinglePrompt$sendSinglePrompt({
-    this.result,
-    this.resultIndex,
-    this.error,
+    required this.result,
+    required this.resultIndex,
     required this.totalResultsInCache,
+    required this.cacheResponseId,
     this.$__typename = 'SendSinglePromptResponse',
   });
 
@@ -640,25 +673,25 @@ class Query$SendSinglePrompt$sendSinglePrompt {
       Map<String, dynamic> json) {
     final l$result = json['result'];
     final l$resultIndex = json['resultIndex'];
-    final l$error = json['error'];
     final l$totalResultsInCache = json['totalResultsInCache'];
+    final l$cacheResponseId = json['cacheResponseId'];
     final l$$__typename = json['__typename'];
     return Query$SendSinglePrompt$sendSinglePrompt(
-      result: (l$result as String?),
-      resultIndex: (l$resultIndex as int?),
-      error: (l$error as String?),
+      result: (l$result as String),
+      resultIndex: (l$resultIndex as int),
       totalResultsInCache: (l$totalResultsInCache as int),
+      cacheResponseId: (l$cacheResponseId as String),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final String? result;
+  final String result;
 
-  final int? resultIndex;
-
-  final String? error;
+  final int resultIndex;
 
   final int totalResultsInCache;
+
+  final String cacheResponseId;
 
   final String $__typename;
 
@@ -668,10 +701,10 @@ class Query$SendSinglePrompt$sendSinglePrompt {
     _resultData['result'] = l$result;
     final l$resultIndex = resultIndex;
     _resultData['resultIndex'] = l$resultIndex;
-    final l$error = error;
-    _resultData['error'] = l$error;
     final l$totalResultsInCache = totalResultsInCache;
     _resultData['totalResultsInCache'] = l$totalResultsInCache;
+    final l$cacheResponseId = cacheResponseId;
+    _resultData['cacheResponseId'] = l$cacheResponseId;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -681,14 +714,14 @@ class Query$SendSinglePrompt$sendSinglePrompt {
   int get hashCode {
     final l$result = result;
     final l$resultIndex = resultIndex;
-    final l$error = error;
     final l$totalResultsInCache = totalResultsInCache;
+    final l$cacheResponseId = cacheResponseId;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$result,
       l$resultIndex,
-      l$error,
       l$totalResultsInCache,
+      l$cacheResponseId,
       l$$__typename,
     ]);
   }
@@ -712,14 +745,14 @@ class Query$SendSinglePrompt$sendSinglePrompt {
     if (l$resultIndex != lOther$resultIndex) {
       return false;
     }
-    final l$error = error;
-    final lOther$error = other.error;
-    if (l$error != lOther$error) {
-      return false;
-    }
     final l$totalResultsInCache = totalResultsInCache;
     final lOther$totalResultsInCache = other.totalResultsInCache;
     if (l$totalResultsInCache != lOther$totalResultsInCache) {
+      return false;
+    }
+    final l$cacheResponseId = cacheResponseId;
+    final lOther$cacheResponseId = other.cacheResponseId;
+    if (l$cacheResponseId != lOther$cacheResponseId) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -753,8 +786,8 @@ abstract class CopyWith$Query$SendSinglePrompt$sendSinglePrompt<TRes> {
   TRes call({
     String? result,
     int? resultIndex,
-    String? error,
     int? totalResultsInCache,
+    String? cacheResponseId,
     String? $__typename,
   });
 }
@@ -775,20 +808,25 @@ class _CopyWithImpl$Query$SendSinglePrompt$sendSinglePrompt<TRes>
   TRes call({
     Object? result = _undefined,
     Object? resultIndex = _undefined,
-    Object? error = _undefined,
     Object? totalResultsInCache = _undefined,
+    Object? cacheResponseId = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$SendSinglePrompt$sendSinglePrompt(
-        result: result == _undefined ? _instance.result : (result as String?),
-        resultIndex: resultIndex == _undefined
+        result: result == _undefined || result == null
+            ? _instance.result
+            : (result as String),
+        resultIndex: resultIndex == _undefined || resultIndex == null
             ? _instance.resultIndex
-            : (resultIndex as int?),
-        error: error == _undefined ? _instance.error : (error as String?),
+            : (resultIndex as int),
         totalResultsInCache:
             totalResultsInCache == _undefined || totalResultsInCache == null
                 ? _instance.totalResultsInCache
                 : (totalResultsInCache as int),
+        cacheResponseId:
+            cacheResponseId == _undefined || cacheResponseId == null
+                ? _instance.cacheResponseId
+                : (cacheResponseId as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -804,8 +842,8 @@ class _CopyWithStubImpl$Query$SendSinglePrompt$sendSinglePrompt<TRes>
   call({
     String? result,
     int? resultIndex,
-    String? error,
     int? totalResultsInCache,
+    String? cacheResponseId,
     String? $__typename,
   }) =>
       _res;
@@ -813,16 +851,12 @@ class _CopyWithStubImpl$Query$SendSinglePrompt$sendSinglePrompt<TRes>
 
 class Variables$Mutation$CreateGreWord {
   factory Variables$Mutation$CreateGreWord({
-    required String spelling,
-    required String promptInput,
-    required String promptResponse,
+    required String cacheResponseId,
     required String userId,
     List<Input$GreWordTagWhereUniqueInput?>? greWordTags,
   }) =>
       Variables$Mutation$CreateGreWord._({
-        r'spelling': spelling,
-        r'promptInput': promptInput,
-        r'promptResponse': promptResponse,
+        r'cacheResponseId': cacheResponseId,
         r'userId': userId,
         if (greWordTags != null) r'greWordTags': greWordTags,
       });
@@ -831,12 +865,8 @@ class Variables$Mutation$CreateGreWord {
 
   factory Variables$Mutation$CreateGreWord.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$spelling = data['spelling'];
-    result$data['spelling'] = (l$spelling as String);
-    final l$promptInput = data['promptInput'];
-    result$data['promptInput'] = (l$promptInput as String);
-    final l$promptResponse = data['promptResponse'];
-    result$data['promptResponse'] = (l$promptResponse as String);
+    final l$cacheResponseId = data['cacheResponseId'];
+    result$data['cacheResponseId'] = (l$cacheResponseId as String);
     final l$userId = data['userId'];
     result$data['userId'] = (l$userId as String);
     if (data.containsKey('greWordTags')) {
@@ -853,11 +883,7 @@ class Variables$Mutation$CreateGreWord {
 
   Map<String, dynamic> _$data;
 
-  String get spelling => (_$data['spelling'] as String);
-
-  String get promptInput => (_$data['promptInput'] as String);
-
-  String get promptResponse => (_$data['promptResponse'] as String);
+  String get cacheResponseId => (_$data['cacheResponseId'] as String);
 
   String get userId => (_$data['userId'] as String);
 
@@ -866,12 +892,8 @@ class Variables$Mutation$CreateGreWord {
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$spelling = spelling;
-    result$data['spelling'] = l$spelling;
-    final l$promptInput = promptInput;
-    result$data['promptInput'] = l$promptInput;
-    final l$promptResponse = promptResponse;
-    result$data['promptResponse'] = l$promptResponse;
+    final l$cacheResponseId = cacheResponseId;
+    result$data['cacheResponseId'] = l$cacheResponseId;
     final l$userId = userId;
     result$data['userId'] = l$userId;
     if (_$data.containsKey('greWordTags')) {
@@ -897,19 +919,9 @@ class Variables$Mutation$CreateGreWord {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$spelling = spelling;
-    final lOther$spelling = other.spelling;
-    if (l$spelling != lOther$spelling) {
-      return false;
-    }
-    final l$promptInput = promptInput;
-    final lOther$promptInput = other.promptInput;
-    if (l$promptInput != lOther$promptInput) {
-      return false;
-    }
-    final l$promptResponse = promptResponse;
-    final lOther$promptResponse = other.promptResponse;
-    if (l$promptResponse != lOther$promptResponse) {
+    final l$cacheResponseId = cacheResponseId;
+    final lOther$cacheResponseId = other.cacheResponseId;
+    if (l$cacheResponseId != lOther$cacheResponseId) {
       return false;
     }
     final l$userId = userId;
@@ -942,15 +954,11 @@ class Variables$Mutation$CreateGreWord {
 
   @override
   int get hashCode {
-    final l$spelling = spelling;
-    final l$promptInput = promptInput;
-    final l$promptResponse = promptResponse;
+    final l$cacheResponseId = cacheResponseId;
     final l$userId = userId;
     final l$greWordTags = greWordTags;
     return Object.hashAll([
-      l$spelling,
-      l$promptInput,
-      l$promptResponse,
+      l$cacheResponseId,
       l$userId,
       _$data.containsKey('greWordTags')
           ? l$greWordTags == null
@@ -971,9 +979,7 @@ abstract class CopyWith$Variables$Mutation$CreateGreWord<TRes> {
       _CopyWithStubImpl$Variables$Mutation$CreateGreWord;
 
   TRes call({
-    String? spelling,
-    String? promptInput,
-    String? promptResponse,
+    String? cacheResponseId,
     String? userId,
     List<Input$GreWordTagWhereUniqueInput?>? greWordTags,
   });
@@ -993,20 +999,14 @@ class _CopyWithImpl$Variables$Mutation$CreateGreWord<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? spelling = _undefined,
-    Object? promptInput = _undefined,
-    Object? promptResponse = _undefined,
+    Object? cacheResponseId = _undefined,
     Object? userId = _undefined,
     Object? greWordTags = _undefined,
   }) =>
       _then(Variables$Mutation$CreateGreWord._({
         ..._instance._$data,
-        if (spelling != _undefined && spelling != null)
-          'spelling': (spelling as String),
-        if (promptInput != _undefined && promptInput != null)
-          'promptInput': (promptInput as String),
-        if (promptResponse != _undefined && promptResponse != null)
-          'promptResponse': (promptResponse as String),
+        if (cacheResponseId != _undefined && cacheResponseId != null)
+          'cacheResponseId': (cacheResponseId as String),
         if (userId != _undefined && userId != null)
           'userId': (userId as String),
         if (greWordTags != _undefined)
@@ -1022,9 +1022,7 @@ class _CopyWithStubImpl$Variables$Mutation$CreateGreWord<TRes>
   TRes _res;
 
   call({
-    String? spelling,
-    String? promptInput,
-    String? promptResponse,
+    String? cacheResponseId,
     String? userId,
     List<Input$GreWordTagWhereUniqueInput?>? greWordTags,
   }) =>
@@ -1172,25 +1170,7 @@ const documentNodeMutationCreateGreWord = DocumentNode(definitions: [
     name: NameNode(value: 'CreateGreWord'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'spelling')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'promptInput')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'promptResponse')),
+        variable: VariableNode(name: NameNode(value: 'cacheResponseId')),
         type: NamedTypeNode(
           name: NameNode(value: 'String'),
           isNonNull: true,
@@ -1227,16 +1207,8 @@ const documentNodeMutationCreateGreWord = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'spelling'),
-            value: VariableNode(name: NameNode(value: 'spelling')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'promptInput'),
-            value: VariableNode(name: NameNode(value: 'promptInput')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'promptResponse'),
-            value: VariableNode(name: NameNode(value: 'promptResponse')),
+            name: NameNode(value: 'cacheResponseId'),
+            value: VariableNode(name: NameNode(value: 'cacheResponseId')),
           ),
           ArgumentNode(
             name: NameNode(value: 'userId'),
@@ -1272,6 +1244,7 @@ const documentNodeMutationCreateGreWord = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionGreWordFields,
+  fragmentDefinitionGptPromptFields,
 ]);
 Mutation$CreateGreWord _parserFn$Mutation$CreateGreWord(
         Map<String, dynamic> data) =>
@@ -1486,7 +1459,7 @@ class Mutation$CreateGreWord$Widget
 }
 
 class Variables$Query$GreWord {
-  factory Variables$Query$GreWord({Input$GreWordWhereUniqueInput? where}) =>
+  factory Variables$Query$GreWord({Input$GreWordWhereInput? where}) =>
       Variables$Query$GreWord._({
         if (where != null) r'where': where,
       });
@@ -1499,16 +1472,15 @@ class Variables$Query$GreWord {
       final l$where = data['where'];
       result$data['where'] = l$where == null
           ? null
-          : Input$GreWordWhereUniqueInput.fromJson(
-              (l$where as Map<String, dynamic>));
+          : Input$GreWordWhereInput.fromJson((l$where as Map<String, dynamic>));
     }
     return Variables$Query$GreWord._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$GreWordWhereUniqueInput? get where =>
-      (_$data['where'] as Input$GreWordWhereUniqueInput?);
+  Input$GreWordWhereInput? get where =>
+      (_$data['where'] as Input$GreWordWhereInput?);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -1561,7 +1533,7 @@ abstract class CopyWith$Variables$Query$GreWord<TRes> {
   factory CopyWith$Variables$Query$GreWord.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$GreWord;
 
-  TRes call({Input$GreWordWhereUniqueInput? where});
+  TRes call({Input$GreWordWhereInput? where});
 }
 
 class _CopyWithImpl$Variables$Query$GreWord<TRes>
@@ -1579,8 +1551,7 @@ class _CopyWithImpl$Variables$Query$GreWord<TRes>
 
   TRes call({Object? where = _undefined}) => _then(Variables$Query$GreWord._({
         ..._instance._$data,
-        if (where != _undefined)
-          'where': (where as Input$GreWordWhereUniqueInput?),
+        if (where != _undefined) 'where': (where as Input$GreWordWhereInput?),
       }));
 }
 
@@ -1590,7 +1561,7 @@ class _CopyWithStubImpl$Variables$Query$GreWord<TRes>
 
   TRes _res;
 
-  call({Input$GreWordWhereUniqueInput? where}) => _res;
+  call({Input$GreWordWhereInput? where}) => _res;
 }
 
 class Query$GreWord {
@@ -1738,7 +1709,7 @@ const documentNodeQueryGreWord = DocumentNode(definitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'where')),
         type: NamedTypeNode(
-          name: NameNode(value: 'GreWordWhereUniqueInput'),
+          name: NameNode(value: 'GreWordWhereInput'),
           isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -1781,6 +1752,7 @@ const documentNodeQueryGreWord = DocumentNode(definitions: [
     ]),
   ),
   fragmentDefinitionGreWordFields,
+  fragmentDefinitionGptPromptFields,
 ]);
 Query$GreWord _parserFn$Query$GreWord(Map<String, dynamic> data) =>
     Query$GreWord.fromJson(data);
@@ -1933,13 +1905,11 @@ class Query$GreWord$Widget extends graphql_flutter.Query<Query$GreWord> {
 
 class Variables$Mutation$CreateGptPrompt {
   factory Variables$Mutation$CreateGptPrompt({
-    required String input,
-    required String response,
+    required String cacheResponseId,
     required String greWordId,
   }) =>
       Variables$Mutation$CreateGptPrompt._({
-        r'input': input,
-        r'response': response,
+        r'cacheResponseId': cacheResponseId,
         r'greWordId': greWordId,
       });
 
@@ -1948,10 +1918,8 @@ class Variables$Mutation$CreateGptPrompt {
   factory Variables$Mutation$CreateGptPrompt.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$input = data['input'];
-    result$data['input'] = (l$input as String);
-    final l$response = data['response'];
-    result$data['response'] = (l$response as String);
+    final l$cacheResponseId = data['cacheResponseId'];
+    result$data['cacheResponseId'] = (l$cacheResponseId as String);
     final l$greWordId = data['greWordId'];
     result$data['greWordId'] = (l$greWordId as String);
     return Variables$Mutation$CreateGptPrompt._(result$data);
@@ -1959,18 +1927,14 @@ class Variables$Mutation$CreateGptPrompt {
 
   Map<String, dynamic> _$data;
 
-  String get input => (_$data['input'] as String);
-
-  String get response => (_$data['response'] as String);
+  String get cacheResponseId => (_$data['cacheResponseId'] as String);
 
   String get greWordId => (_$data['greWordId'] as String);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$input = input;
-    result$data['input'] = l$input;
-    final l$response = response;
-    result$data['response'] = l$response;
+    final l$cacheResponseId = cacheResponseId;
+    result$data['cacheResponseId'] = l$cacheResponseId;
     final l$greWordId = greWordId;
     result$data['greWordId'] = l$greWordId;
     return result$data;
@@ -1992,14 +1956,9 @@ class Variables$Mutation$CreateGptPrompt {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$input = input;
-    final lOther$input = other.input;
-    if (l$input != lOther$input) {
-      return false;
-    }
-    final l$response = response;
-    final lOther$response = other.response;
-    if (l$response != lOther$response) {
+    final l$cacheResponseId = cacheResponseId;
+    final lOther$cacheResponseId = other.cacheResponseId;
+    if (l$cacheResponseId != lOther$cacheResponseId) {
       return false;
     }
     final l$greWordId = greWordId;
@@ -2012,12 +1971,10 @@ class Variables$Mutation$CreateGptPrompt {
 
   @override
   int get hashCode {
-    final l$input = input;
-    final l$response = response;
+    final l$cacheResponseId = cacheResponseId;
     final l$greWordId = greWordId;
     return Object.hashAll([
-      l$input,
-      l$response,
+      l$cacheResponseId,
       l$greWordId,
     ]);
   }
@@ -2033,8 +1990,7 @@ abstract class CopyWith$Variables$Mutation$CreateGptPrompt<TRes> {
       _CopyWithStubImpl$Variables$Mutation$CreateGptPrompt;
 
   TRes call({
-    String? input,
-    String? response,
+    String? cacheResponseId,
     String? greWordId,
   });
 }
@@ -2053,15 +2009,13 @@ class _CopyWithImpl$Variables$Mutation$CreateGptPrompt<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? input = _undefined,
-    Object? response = _undefined,
+    Object? cacheResponseId = _undefined,
     Object? greWordId = _undefined,
   }) =>
       _then(Variables$Mutation$CreateGptPrompt._({
         ..._instance._$data,
-        if (input != _undefined && input != null) 'input': (input as String),
-        if (response != _undefined && response != null)
-          'response': (response as String),
+        if (cacheResponseId != _undefined && cacheResponseId != null)
+          'cacheResponseId': (cacheResponseId as String),
         if (greWordId != _undefined && greWordId != null)
           'greWordId': (greWordId as String),
       }));
@@ -2074,8 +2028,7 @@ class _CopyWithStubImpl$Variables$Mutation$CreateGptPrompt<TRes>
   TRes _res;
 
   call({
-    String? input,
-    String? response,
+    String? cacheResponseId,
     String? greWordId,
   }) =>
       _res;
@@ -2091,13 +2044,13 @@ class Mutation$CreateGptPrompt {
     final l$createGptPrompt = json['createGptPrompt'];
     final l$$__typename = json['__typename'];
     return Mutation$CreateGptPrompt(
-      createGptPrompt: Mutation$CreateGptPrompt$createGptPrompt.fromJson(
+      createGptPrompt: Fragment$GptPromptFields.fromJson(
           (l$createGptPrompt as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Mutation$CreateGptPrompt$createGptPrompt createGptPrompt;
+  final Fragment$GptPromptFields createGptPrompt;
 
   final String $__typename;
 
@@ -2162,10 +2115,10 @@ abstract class CopyWith$Mutation$CreateGptPrompt<TRes> {
       _CopyWithStubImpl$Mutation$CreateGptPrompt;
 
   TRes call({
-    Mutation$CreateGptPrompt$createGptPrompt? createGptPrompt,
+    Fragment$GptPromptFields? createGptPrompt,
     String? $__typename,
   });
-  CopyWith$Mutation$CreateGptPrompt$createGptPrompt<TRes> get createGptPrompt;
+  CopyWith$Fragment$GptPromptFields<TRes> get createGptPrompt;
 }
 
 class _CopyWithImpl$Mutation$CreateGptPrompt<TRes>
@@ -2189,15 +2142,15 @@ class _CopyWithImpl$Mutation$CreateGptPrompt<TRes>
         createGptPrompt:
             createGptPrompt == _undefined || createGptPrompt == null
                 ? _instance.createGptPrompt
-                : (createGptPrompt as Mutation$CreateGptPrompt$createGptPrompt),
+                : (createGptPrompt as Fragment$GptPromptFields),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
 
-  CopyWith$Mutation$CreateGptPrompt$createGptPrompt<TRes> get createGptPrompt {
+  CopyWith$Fragment$GptPromptFields<TRes> get createGptPrompt {
     final local$createGptPrompt = _instance.createGptPrompt;
-    return CopyWith$Mutation$CreateGptPrompt$createGptPrompt(
+    return CopyWith$Fragment$GptPromptFields(
         local$createGptPrompt, (e) => call(createGptPrompt: e));
   }
 }
@@ -2209,13 +2162,13 @@ class _CopyWithStubImpl$Mutation$CreateGptPrompt<TRes>
   TRes _res;
 
   call({
-    Mutation$CreateGptPrompt$createGptPrompt? createGptPrompt,
+    Fragment$GptPromptFields? createGptPrompt,
     String? $__typename,
   }) =>
       _res;
 
-  CopyWith$Mutation$CreateGptPrompt$createGptPrompt<TRes> get createGptPrompt =>
-      CopyWith$Mutation$CreateGptPrompt$createGptPrompt.stub(_res);
+  CopyWith$Fragment$GptPromptFields<TRes> get createGptPrompt =>
+      CopyWith$Fragment$GptPromptFields.stub(_res);
 }
 
 const documentNodeMutationCreateGptPrompt = DocumentNode(definitions: [
@@ -2224,16 +2177,7 @@ const documentNodeMutationCreateGptPrompt = DocumentNode(definitions: [
     name: NameNode(value: 'CreateGptPrompt'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'input')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'String'),
-          isNonNull: true,
-        ),
-        defaultValue: DefaultValueNode(value: null),
-        directives: [],
-      ),
-      VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'response')),
+        variable: VariableNode(name: NameNode(value: 'cacheResponseId')),
         type: NamedTypeNode(
           name: NameNode(value: 'String'),
           isNonNull: true,
@@ -2258,12 +2202,8 @@ const documentNodeMutationCreateGptPrompt = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'input'),
-            value: VariableNode(name: NameNode(value: 'input')),
-          ),
-          ArgumentNode(
-            name: NameNode(value: 'response'),
-            value: VariableNode(name: NameNode(value: 'response')),
+            name: NameNode(value: 'cacheResponseId'),
+            value: VariableNode(name: NameNode(value: 'cacheResponseId')),
           ),
           ArgumentNode(
             name: NameNode(value: 'greWordId'),
@@ -2272,19 +2212,9 @@ const documentNodeMutationCreateGptPrompt = DocumentNode(definitions: [
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
-          FieldNode(
-            name: NameNode(value: 'id'),
-            alias: null,
-            arguments: [],
+          FragmentSpreadNode(
+            name: NameNode(value: 'GptPromptFields'),
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'response'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -2304,6 +2234,7 @@ const documentNodeMutationCreateGptPrompt = DocumentNode(definitions: [
       ),
     ]),
   ),
+  fragmentDefinitionGptPromptFields,
 ]);
 Mutation$CreateGptPrompt _parserFn$Mutation$CreateGptPrompt(
         Map<String, dynamic> data) =>
@@ -2517,151 +2448,6 @@ class Mutation$CreateGptPrompt$Widget
             result,
           ),
         );
-}
-
-class Mutation$CreateGptPrompt$createGptPrompt {
-  Mutation$CreateGptPrompt$createGptPrompt({
-    required this.id,
-    required this.response,
-    this.$__typename = 'GptPrompt',
-  });
-
-  factory Mutation$CreateGptPrompt$createGptPrompt.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$response = json['response'];
-    final l$$__typename = json['__typename'];
-    return Mutation$CreateGptPrompt$createGptPrompt(
-      id: (l$id as String),
-      response: (l$response as String),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final String id;
-
-  final String response;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$response = response;
-    _resultData['response'] = l$response;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$response = response;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$response,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Mutation$CreateGptPrompt$createGptPrompt) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$response = response;
-    final lOther$response = other.response;
-    if (l$response != lOther$response) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Mutation$CreateGptPrompt$createGptPrompt
-    on Mutation$CreateGptPrompt$createGptPrompt {
-  CopyWith$Mutation$CreateGptPrompt$createGptPrompt<
-          Mutation$CreateGptPrompt$createGptPrompt>
-      get copyWith => CopyWith$Mutation$CreateGptPrompt$createGptPrompt(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Mutation$CreateGptPrompt$createGptPrompt<TRes> {
-  factory CopyWith$Mutation$CreateGptPrompt$createGptPrompt(
-    Mutation$CreateGptPrompt$createGptPrompt instance,
-    TRes Function(Mutation$CreateGptPrompt$createGptPrompt) then,
-  ) = _CopyWithImpl$Mutation$CreateGptPrompt$createGptPrompt;
-
-  factory CopyWith$Mutation$CreateGptPrompt$createGptPrompt.stub(TRes res) =
-      _CopyWithStubImpl$Mutation$CreateGptPrompt$createGptPrompt;
-
-  TRes call({
-    String? id,
-    String? response,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Mutation$CreateGptPrompt$createGptPrompt<TRes>
-    implements CopyWith$Mutation$CreateGptPrompt$createGptPrompt<TRes> {
-  _CopyWithImpl$Mutation$CreateGptPrompt$createGptPrompt(
-    this._instance,
-    this._then,
-  );
-
-  final Mutation$CreateGptPrompt$createGptPrompt _instance;
-
-  final TRes Function(Mutation$CreateGptPrompt$createGptPrompt) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? response = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$CreateGptPrompt$createGptPrompt(
-        id: id == _undefined || id == null ? _instance.id : (id as String),
-        response: response == _undefined || response == null
-            ? _instance.response
-            : (response as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Mutation$CreateGptPrompt$createGptPrompt<TRes>
-    implements CopyWith$Mutation$CreateGptPrompt$createGptPrompt<TRes> {
-  _CopyWithStubImpl$Mutation$CreateGptPrompt$createGptPrompt(this._res);
-
-  TRes _res;
-
-  call({
-    String? id,
-    String? response,
-    String? $__typename,
-  }) =>
-      _res;
 }
 
 class Query$GreConfiguration {
