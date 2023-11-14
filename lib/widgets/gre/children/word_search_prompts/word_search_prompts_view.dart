@@ -208,7 +208,7 @@ class WordSearchPromptsView extends HookConsumerWidget {
         ),
         if (generalPrompts != null)
           SizedBox(
-            height: 200,
+            height: 50,
             child: ListView.builder(
               itemCount: generalPrompts.length,
               itemBuilder: (context, index) {
@@ -231,7 +231,7 @@ class WordSearchPromptsView extends HookConsumerWidget {
                 greWordSearchPromptInputsQuery.result.isLoading
             ? CircularProgressIndicator()
             : SizedBox(
-                height: 200,
+                height: 50,
                 child: ListView.builder(
                   itemCount: greWordSearchPromptInputs.length,
                   itemBuilder: (context, index) {

@@ -55,8 +55,17 @@ class MyApp extends HookConsumerWidget {
             routerDelegate: QRouterDelegate(ref.watch(routesProvider)),
             routeInformationParser: const QRouteInformationParser(),
             builder: (context, child) {
-              return GlobalWrapper(
-                child: child!,
+              return Overlay(
+                initialEntries: [
+                  OverlayEntry(
+                    // for SelectionArea to work OverlayEntry widget was needed to be added
+                    builder: (context) => SelectionArea(
+                      child: GlobalWrapper(
+                        child: child!,
+                      ),
+                    ),
+                  ),
+                ],
               );
             },
           ),
