@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/__generated/schema.graphql.dart';
-import 'package:skartner_app/constants/general_constants.dart';
 import 'package:skartner_app/providers/db_user_provider.dart';
 import 'package:skartner_app/providers/graphql_client_provider.dart';
 import 'package:skartner_app/utils/graphql_utils.dart';
@@ -21,8 +20,12 @@ class WordSearchResultView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, ref) {
     final dbUser = ref.watch(dbUserProvider)!;
-    final prompt = dbUser.meta.defaultGreWordSearchPromptInput ??
-        'list meaning and 3 easy example sentences for word - ${wordPlaceholder}';
+    final greConfigurationQuery = useQuery$GreConfiguration();
+    final generalPrompts = greConfigurationQuery
+        .result.parsedData?.greConfiguration.defaultGreWordSearchPromptInputs;
+    final prompt =
+        dbUser.meta.defaultGreWordSearchPromptInput ?? generalPrompts?[0];
+
     final promptLoading = useState(false);
     final indexesFetchedForWord = useState<List<int>>([]);
     final graphQLClient = ref.watch(graphQLClientProvider);
@@ -68,7 +71,7 @@ class WordSearchResultView extends HookConsumerWidget {
       final result = await graphQLClient.query$SendSinglePrompt(
         Options$Query$SendSinglePrompt(
           variables: Variables$Query$SendSinglePrompt(
-            prompt: prompt,
+            prompt: prompt!,
             word: word,
             indexesReturned: indexesFetchedForWord.value,
             skipCache: skipCache,
@@ -98,7 +101,9 @@ class WordSearchResultView extends HookConsumerWidget {
 
     final cacheResponseId =
         sendSinglePromptQueryParsedData.value?.sendSinglePrompt.cacheResponseId;
-
+    if (prompt == null) {
+      return CircularProgressIndicator();
+    }
     return SingleChildScrollView(
       child: Container(
         child: Column(

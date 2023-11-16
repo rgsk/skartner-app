@@ -33,12 +33,13 @@ class WordSearchPromptsView extends HookConsumerWidget {
     final greConfigurationQuery = useQuery$GreConfiguration();
     final generalPrompts = greConfigurationQuery
         .result.parsedData?.greConfiguration.defaultGreWordSearchPromptInputs;
-    final defaultPrompt = useState(dbUser.meta.defaultGreWordSearchPromptInput);
+    final defaultPrompt = useState<String?>(null);
 
     useEffect(() {
-      defaultPrompt.value = dbUser.meta.defaultGreWordSearchPromptInput;
+      defaultPrompt.value =
+          dbUser.meta.defaultGreWordSearchPromptInput ?? generalPrompts?[0];
       return null;
-    }, [dbUser.meta.defaultGreWordSearchPromptInput]);
+    }, [dbUser.meta.defaultGreWordSearchPromptInput, generalPrompts]);
 
     final updateGreWordSearchPromptInputMutation =
         useMutation$UpdateGreWordSearchPromptInput();
