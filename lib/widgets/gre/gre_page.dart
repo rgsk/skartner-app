@@ -71,7 +71,7 @@ class GrePage extends HookConsumerWidget {
             if (word.value != '')
               Expanded(
                 child: WordSearchResultView(
-                  word: word.value,
+                  word: word.value.trim().toLowerCase(),
                   selectedTags: selectedTags.value,
                 ),
               ),
