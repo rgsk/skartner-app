@@ -1,9 +1,9 @@
-cp .env envs/temp.env
-cp envs/staging.env .env
+cp .env ../envs/skartner-app/temp.env
+cp ../envs/skartner-app/staging.env .env
 
 flutter build web
 
-cp envs/temp.env .env
+cp ../envs/skartner-app/temp.env .env
 
 docker build . --platform linux/amd64 -t rgskartner/skartner-app
 
