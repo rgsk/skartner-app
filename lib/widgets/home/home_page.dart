@@ -32,7 +32,7 @@ class HomePage extends HookConsumerWidget {
             onPressed: () {
               QR.to(Routes.sample);
             },
-            child: Text('Sample latest'),
+            child: Text('Sample'),
           ),
           ElevatedButton(
             onPressed: () {
