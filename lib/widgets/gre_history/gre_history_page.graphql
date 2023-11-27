@@ -17,6 +17,7 @@ fragment GreWordFields on GreWord {
   id
   cacheWord {
     text
+    pronunciationAudioUrl
   }
   status
   gptPrompts {

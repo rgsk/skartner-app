@@ -1110,6 +1110,13 @@ const fragmentDefinitionGreWordFields = FragmentDefinitionNode(
           selectionSet: null,
         ),
         FieldNode(
+          name: NameNode(value: 'pronunciationAudioUrl'),
+          alias: null,
+          arguments: [],
+          directives: [],
+          selectionSet: null,
+        ),
+        FieldNode(
           name: NameNode(value: '__typename'),
           alias: null,
           arguments: [],
@@ -1225,19 +1232,24 @@ extension ClientExtension$Fragment$GreWordFields on graphql.GraphQLClient {
 class Fragment$GreWordFields$cacheWord {
   Fragment$GreWordFields$cacheWord({
     required this.text,
+    this.pronunciationAudioUrl,
     this.$__typename = 'CacheWord',
   });
 
   factory Fragment$GreWordFields$cacheWord.fromJson(Map<String, dynamic> json) {
     final l$text = json['text'];
+    final l$pronunciationAudioUrl = json['pronunciationAudioUrl'];
     final l$$__typename = json['__typename'];
     return Fragment$GreWordFields$cacheWord(
       text: (l$text as String),
+      pronunciationAudioUrl: (l$pronunciationAudioUrl as String?),
       $__typename: (l$$__typename as String),
     );
   }
 
   final String text;
+
+  final String? pronunciationAudioUrl;
 
   final String $__typename;
 
@@ -1245,6 +1257,8 @@ class Fragment$GreWordFields$cacheWord {
     final _resultData = <String, dynamic>{};
     final l$text = text;
     _resultData['text'] = l$text;
+    final l$pronunciationAudioUrl = pronunciationAudioUrl;
+    _resultData['pronunciationAudioUrl'] = l$pronunciationAudioUrl;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1253,9 +1267,11 @@ class Fragment$GreWordFields$cacheWord {
   @override
   int get hashCode {
     final l$text = text;
+    final l$pronunciationAudioUrl = pronunciationAudioUrl;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$text,
+      l$pronunciationAudioUrl,
       l$$__typename,
     ]);
   }
@@ -1272,6 +1288,11 @@ class Fragment$GreWordFields$cacheWord {
     final l$text = text;
     final lOther$text = other.text;
     if (l$text != lOther$text) {
+      return false;
+    }
+    final l$pronunciationAudioUrl = pronunciationAudioUrl;
+    final lOther$pronunciationAudioUrl = other.pronunciationAudioUrl;
+    if (l$pronunciationAudioUrl != lOther$pronunciationAudioUrl) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1303,6 +1324,7 @@ abstract class CopyWith$Fragment$GreWordFields$cacheWord<TRes> {
 
   TRes call({
     String? text,
+    String? pronunciationAudioUrl,
     String? $__typename,
   });
 }
@@ -1322,12 +1344,16 @@ class _CopyWithImpl$Fragment$GreWordFields$cacheWord<TRes>
 
   TRes call({
     Object? text = _undefined,
+    Object? pronunciationAudioUrl = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Fragment$GreWordFields$cacheWord(
         text: text == _undefined || text == null
             ? _instance.text
             : (text as String),
+        pronunciationAudioUrl: pronunciationAudioUrl == _undefined
+            ? _instance.pronunciationAudioUrl
+            : (pronunciationAudioUrl as String?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -1342,6 +1368,7 @@ class _CopyWithStubImpl$Fragment$GreWordFields$cacheWord<TRes>
 
   call({
     String? text,
+    String? pronunciationAudioUrl,
     String? $__typename,
   }) =>
       _res;

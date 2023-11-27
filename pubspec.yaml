@@ -47,6 +47,7 @@ dependencies:
   fl_query: ^1.0.0
   fl_query_hooks: ^1.0.0
   qlevar_router: ^1.10.0
+  audioplayers: ^5.2.1
 
 dev_dependencies:
   flutter_test:

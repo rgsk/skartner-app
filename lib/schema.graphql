@@ -31,6 +31,7 @@ type CacheWord {
   createdAt: String!
   id: String!
   meta: Json!
+  pronunciationAudioUrl: String
   text: String!
   updatedAt: String!
 }
@@ -70,6 +71,7 @@ type GreWord {
   greWordTags: [GreWordTag!]
   id: String!
   meta: Json!
+  pronunciationAudioUrl: String
   status: GreWordStatus!
   updatedAt: String!
   user: User
@@ -180,6 +182,22 @@ type Notification {
   userId: String!
 }
 
+type Permission {
+  createdAt: String!
+  id: String!
+  meta: Json!
+  name: String!
+  updatedAt: String!
+}
+
+type PermissionHierarchy {
+  childPermission: Permission
+  childPermissionId: String!
+  createdAt: String!
+  parentPermission: Permission
+  parentPermissionId: String!
+}
+
 type Post {
   body: String
   createdAt: String!
@@ -201,7 +219,13 @@ type Query {
   greWords(orderBy: [GreWordOrderByWithRelationInput], skip: Int, take: Int, where: GreWordWhereInput): [GreWord!]!
   greWordsCount(where: GreWordWhereInput): Int!
   hello: HelloWorld!
+  permissionHierarchies: [PermissionHierarchy]
+  permissions: [Permission]
   posts: [Post]
+  relationsPermissionToRole: [RelationPermissionToRole]
+  relationsPermissionToUser: [RelationPermissionToUser]
+  relationsRoleToUser: [RelationRoleToUser]
+  roles: [Role]
   sendSinglePrompt(indexesReturned: [Int!], prompt: String!, resultIndexFromCache: Int, skipCache: Boolean, word: String!): SendSinglePromptResponse!
   user(where: UserWhereUniqueInput!): User
   userSession(where: UserSessionWhereUniqueInput!): UserSession
@@ -211,6 +235,46 @@ type Query {
   usersCount(where: UserWhereInput): Int!
   wordsAndResponsesForPrompt(prompt: String!): [WordAndResponses!]!
   wordsCountForGptPrompts(prompts: [String!]!): [WordsCountForGptPrompts!]!
+}
+
+type RelationPermissionToRole {
+  grantedAt: String!
+  granter: User
+  granterId: String!
+  isAllowed: Boolean
+  permission: Permission
+  permissionId: String!
+  role: Role
+  roleId: String!
+}
+
+type RelationPermissionToUser {
+  grantedAt: String!
+  granter: User
+  granterId: String!
+  isAllowed: Boolean
+  permission: Permission
+  permissionId: String!
+  user: User
+  userId: String!
+}
+
+type RelationRoleToUser {
+  assignedAt: String!
+  assigner: User
+  assignerId: String!
+  role: Role
+  roleId: String!
+  user: User
+  userId: String!
+}
+
+type Role {
+  createdAt: String!
+  id: String!
+  meta: Json!
+  name: String!
+  updatedAt: String!
 }
 
 type SendSinglePromptResponse {
