@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:graphql/client.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:skartner_app/providers/graphql_client_provider.dart';
 import 'package:skartner_app/utils/graphql_utils.dart';
@@ -38,6 +39,7 @@ class GptPromptView extends HookConsumerWidget {
                 variables: Variables$Query$GenerateImagesForPrompt(
                   prompt: prompt,
                 ),
+                fetchPolicy: FetchPolicy.networkOnly,
               ),
             );
           },
@@ -63,10 +65,15 @@ class GptPromptView extends HookConsumerWidget {
                   decoration: InputDecoration(
                     labelText: "Enter Image Prompt",
                   ),
+                  onSubmitted: (value) {
+                    generateImages(
+                      _textEditingController.text,
+                    );
+                  },
                 ),
               ),
               ElevatedButton(
-                onPressed: () async {
+                onPressed: () {
                   generateImages(
                     _textEditingController.text,
                   );
@@ -87,11 +94,24 @@ class GptPromptView extends HookConsumerWidget {
                 ),
                 ElevatedButton(
                   onPressed: () async {
-                    updateGptPromptMutation.runMutation(
-                      Variables$Mutation$UpdateGptPrompt(
-                        id: gptPrompt.id,
-                        imageUrls: [...gptPrompt.imageUrls, generatedImage],
-                      ),
+                    setupGraphqlOperation(
+                      context: context,
+                      runOperation: () async {
+                        return updateGptPromptMutation
+                            .runMutation(
+                              Variables$Mutation$UpdateGptPrompt(
+                                id: gptPrompt.id,
+                                imageUrls: [
+                                  ...gptPrompt.imageUrls,
+                                  generatedImage
+                                ],
+                              ),
+                            )
+                            .networkResult;
+                      },
+                      onComplete: (data, parsedData) {
+                        generatedImages.value = null;
+                      },
                     );
                   },
                   child: updateGptPromptMutation.result.isLoading
@@ -100,6 +120,20 @@ class GptPromptView extends HookConsumerWidget {
                 ),
               ],
             ),
+          Text('Saved Images'),
+          Wrap(
+            children: List<Widget>.generate(
+              gptPrompt.imageUrls.length,
+              (int index) {
+                final imageUrl = gptPrompt.imageUrls[index];
+                return SizedBox(
+                  width: 256,
+                  height: 256,
+                  child: Image.network(imageUrl),
+                );
+              },
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
