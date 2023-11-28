@@ -47,6 +47,14 @@ input EnumGreWordStatusFilter {
   notIn: [GreWordStatus!]
 }
 
+type GenerateImagesForPromptResponse {
+  imageUrls: [String]
+}
+
+type GenerateImagesForWordResponse {
+  imageUrls: [String!]
+}
+
 type GptPrompt {
   cacheResponse: CacheResponse!
   createdAt: String!
@@ -171,6 +179,7 @@ type Mutation {
   deleteGreWordSearchPromptInput(id: String!): GreWordSearchPromptInput
   deleteGreWordTag(name: String!, userId: String!): GreWordTag!
   publish(draftId: String!): Post
+  saveImageToS3(imageUrl: String!, key: String): SaveImageToS3Response
   updateGptPrompt(editedResponse: String, id: String!): GptPrompt
   updateGreWord(greWordTags: [GreWordTagWhereUniqueInput], id: String!, status: GreWordStatus): GreWord
   updateGreWordSearchPromptInput(id: String!, text: String): GreWordSearchPromptInput
@@ -211,6 +220,8 @@ type Query {
   allPosts(isPublished: Boolean!, token: String): [Post]
   authenticate: AuthenticateResponse!
   drafts: [Post]
+  generateImagesForPrompt(prompt: String!): GenerateImagesForPromptResponse
+  generateImagesForWord(word: String!): GenerateImagesForWordResponse
   gptPrompts(skip: Int, take: Int): [GptPrompt]
   greConfiguration: GreConfiguration!
   greWord(where: GreWordWhereInput): GreWord
@@ -275,6 +286,10 @@ type Role {
   meta: Json!
   name: String!
   updatedAt: String!
+}
+
+type SaveImageToS3Response {
+  s3Url: String
 }
 
 type SendSinglePromptResponse {

@@ -9,3 +9,9 @@ mutation DeleteGptPrompt($deleteGptPromptId: String!) {
     id
   }
 }
+
+query GenerateImagesForPrompt($prompt: String!) {
+  generateImagesForPrompt(prompt: $prompt) {
+    imageUrls
+  }
+}

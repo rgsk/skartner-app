@@ -1350,3 +1350,620 @@ class _CopyWithStubImpl$Mutation$DeleteGptPrompt$deleteGptPrompt<TRes>
   }) =>
       _res;
 }
+
+class Variables$Query$GenerateImagesForPrompt {
+  factory Variables$Query$GenerateImagesForPrompt({required String prompt}) =>
+      Variables$Query$GenerateImagesForPrompt._({
+        r'prompt': prompt,
+      });
+
+  Variables$Query$GenerateImagesForPrompt._(this._$data);
+
+  factory Variables$Query$GenerateImagesForPrompt.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    final l$prompt = data['prompt'];
+    result$data['prompt'] = (l$prompt as String);
+    return Variables$Query$GenerateImagesForPrompt._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String get prompt => (_$data['prompt'] as String);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    final l$prompt = prompt;
+    result$data['prompt'] = l$prompt;
+    return result$data;
+  }
+
+  CopyWith$Variables$Query$GenerateImagesForPrompt<
+          Variables$Query$GenerateImagesForPrompt>
+      get copyWith => CopyWith$Variables$Query$GenerateImagesForPrompt(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Variables$Query$GenerateImagesForPrompt) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$prompt = prompt;
+    final lOther$prompt = other.prompt;
+    if (l$prompt != lOther$prompt) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$prompt = prompt;
+    return Object.hashAll([l$prompt]);
+  }
+}
+
+abstract class CopyWith$Variables$Query$GenerateImagesForPrompt<TRes> {
+  factory CopyWith$Variables$Query$GenerateImagesForPrompt(
+    Variables$Query$GenerateImagesForPrompt instance,
+    TRes Function(Variables$Query$GenerateImagesForPrompt) then,
+  ) = _CopyWithImpl$Variables$Query$GenerateImagesForPrompt;
+
+  factory CopyWith$Variables$Query$GenerateImagesForPrompt.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$GenerateImagesForPrompt;
+
+  TRes call({String? prompt});
+}
+
+class _CopyWithImpl$Variables$Query$GenerateImagesForPrompt<TRes>
+    implements CopyWith$Variables$Query$GenerateImagesForPrompt<TRes> {
+  _CopyWithImpl$Variables$Query$GenerateImagesForPrompt(
+    this._instance,
+    this._then,
+  );
+
+  final Variables$Query$GenerateImagesForPrompt _instance;
+
+  final TRes Function(Variables$Query$GenerateImagesForPrompt) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? prompt = _undefined}) =>
+      _then(Variables$Query$GenerateImagesForPrompt._({
+        ..._instance._$data,
+        if (prompt != _undefined && prompt != null)
+          'prompt': (prompt as String),
+      }));
+}
+
+class _CopyWithStubImpl$Variables$Query$GenerateImagesForPrompt<TRes>
+    implements CopyWith$Variables$Query$GenerateImagesForPrompt<TRes> {
+  _CopyWithStubImpl$Variables$Query$GenerateImagesForPrompt(this._res);
+
+  TRes _res;
+
+  call({String? prompt}) => _res;
+}
+
+class Query$GenerateImagesForPrompt {
+  Query$GenerateImagesForPrompt({
+    this.generateImagesForPrompt,
+    this.$__typename = 'Query',
+  });
+
+  factory Query$GenerateImagesForPrompt.fromJson(Map<String, dynamic> json) {
+    final l$generateImagesForPrompt = json['generateImagesForPrompt'];
+    final l$$__typename = json['__typename'];
+    return Query$GenerateImagesForPrompt(
+      generateImagesForPrompt: l$generateImagesForPrompt == null
+          ? null
+          : Query$GenerateImagesForPrompt$generateImagesForPrompt.fromJson(
+              (l$generateImagesForPrompt as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final Query$GenerateImagesForPrompt$generateImagesForPrompt?
+      generateImagesForPrompt;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$generateImagesForPrompt = generateImagesForPrompt;
+    _resultData['generateImagesForPrompt'] =
+        l$generateImagesForPrompt?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$generateImagesForPrompt = generateImagesForPrompt;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$generateImagesForPrompt,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GenerateImagesForPrompt) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$generateImagesForPrompt = generateImagesForPrompt;
+    final lOther$generateImagesForPrompt = other.generateImagesForPrompt;
+    if (l$generateImagesForPrompt != lOther$generateImagesForPrompt) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GenerateImagesForPrompt
+    on Query$GenerateImagesForPrompt {
+  CopyWith$Query$GenerateImagesForPrompt<Query$GenerateImagesForPrompt>
+      get copyWith => CopyWith$Query$GenerateImagesForPrompt(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GenerateImagesForPrompt<TRes> {
+  factory CopyWith$Query$GenerateImagesForPrompt(
+    Query$GenerateImagesForPrompt instance,
+    TRes Function(Query$GenerateImagesForPrompt) then,
+  ) = _CopyWithImpl$Query$GenerateImagesForPrompt;
+
+  factory CopyWith$Query$GenerateImagesForPrompt.stub(TRes res) =
+      _CopyWithStubImpl$Query$GenerateImagesForPrompt;
+
+  TRes call({
+    Query$GenerateImagesForPrompt$generateImagesForPrompt?
+        generateImagesForPrompt,
+    String? $__typename,
+  });
+  CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt<TRes>
+      get generateImagesForPrompt;
+}
+
+class _CopyWithImpl$Query$GenerateImagesForPrompt<TRes>
+    implements CopyWith$Query$GenerateImagesForPrompt<TRes> {
+  _CopyWithImpl$Query$GenerateImagesForPrompt(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GenerateImagesForPrompt _instance;
+
+  final TRes Function(Query$GenerateImagesForPrompt) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? generateImagesForPrompt = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GenerateImagesForPrompt(
+        generateImagesForPrompt: generateImagesForPrompt == _undefined
+            ? _instance.generateImagesForPrompt
+            : (generateImagesForPrompt
+                as Query$GenerateImagesForPrompt$generateImagesForPrompt?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+
+  CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt<TRes>
+      get generateImagesForPrompt {
+    final local$generateImagesForPrompt = _instance.generateImagesForPrompt;
+    return local$generateImagesForPrompt == null
+        ? CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt.stub(
+            _then(_instance))
+        : CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt(
+            local$generateImagesForPrompt,
+            (e) => call(generateImagesForPrompt: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$GenerateImagesForPrompt<TRes>
+    implements CopyWith$Query$GenerateImagesForPrompt<TRes> {
+  _CopyWithStubImpl$Query$GenerateImagesForPrompt(this._res);
+
+  TRes _res;
+
+  call({
+    Query$GenerateImagesForPrompt$generateImagesForPrompt?
+        generateImagesForPrompt,
+    String? $__typename,
+  }) =>
+      _res;
+
+  CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt<TRes>
+      get generateImagesForPrompt =>
+          CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt.stub(
+              _res);
+}
+
+const documentNodeQueryGenerateImagesForPrompt = DocumentNode(definitions: [
+  OperationDefinitionNode(
+    type: OperationType.query,
+    name: NameNode(value: 'GenerateImagesForPrompt'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'prompt')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      )
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'generateImagesForPrompt'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'prompt'),
+            value: VariableNode(name: NameNode(value: 'prompt')),
+          )
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'imageUrls'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: '__typename'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
+]);
+Query$GenerateImagesForPrompt _parserFn$Query$GenerateImagesForPrompt(
+        Map<String, dynamic> data) =>
+    Query$GenerateImagesForPrompt.fromJson(data);
+typedef OnQueryComplete$Query$GenerateImagesForPrompt = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Query$GenerateImagesForPrompt?,
+);
+
+class Options$Query$GenerateImagesForPrompt
+    extends graphql.QueryOptions<Query$GenerateImagesForPrompt> {
+  Options$Query$GenerateImagesForPrompt({
+    String? operationName,
+    required Variables$Query$GenerateImagesForPrompt variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GenerateImagesForPrompt? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$GenerateImagesForPrompt? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$GenerateImagesForPrompt(data),
+                  ),
+          onError: onError,
+          document: documentNodeQueryGenerateImagesForPrompt,
+          parserFn: _parserFn$Query$GenerateImagesForPrompt,
+        );
+
+  final OnQueryComplete$Query$GenerateImagesForPrompt? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
+}
+
+class WatchOptions$Query$GenerateImagesForPrompt
+    extends graphql.WatchQueryOptions<Query$GenerateImagesForPrompt> {
+  WatchOptions$Query$GenerateImagesForPrompt({
+    String? operationName,
+    required Variables$Query$GenerateImagesForPrompt variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$GenerateImagesForPrompt? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables.toJson(),
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQueryGenerateImagesForPrompt,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$GenerateImagesForPrompt,
+        );
+}
+
+class FetchMoreOptions$Query$GenerateImagesForPrompt
+    extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$GenerateImagesForPrompt({
+    required graphql.UpdateQuery updateQuery,
+    required Variables$Query$GenerateImagesForPrompt variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables.toJson(),
+          document: documentNodeQueryGenerateImagesForPrompt,
+        );
+}
+
+extension ClientExtension$Query$GenerateImagesForPrompt
+    on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GenerateImagesForPrompt>>
+      query$GenerateImagesForPrompt(
+              Options$Query$GenerateImagesForPrompt options) async =>
+          await this.query(options);
+  graphql.ObservableQuery<Query$GenerateImagesForPrompt>
+      watchQuery$GenerateImagesForPrompt(
+              WatchOptions$Query$GenerateImagesForPrompt options) =>
+          this.watchQuery(options);
+  void writeQuery$GenerateImagesForPrompt({
+    required Query$GenerateImagesForPrompt data,
+    required Variables$Query$GenerateImagesForPrompt variables,
+    bool broadcast = true,
+  }) =>
+      this.writeQuery(
+        graphql.Request(
+          operation: graphql.Operation(
+              document: documentNodeQueryGenerateImagesForPrompt),
+          variables: variables.toJson(),
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$GenerateImagesForPrompt? readQuery$GenerateImagesForPrompt({
+    required Variables$Query$GenerateImagesForPrompt variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQueryGenerateImagesForPrompt),
+        variables: variables.toJson(),
+      ),
+      optimistic: optimistic,
+    );
+    return result == null
+        ? null
+        : Query$GenerateImagesForPrompt.fromJson(result);
+  }
+}
+
+graphql_flutter.QueryHookResult<Query$GenerateImagesForPrompt>
+    useQuery$GenerateImagesForPrompt(
+            Options$Query$GenerateImagesForPrompt options) =>
+        graphql_flutter.useQuery(options);
+graphql.ObservableQuery<Query$GenerateImagesForPrompt>
+    useWatchQuery$GenerateImagesForPrompt(
+            WatchOptions$Query$GenerateImagesForPrompt options) =>
+        graphql_flutter.useWatchQuery(options);
+
+class Query$GenerateImagesForPrompt$Widget
+    extends graphql_flutter.Query<Query$GenerateImagesForPrompt> {
+  Query$GenerateImagesForPrompt$Widget({
+    widgets.Key? key,
+    required Options$Query$GenerateImagesForPrompt options,
+    required graphql_flutter.QueryBuilder<Query$GenerateImagesForPrompt>
+        builder,
+  }) : super(
+          key: key,
+          options: options,
+          builder: builder,
+        );
+}
+
+class Query$GenerateImagesForPrompt$generateImagesForPrompt {
+  Query$GenerateImagesForPrompt$generateImagesForPrompt({
+    this.imageUrls,
+    this.$__typename = 'GenerateImagesForPromptResponse',
+  });
+
+  factory Query$GenerateImagesForPrompt$generateImagesForPrompt.fromJson(
+      Map<String, dynamic> json) {
+    final l$imageUrls = json['imageUrls'];
+    final l$$__typename = json['__typename'];
+    return Query$GenerateImagesForPrompt$generateImagesForPrompt(
+      imageUrls:
+          (l$imageUrls as List<dynamic>?)?.map((e) => (e as String?)).toList(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final List<String?>? imageUrls;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$imageUrls = imageUrls;
+    _resultData['imageUrls'] = l$imageUrls?.map((e) => e).toList();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$imageUrls = imageUrls;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$imageUrls == null ? null : Object.hashAll(l$imageUrls.map((v) => v)),
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$GenerateImagesForPrompt$generateImagesForPrompt) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$imageUrls = imageUrls;
+    final lOther$imageUrls = other.imageUrls;
+    if (l$imageUrls != null && lOther$imageUrls != null) {
+      if (l$imageUrls.length != lOther$imageUrls.length) {
+        return false;
+      }
+      for (int i = 0; i < l$imageUrls.length; i++) {
+        final l$imageUrls$entry = l$imageUrls[i];
+        final lOther$imageUrls$entry = lOther$imageUrls[i];
+        if (l$imageUrls$entry != lOther$imageUrls$entry) {
+          return false;
+        }
+      }
+    } else if (l$imageUrls != lOther$imageUrls) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$GenerateImagesForPrompt$generateImagesForPrompt
+    on Query$GenerateImagesForPrompt$generateImagesForPrompt {
+  CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt<
+          Query$GenerateImagesForPrompt$generateImagesForPrompt>
+      get copyWith =>
+          CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt<
+    TRes> {
+  factory CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt(
+    Query$GenerateImagesForPrompt$generateImagesForPrompt instance,
+    TRes Function(Query$GenerateImagesForPrompt$generateImagesForPrompt) then,
+  ) = _CopyWithImpl$Query$GenerateImagesForPrompt$generateImagesForPrompt;
+
+  factory CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$GenerateImagesForPrompt$generateImagesForPrompt;
+
+  TRes call({
+    List<String?>? imageUrls,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$GenerateImagesForPrompt$generateImagesForPrompt<TRes>
+    implements
+        CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt<TRes> {
+  _CopyWithImpl$Query$GenerateImagesForPrompt$generateImagesForPrompt(
+    this._instance,
+    this._then,
+  );
+
+  final Query$GenerateImagesForPrompt$generateImagesForPrompt _instance;
+
+  final TRes Function(Query$GenerateImagesForPrompt$generateImagesForPrompt)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? imageUrls = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$GenerateImagesForPrompt$generateImagesForPrompt(
+        imageUrls: imageUrls == _undefined
+            ? _instance.imageUrls
+            : (imageUrls as List<String?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$GenerateImagesForPrompt$generateImagesForPrompt<
+        TRes>
+    implements
+        CopyWith$Query$GenerateImagesForPrompt$generateImagesForPrompt<TRes> {
+  _CopyWithStubImpl$Query$GenerateImagesForPrompt$generateImagesForPrompt(
+      this._res);
+
+  TRes _res;
+
+  call({
+    List<String?>? imageUrls,
+    String? $__typename,
+  }) =>
+      _res;
+}
