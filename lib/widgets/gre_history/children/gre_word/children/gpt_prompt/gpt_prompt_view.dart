@@ -23,8 +23,10 @@ class GptPromptView extends HookConsumerWidget {
     final deleteGptPromptdMutation = useMutation$DeleteGptPrompt();
     final graphQLClient = ref.watch(graphQLClientProvider);
 
-    final generatedImages = useState<List<String?>?>([]);
+    final generatedImages = useState<List<String?>?>(null);
     final generateImagesLoading = useState(false);
+
+    final updateGptPromptMutation = useMutation$UpdateGptPrompt();
 
     void generateImages(String prompt) async {
       generateImagesLoading.value = true;
@@ -76,10 +78,27 @@ class GptPromptView extends HookConsumerWidget {
             ],
           ),
           if (generatedImage != null)
-            SizedBox(
-              width: 256,
-              height: 256,
-              child: Image.network(generatedImage),
+            Column(
+              children: [
+                SizedBox(
+                  width: 256,
+                  height: 256,
+                  child: Image.network(generatedImage),
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    updateGptPromptMutation.runMutation(
+                      Variables$Mutation$UpdateGptPrompt(
+                        id: gptPrompt.id,
+                        imageUrls: [...gptPrompt.imageUrls, generatedImage],
+                      ),
+                    );
+                  },
+                  child: updateGptPromptMutation.result.isLoading
+                      ? CircularProgressIndicator()
+                      : Text('Save'),
+                ),
+              ],
             ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

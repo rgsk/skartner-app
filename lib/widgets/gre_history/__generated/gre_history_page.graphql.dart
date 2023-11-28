@@ -10,6 +10,7 @@ class Fragment$GptPromptFields {
     required this.id,
     required this.cacheResponse,
     this.editedResponse,
+    required this.imageUrls,
     this.greWordId,
     this.$__typename = 'GptPrompt',
   });
@@ -18,6 +19,7 @@ class Fragment$GptPromptFields {
     final l$id = json['id'];
     final l$cacheResponse = json['cacheResponse'];
     final l$editedResponse = json['editedResponse'];
+    final l$imageUrls = json['imageUrls'];
     final l$greWordId = json['greWordId'];
     final l$$__typename = json['__typename'];
     return Fragment$GptPromptFields(
@@ -25,6 +27,8 @@ class Fragment$GptPromptFields {
       cacheResponse: Fragment$GptPromptFields$cacheResponse.fromJson(
           (l$cacheResponse as Map<String, dynamic>)),
       editedResponse: (l$editedResponse as String?),
+      imageUrls:
+          (l$imageUrls as List<dynamic>).map((e) => (e as String)).toList(),
       greWordId: (l$greWordId as String?),
       $__typename: (l$$__typename as String),
     );
@@ -35,6 +39,8 @@ class Fragment$GptPromptFields {
   final Fragment$GptPromptFields$cacheResponse cacheResponse;
 
   final String? editedResponse;
+
+  final List<String> imageUrls;
 
   final String? greWordId;
 
@@ -48,6 +54,8 @@ class Fragment$GptPromptFields {
     _resultData['cacheResponse'] = l$cacheResponse.toJson();
     final l$editedResponse = editedResponse;
     _resultData['editedResponse'] = l$editedResponse;
+    final l$imageUrls = imageUrls;
+    _resultData['imageUrls'] = l$imageUrls.map((e) => e).toList();
     final l$greWordId = greWordId;
     _resultData['greWordId'] = l$greWordId;
     final l$$__typename = $__typename;
@@ -60,12 +68,14 @@ class Fragment$GptPromptFields {
     final l$id = id;
     final l$cacheResponse = cacheResponse;
     final l$editedResponse = editedResponse;
+    final l$imageUrls = imageUrls;
     final l$greWordId = greWordId;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$cacheResponse,
       l$editedResponse,
+      Object.hashAll(l$imageUrls.map((v) => v)),
       l$greWordId,
       l$$__typename,
     ]);
@@ -94,6 +104,18 @@ class Fragment$GptPromptFields {
     final lOther$editedResponse = other.editedResponse;
     if (l$editedResponse != lOther$editedResponse) {
       return false;
+    }
+    final l$imageUrls = imageUrls;
+    final lOther$imageUrls = other.imageUrls;
+    if (l$imageUrls.length != lOther$imageUrls.length) {
+      return false;
+    }
+    for (int i = 0; i < l$imageUrls.length; i++) {
+      final l$imageUrls$entry = l$imageUrls[i];
+      final lOther$imageUrls$entry = lOther$imageUrls[i];
+      if (l$imageUrls$entry != lOther$imageUrls$entry) {
+        return false;
+      }
     }
     final l$greWordId = greWordId;
     final lOther$greWordId = other.greWordId;
@@ -131,6 +153,7 @@ abstract class CopyWith$Fragment$GptPromptFields<TRes> {
     String? id,
     Fragment$GptPromptFields$cacheResponse? cacheResponse,
     String? editedResponse,
+    List<String>? imageUrls,
     String? greWordId,
     String? $__typename,
   });
@@ -154,6 +177,7 @@ class _CopyWithImpl$Fragment$GptPromptFields<TRes>
     Object? id = _undefined,
     Object? cacheResponse = _undefined,
     Object? editedResponse = _undefined,
+    Object? imageUrls = _undefined,
     Object? greWordId = _undefined,
     Object? $__typename = _undefined,
   }) =>
@@ -165,6 +189,9 @@ class _CopyWithImpl$Fragment$GptPromptFields<TRes>
         editedResponse: editedResponse == _undefined
             ? _instance.editedResponse
             : (editedResponse as String?),
+        imageUrls: imageUrls == _undefined || imageUrls == null
+            ? _instance.imageUrls
+            : (imageUrls as List<String>),
         greWordId: greWordId == _undefined
             ? _instance.greWordId
             : (greWordId as String?),
@@ -190,6 +217,7 @@ class _CopyWithStubImpl$Fragment$GptPromptFields<TRes>
     String? id,
     Fragment$GptPromptFields$cacheResponse? cacheResponse,
     String? editedResponse,
+    List<String>? imageUrls,
     String? greWordId,
     String? $__typename,
   }) =>
@@ -283,6 +311,13 @@ const fragmentDefinitionGptPromptFields = FragmentDefinitionNode(
     ),
     FieldNode(
       name: NameNode(value: 'editedResponse'),
+      alias: null,
+      arguments: [],
+      directives: [],
+      selectionSet: null,
+    ),
+    FieldNode(
+      name: NameNode(value: 'imageUrls'),
       alias: null,
       arguments: [],
       directives: [],

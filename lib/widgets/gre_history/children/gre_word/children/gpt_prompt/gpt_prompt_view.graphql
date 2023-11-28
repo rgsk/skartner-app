@@ -1,9 +1,19 @@
-mutation UpdateGptPrompt($id: String!, $editedResponse: String) {
-  updateGptPrompt(id: $id, editedResponse: $editedResponse) {
+mutation UpdateGptPrompt(
+  $id: String!
+  $editedResponse: String
+  $imageUrls: [String!]
+) {
+  updateGptPrompt(
+    id: $id
+    editedResponse: $editedResponse
+    imageUrls: $imageUrls
+  ) {
     id
     editedResponse
+    imageUrls
   }
 }
+
 mutation DeleteGptPrompt($deleteGptPromptId: String!) {
   deleteGptPrompt(id: $deleteGptPromptId) {
     id

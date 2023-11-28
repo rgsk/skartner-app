@@ -8,10 +8,12 @@ class Variables$Mutation$UpdateGptPrompt {
   factory Variables$Mutation$UpdateGptPrompt({
     required String id,
     String? editedResponse,
+    List<String>? imageUrls,
   }) =>
       Variables$Mutation$UpdateGptPrompt._({
         r'id': id,
         if (editedResponse != null) r'editedResponse': editedResponse,
+        if (imageUrls != null) r'imageUrls': imageUrls,
       });
 
   Variables$Mutation$UpdateGptPrompt._(this._$data);
@@ -25,6 +27,11 @@ class Variables$Mutation$UpdateGptPrompt {
       final l$editedResponse = data['editedResponse'];
       result$data['editedResponse'] = (l$editedResponse as String?);
     }
+    if (data.containsKey('imageUrls')) {
+      final l$imageUrls = data['imageUrls'];
+      result$data['imageUrls'] =
+          (l$imageUrls as List<dynamic>?)?.map((e) => (e as String)).toList();
+    }
     return Variables$Mutation$UpdateGptPrompt._(result$data);
   }
 
@@ -34,6 +41,8 @@ class Variables$Mutation$UpdateGptPrompt {
 
   String? get editedResponse => (_$data['editedResponse'] as String?);
 
+  List<String>? get imageUrls => (_$data['imageUrls'] as List<String>?);
+
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$id = id;
@@ -41,6 +50,10 @@ class Variables$Mutation$UpdateGptPrompt {
     if (_$data.containsKey('editedResponse')) {
       final l$editedResponse = editedResponse;
       result$data['editedResponse'] = l$editedResponse;
+    }
+    if (_$data.containsKey('imageUrls')) {
+      final l$imageUrls = imageUrls;
+      result$data['imageUrls'] = l$imageUrls?.map((e) => e).toList();
     }
     return result$data;
   }
@@ -75,6 +88,26 @@ class Variables$Mutation$UpdateGptPrompt {
     if (l$editedResponse != lOther$editedResponse) {
       return false;
     }
+    final l$imageUrls = imageUrls;
+    final lOther$imageUrls = other.imageUrls;
+    if (_$data.containsKey('imageUrls') !=
+        other._$data.containsKey('imageUrls')) {
+      return false;
+    }
+    if (l$imageUrls != null && lOther$imageUrls != null) {
+      if (l$imageUrls.length != lOther$imageUrls.length) {
+        return false;
+      }
+      for (int i = 0; i < l$imageUrls.length; i++) {
+        final l$imageUrls$entry = l$imageUrls[i];
+        final lOther$imageUrls$entry = lOther$imageUrls[i];
+        if (l$imageUrls$entry != lOther$imageUrls$entry) {
+          return false;
+        }
+      }
+    } else if (l$imageUrls != lOther$imageUrls) {
+      return false;
+    }
     return true;
   }
 
@@ -82,9 +115,15 @@ class Variables$Mutation$UpdateGptPrompt {
   int get hashCode {
     final l$id = id;
     final l$editedResponse = editedResponse;
+    final l$imageUrls = imageUrls;
     return Object.hashAll([
       l$id,
       _$data.containsKey('editedResponse') ? l$editedResponse : const {},
+      _$data.containsKey('imageUrls')
+          ? l$imageUrls == null
+              ? null
+              : Object.hashAll(l$imageUrls.map((v) => v))
+          : const {},
     ]);
   }
 }
@@ -101,6 +140,7 @@ abstract class CopyWith$Variables$Mutation$UpdateGptPrompt<TRes> {
   TRes call({
     String? id,
     String? editedResponse,
+    List<String>? imageUrls,
   });
 }
 
@@ -120,12 +160,14 @@ class _CopyWithImpl$Variables$Mutation$UpdateGptPrompt<TRes>
   TRes call({
     Object? id = _undefined,
     Object? editedResponse = _undefined,
+    Object? imageUrls = _undefined,
   }) =>
       _then(Variables$Mutation$UpdateGptPrompt._({
         ..._instance._$data,
         if (id != _undefined && id != null) 'id': (id as String),
         if (editedResponse != _undefined)
           'editedResponse': (editedResponse as String?),
+        if (imageUrls != _undefined) 'imageUrls': (imageUrls as List<String>?),
       }));
 }
 
@@ -138,6 +180,7 @@ class _CopyWithStubImpl$Variables$Mutation$UpdateGptPrompt<TRes>
   call({
     String? id,
     String? editedResponse,
+    List<String>? imageUrls,
   }) =>
       _res;
 }
@@ -306,6 +349,18 @@ const documentNodeMutationUpdateGptPrompt = DocumentNode(definitions: [
         defaultValue: DefaultValueNode(value: null),
         directives: [],
       ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'imageUrls')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'String'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -321,6 +376,10 @@ const documentNodeMutationUpdateGptPrompt = DocumentNode(definitions: [
             name: NameNode(value: 'editedResponse'),
             value: VariableNode(name: NameNode(value: 'editedResponse')),
           ),
+          ArgumentNode(
+            name: NameNode(value: 'imageUrls'),
+            value: VariableNode(name: NameNode(value: 'imageUrls')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -333,6 +392,13 @@ const documentNodeMutationUpdateGptPrompt = DocumentNode(definitions: [
           ),
           FieldNode(
             name: NameNode(value: 'editedResponse'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'imageUrls'),
             alias: null,
             arguments: [],
             directives: [],
@@ -575,6 +641,7 @@ class Mutation$UpdateGptPrompt$updateGptPrompt {
   Mutation$UpdateGptPrompt$updateGptPrompt({
     required this.id,
     this.editedResponse,
+    required this.imageUrls,
     this.$__typename = 'GptPrompt',
   });
 
@@ -582,10 +649,13 @@ class Mutation$UpdateGptPrompt$updateGptPrompt {
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$editedResponse = json['editedResponse'];
+    final l$imageUrls = json['imageUrls'];
     final l$$__typename = json['__typename'];
     return Mutation$UpdateGptPrompt$updateGptPrompt(
       id: (l$id as String),
       editedResponse: (l$editedResponse as String?),
+      imageUrls:
+          (l$imageUrls as List<dynamic>).map((e) => (e as String)).toList(),
       $__typename: (l$$__typename as String),
     );
   }
@@ -593,6 +663,8 @@ class Mutation$UpdateGptPrompt$updateGptPrompt {
   final String id;
 
   final String? editedResponse;
+
+  final List<String> imageUrls;
 
   final String $__typename;
 
@@ -602,6 +674,8 @@ class Mutation$UpdateGptPrompt$updateGptPrompt {
     _resultData['id'] = l$id;
     final l$editedResponse = editedResponse;
     _resultData['editedResponse'] = l$editedResponse;
+    final l$imageUrls = imageUrls;
+    _resultData['imageUrls'] = l$imageUrls.map((e) => e).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -611,10 +685,12 @@ class Mutation$UpdateGptPrompt$updateGptPrompt {
   int get hashCode {
     final l$id = id;
     final l$editedResponse = editedResponse;
+    final l$imageUrls = imageUrls;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$editedResponse,
+      Object.hashAll(l$imageUrls.map((v) => v)),
       l$$__typename,
     ]);
   }
@@ -637,6 +713,18 @@ class Mutation$UpdateGptPrompt$updateGptPrompt {
     final lOther$editedResponse = other.editedResponse;
     if (l$editedResponse != lOther$editedResponse) {
       return false;
+    }
+    final l$imageUrls = imageUrls;
+    final lOther$imageUrls = other.imageUrls;
+    if (l$imageUrls.length != lOther$imageUrls.length) {
+      return false;
+    }
+    for (int i = 0; i < l$imageUrls.length; i++) {
+      final l$imageUrls$entry = l$imageUrls[i];
+      final lOther$imageUrls$entry = lOther$imageUrls[i];
+      if (l$imageUrls$entry != lOther$imageUrls$entry) {
+        return false;
+      }
     }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
@@ -669,6 +757,7 @@ abstract class CopyWith$Mutation$UpdateGptPrompt$updateGptPrompt<TRes> {
   TRes call({
     String? id,
     String? editedResponse,
+    List<String>? imageUrls,
     String? $__typename,
   });
 }
@@ -689,6 +778,7 @@ class _CopyWithImpl$Mutation$UpdateGptPrompt$updateGptPrompt<TRes>
   TRes call({
     Object? id = _undefined,
     Object? editedResponse = _undefined,
+    Object? imageUrls = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$UpdateGptPrompt$updateGptPrompt(
@@ -696,6 +786,9 @@ class _CopyWithImpl$Mutation$UpdateGptPrompt$updateGptPrompt<TRes>
         editedResponse: editedResponse == _undefined
             ? _instance.editedResponse
             : (editedResponse as String?),
+        imageUrls: imageUrls == _undefined || imageUrls == null
+            ? _instance.imageUrls
+            : (imageUrls as List<String>),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -711,6 +804,7 @@ class _CopyWithStubImpl$Mutation$UpdateGptPrompt$updateGptPrompt<TRes>
   call({
     String? id,
     String? editedResponse,
+    List<String>? imageUrls,
     String? $__typename,
   }) =>
       _res;

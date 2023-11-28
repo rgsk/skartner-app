@@ -10,6 +10,7 @@ fragment GptPromptFields on GptPrompt {
     text
   }
   editedResponse
+  imageUrls
   greWordId
 }
 

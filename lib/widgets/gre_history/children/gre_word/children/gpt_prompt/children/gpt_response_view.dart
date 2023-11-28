@@ -22,6 +22,7 @@ class GptResponseView extends HookWidget {
 
     final updateGptPromptMutation = useMutation$UpdateGptPrompt(
       WidgetOptions$Mutation$UpdateGptPrompt(
+        // alternative of using setupGraphqlOperation
         onCompleted: (data, parsedData) {
           if (parsedData != null) {
             // if not successful then parsedData will null
