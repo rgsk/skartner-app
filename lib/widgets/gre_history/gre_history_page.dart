@@ -180,8 +180,8 @@ class GreHistoryPage extends HookConsumerWidget {
                           ),
                           IconButton(
                             onPressed: () {
-                              setupMutation(
-                                runMutation: () async {
+                              setupGraphqlOperation(
+                                runOperation: () async {
                                   return deleteGreWordTagMutation
                                       .runMutation(
                                         Variables$Mutation$DeleteGreWordTag(

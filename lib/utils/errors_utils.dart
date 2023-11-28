@@ -4,7 +4,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 void reportGraphqlException(OperationException exception) {
   if (kDebugMode) {
     final graphqlErrorMessage = exception.graphqlErrors[0].message;
-    print('Graphql_Mutation_Error: ${graphqlErrorMessage}');
+    print('Graphql_Error: ${graphqlErrorMessage}');
   }
   // send them to grafana or sentry
 }

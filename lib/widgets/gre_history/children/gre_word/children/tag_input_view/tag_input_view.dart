@@ -52,9 +52,9 @@ class TagInputView extends HookConsumerWidget {
         if (!matchExists.value)
           OutlinedButton(
             onPressed: () {
-              setupMutation(
+              setupGraphqlOperation(
                 context: context,
-                runMutation: () async {
+                runOperation: () async {
                   return createGreWordTagMutation
                       .runMutation(
                         Variables$Mutation$CreateGreWordTag(

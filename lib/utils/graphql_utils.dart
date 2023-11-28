@@ -3,19 +3,19 @@ import 'package:graphql/client.dart';
 import 'package:skartner_app/utils/errors_utils.dart';
 import 'package:skartner_app/utils/ui_utils.dart';
 
-Future<void> setupMutation<T>({
+Future<void> setupGraphqlOperation<T>({
   required BuildContext context,
   String errorMessage =
       'Some Error Occurred', // default error message shown in snackbar
   VoidCallback? optimisticUpdate,
   VoidCallback? revertOptimisticUpdate,
-  required Future<QueryResult<T>?> Function() runMutation,
+  required Future<QueryResult<T>?> Function() runOperation,
   Function(Map<String, dynamic>? data, T? parsedData)? onComplete,
   Function(OperationException? exception)? onError,
   Function(QueryResult<T>? result)? onFinish,
 }) async {
   optimisticUpdate?.call();
-  final result = await runMutation();
+  final result = await runOperation();
   onFinish?.call(result);
   final exception = result?.exception;
   if (exception != null) {

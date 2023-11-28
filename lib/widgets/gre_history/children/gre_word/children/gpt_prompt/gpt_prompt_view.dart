@@ -28,9 +28,9 @@ class GptPromptView extends HookConsumerWidget {
 
     void generateImages(String prompt) async {
       generateImagesLoading.value = true;
-      setupMutation(
+      setupGraphqlOperation(
           context: context,
-          runMutation: () async {
+          runOperation: () async {
             return graphQLClient.query$GenerateImagesForPrompt(
               Options$Query$GenerateImagesForPrompt(
                 variables: Variables$Query$GenerateImagesForPrompt(
@@ -87,9 +87,9 @@ class GptPromptView extends HookConsumerWidget {
               Text(gptPrompt.cacheResponse.cachePrompt.text),
               IconButton(
                 onPressed: () async {
-                  setupMutation(
+                  setupGraphqlOperation(
                     context: context,
-                    runMutation: () async {
+                    runOperation: () async {
                       return deleteGptPromptdMutation
                           .runMutation(
                             Variables$Mutation$DeleteGptPrompt(

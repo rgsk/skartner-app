@@ -33,7 +33,7 @@ class GreWordView extends HookConsumerWidget {
 
     void updateTags(List<String> newTags) {
       final previousTags = selectedTags.value;
-      setupMutation(
+      setupGraphqlOperation(
         context: context,
         optimisticUpdate: () {
           selectedTags.value = newTags;
@@ -41,7 +41,7 @@ class GreWordView extends HookConsumerWidget {
         revertOptimisticUpdate: () {
           selectedTags.value = previousTags;
         },
-        runMutation: () async {
+        runOperation: () async {
           final result = await updateGreWordMutation
               .runMutation(
                 Variables$Mutation$updateGreWord(
@@ -91,9 +91,9 @@ class GreWordView extends HookConsumerWidget {
               ),
               IconButton(
                 onPressed: () {
-                  setupMutation(
+                  setupGraphqlOperation(
                     context: context,
-                    runMutation: () async {
+                    runOperation: () async {
                       return deleteGreWordMutation
                           .runMutation(
                             Variables$Mutation$DeleteGreWord(
@@ -160,7 +160,7 @@ class GreWordView extends HookConsumerWidget {
                 ),
                 onChanged: (newStatus) {
                   if (newStatus != null) {
-                    setupMutation(
+                    setupGraphqlOperation(
                       context: context,
                       optimisticUpdate: () {
                         selectedStatus.value = newStatus;
@@ -168,7 +168,7 @@ class GreWordView extends HookConsumerWidget {
                       revertOptimisticUpdate: () {
                         selectedStatus.value = greWord.status;
                       },
-                      runMutation: () async {
+                      runOperation: () async {
                         final result = await updateGreWordMutation
                             .runMutation(
                               Variables$Mutation$updateGreWord(

@@ -155,9 +155,9 @@ class WordSearchResultView extends HookConsumerWidget {
                           ),
                           ElevatedButton(
                             onPressed: () async {
-                              setupMutation(
+                              setupGraphqlOperation(
                                 context: context,
-                                runMutation: () async {
+                                runOperation: () async {
                                   if (greWord == null) {
                                     final result = await createGreWordMutation
                                         .runMutation(

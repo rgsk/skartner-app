@@ -58,9 +58,9 @@ class WordSearchPromptsView extends HookConsumerWidget {
       VoidCallback? onSuccess,
       VoidCallback? onFinished,
     }) async {
-      await setupMutation(
+      await setupGraphqlOperation(
         context: context,
-        runMutation: () async {
+        runOperation: () async {
           return updateGreWordSearchPromptInputMutation
               .runMutation(
                 Variables$Mutation$UpdateGreWordSearchPromptInput(
@@ -81,9 +81,9 @@ class WordSearchPromptsView extends HookConsumerWidget {
     }
 
     void createInput({required String text}) {
-      setupMutation(
+      setupGraphqlOperation(
         context: context,
-        runMutation: () async {
+        runOperation: () async {
           return createGreWordSearchPromptInputMutation
               .runMutation(
                 Variables$Mutation$CreateGreWordSearchPromptInput(
@@ -101,7 +101,7 @@ class WordSearchPromptsView extends HookConsumerWidget {
 
     void updateDefaultPrompt(String newPrompt) {
       final oldPrompt = defaultPrompt.value;
-      setupMutation(
+      setupGraphqlOperation(
         context: context,
         optimisticUpdate: () {
           defaultPrompt.value = newPrompt;
@@ -109,7 +109,7 @@ class WordSearchPromptsView extends HookConsumerWidget {
         revertOptimisticUpdate: () {
           defaultPrompt.value = oldPrompt;
         },
-        runMutation: () async {
+        runOperation: () async {
           return updateMetaForUserMutation
               .runMutation(
                 variables: Variables$Mutation$UpdateMetaForUser(
@@ -329,9 +329,9 @@ class WordSearchPromptsView extends HookConsumerWidget {
                               ? null
                               : () {
                                   deletedPromptId.value = input.id;
-                                  setupMutation(
+                                  setupGraphqlOperation(
                                     context: context,
-                                    runMutation: () async {
+                                    runOperation: () async {
                                       return deleteGreWordSearchPromptInput
                                           .runMutation(
                                             Variables$Mutation$DeleteGreWordSearchPromptInput(
