@@ -13,7 +13,7 @@ mutation CreateUser($email: String!) {
   }
 }
 
-query User($where: UserWhereUniqueInput!) {
+query User($where: UserWhereInput!) {
   user(where: $where) {
     ...UserFields
   }

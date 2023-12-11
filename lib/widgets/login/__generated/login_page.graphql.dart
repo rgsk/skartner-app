@@ -926,7 +926,7 @@ class Mutation$CreateUser$Widget
 }
 
 class Variables$Query$User {
-  factory Variables$Query$User({required Input$UserWhereUniqueInput where}) =>
+  factory Variables$Query$User({required Input$UserWhereInput where}) =>
       Variables$Query$User._({
         r'where': where,
       });
@@ -937,14 +937,13 @@ class Variables$Query$User {
     final result$data = <String, dynamic>{};
     final l$where = data['where'];
     result$data['where'] =
-        Input$UserWhereUniqueInput.fromJson((l$where as Map<String, dynamic>));
+        Input$UserWhereInput.fromJson((l$where as Map<String, dynamic>));
     return Variables$Query$User._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$UserWhereUniqueInput get where =>
-      (_$data['where'] as Input$UserWhereUniqueInput);
+  Input$UserWhereInput get where => (_$data['where'] as Input$UserWhereInput);
 
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -991,7 +990,7 @@ abstract class CopyWith$Variables$Query$User<TRes> {
   factory CopyWith$Variables$Query$User.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$User;
 
-  TRes call({Input$UserWhereUniqueInput? where});
+  TRes call({Input$UserWhereInput? where});
 }
 
 class _CopyWithImpl$Variables$Query$User<TRes>
@@ -1010,7 +1009,7 @@ class _CopyWithImpl$Variables$Query$User<TRes>
   TRes call({Object? where = _undefined}) => _then(Variables$Query$User._({
         ..._instance._$data,
         if (where != _undefined && where != null)
-          'where': (where as Input$UserWhereUniqueInput),
+          'where': (where as Input$UserWhereInput),
       }));
 }
 
@@ -1020,7 +1019,7 @@ class _CopyWithStubImpl$Variables$Query$User<TRes>
 
   TRes _res;
 
-  call({Input$UserWhereUniqueInput? where}) => _res;
+  call({Input$UserWhereInput? where}) => _res;
 }
 
 class Query$User {
@@ -1163,7 +1162,7 @@ const documentNodeQueryUser = DocumentNode(definitions: [
       VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'where')),
         type: NamedTypeNode(
-          name: NameNode(value: 'UserWhereUniqueInput'),
+          name: NameNode(value: 'UserWhereInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),

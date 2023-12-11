@@ -52,7 +52,11 @@ class AuthRepository {
       final queryResult = await _graphQLClient.query$User(
         Options$Query$User(
           variables: Variables$Query$User(
-            where: Input$UserWhereUniqueInput(email: prevDbUser.email),
+            where: Input$UserWhereInput(
+              email: Input$StringFilter(
+                equals: prevDbUser.email,
+              ),
+            ),
           ),
         ),
       );
@@ -76,7 +80,11 @@ class AuthRepository {
       final queryResult = await _graphQLClient.query$User(
         Options$Query$User(
           variables: Variables$Query$User(
-            where: Input$UserWhereUniqueInput(email: user.email),
+            where: Input$UserWhereInput(
+              email: Input$StringFilter(
+                equals: user.email,
+              ),
+            ),
           ),
         ),
       );

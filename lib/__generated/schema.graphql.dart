@@ -1790,6 +1790,1829 @@ class _CopyWithStubImpl$Input$GreWordWhereInput<TRes>
       CopyWith$Input$StringFilter.stub(_res);
 }
 
+class Input$PermissionOrderByWithRelationInput {
+  factory Input$PermissionOrderByWithRelationInput({
+    Enum$SortOrder? createdAt,
+    Enum$SortOrder? id,
+    Enum$SortOrder? updatedAt,
+  }) =>
+      Input$PermissionOrderByWithRelationInput._({
+        if (createdAt != null) r'createdAt': createdAt,
+        if (id != null) r'id': id,
+        if (updatedAt != null) r'updatedAt': updatedAt,
+      });
+
+  Input$PermissionOrderByWithRelationInput._(this._$data);
+
+  factory Input$PermissionOrderByWithRelationInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('createdAt')) {
+      final l$createdAt = data['createdAt'];
+      result$data['createdAt'] = l$createdAt == null
+          ? null
+          : fromJson$Enum$SortOrder((l$createdAt as String));
+    }
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] =
+          l$id == null ? null : fromJson$Enum$SortOrder((l$id as String));
+    }
+    if (data.containsKey('updatedAt')) {
+      final l$updatedAt = data['updatedAt'];
+      result$data['updatedAt'] = l$updatedAt == null
+          ? null
+          : fromJson$Enum$SortOrder((l$updatedAt as String));
+    }
+    return Input$PermissionOrderByWithRelationInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$SortOrder? get createdAt => (_$data['createdAt'] as Enum$SortOrder?);
+
+  Enum$SortOrder? get id => (_$data['id'] as Enum$SortOrder?);
+
+  Enum$SortOrder? get updatedAt => (_$data['updatedAt'] as Enum$SortOrder?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('createdAt')) {
+      final l$createdAt = createdAt;
+      result$data['createdAt'] =
+          l$createdAt == null ? null : toJson$Enum$SortOrder(l$createdAt);
+    }
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id == null ? null : toJson$Enum$SortOrder(l$id);
+    }
+    if (_$data.containsKey('updatedAt')) {
+      final l$updatedAt = updatedAt;
+      result$data['updatedAt'] =
+          l$updatedAt == null ? null : toJson$Enum$SortOrder(l$updatedAt);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$PermissionOrderByWithRelationInput<
+          Input$PermissionOrderByWithRelationInput>
+      get copyWith => CopyWith$Input$PermissionOrderByWithRelationInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$PermissionOrderByWithRelationInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (_$data.containsKey('createdAt') !=
+        other._$data.containsKey('createdAt')) {
+      return false;
+    }
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$updatedAt = updatedAt;
+    final lOther$updatedAt = other.updatedAt;
+    if (_$data.containsKey('updatedAt') !=
+        other._$data.containsKey('updatedAt')) {
+      return false;
+    }
+    if (l$updatedAt != lOther$updatedAt) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$createdAt = createdAt;
+    final l$id = id;
+    final l$updatedAt = updatedAt;
+    return Object.hashAll([
+      _$data.containsKey('createdAt') ? l$createdAt : const {},
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('updatedAt') ? l$updatedAt : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$PermissionOrderByWithRelationInput<TRes> {
+  factory CopyWith$Input$PermissionOrderByWithRelationInput(
+    Input$PermissionOrderByWithRelationInput instance,
+    TRes Function(Input$PermissionOrderByWithRelationInput) then,
+  ) = _CopyWithImpl$Input$PermissionOrderByWithRelationInput;
+
+  factory CopyWith$Input$PermissionOrderByWithRelationInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$PermissionOrderByWithRelationInput;
+
+  TRes call({
+    Enum$SortOrder? createdAt,
+    Enum$SortOrder? id,
+    Enum$SortOrder? updatedAt,
+  });
+}
+
+class _CopyWithImpl$Input$PermissionOrderByWithRelationInput<TRes>
+    implements CopyWith$Input$PermissionOrderByWithRelationInput<TRes> {
+  _CopyWithImpl$Input$PermissionOrderByWithRelationInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$PermissionOrderByWithRelationInput _instance;
+
+  final TRes Function(Input$PermissionOrderByWithRelationInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? createdAt = _undefined,
+    Object? id = _undefined,
+    Object? updatedAt = _undefined,
+  }) =>
+      _then(Input$PermissionOrderByWithRelationInput._({
+        ..._instance._$data,
+        if (createdAt != _undefined)
+          'createdAt': (createdAt as Enum$SortOrder?),
+        if (id != _undefined) 'id': (id as Enum$SortOrder?),
+        if (updatedAt != _undefined)
+          'updatedAt': (updatedAt as Enum$SortOrder?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$PermissionOrderByWithRelationInput<TRes>
+    implements CopyWith$Input$PermissionOrderByWithRelationInput<TRes> {
+  _CopyWithStubImpl$Input$PermissionOrderByWithRelationInput(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$SortOrder? createdAt,
+    Enum$SortOrder? id,
+    Enum$SortOrder? updatedAt,
+  }) =>
+      _res;
+}
+
+class Input$PermissionUpdateInput {
+  factory Input$PermissionUpdateInput({String? name}) =>
+      Input$PermissionUpdateInput._({
+        if (name != null) r'name': name,
+      });
+
+  Input$PermissionUpdateInput._(this._$data);
+
+  factory Input$PermissionUpdateInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = (l$name as String?);
+    }
+    return Input$PermissionUpdateInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get name => (_$data['name'] as String?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$PermissionUpdateInput<Input$PermissionUpdateInput>
+      get copyWith => CopyWith$Input$PermissionUpdateInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$PermissionUpdateInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([_$data.containsKey('name') ? l$name : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$PermissionUpdateInput<TRes> {
+  factory CopyWith$Input$PermissionUpdateInput(
+    Input$PermissionUpdateInput instance,
+    TRes Function(Input$PermissionUpdateInput) then,
+  ) = _CopyWithImpl$Input$PermissionUpdateInput;
+
+  factory CopyWith$Input$PermissionUpdateInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$PermissionUpdateInput;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Input$PermissionUpdateInput<TRes>
+    implements CopyWith$Input$PermissionUpdateInput<TRes> {
+  _CopyWithImpl$Input$PermissionUpdateInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$PermissionUpdateInput _instance;
+
+  final TRes Function(Input$PermissionUpdateInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? name = _undefined}) =>
+      _then(Input$PermissionUpdateInput._({
+        ..._instance._$data,
+        if (name != _undefined) 'name': (name as String?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$PermissionUpdateInput<TRes>
+    implements CopyWith$Input$PermissionUpdateInput<TRes> {
+  _CopyWithStubImpl$Input$PermissionUpdateInput(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
+}
+
+class Input$PermissionWhereInput {
+  factory Input$PermissionWhereInput({
+    Input$StringFilter? id,
+    Input$StringFilter? name,
+  }) =>
+      Input$PermissionWhereInput._({
+        if (id != null) r'id': id,
+        if (name != null) r'name': name,
+      });
+
+  Input$PermissionWhereInput._(this._$data);
+
+  factory Input$PermissionWhereInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] = l$id == null
+          ? null
+          : Input$StringFilter.fromJson((l$id as Map<String, dynamic>));
+    }
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = l$name == null
+          ? null
+          : Input$StringFilter.fromJson((l$name as Map<String, dynamic>));
+    }
+    return Input$PermissionWhereInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$StringFilter? get id => (_$data['id'] as Input$StringFilter?);
+
+  Input$StringFilter? get name => (_$data['name'] as Input$StringFilter?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id?.toJson();
+    }
+    if (_$data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$PermissionWhereInput<Input$PermissionWhereInput>
+      get copyWith => CopyWith$Input$PermissionWhereInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$PermissionWhereInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    return Object.hashAll([
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('name') ? l$name : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$PermissionWhereInput<TRes> {
+  factory CopyWith$Input$PermissionWhereInput(
+    Input$PermissionWhereInput instance,
+    TRes Function(Input$PermissionWhereInput) then,
+  ) = _CopyWithImpl$Input$PermissionWhereInput;
+
+  factory CopyWith$Input$PermissionWhereInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$PermissionWhereInput;
+
+  TRes call({
+    Input$StringFilter? id,
+    Input$StringFilter? name,
+  });
+  CopyWith$Input$StringFilter<TRes> get id;
+  CopyWith$Input$StringFilter<TRes> get name;
+}
+
+class _CopyWithImpl$Input$PermissionWhereInput<TRes>
+    implements CopyWith$Input$PermissionWhereInput<TRes> {
+  _CopyWithImpl$Input$PermissionWhereInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$PermissionWhereInput _instance;
+
+  final TRes Function(Input$PermissionWhereInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+  }) =>
+      _then(Input$PermissionWhereInput._({
+        ..._instance._$data,
+        if (id != _undefined) 'id': (id as Input$StringFilter?),
+        if (name != _undefined) 'name': (name as Input$StringFilter?),
+      }));
+
+  CopyWith$Input$StringFilter<TRes> get id {
+    final local$id = _instance.id;
+    return local$id == null
+        ? CopyWith$Input$StringFilter.stub(_then(_instance))
+        : CopyWith$Input$StringFilter(local$id, (e) => call(id: e));
+  }
+
+  CopyWith$Input$StringFilter<TRes> get name {
+    final local$name = _instance.name;
+    return local$name == null
+        ? CopyWith$Input$StringFilter.stub(_then(_instance))
+        : CopyWith$Input$StringFilter(local$name, (e) => call(name: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$PermissionWhereInput<TRes>
+    implements CopyWith$Input$PermissionWhereInput<TRes> {
+  _CopyWithStubImpl$Input$PermissionWhereInput(this._res);
+
+  TRes _res;
+
+  call({
+    Input$StringFilter? id,
+    Input$StringFilter? name,
+  }) =>
+      _res;
+
+  CopyWith$Input$StringFilter<TRes> get id =>
+      CopyWith$Input$StringFilter.stub(_res);
+
+  CopyWith$Input$StringFilter<TRes> get name =>
+      CopyWith$Input$StringFilter.stub(_res);
+}
+
+class Input$RelationPermissionToRoleOrderByWithRelationInput {
+  factory Input$RelationPermissionToRoleOrderByWithRelationInput({
+    Enum$SortOrder? createdAt,
+    Enum$SortOrder? id,
+    Enum$SortOrder? updatedAt,
+  }) =>
+      Input$RelationPermissionToRoleOrderByWithRelationInput._({
+        if (createdAt != null) r'createdAt': createdAt,
+        if (id != null) r'id': id,
+        if (updatedAt != null) r'updatedAt': updatedAt,
+      });
+
+  Input$RelationPermissionToRoleOrderByWithRelationInput._(this._$data);
+
+  factory Input$RelationPermissionToRoleOrderByWithRelationInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('createdAt')) {
+      final l$createdAt = data['createdAt'];
+      result$data['createdAt'] = l$createdAt == null
+          ? null
+          : fromJson$Enum$SortOrder((l$createdAt as String));
+    }
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] =
+          l$id == null ? null : fromJson$Enum$SortOrder((l$id as String));
+    }
+    if (data.containsKey('updatedAt')) {
+      final l$updatedAt = data['updatedAt'];
+      result$data['updatedAt'] = l$updatedAt == null
+          ? null
+          : fromJson$Enum$SortOrder((l$updatedAt as String));
+    }
+    return Input$RelationPermissionToRoleOrderByWithRelationInput._(
+        result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$SortOrder? get createdAt => (_$data['createdAt'] as Enum$SortOrder?);
+
+  Enum$SortOrder? get id => (_$data['id'] as Enum$SortOrder?);
+
+  Enum$SortOrder? get updatedAt => (_$data['updatedAt'] as Enum$SortOrder?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('createdAt')) {
+      final l$createdAt = createdAt;
+      result$data['createdAt'] =
+          l$createdAt == null ? null : toJson$Enum$SortOrder(l$createdAt);
+    }
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id == null ? null : toJson$Enum$SortOrder(l$id);
+    }
+    if (_$data.containsKey('updatedAt')) {
+      final l$updatedAt = updatedAt;
+      result$data['updatedAt'] =
+          l$updatedAt == null ? null : toJson$Enum$SortOrder(l$updatedAt);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$RelationPermissionToRoleOrderByWithRelationInput<
+          Input$RelationPermissionToRoleOrderByWithRelationInput>
+      get copyWith =>
+          CopyWith$Input$RelationPermissionToRoleOrderByWithRelationInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$RelationPermissionToRoleOrderByWithRelationInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (_$data.containsKey('createdAt') !=
+        other._$data.containsKey('createdAt')) {
+      return false;
+    }
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$updatedAt = updatedAt;
+    final lOther$updatedAt = other.updatedAt;
+    if (_$data.containsKey('updatedAt') !=
+        other._$data.containsKey('updatedAt')) {
+      return false;
+    }
+    if (l$updatedAt != lOther$updatedAt) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$createdAt = createdAt;
+    final l$id = id;
+    final l$updatedAt = updatedAt;
+    return Object.hashAll([
+      _$data.containsKey('createdAt') ? l$createdAt : const {},
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('updatedAt') ? l$updatedAt : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$RelationPermissionToRoleOrderByWithRelationInput<
+    TRes> {
+  factory CopyWith$Input$RelationPermissionToRoleOrderByWithRelationInput(
+    Input$RelationPermissionToRoleOrderByWithRelationInput instance,
+    TRes Function(Input$RelationPermissionToRoleOrderByWithRelationInput) then,
+  ) = _CopyWithImpl$Input$RelationPermissionToRoleOrderByWithRelationInput;
+
+  factory CopyWith$Input$RelationPermissionToRoleOrderByWithRelationInput.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$RelationPermissionToRoleOrderByWithRelationInput;
+
+  TRes call({
+    Enum$SortOrder? createdAt,
+    Enum$SortOrder? id,
+    Enum$SortOrder? updatedAt,
+  });
+}
+
+class _CopyWithImpl$Input$RelationPermissionToRoleOrderByWithRelationInput<TRes>
+    implements
+        CopyWith$Input$RelationPermissionToRoleOrderByWithRelationInput<TRes> {
+  _CopyWithImpl$Input$RelationPermissionToRoleOrderByWithRelationInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$RelationPermissionToRoleOrderByWithRelationInput _instance;
+
+  final TRes Function(Input$RelationPermissionToRoleOrderByWithRelationInput)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? createdAt = _undefined,
+    Object? id = _undefined,
+    Object? updatedAt = _undefined,
+  }) =>
+      _then(Input$RelationPermissionToRoleOrderByWithRelationInput._({
+        ..._instance._$data,
+        if (createdAt != _undefined)
+          'createdAt': (createdAt as Enum$SortOrder?),
+        if (id != _undefined) 'id': (id as Enum$SortOrder?),
+        if (updatedAt != _undefined)
+          'updatedAt': (updatedAt as Enum$SortOrder?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$RelationPermissionToRoleOrderByWithRelationInput<
+        TRes>
+    implements
+        CopyWith$Input$RelationPermissionToRoleOrderByWithRelationInput<TRes> {
+  _CopyWithStubImpl$Input$RelationPermissionToRoleOrderByWithRelationInput(
+      this._res);
+
+  TRes _res;
+
+  call({
+    Enum$SortOrder? createdAt,
+    Enum$SortOrder? id,
+    Enum$SortOrder? updatedAt,
+  }) =>
+      _res;
+}
+
+class Input$RelationPermissionToRoleWhereInput {
+  factory Input$RelationPermissionToRoleWhereInput({
+    Input$StringFilter? id,
+    Input$StringFilter? permissionId,
+  }) =>
+      Input$RelationPermissionToRoleWhereInput._({
+        if (id != null) r'id': id,
+        if (permissionId != null) r'permissionId': permissionId,
+      });
+
+  Input$RelationPermissionToRoleWhereInput._(this._$data);
+
+  factory Input$RelationPermissionToRoleWhereInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] = l$id == null
+          ? null
+          : Input$StringFilter.fromJson((l$id as Map<String, dynamic>));
+    }
+    if (data.containsKey('permissionId')) {
+      final l$permissionId = data['permissionId'];
+      result$data['permissionId'] = l$permissionId == null
+          ? null
+          : Input$StringFilter.fromJson(
+              (l$permissionId as Map<String, dynamic>));
+    }
+    return Input$RelationPermissionToRoleWhereInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$StringFilter? get id => (_$data['id'] as Input$StringFilter?);
+
+  Input$StringFilter? get permissionId =>
+      (_$data['permissionId'] as Input$StringFilter?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id?.toJson();
+    }
+    if (_$data.containsKey('permissionId')) {
+      final l$permissionId = permissionId;
+      result$data['permissionId'] = l$permissionId?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$RelationPermissionToRoleWhereInput<
+          Input$RelationPermissionToRoleWhereInput>
+      get copyWith => CopyWith$Input$RelationPermissionToRoleWhereInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$RelationPermissionToRoleWhereInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$permissionId = permissionId;
+    final lOther$permissionId = other.permissionId;
+    if (_$data.containsKey('permissionId') !=
+        other._$data.containsKey('permissionId')) {
+      return false;
+    }
+    if (l$permissionId != lOther$permissionId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$permissionId = permissionId;
+    return Object.hashAll([
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('permissionId') ? l$permissionId : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$RelationPermissionToRoleWhereInput<TRes> {
+  factory CopyWith$Input$RelationPermissionToRoleWhereInput(
+    Input$RelationPermissionToRoleWhereInput instance,
+    TRes Function(Input$RelationPermissionToRoleWhereInput) then,
+  ) = _CopyWithImpl$Input$RelationPermissionToRoleWhereInput;
+
+  factory CopyWith$Input$RelationPermissionToRoleWhereInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$RelationPermissionToRoleWhereInput;
+
+  TRes call({
+    Input$StringFilter? id,
+    Input$StringFilter? permissionId,
+  });
+  CopyWith$Input$StringFilter<TRes> get id;
+  CopyWith$Input$StringFilter<TRes> get permissionId;
+}
+
+class _CopyWithImpl$Input$RelationPermissionToRoleWhereInput<TRes>
+    implements CopyWith$Input$RelationPermissionToRoleWhereInput<TRes> {
+  _CopyWithImpl$Input$RelationPermissionToRoleWhereInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$RelationPermissionToRoleWhereInput _instance;
+
+  final TRes Function(Input$RelationPermissionToRoleWhereInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? permissionId = _undefined,
+  }) =>
+      _then(Input$RelationPermissionToRoleWhereInput._({
+        ..._instance._$data,
+        if (id != _undefined) 'id': (id as Input$StringFilter?),
+        if (permissionId != _undefined)
+          'permissionId': (permissionId as Input$StringFilter?),
+      }));
+
+  CopyWith$Input$StringFilter<TRes> get id {
+    final local$id = _instance.id;
+    return local$id == null
+        ? CopyWith$Input$StringFilter.stub(_then(_instance))
+        : CopyWith$Input$StringFilter(local$id, (e) => call(id: e));
+  }
+
+  CopyWith$Input$StringFilter<TRes> get permissionId {
+    final local$permissionId = _instance.permissionId;
+    return local$permissionId == null
+        ? CopyWith$Input$StringFilter.stub(_then(_instance))
+        : CopyWith$Input$StringFilter(
+            local$permissionId, (e) => call(permissionId: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$RelationPermissionToRoleWhereInput<TRes>
+    implements CopyWith$Input$RelationPermissionToRoleWhereInput<TRes> {
+  _CopyWithStubImpl$Input$RelationPermissionToRoleWhereInput(this._res);
+
+  TRes _res;
+
+  call({
+    Input$StringFilter? id,
+    Input$StringFilter? permissionId,
+  }) =>
+      _res;
+
+  CopyWith$Input$StringFilter<TRes> get id =>
+      CopyWith$Input$StringFilter.stub(_res);
+
+  CopyWith$Input$StringFilter<TRes> get permissionId =>
+      CopyWith$Input$StringFilter.stub(_res);
+}
+
+class Input$RelationPermissionToUserOrderByWithRelationInput {
+  factory Input$RelationPermissionToUserOrderByWithRelationInput({
+    Enum$SortOrder? createdAt,
+    Enum$SortOrder? id,
+    Enum$SortOrder? updatedAt,
+  }) =>
+      Input$RelationPermissionToUserOrderByWithRelationInput._({
+        if (createdAt != null) r'createdAt': createdAt,
+        if (id != null) r'id': id,
+        if (updatedAt != null) r'updatedAt': updatedAt,
+      });
+
+  Input$RelationPermissionToUserOrderByWithRelationInput._(this._$data);
+
+  factory Input$RelationPermissionToUserOrderByWithRelationInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('createdAt')) {
+      final l$createdAt = data['createdAt'];
+      result$data['createdAt'] = l$createdAt == null
+          ? null
+          : fromJson$Enum$SortOrder((l$createdAt as String));
+    }
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] =
+          l$id == null ? null : fromJson$Enum$SortOrder((l$id as String));
+    }
+    if (data.containsKey('updatedAt')) {
+      final l$updatedAt = data['updatedAt'];
+      result$data['updatedAt'] = l$updatedAt == null
+          ? null
+          : fromJson$Enum$SortOrder((l$updatedAt as String));
+    }
+    return Input$RelationPermissionToUserOrderByWithRelationInput._(
+        result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$SortOrder? get createdAt => (_$data['createdAt'] as Enum$SortOrder?);
+
+  Enum$SortOrder? get id => (_$data['id'] as Enum$SortOrder?);
+
+  Enum$SortOrder? get updatedAt => (_$data['updatedAt'] as Enum$SortOrder?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('createdAt')) {
+      final l$createdAt = createdAt;
+      result$data['createdAt'] =
+          l$createdAt == null ? null : toJson$Enum$SortOrder(l$createdAt);
+    }
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id == null ? null : toJson$Enum$SortOrder(l$id);
+    }
+    if (_$data.containsKey('updatedAt')) {
+      final l$updatedAt = updatedAt;
+      result$data['updatedAt'] =
+          l$updatedAt == null ? null : toJson$Enum$SortOrder(l$updatedAt);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$RelationPermissionToUserOrderByWithRelationInput<
+          Input$RelationPermissionToUserOrderByWithRelationInput>
+      get copyWith =>
+          CopyWith$Input$RelationPermissionToUserOrderByWithRelationInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$RelationPermissionToUserOrderByWithRelationInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (_$data.containsKey('createdAt') !=
+        other._$data.containsKey('createdAt')) {
+      return false;
+    }
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$updatedAt = updatedAt;
+    final lOther$updatedAt = other.updatedAt;
+    if (_$data.containsKey('updatedAt') !=
+        other._$data.containsKey('updatedAt')) {
+      return false;
+    }
+    if (l$updatedAt != lOther$updatedAt) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$createdAt = createdAt;
+    final l$id = id;
+    final l$updatedAt = updatedAt;
+    return Object.hashAll([
+      _$data.containsKey('createdAt') ? l$createdAt : const {},
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('updatedAt') ? l$updatedAt : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$RelationPermissionToUserOrderByWithRelationInput<
+    TRes> {
+  factory CopyWith$Input$RelationPermissionToUserOrderByWithRelationInput(
+    Input$RelationPermissionToUserOrderByWithRelationInput instance,
+    TRes Function(Input$RelationPermissionToUserOrderByWithRelationInput) then,
+  ) = _CopyWithImpl$Input$RelationPermissionToUserOrderByWithRelationInput;
+
+  factory CopyWith$Input$RelationPermissionToUserOrderByWithRelationInput.stub(
+          TRes res) =
+      _CopyWithStubImpl$Input$RelationPermissionToUserOrderByWithRelationInput;
+
+  TRes call({
+    Enum$SortOrder? createdAt,
+    Enum$SortOrder? id,
+    Enum$SortOrder? updatedAt,
+  });
+}
+
+class _CopyWithImpl$Input$RelationPermissionToUserOrderByWithRelationInput<TRes>
+    implements
+        CopyWith$Input$RelationPermissionToUserOrderByWithRelationInput<TRes> {
+  _CopyWithImpl$Input$RelationPermissionToUserOrderByWithRelationInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$RelationPermissionToUserOrderByWithRelationInput _instance;
+
+  final TRes Function(Input$RelationPermissionToUserOrderByWithRelationInput)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? createdAt = _undefined,
+    Object? id = _undefined,
+    Object? updatedAt = _undefined,
+  }) =>
+      _then(Input$RelationPermissionToUserOrderByWithRelationInput._({
+        ..._instance._$data,
+        if (createdAt != _undefined)
+          'createdAt': (createdAt as Enum$SortOrder?),
+        if (id != _undefined) 'id': (id as Enum$SortOrder?),
+        if (updatedAt != _undefined)
+          'updatedAt': (updatedAt as Enum$SortOrder?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$RelationPermissionToUserOrderByWithRelationInput<
+        TRes>
+    implements
+        CopyWith$Input$RelationPermissionToUserOrderByWithRelationInput<TRes> {
+  _CopyWithStubImpl$Input$RelationPermissionToUserOrderByWithRelationInput(
+      this._res);
+
+  TRes _res;
+
+  call({
+    Enum$SortOrder? createdAt,
+    Enum$SortOrder? id,
+    Enum$SortOrder? updatedAt,
+  }) =>
+      _res;
+}
+
+class Input$RelationPermissionToUserUpdateInput {
+  factory Input$RelationPermissionToUserUpdateInput({
+    String? granterId,
+    bool? isAllowed,
+    String? permissionId,
+    String? userId,
+  }) =>
+      Input$RelationPermissionToUserUpdateInput._({
+        if (granterId != null) r'granterId': granterId,
+        if (isAllowed != null) r'isAllowed': isAllowed,
+        if (permissionId != null) r'permissionId': permissionId,
+        if (userId != null) r'userId': userId,
+      });
+
+  Input$RelationPermissionToUserUpdateInput._(this._$data);
+
+  factory Input$RelationPermissionToUserUpdateInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('granterId')) {
+      final l$granterId = data['granterId'];
+      result$data['granterId'] = (l$granterId as String?);
+    }
+    if (data.containsKey('isAllowed')) {
+      final l$isAllowed = data['isAllowed'];
+      result$data['isAllowed'] = (l$isAllowed as bool?);
+    }
+    if (data.containsKey('permissionId')) {
+      final l$permissionId = data['permissionId'];
+      result$data['permissionId'] = (l$permissionId as String?);
+    }
+    if (data.containsKey('userId')) {
+      final l$userId = data['userId'];
+      result$data['userId'] = (l$userId as String?);
+    }
+    return Input$RelationPermissionToUserUpdateInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get granterId => (_$data['granterId'] as String?);
+
+  bool? get isAllowed => (_$data['isAllowed'] as bool?);
+
+  String? get permissionId => (_$data['permissionId'] as String?);
+
+  String? get userId => (_$data['userId'] as String?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('granterId')) {
+      final l$granterId = granterId;
+      result$data['granterId'] = l$granterId;
+    }
+    if (_$data.containsKey('isAllowed')) {
+      final l$isAllowed = isAllowed;
+      result$data['isAllowed'] = l$isAllowed;
+    }
+    if (_$data.containsKey('permissionId')) {
+      final l$permissionId = permissionId;
+      result$data['permissionId'] = l$permissionId;
+    }
+    if (_$data.containsKey('userId')) {
+      final l$userId = userId;
+      result$data['userId'] = l$userId;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$RelationPermissionToUserUpdateInput<
+          Input$RelationPermissionToUserUpdateInput>
+      get copyWith => CopyWith$Input$RelationPermissionToUserUpdateInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$RelationPermissionToUserUpdateInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$granterId = granterId;
+    final lOther$granterId = other.granterId;
+    if (_$data.containsKey('granterId') !=
+        other._$data.containsKey('granterId')) {
+      return false;
+    }
+    if (l$granterId != lOther$granterId) {
+      return false;
+    }
+    final l$isAllowed = isAllowed;
+    final lOther$isAllowed = other.isAllowed;
+    if (_$data.containsKey('isAllowed') !=
+        other._$data.containsKey('isAllowed')) {
+      return false;
+    }
+    if (l$isAllowed != lOther$isAllowed) {
+      return false;
+    }
+    final l$permissionId = permissionId;
+    final lOther$permissionId = other.permissionId;
+    if (_$data.containsKey('permissionId') !=
+        other._$data.containsKey('permissionId')) {
+      return false;
+    }
+    if (l$permissionId != lOther$permissionId) {
+      return false;
+    }
+    final l$userId = userId;
+    final lOther$userId = other.userId;
+    if (_$data.containsKey('userId') != other._$data.containsKey('userId')) {
+      return false;
+    }
+    if (l$userId != lOther$userId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$granterId = granterId;
+    final l$isAllowed = isAllowed;
+    final l$permissionId = permissionId;
+    final l$userId = userId;
+    return Object.hashAll([
+      _$data.containsKey('granterId') ? l$granterId : const {},
+      _$data.containsKey('isAllowed') ? l$isAllowed : const {},
+      _$data.containsKey('permissionId') ? l$permissionId : const {},
+      _$data.containsKey('userId') ? l$userId : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$RelationPermissionToUserUpdateInput<TRes> {
+  factory CopyWith$Input$RelationPermissionToUserUpdateInput(
+    Input$RelationPermissionToUserUpdateInput instance,
+    TRes Function(Input$RelationPermissionToUserUpdateInput) then,
+  ) = _CopyWithImpl$Input$RelationPermissionToUserUpdateInput;
+
+  factory CopyWith$Input$RelationPermissionToUserUpdateInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$RelationPermissionToUserUpdateInput;
+
+  TRes call({
+    String? granterId,
+    bool? isAllowed,
+    String? permissionId,
+    String? userId,
+  });
+}
+
+class _CopyWithImpl$Input$RelationPermissionToUserUpdateInput<TRes>
+    implements CopyWith$Input$RelationPermissionToUserUpdateInput<TRes> {
+  _CopyWithImpl$Input$RelationPermissionToUserUpdateInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$RelationPermissionToUserUpdateInput _instance;
+
+  final TRes Function(Input$RelationPermissionToUserUpdateInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? granterId = _undefined,
+    Object? isAllowed = _undefined,
+    Object? permissionId = _undefined,
+    Object? userId = _undefined,
+  }) =>
+      _then(Input$RelationPermissionToUserUpdateInput._({
+        ..._instance._$data,
+        if (granterId != _undefined) 'granterId': (granterId as String?),
+        if (isAllowed != _undefined) 'isAllowed': (isAllowed as bool?),
+        if (permissionId != _undefined)
+          'permissionId': (permissionId as String?),
+        if (userId != _undefined) 'userId': (userId as String?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$RelationPermissionToUserUpdateInput<TRes>
+    implements CopyWith$Input$RelationPermissionToUserUpdateInput<TRes> {
+  _CopyWithStubImpl$Input$RelationPermissionToUserUpdateInput(this._res);
+
+  TRes _res;
+
+  call({
+    String? granterId,
+    bool? isAllowed,
+    String? permissionId,
+    String? userId,
+  }) =>
+      _res;
+}
+
+class Input$RelationPermissionToUserWhereInput {
+  factory Input$RelationPermissionToUserWhereInput({
+    Input$StringFilter? id,
+    Input$StringFilter? permissionId,
+  }) =>
+      Input$RelationPermissionToUserWhereInput._({
+        if (id != null) r'id': id,
+        if (permissionId != null) r'permissionId': permissionId,
+      });
+
+  Input$RelationPermissionToUserWhereInput._(this._$data);
+
+  factory Input$RelationPermissionToUserWhereInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] = l$id == null
+          ? null
+          : Input$StringFilter.fromJson((l$id as Map<String, dynamic>));
+    }
+    if (data.containsKey('permissionId')) {
+      final l$permissionId = data['permissionId'];
+      result$data['permissionId'] = l$permissionId == null
+          ? null
+          : Input$StringFilter.fromJson(
+              (l$permissionId as Map<String, dynamic>));
+    }
+    return Input$RelationPermissionToUserWhereInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$StringFilter? get id => (_$data['id'] as Input$StringFilter?);
+
+  Input$StringFilter? get permissionId =>
+      (_$data['permissionId'] as Input$StringFilter?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id?.toJson();
+    }
+    if (_$data.containsKey('permissionId')) {
+      final l$permissionId = permissionId;
+      result$data['permissionId'] = l$permissionId?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$RelationPermissionToUserWhereInput<
+          Input$RelationPermissionToUserWhereInput>
+      get copyWith => CopyWith$Input$RelationPermissionToUserWhereInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$RelationPermissionToUserWhereInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$permissionId = permissionId;
+    final lOther$permissionId = other.permissionId;
+    if (_$data.containsKey('permissionId') !=
+        other._$data.containsKey('permissionId')) {
+      return false;
+    }
+    if (l$permissionId != lOther$permissionId) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$permissionId = permissionId;
+    return Object.hashAll([
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('permissionId') ? l$permissionId : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$RelationPermissionToUserWhereInput<TRes> {
+  factory CopyWith$Input$RelationPermissionToUserWhereInput(
+    Input$RelationPermissionToUserWhereInput instance,
+    TRes Function(Input$RelationPermissionToUserWhereInput) then,
+  ) = _CopyWithImpl$Input$RelationPermissionToUserWhereInput;
+
+  factory CopyWith$Input$RelationPermissionToUserWhereInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$RelationPermissionToUserWhereInput;
+
+  TRes call({
+    Input$StringFilter? id,
+    Input$StringFilter? permissionId,
+  });
+  CopyWith$Input$StringFilter<TRes> get id;
+  CopyWith$Input$StringFilter<TRes> get permissionId;
+}
+
+class _CopyWithImpl$Input$RelationPermissionToUserWhereInput<TRes>
+    implements CopyWith$Input$RelationPermissionToUserWhereInput<TRes> {
+  _CopyWithImpl$Input$RelationPermissionToUserWhereInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$RelationPermissionToUserWhereInput _instance;
+
+  final TRes Function(Input$RelationPermissionToUserWhereInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? permissionId = _undefined,
+  }) =>
+      _then(Input$RelationPermissionToUserWhereInput._({
+        ..._instance._$data,
+        if (id != _undefined) 'id': (id as Input$StringFilter?),
+        if (permissionId != _undefined)
+          'permissionId': (permissionId as Input$StringFilter?),
+      }));
+
+  CopyWith$Input$StringFilter<TRes> get id {
+    final local$id = _instance.id;
+    return local$id == null
+        ? CopyWith$Input$StringFilter.stub(_then(_instance))
+        : CopyWith$Input$StringFilter(local$id, (e) => call(id: e));
+  }
+
+  CopyWith$Input$StringFilter<TRes> get permissionId {
+    final local$permissionId = _instance.permissionId;
+    return local$permissionId == null
+        ? CopyWith$Input$StringFilter.stub(_then(_instance))
+        : CopyWith$Input$StringFilter(
+            local$permissionId, (e) => call(permissionId: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$RelationPermissionToUserWhereInput<TRes>
+    implements CopyWith$Input$RelationPermissionToUserWhereInput<TRes> {
+  _CopyWithStubImpl$Input$RelationPermissionToUserWhereInput(this._res);
+
+  TRes _res;
+
+  call({
+    Input$StringFilter? id,
+    Input$StringFilter? permissionId,
+  }) =>
+      _res;
+
+  CopyWith$Input$StringFilter<TRes> get id =>
+      CopyWith$Input$StringFilter.stub(_res);
+
+  CopyWith$Input$StringFilter<TRes> get permissionId =>
+      CopyWith$Input$StringFilter.stub(_res);
+}
+
+class Input$RoleOrderByWithRelationInput {
+  factory Input$RoleOrderByWithRelationInput({
+    Enum$SortOrder? createdAt,
+    Enum$SortOrder? id,
+    Enum$SortOrder? updatedAt,
+  }) =>
+      Input$RoleOrderByWithRelationInput._({
+        if (createdAt != null) r'createdAt': createdAt,
+        if (id != null) r'id': id,
+        if (updatedAt != null) r'updatedAt': updatedAt,
+      });
+
+  Input$RoleOrderByWithRelationInput._(this._$data);
+
+  factory Input$RoleOrderByWithRelationInput.fromJson(
+      Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('createdAt')) {
+      final l$createdAt = data['createdAt'];
+      result$data['createdAt'] = l$createdAt == null
+          ? null
+          : fromJson$Enum$SortOrder((l$createdAt as String));
+    }
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] =
+          l$id == null ? null : fromJson$Enum$SortOrder((l$id as String));
+    }
+    if (data.containsKey('updatedAt')) {
+      final l$updatedAt = data['updatedAt'];
+      result$data['updatedAt'] = l$updatedAt == null
+          ? null
+          : fromJson$Enum$SortOrder((l$updatedAt as String));
+    }
+    return Input$RoleOrderByWithRelationInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Enum$SortOrder? get createdAt => (_$data['createdAt'] as Enum$SortOrder?);
+
+  Enum$SortOrder? get id => (_$data['id'] as Enum$SortOrder?);
+
+  Enum$SortOrder? get updatedAt => (_$data['updatedAt'] as Enum$SortOrder?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('createdAt')) {
+      final l$createdAt = createdAt;
+      result$data['createdAt'] =
+          l$createdAt == null ? null : toJson$Enum$SortOrder(l$createdAt);
+    }
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id == null ? null : toJson$Enum$SortOrder(l$id);
+    }
+    if (_$data.containsKey('updatedAt')) {
+      final l$updatedAt = updatedAt;
+      result$data['updatedAt'] =
+          l$updatedAt == null ? null : toJson$Enum$SortOrder(l$updatedAt);
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$RoleOrderByWithRelationInput<
+          Input$RoleOrderByWithRelationInput>
+      get copyWith => CopyWith$Input$RoleOrderByWithRelationInput(
+            this,
+            (i) => i,
+          );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$RoleOrderByWithRelationInput) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (_$data.containsKey('createdAt') !=
+        other._$data.containsKey('createdAt')) {
+      return false;
+    }
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$updatedAt = updatedAt;
+    final lOther$updatedAt = other.updatedAt;
+    if (_$data.containsKey('updatedAt') !=
+        other._$data.containsKey('updatedAt')) {
+      return false;
+    }
+    if (l$updatedAt != lOther$updatedAt) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$createdAt = createdAt;
+    final l$id = id;
+    final l$updatedAt = updatedAt;
+    return Object.hashAll([
+      _$data.containsKey('createdAt') ? l$createdAt : const {},
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('updatedAt') ? l$updatedAt : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$RoleOrderByWithRelationInput<TRes> {
+  factory CopyWith$Input$RoleOrderByWithRelationInput(
+    Input$RoleOrderByWithRelationInput instance,
+    TRes Function(Input$RoleOrderByWithRelationInput) then,
+  ) = _CopyWithImpl$Input$RoleOrderByWithRelationInput;
+
+  factory CopyWith$Input$RoleOrderByWithRelationInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$RoleOrderByWithRelationInput;
+
+  TRes call({
+    Enum$SortOrder? createdAt,
+    Enum$SortOrder? id,
+    Enum$SortOrder? updatedAt,
+  });
+}
+
+class _CopyWithImpl$Input$RoleOrderByWithRelationInput<TRes>
+    implements CopyWith$Input$RoleOrderByWithRelationInput<TRes> {
+  _CopyWithImpl$Input$RoleOrderByWithRelationInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$RoleOrderByWithRelationInput _instance;
+
+  final TRes Function(Input$RoleOrderByWithRelationInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? createdAt = _undefined,
+    Object? id = _undefined,
+    Object? updatedAt = _undefined,
+  }) =>
+      _then(Input$RoleOrderByWithRelationInput._({
+        ..._instance._$data,
+        if (createdAt != _undefined)
+          'createdAt': (createdAt as Enum$SortOrder?),
+        if (id != _undefined) 'id': (id as Enum$SortOrder?),
+        if (updatedAt != _undefined)
+          'updatedAt': (updatedAt as Enum$SortOrder?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$RoleOrderByWithRelationInput<TRes>
+    implements CopyWith$Input$RoleOrderByWithRelationInput<TRes> {
+  _CopyWithStubImpl$Input$RoleOrderByWithRelationInput(this._res);
+
+  TRes _res;
+
+  call({
+    Enum$SortOrder? createdAt,
+    Enum$SortOrder? id,
+    Enum$SortOrder? updatedAt,
+  }) =>
+      _res;
+}
+
+class Input$RoleUpdateInput {
+  factory Input$RoleUpdateInput({String? name}) => Input$RoleUpdateInput._({
+        if (name != null) r'name': name,
+      });
+
+  Input$RoleUpdateInput._(this._$data);
+
+  factory Input$RoleUpdateInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = (l$name as String?);
+    }
+    return Input$RoleUpdateInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  String? get name => (_$data['name'] as String?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name;
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$RoleUpdateInput<Input$RoleUpdateInput> get copyWith =>
+      CopyWith$Input$RoleUpdateInput(
+        this,
+        (i) => i,
+      );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$RoleUpdateInput) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    return Object.hashAll([_$data.containsKey('name') ? l$name : const {}]);
+  }
+}
+
+abstract class CopyWith$Input$RoleUpdateInput<TRes> {
+  factory CopyWith$Input$RoleUpdateInput(
+    Input$RoleUpdateInput instance,
+    TRes Function(Input$RoleUpdateInput) then,
+  ) = _CopyWithImpl$Input$RoleUpdateInput;
+
+  factory CopyWith$Input$RoleUpdateInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$RoleUpdateInput;
+
+  TRes call({String? name});
+}
+
+class _CopyWithImpl$Input$RoleUpdateInput<TRes>
+    implements CopyWith$Input$RoleUpdateInput<TRes> {
+  _CopyWithImpl$Input$RoleUpdateInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$RoleUpdateInput _instance;
+
+  final TRes Function(Input$RoleUpdateInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({Object? name = _undefined}) => _then(Input$RoleUpdateInput._({
+        ..._instance._$data,
+        if (name != _undefined) 'name': (name as String?),
+      }));
+}
+
+class _CopyWithStubImpl$Input$RoleUpdateInput<TRes>
+    implements CopyWith$Input$RoleUpdateInput<TRes> {
+  _CopyWithStubImpl$Input$RoleUpdateInput(this._res);
+
+  TRes _res;
+
+  call({String? name}) => _res;
+}
+
+class Input$RoleWhereInput {
+  factory Input$RoleWhereInput({
+    Input$StringFilter? id,
+    Input$StringFilter? name,
+  }) =>
+      Input$RoleWhereInput._({
+        if (id != null) r'id': id,
+        if (name != null) r'name': name,
+      });
+
+  Input$RoleWhereInput._(this._$data);
+
+  factory Input$RoleWhereInput.fromJson(Map<String, dynamic> data) {
+    final result$data = <String, dynamic>{};
+    if (data.containsKey('id')) {
+      final l$id = data['id'];
+      result$data['id'] = l$id == null
+          ? null
+          : Input$StringFilter.fromJson((l$id as Map<String, dynamic>));
+    }
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = l$name == null
+          ? null
+          : Input$StringFilter.fromJson((l$name as Map<String, dynamic>));
+    }
+    return Input$RoleWhereInput._(result$data);
+  }
+
+  Map<String, dynamic> _$data;
+
+  Input$StringFilter? get id => (_$data['id'] as Input$StringFilter?);
+
+  Input$StringFilter? get name => (_$data['name'] as Input$StringFilter?);
+
+  Map<String, dynamic> toJson() {
+    final result$data = <String, dynamic>{};
+    if (_$data.containsKey('id')) {
+      final l$id = id;
+      result$data['id'] = l$id?.toJson();
+    }
+    if (_$data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name?.toJson();
+    }
+    return result$data;
+  }
+
+  CopyWith$Input$RoleWhereInput<Input$RoleWhereInput> get copyWith =>
+      CopyWith$Input$RoleWhereInput(
+        this,
+        (i) => i,
+      );
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Input$RoleWhereInput) || runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
+      return false;
+    }
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
+    return true;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    return Object.hashAll([
+      _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('name') ? l$name : const {},
+    ]);
+  }
+}
+
+abstract class CopyWith$Input$RoleWhereInput<TRes> {
+  factory CopyWith$Input$RoleWhereInput(
+    Input$RoleWhereInput instance,
+    TRes Function(Input$RoleWhereInput) then,
+  ) = _CopyWithImpl$Input$RoleWhereInput;
+
+  factory CopyWith$Input$RoleWhereInput.stub(TRes res) =
+      _CopyWithStubImpl$Input$RoleWhereInput;
+
+  TRes call({
+    Input$StringFilter? id,
+    Input$StringFilter? name,
+  });
+  CopyWith$Input$StringFilter<TRes> get id;
+  CopyWith$Input$StringFilter<TRes> get name;
+}
+
+class _CopyWithImpl$Input$RoleWhereInput<TRes>
+    implements CopyWith$Input$RoleWhereInput<TRes> {
+  _CopyWithImpl$Input$RoleWhereInput(
+    this._instance,
+    this._then,
+  );
+
+  final Input$RoleWhereInput _instance;
+
+  final TRes Function(Input$RoleWhereInput) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+  }) =>
+      _then(Input$RoleWhereInput._({
+        ..._instance._$data,
+        if (id != _undefined) 'id': (id as Input$StringFilter?),
+        if (name != _undefined) 'name': (name as Input$StringFilter?),
+      }));
+
+  CopyWith$Input$StringFilter<TRes> get id {
+    final local$id = _instance.id;
+    return local$id == null
+        ? CopyWith$Input$StringFilter.stub(_then(_instance))
+        : CopyWith$Input$StringFilter(local$id, (e) => call(id: e));
+  }
+
+  CopyWith$Input$StringFilter<TRes> get name {
+    final local$name = _instance.name;
+    return local$name == null
+        ? CopyWith$Input$StringFilter.stub(_then(_instance))
+        : CopyWith$Input$StringFilter(local$name, (e) => call(name: e));
+  }
+}
+
+class _CopyWithStubImpl$Input$RoleWhereInput<TRes>
+    implements CopyWith$Input$RoleWhereInput<TRes> {
+  _CopyWithStubImpl$Input$RoleWhereInput(this._res);
+
+  TRes _res;
+
+  call({
+    Input$StringFilter? id,
+    Input$StringFilter? name,
+  }) =>
+      _res;
+
+  CopyWith$Input$StringFilter<TRes> get id =>
+      CopyWith$Input$StringFilter.stub(_res);
+
+  CopyWith$Input$StringFilter<TRes> get name =>
+      CopyWith$Input$StringFilter.stub(_res);
+}
+
 class Input$StringFilter {
   factory Input$StringFilter({
     String? contains,
@@ -1800,6 +3623,7 @@ class Input$StringFilter {
     List<String>? $in,
     String? lt,
     String? lte,
+    Enum$QueryMode? mode,
     String? not,
     List<String>? notIn,
     String? startsWith,
@@ -1813,6 +3637,7 @@ class Input$StringFilter {
         if ($in != null) r'in': $in,
         if (lt != null) r'lt': lt,
         if (lte != null) r'lte': lte,
+        if (mode != null) r'mode': mode,
         if (not != null) r'not': not,
         if (notIn != null) r'notIn': notIn,
         if (startsWith != null) r'startsWith': startsWith,
@@ -1855,6 +3680,11 @@ class Input$StringFilter {
       final l$lte = data['lte'];
       result$data['lte'] = (l$lte as String?);
     }
+    if (data.containsKey('mode')) {
+      final l$mode = data['mode'];
+      result$data['mode'] =
+          l$mode == null ? null : fromJson$Enum$QueryMode((l$mode as String));
+    }
     if (data.containsKey('not')) {
       final l$not = data['not'];
       result$data['not'] = (l$not as String?);
@@ -1888,6 +3718,8 @@ class Input$StringFilter {
   String? get lt => (_$data['lt'] as String?);
 
   String? get lte => (_$data['lte'] as String?);
+
+  Enum$QueryMode? get mode => (_$data['mode'] as Enum$QueryMode?);
 
   String? get not => (_$data['not'] as String?);
 
@@ -1928,6 +3760,11 @@ class Input$StringFilter {
     if (_$data.containsKey('lte')) {
       final l$lte = lte;
       result$data['lte'] = l$lte;
+    }
+    if (_$data.containsKey('mode')) {
+      final l$mode = mode;
+      result$data['mode'] =
+          l$mode == null ? null : toJson$Enum$QueryMode(l$mode);
     }
     if (_$data.containsKey('not')) {
       final l$not = not;
@@ -2035,6 +3872,14 @@ class Input$StringFilter {
     if (l$lte != lOther$lte) {
       return false;
     }
+    final l$mode = mode;
+    final lOther$mode = other.mode;
+    if (_$data.containsKey('mode') != other._$data.containsKey('mode')) {
+      return false;
+    }
+    if (l$mode != lOther$mode) {
+      return false;
+    }
     final l$not = not;
     final lOther$not = other.not;
     if (_$data.containsKey('not') != other._$data.containsKey('not')) {
@@ -2084,6 +3929,7 @@ class Input$StringFilter {
     final l$$in = $in;
     final l$lt = lt;
     final l$lte = lte;
+    final l$mode = mode;
     final l$not = not;
     final l$notIn = notIn;
     final l$startsWith = startsWith;
@@ -2100,6 +3946,7 @@ class Input$StringFilter {
           : const {},
       _$data.containsKey('lt') ? l$lt : const {},
       _$data.containsKey('lte') ? l$lte : const {},
+      _$data.containsKey('mode') ? l$mode : const {},
       _$data.containsKey('not') ? l$not : const {},
       _$data.containsKey('notIn')
           ? l$notIn == null
@@ -2129,6 +3976,7 @@ abstract class CopyWith$Input$StringFilter<TRes> {
     List<String>? $in,
     String? lt,
     String? lte,
+    Enum$QueryMode? mode,
     String? not,
     List<String>? notIn,
     String? startsWith,
@@ -2157,6 +4005,7 @@ class _CopyWithImpl$Input$StringFilter<TRes>
     Object? $in = _undefined,
     Object? lt = _undefined,
     Object? lte = _undefined,
+    Object? mode = _undefined,
     Object? not = _undefined,
     Object? notIn = _undefined,
     Object? startsWith = _undefined,
@@ -2171,6 +4020,7 @@ class _CopyWithImpl$Input$StringFilter<TRes>
         if ($in != _undefined) 'in': ($in as List<String>?),
         if (lt != _undefined) 'lt': (lt as String?),
         if (lte != _undefined) 'lte': (lte as String?),
+        if (mode != _undefined) 'mode': (mode as Enum$QueryMode?),
         if (not != _undefined) 'not': (not as String?),
         if (notIn != _undefined) 'notIn': (notIn as List<String>?),
         if (startsWith != _undefined) 'startsWith': (startsWith as String?),
@@ -2192,6 +4042,7 @@ class _CopyWithStubImpl$Input$StringFilter<TRes>
     List<String>? $in,
     String? lt,
     String? lte,
+    Enum$QueryMode? mode,
     String? not,
     List<String>? notIn,
     String? startsWith,
@@ -3647,147 +5498,6 @@ class _CopyWithStubImpl$Input$UserWhereInput<TRes>
       CopyWith$Input$StringFilter.stub(_res);
 }
 
-class Input$UserWhereUniqueInput {
-  factory Input$UserWhereUniqueInput({
-    String? email,
-    String? id,
-  }) =>
-      Input$UserWhereUniqueInput._({
-        if (email != null) r'email': email,
-        if (id != null) r'id': id,
-      });
-
-  Input$UserWhereUniqueInput._(this._$data);
-
-  factory Input$UserWhereUniqueInput.fromJson(Map<String, dynamic> data) {
-    final result$data = <String, dynamic>{};
-    if (data.containsKey('email')) {
-      final l$email = data['email'];
-      result$data['email'] = (l$email as String?);
-    }
-    if (data.containsKey('id')) {
-      final l$id = data['id'];
-      result$data['id'] = (l$id as String?);
-    }
-    return Input$UserWhereUniqueInput._(result$data);
-  }
-
-  Map<String, dynamic> _$data;
-
-  String? get email => (_$data['email'] as String?);
-
-  String? get id => (_$data['id'] as String?);
-
-  Map<String, dynamic> toJson() {
-    final result$data = <String, dynamic>{};
-    if (_$data.containsKey('email')) {
-      final l$email = email;
-      result$data['email'] = l$email;
-    }
-    if (_$data.containsKey('id')) {
-      final l$id = id;
-      result$data['id'] = l$id;
-    }
-    return result$data;
-  }
-
-  CopyWith$Input$UserWhereUniqueInput<Input$UserWhereUniqueInput>
-      get copyWith => CopyWith$Input$UserWhereUniqueInput(
-            this,
-            (i) => i,
-          );
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Input$UserWhereUniqueInput) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$email = email;
-    final lOther$email = other.email;
-    if (_$data.containsKey('email') != other._$data.containsKey('email')) {
-      return false;
-    }
-    if (l$email != lOther$email) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (_$data.containsKey('id') != other._$data.containsKey('id')) {
-      return false;
-    }
-    if (l$id != lOther$id) {
-      return false;
-    }
-    return true;
-  }
-
-  @override
-  int get hashCode {
-    final l$email = email;
-    final l$id = id;
-    return Object.hashAll([
-      _$data.containsKey('email') ? l$email : const {},
-      _$data.containsKey('id') ? l$id : const {},
-    ]);
-  }
-}
-
-abstract class CopyWith$Input$UserWhereUniqueInput<TRes> {
-  factory CopyWith$Input$UserWhereUniqueInput(
-    Input$UserWhereUniqueInput instance,
-    TRes Function(Input$UserWhereUniqueInput) then,
-  ) = _CopyWithImpl$Input$UserWhereUniqueInput;
-
-  factory CopyWith$Input$UserWhereUniqueInput.stub(TRes res) =
-      _CopyWithStubImpl$Input$UserWhereUniqueInput;
-
-  TRes call({
-    String? email,
-    String? id,
-  });
-}
-
-class _CopyWithImpl$Input$UserWhereUniqueInput<TRes>
-    implements CopyWith$Input$UserWhereUniqueInput<TRes> {
-  _CopyWithImpl$Input$UserWhereUniqueInput(
-    this._instance,
-    this._then,
-  );
-
-  final Input$UserWhereUniqueInput _instance;
-
-  final TRes Function(Input$UserWhereUniqueInput) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? email = _undefined,
-    Object? id = _undefined,
-  }) =>
-      _then(Input$UserWhereUniqueInput._({
-        ..._instance._$data,
-        if (email != _undefined) 'email': (email as String?),
-        if (id != _undefined) 'id': (id as String?),
-      }));
-}
-
-class _CopyWithStubImpl$Input$UserWhereUniqueInput<TRes>
-    implements CopyWith$Input$UserWhereUniqueInput<TRes> {
-  _CopyWithStubImpl$Input$UserWhereUniqueInput(this._res);
-
-  TRes _res;
-
-  call({
-    String? email,
-    String? id,
-  }) =>
-      _res;
-}
-
 enum Enum$GreWordStatus {
   ALMOST_LEARNT,
   FINISHED_LEARNING,
@@ -3833,6 +5543,30 @@ Enum$GreWordStatus fromJson$Enum$GreWordStatus(String value) {
       return Enum$GreWordStatus.STILL_LEARNING;
     default:
       return Enum$GreWordStatus.$unknown;
+  }
+}
+
+enum Enum$QueryMode { $default, insensitive, $unknown }
+
+String toJson$Enum$QueryMode(Enum$QueryMode e) {
+  switch (e) {
+    case Enum$QueryMode.$default:
+      return r'default';
+    case Enum$QueryMode.insensitive:
+      return r'insensitive';
+    case Enum$QueryMode.$unknown:
+      return r'$unknown';
+  }
+}
+
+Enum$QueryMode fromJson$Enum$QueryMode(String value) {
+  switch (value) {
+    case r'default':
+      return Enum$QueryMode.$default;
+    case r'insensitive':
+      return Enum$QueryMode.insensitive;
+    default:
+      return Enum$QueryMode.$unknown;
   }
 }
 

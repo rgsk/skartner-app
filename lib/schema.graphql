@@ -6,6 +6,10 @@ type AuthenticateResponse {
   message: String!
 }
 
+type BatchPayload {
+  count: Int!
+}
+
 type CachePrompt {
   cacheResponses: [CacheResponse!]!
   createdAt: String!
@@ -174,16 +178,26 @@ type Mutation {
   createGreWordSearchPromptInput(text: String!, userId: String!): GreWordSearchPromptInput!
   createGreWordTag(name: String!, userId: String!): GreWordTag!
   createNotification(message: String!, userId: String!): Notification!
+  createPermission(name: String!): Permission!
+  createRelationPermissionToUser(granterId: String!, isAllowed: Boolean, permissionId: String!, userId: String!): RelationPermissionToUser!
+  createRole(name: String!): Role!
   createUser(email: String!, meta: UserMetaParsedJsonValueInput): User!
   deleteGptPrompt(id: String!): GptPrompt
   deleteGreWord(id: String!): GreWord
   deleteGreWordSearchPromptInput(id: String!): GreWordSearchPromptInput
   deleteGreWordTag(name: String!, userId: String!): GreWordTag!
+  deletePermission(id: String!): Permission
+  deletePermissions(ids: [String!]!): BatchPayload
+  deleteRole(id: String!): Role
+  deleteRoles(ids: [String!]!): BatchPayload
   publish(draftId: String!): Post
   saveImageToS3(imageUrl: String!, key: String): SaveImageToS3Response
   updateGptPrompt(editedResponse: String, id: String!, imageUrls: [String!]): GptPrompt
   updateGreWord(greWordTags: [GreWordTagWhereUniqueInput], id: String!, status: GreWordStatus): GreWord
   updateGreWordSearchPromptInput(id: String!, text: String): GreWordSearchPromptInput
+  updatePermission(data: PermissionUpdateInput!, id: String!): Permission!
+  updateRelationPermissionToUser(data: RelationPermissionToUserUpdateInput!, id: String!): RelationPermissionToUser!
+  updateRole(data: RoleUpdateInput!, id: String!): Role!
   updateUser(email: String, id: String, meta: UserMetaParsedJsonValueInput): User
 }
 
@@ -197,6 +211,10 @@ type Permission {
   id: String!
   meta: Json!
   name: String!
+  permissionHierarchyAsChild: [PermissionHierarchy!]!
+  permissionHierarchyAsParent: [PermissionHierarchy!]!
+  relationPermissionToRoleAsPermission: [RelationPermissionToRole!]!
+  relationPermissionToUserAsPermission: [RelationPermissionToUser!]!
   updatedAt: String!
 }
 
@@ -204,8 +222,24 @@ type PermissionHierarchy {
   childPermission: Permission
   childPermissionId: String!
   createdAt: String!
+  id: String!
   parentPermission: Permission
   parentPermissionId: String!
+}
+
+input PermissionOrderByWithRelationInput {
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+}
+
+input PermissionUpdateInput {
+  name: String
+}
+
+input PermissionWhereInput {
+  id: StringFilter
+  name: StringFilter
 }
 
 type Post {
@@ -231,15 +265,21 @@ type Query {
   greWords(orderBy: [GreWordOrderByWithRelationInput], skip: Int, take: Int, where: GreWordWhereInput): [GreWord!]!
   greWordsCount(where: GreWordWhereInput): Int!
   hello: HelloWorld!
+  permission(where: PermissionWhereInput): Permission
   permissionHierarchies: [PermissionHierarchy]
-  permissions: [Permission]
+  permissions(orderBy: [PermissionOrderByWithRelationInput], skip: Int, take: Int, where: PermissionWhereInput): [Permission]
+  permissionsCount(where: PermissionWhereInput): Int!
   posts: [Post]
-  relationsPermissionToRole: [RelationPermissionToRole]
-  relationsPermissionToUser: [RelationPermissionToUser]
+  relationsPermissionToRole(orderBy: [RelationPermissionToRoleOrderByWithRelationInput], skip: Int, take: Int, where: RelationPermissionToRoleWhereInput): [RelationPermissionToRole]
+  relationsPermissionToRoleCount(where: RelationPermissionToRoleWhereInput): Int!
+  relationsPermissionToUser(orderBy: [RelationPermissionToUserOrderByWithRelationInput], skip: Int, take: Int, where: RelationPermissionToUserWhereInput): [RelationPermissionToUser]
+  relationsPermissionToUserCount(where: RelationPermissionToUserWhereInput): Int!
   relationsRoleToUser: [RelationRoleToUser]
-  roles: [Role]
+  role(where: RoleWhereInput): Role
+  roles(orderBy: [RoleOrderByWithRelationInput], skip: Int, take: Int, where: RoleWhereInput): [Role]
+  rolesCount(where: RoleWhereInput): Int!
   sendSinglePrompt(indexesReturned: [Int!], prompt: String!, resultIndexFromCache: Int, skipCache: Boolean, word: String!): SendSinglePromptResponse!
-  user(where: UserWhereUniqueInput!): User
+  user(where: UserWhereInput!): User
   userSession(where: UserSessionWhereUniqueInput!): UserSession
   userSessions(orderBy: [UserSessionOrderByWithRelationInput], skip: Int, take: Int, where: UserSessionWhereInput): [UserSession!]!
   userSessionsCount(where: UserSessionWhereInput): Int!
@@ -249,10 +289,16 @@ type Query {
   wordsCountForGptPrompts(prompts: [String!]!): [WordsCountForGptPrompts!]!
 }
 
+enum QueryMode {
+  default
+  insensitive
+}
+
 type RelationPermissionToRole {
   grantedAt: String!
   granter: User
   granterId: String!
+  id: String!
   isAllowed: Boolean
   permission: Permission
   permissionId: String!
@@ -260,10 +306,22 @@ type RelationPermissionToRole {
   roleId: String!
 }
 
+input RelationPermissionToRoleOrderByWithRelationInput {
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+}
+
+input RelationPermissionToRoleWhereInput {
+  id: StringFilter
+  permissionId: StringFilter
+}
+
 type RelationPermissionToUser {
   grantedAt: String!
   granter: User
   granterId: String!
+  id: String!
   isAllowed: Boolean
   permission: Permission
   permissionId: String!
@@ -271,10 +329,29 @@ type RelationPermissionToUser {
   userId: String!
 }
 
+input RelationPermissionToUserOrderByWithRelationInput {
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+}
+
+input RelationPermissionToUserUpdateInput {
+  granterId: String
+  isAllowed: Boolean
+  permissionId: String
+  userId: String
+}
+
+input RelationPermissionToUserWhereInput {
+  id: StringFilter
+  permissionId: StringFilter
+}
+
 type RelationRoleToUser {
   assignedAt: String!
   assigner: User
   assignerId: String!
+  id: String!
   role: Role
   roleId: String!
   user: User
@@ -286,7 +363,24 @@ type Role {
   id: String!
   meta: Json!
   name: String!
+  relationPermissionToRoleAsRole: [RelationPermissionToRole!]!
+  relationRoleToUserAsRole: [RelationRoleToUser!]!
   updatedAt: String!
+}
+
+input RoleOrderByWithRelationInput {
+  createdAt: SortOrder
+  id: SortOrder
+  updatedAt: SortOrder
+}
+
+input RoleUpdateInput {
+  name: String
+}
+
+input RoleWhereInput {
+  id: StringFilter
+  name: StringFilter
 }
 
 type SaveImageToS3Response {
@@ -314,6 +408,7 @@ input StringFilter {
   in: [String!]
   lt: String
   lte: String
+  mode: QueryMode
   not: String
   notIn: [String!]
   startsWith: String
@@ -399,11 +494,6 @@ input UserSessionWhereUniqueInput {
 input UserWhereInput {
   email: StringFilter
   id: StringFilter
-}
-
-input UserWhereUniqueInput {
-  email: String
-  id: String
 }
 
 type WordAndResponses {
