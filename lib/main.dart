@@ -10,6 +10,7 @@ import 'package:skartner_app/global_wrapper_view.dart';
 import 'package:skartner_app/providers/auth_repository_provider.dart';
 import 'package:skartner_app/providers/graphql_client_provider.dart';
 import 'package:skartner_app/router.dart';
+import 'package:skartner_app/utils/environment_vars.dart';
 import 'package:skartner_app/widgets/common/error_text_view.dart';
 import 'package:skartner_app/widgets/common/loader_view.dart';
 
@@ -18,8 +19,8 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   await dotenv.load(fileName: ".env");
+  print('EnvironmentVars.skartnerServer: ${EnvironmentVars.skartnerServer}');
   await QueryClient.initialize(cachePrefix: 'skartner_app');
 
   runApp(
