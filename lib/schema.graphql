@@ -179,7 +179,10 @@ type Mutation {
   createGreWordTag(name: String!, userId: String!): GreWordTag!
   createNotification(message: String!, userId: String!): Notification!
   createPermission(name: String!): Permission!
+  createPermissionHierarchy(childPermissionId: String!, parentPermissionId: String!): PermissionHierarchy!
+  createRelationPermissionToRole(granterId: String!, isAllowed: Boolean, permissionId: String!, roleId: String!): RelationPermissionToRole!
   createRelationPermissionToUser(granterId: String!, isAllowed: Boolean, permissionId: String!, userId: String!): RelationPermissionToUser!
+  createRelationRoleToUser(assignerId: String!, roleId: String!, userId: String!): RelationRoleToUser!
   createRole(name: String!): Role!
   createUser(email: String!, meta: UserMetaParsedJsonValueInput): User!
   deleteGptPrompt(id: String!): GptPrompt
@@ -187,7 +190,15 @@ type Mutation {
   deleteGreWordSearchPromptInput(id: String!): GreWordSearchPromptInput
   deleteGreWordTag(name: String!, userId: String!): GreWordTag!
   deletePermission(id: String!): Permission
+  deletePermissionHierarchies(ids: [String!]!): BatchPayload
+  deletePermissionHierarchy(id: String!): PermissionHierarchy
   deletePermissions(ids: [String!]!): BatchPayload
+  deleteRelationPermissionToRole(id: String!): RelationPermissionToRole
+  deleteRelationPermissionToUser(id: String!): RelationPermissionToUser
+  deleteRelationRoleToUser(id: String!): RelationRoleToUser
+  deleteRelationsPermissionToRole(ids: [String!]!): BatchPayload
+  deleteRelationsPermissionToUser(ids: [String!]!): BatchPayload
+  deleteRelationsRoleToUser(ids: [String!]!): BatchPayload
   deleteRole(id: String!): Role
   deleteRoles(ids: [String!]!): BatchPayload
   publish(draftId: String!): Post
@@ -196,7 +207,9 @@ type Mutation {
   updateGreWord(greWordTags: [GreWordTagWhereUniqueInput], id: String!, status: GreWordStatus): GreWord
   updateGreWordSearchPromptInput(id: String!, text: String): GreWordSearchPromptInput
   updatePermission(data: PermissionUpdateInput!, id: String!): Permission!
+  updateRelationPermissionToRole(data: RelationPermissionToRoleUpdateInput!, id: String!): RelationPermissionToRole!
   updateRelationPermissionToUser(data: RelationPermissionToUserUpdateInput!, id: String!): RelationPermissionToUser!
+  updateRelationRoleToUser(data: RelationRoleToUserUpdateInput!, id: String!): RelationRoleToUser!
   updateRole(data: RoleUpdateInput!, id: String!): Role!
   updateUser(email: String, id: String, meta: UserMetaParsedJsonValueInput): User
 }
@@ -225,6 +238,17 @@ type PermissionHierarchy {
   id: String!
   parentPermission: Permission
   parentPermissionId: String!
+}
+
+input PermissionHierarchyOrderByWithRelationInput {
+  createdAt: SortOrder
+  id: SortOrder
+}
+
+input PermissionHierarchyWhereInput {
+  childPermissionId: StringFilter
+  id: StringFilter
+  parentPermissionId: StringFilter
 }
 
 input PermissionOrderByWithRelationInput {
@@ -266,20 +290,32 @@ type Query {
   greWordsCount(where: GreWordWhereInput): Int!
   hello: HelloWorld!
   permission(where: PermissionWhereInput): Permission
-  permissionHierarchies: [PermissionHierarchy]
-  permissions(orderBy: [PermissionOrderByWithRelationInput], skip: Int, take: Int, where: PermissionWhereInput): [Permission]
+  permissionChildHierarchy(where: PermissionWhereInput): Json
+  permissionChildrenInHierarchy(where: PermissionWhereInput): [Permission!]!
+  permissionHierarchies(orderBy: [PermissionHierarchyOrderByWithRelationInput], skip: Int, take: Int, where: PermissionHierarchyWhereInput): [PermissionHierarchy!]!
+  permissionHierarchiesCount(where: PermissionHierarchyWhereInput): Int!
+  permissionHierarchy(where: PermissionHierarchyWhereInput): PermissionHierarchy
+  permissionParentHierarchy(where: PermissionWhereInput): Json
+  permissionParentsInHierarchy(where: PermissionWhereInput): [Permission!]!
+  permissions(orderBy: [PermissionOrderByWithRelationInput], skip: Int, take: Int, where: PermissionWhereInput): [Permission!]!
   permissionsCount(where: PermissionWhereInput): Int!
   posts: [Post]
-  relationsPermissionToRole(orderBy: [RelationPermissionToRoleOrderByWithRelationInput], skip: Int, take: Int, where: RelationPermissionToRoleWhereInput): [RelationPermissionToRole]
+  relationPermissionToRole(where: RelationPermissionToRoleWhereInput!): RelationPermissionToRole
+  relationPermissionToUser(where: RelationPermissionToUserWhereInput!): RelationPermissionToUser
+  relationRoleToUser(where: RelationRoleToUserWhereInput!): RelationRoleToUser
+  relationsPermissionToRole(orderBy: [RelationPermissionToRoleOrderByWithRelationInput], skip: Int, take: Int, where: RelationPermissionToRoleWhereInput): [RelationPermissionToRole!]!
   relationsPermissionToRoleCount(where: RelationPermissionToRoleWhereInput): Int!
-  relationsPermissionToUser(orderBy: [RelationPermissionToUserOrderByWithRelationInput], skip: Int, take: Int, where: RelationPermissionToUserWhereInput): [RelationPermissionToUser]
+  relationsPermissionToUser(orderBy: [RelationPermissionToUserOrderByWithRelationInput], skip: Int, take: Int, where: RelationPermissionToUserWhereInput): [RelationPermissionToUser!]!
   relationsPermissionToUserCount(where: RelationPermissionToUserWhereInput): Int!
-  relationsRoleToUser: [RelationRoleToUser]
+  relationsRoleToUser(orderBy: [RelationRoleToUserOrderByWithRelationInput], skip: Int, take: Int, where: RelationRoleToUserWhereInput): [RelationRoleToUser!]!
+  relationsRoleToUserCount(where: RelationRoleToUserWhereInput): Int!
   role(where: RoleWhereInput): Role
-  roles(orderBy: [RoleOrderByWithRelationInput], skip: Int, take: Int, where: RoleWhereInput): [Role]
+  rolePermissionsGraph(where: RoleWhereInput): Json
+  roles(orderBy: [RoleOrderByWithRelationInput], skip: Int, take: Int, where: RoleWhereInput): [Role!]!
   rolesCount(where: RoleWhereInput): Int!
   sendSinglePrompt(indexesReturned: [Int!], prompt: String!, resultIndexFromCache: Int, skipCache: Boolean, word: String!): SendSinglePromptResponse!
   user(where: UserWhereInput!): User
+  userPermissionsGraph(where: UserWhereInput): Json
   userSession(where: UserSessionWhereUniqueInput!): UserSession
   userSessions(orderBy: [UserSessionOrderByWithRelationInput], skip: Int, take: Int, where: UserSessionWhereInput): [UserSession!]!
   userSessionsCount(where: UserSessionWhereInput): Int!
@@ -312,9 +348,17 @@ input RelationPermissionToRoleOrderByWithRelationInput {
   updatedAt: SortOrder
 }
 
+input RelationPermissionToRoleUpdateInput {
+  granterId: String
+  isAllowed: Boolean
+  permissionId: String
+  roleId: String
+}
+
 input RelationPermissionToRoleWhereInput {
   id: StringFilter
   permissionId: StringFilter
+  roleId: StringFilter
 }
 
 type RelationPermissionToUser {
@@ -356,6 +400,24 @@ type RelationRoleToUser {
   roleId: String!
   user: User
   userId: String!
+}
+
+input RelationRoleToUserOrderByWithRelationInput {
+  assignedAt: SortOrder
+  id: SortOrder
+}
+
+input RelationRoleToUserUpdateInput {
+  assignerId: String
+  roleId: String
+  userId: String
+}
+
+input RelationRoleToUserWhereInput {
+  assignerId: StringFilter
+  id: StringFilter
+  roleId: StringFilter
+  userId: StringFilter
 }
 
 type Role {
